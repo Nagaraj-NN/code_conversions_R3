@@ -1,0 +1,164 @@
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6014 : Initializing session [s_m_FEL_FV_BEGBAL_FDR] at [Thu Sep 03 22:33:57 2026].
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6683 : Repository Name: [edwp]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6684 : Server Name: [pmserver_edwp_2]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6686 : Folder: [FEL]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6685 : Workflow: [wkf_FEL_CMTRT_FDR_LOAD] Run Instance Name: [] Run Id: [47086600]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6992 : Operating System Type [AIX]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6101 : Mapping name: m_FEL_FV_BEGBAL_FDR_Cmtrt_ins.
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6963 : Pre 85 Timestamp Compatibility is Enabled
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableMetricsCollection,No]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [FileRdrTreatNullCharAs,\040]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [ServerPort,54001]
+2026-09-04 08:03:57 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6703 : Session [s_m_FEL_FV_BEGBAL_FDR] is run by 64-bit Integration Service  [node01_edwp], version [202510], build [0924].
+2026-09-04 08:03:57 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MANAGER] has the ID [1].
+2026-09-04 08:03:57 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24058 : Running Partition Group [1].
+2026-09-04 08:03:57 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24000 : Parallel Pipeline Engine initializing.
+2026-09-04 08:03:57 : INFO : (5243646 | MONITOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MONITOR] has the ID [2].
+2026-09-04 08:03:57 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24001 : Parallel Pipeline Engine running.
+2026-09-04 08:03:57 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24003 : Initializing session run.
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MAPPING] has the ID [3].
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1569 : Server Mode: [ASCII]
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1570 : Server Code page: [ISO 8859-1 Western European]
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6151 : The session sort order is [Binary].
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65111 : Current Timezone:[UTC -5:0]
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65112 : Current Process ID:[5243646]
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6156 : Using low precision processing.
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6180 : Deadlock retry logic will not be implemented.
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6187 : Session target-based commit interval is [10000].
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6307 : DTM error log disabled. 
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7022 : TShmWriter: Initialized
+2026-09-04 08:03:57 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21075 : Connecting to database [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:03:58 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6007 : DTM initialized successfully for session [s_m_FEL_FV_BEGBAL_FDR]
+2026-09-04 08:03:58 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24033 : All DTM Connection Info: [<NONE>].
+2026-09-04 08:03:58 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Thu Sep 03 22:33:58 2026)
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21349 : No load constraints for Target [FEL_FV_BEGBAL_FDR]. It does not reference any primary table from the same active source or transaction generator.
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21104 : Determining truncate order for [FEL_FV_BEGBAL_FDR] [instance id:62]
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21531 :     Truncate order for [FEL_FV_BEGBAL_FDR] [instance id:62] determined successfully
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8365 : WRT_8365 Starting truncate for target table [FEL_FV_BEGBAL_FDR]. : (Thu Sep 03 22:33:58 2026)
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8451 : Query used for Truncate table [TRUNCATE TABLE FEL_FV_BEGBAL_FDR]
+2026-09-04 08:03:58 : INFO : (5243646 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8022 : WRT_8022 Truncate table for table [FEL_FV_BEGBAL_FDR] succeeded. : (Thu Sep 03 22:33:58 2026)
+2026-09-04 08:03:58 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Thu Sep 03 22:33:58 2026)
+2026-09-04 08:03:58 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24006 : Starting data movement.
+2026-09-04 08:03:58 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 1219648 bytes and Block size is 65536 bytes.
+2026-09-04 08:03:58 : INFO : (5243646 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1] has the ID [5].
+2026-09-04 08:03:58 : INFO : (5243646 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_AEP_DATE]: Default sql to create lookup cache: SELECT DATE_ID,FULL_DATE_DT FROM FELADM.AEP_DATE ORDER BY FULL_DATE_DT
+
+2026-09-04 08:03:58 : INFO : (5243646 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_AEP_DATE] from [178956970] to [178959600].
+2026-09-04 08:03:58 : INFO : (5243646 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_AEP_DATE] from [357913940] to [357916672].
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [READER_1_1_1] has the ID [6].
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [COMTRACP], Type [Oracle], User [feladm]
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:03:58 : INFO : (5243646 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [7].
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [WRITER_1_*_1] has the ID [8].
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_FV_BEGBAL_FDR :SQL INSERT statement:
+INSERT INTO FEL_FV_BEGBAL_FDR(ACCTG_MO_DAY_ID,INVTRY_LOC_ID,ACCTG_INVTRY_LOC_NM,JNT_OWNR_BSNS_ENTY_ID,INVENTORY_QY,INVENTORY_AT,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8270 : Target connection group #1 consists of target(s) [FEL_FV_BEGBAL_FDR]
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8003 : Writer initialization complete.
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8005 : Writer run started.
+2026-09-04 08:03:58 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Thu Sep 03 22:33:58 2026
+
+Target tables:
+
+     FEL_FV_BEGBAL_FDR
+
+
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4029 : SQ Instance [SQ_AEP_DW_FV_BEGBAL_VW] User specified SQL Query [SELECT 
+VW.PERENDDATE
+, VW.INV_LOC_ID
+, VW.ACCT_INV_LOC_NM
+, VW.JO_BUSENT_ID
+, VW.QUANTITY
+, VW.AMOUNT 
+FROM
+ AEP_DW_FV_BEGBAL_VW VW]
+2026-09-04 08:03:58 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:33:58 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:READER_1_1] has the ID [9].
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:03:59 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21699 : Waiting for consumer to free buffer block. Please increase the dtm buffer pool size.
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:TRANSF_1_1] has the ID [10].
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 25938
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 25938
+
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229799_63_0_47086600A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_AEP_DATE].
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_AEP_DATE: Index cache size = [178959600], Data cache size = [357916672]
+2026-09-04 08:03:59 : INFO : (5243646 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_AEP_DATE{{DSQ}}]. Total errors [0] 
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_FV_BEGBAL_FDR] at: Thu Sep 03 22:33:58 2026
+2026-09-04 08:03:59 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16019 : Read [16652] rows, read [0] error rows for source table [AEP_DW_FV_BEGBAL_VW] instance name [AEP_DW_FV_BEGBAL_VW]
+2026-09-04 08:03:59 : INFO : (5243646 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:33:58 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_BEGBAL_FDR (Instance Name: [FEL_FV_BEGBAL_FDR])
+WRT_8038 Inserted rows - Requested: 10044      Applied: 10044      Rejected: 0          Affected: 10044     
+
+2026-09-04 08:03:59 : INFO : (5243646 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [SQ_AEP_DW_FV_BEGBAL_VW]. Total errors [0] 
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_FV_BEGBAL_FDR] at: Thu Sep 03 22:33:58 2026
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8141 : 
+Commit on end-of-data  Thu Sep 03 22:33:58 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_BEGBAL_FDR (Instance Name: [FEL_FV_BEGBAL_FDR])
+WRT_8038 Inserted rows - Requested: 16652      Applied: 16652      Rejected: 0          Affected: 16652     
+
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8035 : Load complete time: Thu Sep 03 22:33:58 2026
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: FEL_FV_BEGBAL_FDR (Instance Name: [FEL_FV_BEGBAL_FDR])
+WRT_8038 Inserted rows - Requested: 16652      Applied: 16652      Rejected: 0          Affected: 16652     
+
+
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8043 : *****END LOAD SESSION*****
+2026-09-04 08:03:59 : INFO : (5243646 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8006 : Writer run completed.
+2026-09-04 08:03:59 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_AEP_DW_FV_BEGBAL_VW] has completed.
+	Total Run Time = [0.628874] secs
+	Total Idle Time = [0.296876] secs
+	Busy Percentage = [52.792425]
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_AEP_DW_FV_BEGBAL_VW] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [FEL_FV_BEGBAL_FDR] has completed. The total run time was insufficient for any meaningful statistics.
+
+2026-09-04 08:03:59 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24005 : PETL_24005 Starting post-session tasks. : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | POST-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [POST-SESS] has the ID [11].
+2026-09-04 08:03:59 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Thu Sep 03 22:33:59 2026)
+2026-09-04 08:03:59 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229799_63_0_47086600A64] for transformation [LKP_AEP_DATE].
+2026-09-04 08:03:59 : INFO : (5243646 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6018 : The session completed with [0] row transformation errors. 
+2026-09-04 08:03:59 : INFO : (5243646 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24002 : Parallel Pipeline Engine finished.
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24012 : Session run completed successfully.
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6252 : Source Load Summary.
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [SQ_AEP_DW_FV_BEGBAL_VW] (Instance Name: [SQ_AEP_DW_FV_BEGBAL_VW])
+	 Output Rows [16652], Affected Rows [16652], Applied Rows [16652], Rejected Rows [0]
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6253 : Target Load Summary.
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_FV_BEGBAL_FDR] (Instance Name: [FEL_FV_BEGBAL_FDR])
+	 Output Rows [16652], Affected Rows [16652], Applied Rows [16652], Rejected Rows [0]
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6023 : 
+===================================================
+
+2026-09-04 08:03:59 : INFO : (5243646 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6020 : Session [s_m_FEL_FV_BEGBAL_FDR] completed at [Thu Sep 03 22:33:59 2026].
