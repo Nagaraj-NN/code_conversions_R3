@@ -1,0 +1,250 @@
+/*
+================================================================================
+ WORKFLOW  : wkf_FEL_COAL_DIM_LOAD
+ SESSION   : s_m_FEL_COMTRAC_FACILITY_DIM_ins_upd
+ MAPPING   : m_FEL_COMTRAC_FACILITY_DIM_ins_upd
+ OPERATION : INSERT + UPDATE, data driven. RTR_NEW_EXIST splits on the dimension
+             lookup; the unconnected DEFAULT1 group is discarded.
+--------------------------------------------------------------------------------
+ SOURCE    : feladm.FEL_COMTRAC_FACILITY_FDR   source filter on time
+ LOOKUPS   : eight, all Use Any Value. FEL_SYSTEM_DIM $$COMTRAC, FEL_DATATYPE_DIM
+             $$FACILITY, MAX(CONSOLIDATION_ID) and MAX(FACILITY_KEY) are
+             unconnected; FEL_MASTER_DIM_XRF twice for the consolidation id and the
+             master record, FEL_BSNS_ENTY_DIM and FEL_FACILITY_DIM, are connected.
+ TARGET    : feladm.FEL_FACILITY_DIM   insert and update instances
+--------------------------------------------------------------------------------
+ PARAMETERS: $$START_TIME, $$RUN_STATUS (SQ filter), $$COMTRAC, $$FACILITY
+             $$REC_STATUS is declared but not referenced
+             SESSSTARTTIME -> LAST_UPDT_TS
+             :UDF.DQ_FOR_CHAR_VARCHAR   empty or all-space to ' ', else right trim
+ SQ OVERRIDE : none, source filter only:
+                 LAST_UPDT_TS >= '$$START_TIME' AND '$$RUN_STATUS' = 'C'
+ PRE-SQL   : none     POST-SQL : none     TRUNCATE TARGET : no
+--------------------------------------------------------------------------------
+ NOTES     : CONSOLIDATION_ID is the cross reference id for this facility, or the
+             highest existing id plus a row counter when it is not yet cross
+             referenced. The consolidation name and system then come from the
+             MASTER_FL = 'Y' row of that consolidation, falling back to the
+             facility's own name and 'COMTRAC' when there is no master row.
+             BSNS_ENTY_KEY is -2 on a null source id and -1 when not found; the
+             matching name is 'UNKNOWN' and 'NOT FOUND'.
+             FACILITY_ID and GEOG_STATE_NM are uppercased after the data quality
+             pass. The captured run read 81 rows and wrote none.
+================================================================================
+*/
+
+SET V_START_TIME    = TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS');
+SET V_RUN_STATUS    = 'C';
+SET V_COMTRAC       = 'COMTRAC';
+SET V_FACILITY      = 'FACILITY';
+SET V_SESSSTARTTIME = CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ);
+
+UPDATE feladm.FEL_FACILITY_DIM TGT
+SET
+    FACILITY_ID      = SRC.FACILITY_ID,
+    FACILITY_NM      = SRC.FACILITY_NM,
+    FCLTY_TYPE_NM    = SRC.FCLTY_TYPE_NM,
+    FCLTY_STAT_TX    = SRC.FCLTY_STAT_TX,
+    BSNS_ENTY_KEY    = SRC.BSNS_ENTY_KEY,
+    BSNS_ENTY_NM     = SRC.BSNS_ENTY_NM,
+    WV_PLANT_CD      = SRC.WV_PLANT_CD,
+    GEOG_STATE_NM    = SRC.GEOG_STATE_NM,
+    REGION_NM        = SRC.REGION_NM,
+    SYSTEM_ID        = SRC.SYSTEM_ID,
+    SYSTEM_NM        = SRC.SYSTEM_NM,
+    CONSOLIDATION_ID = SRC.CONSOLIDATION_ID,
+    CONSOLIDATION_NM = SRC.CONSOLIDATION_NM,
+    CNSLDTN_SYS_NM   = SRC.CNSLDTN_SYS_NM,
+    LAST_UPDT_TS     = SRC.LAST_UPDT_TS
+FROM (
+    SELECT
+        DQ.O_FACILITY_ID                                                             AS FACILITY_ID,
+        DQ.FACILITY_NM,
+        DQ.FCLTY_TYPE_NM,
+        DQ.FCLTY_STAT_TX,
+        CAST(IFF(LKP_BE.BSNS_ENTY_KEY IS NULL,
+                 IFF(DQ.BSNS_ENTY_ID IS NULL, -2, -1), LKP_BE.BSNS_ENTY_KEY) AS NUMBER(10,0)) AS BSNS_ENTY_KEY,
+        LEFT(IFF(LKP_BE.BSNS_ENTY_KEY IS NULL,
+                 IFF(DQ.BSNS_ENTY_ID IS NULL, 'UNKNOWN', 'NOT FOUND'), LKP_BE.BSNS_ENTY_NM), 75) AS BSNS_ENTY_NM,
+        DQ.WV_PLANT_CD,
+        DQ.O_GEOG_STATE_NM                                                           AS GEOG_STATE_NM,
+        DQ.REGION_NM,
+        CAST(DQ.V_SYS_ID AS NUMBER(5,0))                                             AS SYSTEM_ID,
+        LEFT($V_COMTRAC, 25)                                                         AS SYSTEM_NM,
+        CAST(DQ.O_CONSOLIDATION_ID AS NUMBER(10,0))                                  AS CONSOLIDATION_ID,
+        LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, DQ.FACILITY_NM, MSTR.BUSINESS_NM), 255) AS CONSOLIDATION_NM,
+        LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, $V_COMTRAC, MSTR.SYSTEM_NM), 25)     AS CNSLDTN_SYS_NM,
+        $V_SESSSTARTTIME                                                             AS LAST_UPDT_TS
+    FROM (
+        SELECT
+            SQ.BSNS_ENTY_ID,
+            UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FACILITY_ID)))   = 0 THEN ' ' ELSE RTRIM(SQ.FACILITY_ID)   END) AS O_FACILITY_ID,
+            UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.GEOG_STATE_NM))) = 0 THEN ' ' ELSE RTRIM(SQ.GEOG_STATE_NM) END) AS O_GEOG_STATE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FACILITY_NM)))   = 0 THEN ' ' ELSE RTRIM(SQ.FACILITY_NM)   END AS FACILITY_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FCLTY_TYPE_NM))) = 0 THEN ' ' ELSE RTRIM(SQ.FCLTY_TYPE_NM) END AS FCLTY_TYPE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FCLTY_STAT_TX))) = 0 THEN ' ' ELSE RTRIM(SQ.FCLTY_STAT_TX) END AS FCLTY_STAT_TX,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.WV_PLANT_CD)))   = 0 THEN ' ' ELSE RTRIM(SQ.WV_PLANT_CD)   END AS WV_PLANT_CD,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.REGION_NM)))     = 0 THEN ' ' ELSE RTRIM(SQ.REGION_NM)     END AS REGION_NM,
+            (SELECT MIN(SYS_ID) FROM feladm.FEL_SYSTEM_DIM WHERE SYS_NM = $V_COMTRAC)          AS V_SYS_ID,
+            IFF(XRF.CONSOLIDATION_ID IS NOT NULL, XRF.CONSOLIDATION_ID,
+                NVL((SELECT MAX(CONSOLIDATION_ID) FROM FELADM.FEL_MASTER_DIM_XRF), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.FACILITY_ID))                                 AS O_CONSOLIDATION_ID,
+            NVL((SELECT MAX(FACILITY_KEY) FROM FELADM.FEL_FACILITY_DIM), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.FACILITY_ID)                                  AS O_FACILITY_KEY
+        FROM feladm.FEL_COMTRAC_FACILITY_FDR SQ
+        LEFT JOIN (
+            SELECT xrf.CONSOLIDATION_ID, XRF.DATA_TYP_ID, XRF.SYSTEM_ID,
+                   UPPER(TRIM(XRF.BUSINESS_ID)) AS BUSINESS_ID
+            FROM feladm.FEL_MASTER_DIM_XRF xrf
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.DATA_TYP_ID, XRF.SYSTEM_ID, UPPER(TRIM(XRF.BUSINESS_ID))
+                                       ORDER BY xrf.CONSOLIDATION_ID) = 1
+        ) XRF
+          ON XRF.DATA_TYP_ID = (SELECT MIN(DATA_TYPE_ID) FROM feladm.FEL_DATATYPE_DIM WHERE DATA_TYPE_NM = $V_FACILITY)
+         AND XRF.SYSTEM_ID   = (SELECT MIN(SYS_ID) FROM feladm.FEL_SYSTEM_DIM WHERE SYS_NM = $V_COMTRAC)
+         AND XRF.BUSINESS_ID = LEFT(UPPER(TRIM(SQ.FACILITY_ID)), 20)
+        WHERE SQ.LAST_UPDT_TS >= $V_START_TIME
+          AND $V_RUN_STATUS = 'C'
+    ) DQ
+    LEFT JOIN (
+        SELECT BSNS_ENTY_KEY, BSNS_ENTY_NM, BSNS_ENTY_ID, SYSTEM_ID
+        FROM feladm.FEL_BSNS_ENTY_DIM
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY BSNS_ENTY_ID, SYSTEM_ID ORDER BY BSNS_ENTY_KEY) = 1
+    ) LKP_BE
+      ON LKP_BE.BSNS_ENTY_ID = DQ.BSNS_ENTY_ID
+     AND LKP_BE.SYSTEM_ID    = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT XRF.BUSINESS_NM, SYS.SYS_NM AS SYSTEM_NM, XRF.CONSOLIDATION_ID,
+               UPPER(XRF.MASTER_FL) AS MASTER_FL
+        FROM feladm.FEL_MASTER_DIM_XRF XRF
+        INNER JOIN FELADM.FEL_SYSTEM_DIM SYS
+          ON SYS.SYS_ID = XRF.SYSTEM_ID
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.CONSOLIDATION_ID, UPPER(XRF.MASTER_FL)
+                                   ORDER BY XRF.BUSINESS_NM, SYS.SYS_NM) = 1
+    ) MSTR
+      ON MSTR.CONSOLIDATION_ID = DQ.O_CONSOLIDATION_ID
+     AND MSTR.MASTER_FL        = 'Y'
+) SRC
+WHERE TGT.FACILITY_ID = SRC.FACILITY_ID
+  AND TGT.SYSTEM_ID   = SRC.SYSTEM_ID
+  AND (   SRC.FACILITY_NM      <> TGT.FACILITY_NM
+       OR SRC.FCLTY_TYPE_NM    <> TGT.FCLTY_TYPE_NM
+       OR SRC.FCLTY_STAT_TX    <> TGT.FCLTY_STAT_TX
+       OR SRC.WV_PLANT_CD      <> TGT.WV_PLANT_CD
+       OR SRC.BSNS_ENTY_KEY    <> TGT.BSNS_ENTY_KEY
+       OR SRC.BSNS_ENTY_NM     <> TGT.BSNS_ENTY_NM
+       OR TGT.GEOG_STATE_NM    <> SRC.GEOG_STATE_NM
+       OR SRC.REGION_NM        <> TGT.REGION_NM
+       OR SRC.CONSOLIDATION_ID <> TGT.CONSOLIDATION_ID
+       OR SRC.CONSOLIDATION_NM <> TGT.CONSOLIDATION_NM
+       OR SRC.CNSLDTN_SYS_NM   <> TGT.CNSLDTN_SYS_NM);
+
+INSERT INTO feladm.FEL_FACILITY_DIM (
+    FACILITY_KEY,
+    FACILITY_ID,
+    FACILITY_NM,
+    FCLTY_TYPE_NM,
+    FCLTY_STAT_TX,
+    BSNS_ENTY_KEY,
+    BSNS_ENTY_NM,
+    WV_PLANT_CD,
+    GEOG_STATE_NM,
+    REGION_NM,
+    SYSTEM_ID,
+    SYSTEM_NM,
+    CONSOLIDATION_ID,
+    CONSOLIDATION_NM,
+    CNSLDTN_SYS_NM,
+    LAST_UPDT_TS
+)
+SELECT
+    SRC.FACILITY_KEY,
+    SRC.FACILITY_ID,
+    SRC.FACILITY_NM,
+    SRC.FCLTY_TYPE_NM,
+    SRC.FCLTY_STAT_TX,
+    SRC.BSNS_ENTY_KEY,
+    SRC.BSNS_ENTY_NM,
+    SRC.WV_PLANT_CD,
+    SRC.GEOG_STATE_NM,
+    SRC.REGION_NM,
+    SRC.SYSTEM_ID,
+    SRC.SYSTEM_NM,
+    SRC.CONSOLIDATION_ID,
+    SRC.CONSOLIDATION_NM,
+    SRC.CNSLDTN_SYS_NM,
+    SRC.LAST_UPDT_TS
+FROM (
+    SELECT
+        CAST(DQ.O_FACILITY_KEY AS NUMBER(10,0))                                      AS FACILITY_KEY,
+        DQ.O_FACILITY_ID                                                             AS FACILITY_ID,
+        DQ.FACILITY_NM,
+        DQ.FCLTY_TYPE_NM,
+        DQ.FCLTY_STAT_TX,
+        CAST(IFF(LKP_BE.BSNS_ENTY_KEY IS NULL,
+                 IFF(DQ.BSNS_ENTY_ID IS NULL, -2, -1), LKP_BE.BSNS_ENTY_KEY) AS NUMBER(10,0)) AS BSNS_ENTY_KEY,
+        LEFT(IFF(LKP_BE.BSNS_ENTY_KEY IS NULL,
+                 IFF(DQ.BSNS_ENTY_ID IS NULL, 'UNKNOWN', 'NOT FOUND'), LKP_BE.BSNS_ENTY_NM), 75) AS BSNS_ENTY_NM,
+        DQ.WV_PLANT_CD,
+        DQ.O_GEOG_STATE_NM                                                           AS GEOG_STATE_NM,
+        DQ.REGION_NM,
+        CAST(DQ.V_SYS_ID AS NUMBER(5,0))                                             AS SYSTEM_ID,
+        LEFT($V_COMTRAC, 25)                                                         AS SYSTEM_NM,
+        CAST(DQ.O_CONSOLIDATION_ID AS NUMBER(10,0))                                  AS CONSOLIDATION_ID,
+        LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, DQ.FACILITY_NM, MSTR.BUSINESS_NM), 255) AS CONSOLIDATION_NM,
+        LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, $V_COMTRAC, MSTR.SYSTEM_NM), 25)     AS CNSLDTN_SYS_NM,
+        $V_SESSSTARTTIME                                                             AS LAST_UPDT_TS
+    FROM (
+        SELECT
+            SQ.BSNS_ENTY_ID,
+            UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FACILITY_ID)))   = 0 THEN ' ' ELSE RTRIM(SQ.FACILITY_ID)   END) AS O_FACILITY_ID,
+            UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.GEOG_STATE_NM))) = 0 THEN ' ' ELSE RTRIM(SQ.GEOG_STATE_NM) END) AS O_GEOG_STATE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FACILITY_NM)))   = 0 THEN ' ' ELSE RTRIM(SQ.FACILITY_NM)   END AS FACILITY_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FCLTY_TYPE_NM))) = 0 THEN ' ' ELSE RTRIM(SQ.FCLTY_TYPE_NM) END AS FCLTY_TYPE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.FCLTY_STAT_TX))) = 0 THEN ' ' ELSE RTRIM(SQ.FCLTY_STAT_TX) END AS FCLTY_STAT_TX,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.WV_PLANT_CD)))   = 0 THEN ' ' ELSE RTRIM(SQ.WV_PLANT_CD)   END AS WV_PLANT_CD,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.REGION_NM)))     = 0 THEN ' ' ELSE RTRIM(SQ.REGION_NM)     END AS REGION_NM,
+            (SELECT MIN(SYS_ID) FROM feladm.FEL_SYSTEM_DIM WHERE SYS_NM = $V_COMTRAC)          AS V_SYS_ID,
+            IFF(XRF.CONSOLIDATION_ID IS NOT NULL, XRF.CONSOLIDATION_ID,
+                NVL((SELECT MAX(CONSOLIDATION_ID) FROM FELADM.FEL_MASTER_DIM_XRF), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.FACILITY_ID))                                 AS O_CONSOLIDATION_ID,
+            NVL((SELECT MAX(FACILITY_KEY) FROM FELADM.FEL_FACILITY_DIM), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.FACILITY_ID)                                  AS O_FACILITY_KEY
+        FROM feladm.FEL_COMTRAC_FACILITY_FDR SQ
+        LEFT JOIN (
+            SELECT xrf.CONSOLIDATION_ID, XRF.DATA_TYP_ID, XRF.SYSTEM_ID,
+                   UPPER(TRIM(XRF.BUSINESS_ID)) AS BUSINESS_ID
+            FROM feladm.FEL_MASTER_DIM_XRF xrf
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.DATA_TYP_ID, XRF.SYSTEM_ID, UPPER(TRIM(XRF.BUSINESS_ID))
+                                       ORDER BY xrf.CONSOLIDATION_ID) = 1
+        ) XRF
+          ON XRF.DATA_TYP_ID = (SELECT MIN(DATA_TYPE_ID) FROM feladm.FEL_DATATYPE_DIM WHERE DATA_TYPE_NM = $V_FACILITY)
+         AND XRF.SYSTEM_ID   = (SELECT MIN(SYS_ID) FROM feladm.FEL_SYSTEM_DIM WHERE SYS_NM = $V_COMTRAC)
+         AND XRF.BUSINESS_ID = LEFT(UPPER(TRIM(SQ.FACILITY_ID)), 20)
+        WHERE SQ.LAST_UPDT_TS >= $V_START_TIME
+          AND $V_RUN_STATUS = 'C'
+    ) DQ
+    LEFT JOIN (
+        SELECT BSNS_ENTY_KEY, BSNS_ENTY_NM, BSNS_ENTY_ID, SYSTEM_ID
+        FROM feladm.FEL_BSNS_ENTY_DIM
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY BSNS_ENTY_ID, SYSTEM_ID ORDER BY BSNS_ENTY_KEY) = 1
+    ) LKP_BE
+      ON LKP_BE.BSNS_ENTY_ID = DQ.BSNS_ENTY_ID
+     AND LKP_BE.SYSTEM_ID    = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT XRF.BUSINESS_NM, SYS.SYS_NM AS SYSTEM_NM, XRF.CONSOLIDATION_ID,
+               UPPER(XRF.MASTER_FL) AS MASTER_FL
+        FROM feladm.FEL_MASTER_DIM_XRF XRF
+        INNER JOIN FELADM.FEL_SYSTEM_DIM SYS
+          ON SYS.SYS_ID = XRF.SYSTEM_ID
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.CONSOLIDATION_ID, UPPER(XRF.MASTER_FL)
+                                   ORDER BY XRF.BUSINESS_NM, SYS.SYS_NM) = 1
+    ) MSTR
+      ON MSTR.CONSOLIDATION_ID = DQ.O_CONSOLIDATION_ID
+     AND MSTR.MASTER_FL        = 'Y'
+) SRC
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM feladm.FEL_FACILITY_DIM L
+    WHERE L.FACILITY_ID = SRC.FACILITY_ID
+      AND L.SYSTEM_ID   = SRC.SYSTEM_ID
+);

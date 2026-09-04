@@ -6,21 +6,14 @@
  OPERATION : DELETE only, and the one mapping in this workflow that joins rather
              than looks up. The obligation feeder is turned into the fact's three
              part key through four unconnected lookups, JNRTRANS full outer joins
-             that derived key set against the fact, FIL_INACTIVE keeps the fact
-             rows with no matching feeder key, and UPD_DELETE issues DD_DELETE.
+             that key set against the fact, FIL_INACTIVE keeps the fact rows with
+             no matching feeder key, and UPD_DELETE issues DD_DELETE.
 --------------------------------------------------------------------------------
  SOURCES   : feladm.FEL_CNTRCT_MNTHY_SMRY_FACT     detail side, full read
              feladm.FEL_COMTRAC_CNTRCT_OBLGN_FDR   master side, full read
- LOOKUPS   : feladm.FEL_SYSTEM_DIM          SYS_NM = 'COMTRAC' -> SYS_ID
-             feladm.FEL_CNTRCT_PROD_CD_DIM  CNTRCT_DTL_ID -> CNTRCT_PROD_KEY
-             feladm.FEL_FACILITY_DIM        FACILITY_ID + SYSTEM_ID -> FACILITY_KEY
-             lookup SQL override PRESENT on the facility dimension:
-               SELECT DIM.FACILITY_KEY as FACILITY_KEY,
-                      trim(upper(DIM.FACILITY_ID)) as FACILITY_ID,
-                      DIM.SYSTEM_ID as SYSTEM_ID
-               FROM feladm.FEL_FACILITY_DIM dim
-             FELADM.FEL_OPTG_MONTH_VW      MONTH_NB + OPERATING_YEAR -> OPTD_MO_DAY_ID
-             All four are UNCONNECTED, called from EXPTRANS2 as :LKP.<name>(...).
+ LOOKUPS   : four, all UNCONNECTED and called from EXPTRANS2. FEL_SYSTEM_DIM
+             'COMTRAC', FEL_CNTRCT_PROD_CD_DIM, FEL_FACILITY_DIM (SQL override
+             upper trims FACILITY_ID) and FEL_OPTG_MONTH_VW.
  TARGET    : feladm.FEL_CNTRCT_MNTHY_SMRY_FACT
 --------------------------------------------------------------------------------
  PARAMETERS: :UDF.DQ_for_CHAR_VARCHAR   empty or all-space to ' ', else right trim
@@ -34,8 +27,8 @@
              matching feeder key. Master only rows carry null fact keys and delete
              nothing, so the NOT EXISTS below is equivalent.
              A feeder row whose facility, product or operating month lookup misses
-             produces a null derived key that matches no fact row, which is the
-             same outcome as in Informatica.
+             produces a null derived key that matches no fact row, the same outcome
+             as in Informatica.
              The captured run read 5666 feeder rows.
 ================================================================================
 */
