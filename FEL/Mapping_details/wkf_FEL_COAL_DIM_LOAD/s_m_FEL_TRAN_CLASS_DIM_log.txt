@@ -1,0 +1,258 @@
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6014 : Initializing session [s_m_FEL_TRAN_CLASS_DIM] at [Thu Sep 03 22:38:14 2026].
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6683 : Repository Name: [edwp]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6684 : Server Name: [pmserver_edwp_2]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6686 : Folder: [FEL]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6685 : Workflow: [wkf_FEL_COAL_DIM_LOAD] Run Instance Name: [] Run Id: [47086664]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6992 : Operating System Type [AIX]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6101 : Mapping name: m_FEL_TRAN_CLASS_DIM_ins_upd.
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6963 : Pre 85 Timestamp Compatibility is Enabled
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableMetricsCollection,No]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [FileRdrTreatNullCharAs,\040]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [ServerPort,54001]
+2026-09-04 08:08:14 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6703 : Session [s_m_FEL_TRAN_CLASS_DIM] is run by 64-bit Integration Service  [node01_edwp], version [202510], build [0924].
+2026-09-04 08:08:14 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MANAGER] has the ID [1].
+2026-09-04 08:08:14 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24058 : Running Partition Group [1].
+2026-09-04 08:08:14 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24000 : Parallel Pipeline Engine initializing.
+2026-09-04 08:08:14 : INFO : (13304732 | MONITOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MONITOR] has the ID [2].
+2026-09-04 08:08:14 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24001 : Parallel Pipeline Engine running.
+2026-09-04 08:08:14 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24003 : Initializing session run.
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MAPPING] has the ID [3].
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1569 : Server Mode: [ASCII]
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1570 : Server Code page: [ISO 8859-1 Western European]
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6151 : The session sort order is [Binary].
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65111 : Current Timezone:[UTC -5:0]
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65112 : Current Process ID:[13304732]
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6156 : Using low precision processing.
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6180 : Deadlock retry logic will not be implemented.
+2026-09-04 08:08:14 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6187 : Session target-based commit interval is [10000].
+2026-09-04 08:08:15 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6307 : DTM error log disabled. 
+2026-09-04 08:08:15 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7022 : TShmWriter: Initialized
+2026-09-04 08:08:15 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21075 : Connecting to database [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:15 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6007 : DTM initialized successfully for session [s_m_FEL_TRAN_CLASS_DIM]
+2026-09-04 08:08:15 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24033 : All DTM Connection Info: [<NONE>].
+2026-09-04 08:08:15 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Thu Sep 03 22:38:15 2026)
+2026-09-04 08:08:15 : INFO : (13304732 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2026-09-04 08:08:15 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Thu Sep 03 22:38:15 2026)
+2026-09-04 08:08:15 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24006 : Starting data movement.
+2026-09-04 08:08:15 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 3950592 bytes and Block size is 144096 bytes.
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1] has the ID [5].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_MAX_TRANSACTION_CLS_KEY]: Lookup override sql to create cache: SELECT  max(TRAN_CLS_KEY) AS MAX_TRANSACTION_CLS_KEY from FELADM.FEL_TRAN_CLASS_DIM ORDER BY MAX_TRANSACTION_CLS_KEY
+
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_MAX_TRANSACTION_CLS_KEY] from [35791394] to [35792400].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_MAX_TRANSACTION_CLS_KEY] from [71582788] to [71589888].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2] has the ID [6].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_TRAN_CLS_ORDER_XRF]: Lookup override sql to create cache: SELECT  xrf.TRAN_CLS_RNK AS TRANSACTION_CLS_ORDR,  xrf.TRAN_CLS_LVL_RNK AS TRANSACTION_CLS_LVL,  trim(upper(xrf.TRAN_CLS_LBL_TX)) AS TRANSACTION_CLS_LBL FROM feladm.FEL_TRAN_CLS_ORDER_XRF xrf ORDER BY TRANSACTION_CLS_LVL,TRANSACTION_CLS_LBL,TRANSACTION_CLS_ORDR
+
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF] from [35791394] to [35794944].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF] from [71582788] to [71589888].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3] has the ID [7].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX]: Lookup override sql to create cache: SELECT  max(XRF.TRAN_CLS_RNK) AS TRANSACTION_CLS_ORDR_MAX,  XRF.TRAN_CLS_LVL_RNK AS TRANSACTION_CLS_LVL FROM feladm.FEL_TRAN_CLS_ORDER_XRF XRF
+group by XRF.TRAN_CLS_LVL_RNK ORDER BY TRANSACTION_CLS_LVL,TRANSACTION_CLS_ORDR_MAX
+
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX] from [35791394] to [35792400].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX] from [71582788] to [71589888].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12] has the ID [8].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_SYSTEM_DIM]: Default sql to create lookup cache: SELECT SYS_ID,SYS_NM FROM feladm.FEL_SYSTEM_DIM ORDER BY SYS_NM
+
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [35791394] to [35791600].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [71582788] to [71589888].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13] has the ID [9].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_TRAN_CLASS_DIM]: Lookup override sql to create cache: SELECT  cls.TRAN_CLS_KEY AS TRANSACTION_CLS_KEY,  cls.TRAN_CLS_LVL_4_RNK AS TRANSACTION_CLS_LVL_4_ORDR,  cls.TRAN_CLS_LVL_1_RNK AS TRANSACTION_CLS_LVL_1_ORDR,  cls.TRAN_CLS_LVL_2_RNK AS TRANSACTION_CLS_LVL_2_ORDR,  cls.TRAN_CLS_LVL_3_RNK AS TRANSACTION_CLS_LVL_3_ORDR,  cls.TRAN_CLS_LVL_5_RNK AS TRANSACTION_CLS_LVL_5_ORDR,  trim(upper(cls.TRAN_CLS_LVL_1_NM)) AS TRANSACTION_CLS_LVL_1_NM,  trim(upper(cls.TRAN_CLS_LVL_2_NM)) AS TRANSACTION_CLS_LVL_2_NM,  trim(upper(cls.TRAN_CLS_LVL_3_NM)) AS TRANSACTION_CLS_LVL_3_NM,  trim(upper(cls.TRAN_CLS_LVL_4_NM)) AS TRANSACTION_CLS_LVL_4_NM,  trim(upper(cls.TRAN_CLS_LVL_5_NM)) AS TRANSACTION_CLS_LVL_5_NM,  cls.SYSTEM_ID AS SYSTEM_ID FROM feladm.FEL_TRAN_CLASS_DIM cls ORDER BY TRANSACTION_CLS_LVL_1_NM,TRANSACTION_CLS_LVL_2_NM,TRANSACTION_CLS_LVL_3_NM,TRANSACTION_CLS_LVL_4_NM,TRANSACTION_CLS_LVL_5_NM,SYSTEM_ID,TRANSACTION_CLS_KEY,TRANSACTION_CLS_LVL_4_ORDR,TRANSACTION_CLS_LVL_1_ORDR,TRANSACTION_CLS_LVL_2_ORDR,TRANSACTION_CLS_LVL_3_ORDR,TRANSACTION_CLS_LVL_5_ORDR
+
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_TRAN_CLASS_DIM] from [35791394] to [35819520].
+2026-09-04 08:08:15 : INFO : (13304732 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_TRAN_CLASS_DIM] from [71582788] to [71589888].
+2026-09-04 08:08:15 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [READER_1_1_1] has the ID [10].
+2026-09-04 08:08:15 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:16 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:16 : INFO : (13304732 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [11].
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [WRITER_1_*_1] has the ID [12].
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_TRAN_CLASS_DIM :SQL INSERT statement:
+INSERT INTO feladm.FEL_TRAN_CLASS_DIM(TRAN_CLS_KEY,TRAN_CLS_LVL_4_NM,TRAN_CLS_LVL_4_RNK,TRAN_CLS_LVL_1_NM,TRAN_CLS_LVL_1_RNK,TRAN_CLS_LVL_2_NM,TRAN_CLS_LVL_2_RNK,TRAN_CLS_LVL_3_NM,TRAN_CLS_LVL_3_RNK,TRAN_CLS_LVL_5_NM,TRAN_CLS_LVL_5_RNK,SYSTEM_ID,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_TRAN_CLASS_DIM :SQL UPDATE statement:
+UPDATE feladm.FEL_TRAN_CLASS_DIM SET TRAN_CLS_LVL_4_NM = ?, TRAN_CLS_LVL_4_RNK = ?, TRAN_CLS_LVL_1_NM = ?, TRAN_CLS_LVL_1_RNK = ?, TRAN_CLS_LVL_2_NM = ?, TRAN_CLS_LVL_2_RNK = ?, TRAN_CLS_LVL_3_NM = ?, TRAN_CLS_LVL_3_RNK = ?, TRAN_CLS_LVL_5_NM = ?, TRAN_CLS_LVL_5_RNK = ?, SYSTEM_ID = ?, LAST_UPDT_TS = ? WHERE TRAN_CLS_KEY = ?
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_TRAN_CLASS_DIM :SQL INSERT statement:
+INSERT INTO feladm.FEL_TRAN_CLASS_DIM(TRAN_CLS_KEY,TRAN_CLS_LVL_4_NM,TRAN_CLS_LVL_4_RNK,TRAN_CLS_LVL_1_NM,TRAN_CLS_LVL_1_RNK,TRAN_CLS_LVL_2_NM,TRAN_CLS_LVL_2_RNK,TRAN_CLS_LVL_3_NM,TRAN_CLS_LVL_3_RNK,TRAN_CLS_LVL_5_NM,TRAN_CLS_LVL_5_RNK,SYSTEM_ID,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_TRAN_CLASS_DIM :SQL UPDATE statement:
+UPDATE feladm.FEL_TRAN_CLASS_DIM SET TRAN_CLS_LVL_4_NM = ?, TRAN_CLS_LVL_4_RNK = ?, TRAN_CLS_LVL_1_NM = ?, TRAN_CLS_LVL_1_RNK = ?, TRAN_CLS_LVL_2_NM = ?, TRAN_CLS_LVL_2_RNK = ?, TRAN_CLS_LVL_3_NM = ?, TRAN_CLS_LVL_3_RNK = ?, TRAN_CLS_LVL_5_NM = ?, TRAN_CLS_LVL_5_RNK = ?, SYSTEM_ID = ?, LAST_UPDT_TS = ? WHERE TRAN_CLS_KEY = ?
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8270 : Target connection group #1 consists of target(s) [FEL_TRAN_CLASS_DIM, FEL_TRAN_CLASS_DIM]
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8003 : Writer initialization complete.
+2026-09-04 08:08:16 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8005 : Writer run started.
+2026-09-04 08:08:16 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Thu Sep 03 22:38:15 2026
+
+Target tables:
+
+     FEL_TRAN_CLASS_DIM
+     FEL_TRAN_CLASS_DIM
+
+
+2026-09-04 08:08:16 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4029 : SQ Instance [SQ_FEL_FV_TRANS_FDR] User specified SQL Query [SELECT DISTINCT 
+F.TRAN_CLS_LVL_1_NM, 
+F.TRAN_CLS_LVL_2_NM, 
+F.TRAN_CLS_LVL_3_NM, 
+F.TRAN_CLS_LVL_4_NM, 
+F.TRAN_CLS_LVL_5_NM 
+FROM
+ feladm.FEL_FV_TRANS_FDR f]
+2026-09-04 08:08:16 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:16 2026)
+2026-09-04 08:08:20 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:20 2026)
+2026-09-04 08:08:20 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16019 : Read [164] rows, read [0] error rows for source table [FEL_FV_TRANS_FDR] instance name [FEL_FV_TRANS_FDR]
+2026-09-04 08:08:20 : INFO : (13304732 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:20 : INFO : (13304732 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:08:20 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:READER_1_1] has the ID [13].
+2026-09-04 08:08:20 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:TRANSF_1_1] has the ID [14].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 1
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 1
+
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229801_7_0_47086664A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_MAX_TRANSACTION_CLS_KEY].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_MAX_TRANSACTION_CLS_KEY: Index cache size = [35792400], Data cache size = [71589888]
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_MAX_TRANSACTION_CLS_KEY{{DSQ}}]. Total errors [0] 
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2:READER_1_1] has the ID [15].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2:TRANSF_1_1] has the ID [16].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 44
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 44
+
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:38:21 2026)
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229801_11_0_47086664A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_TRAN_CLS_ORDER_XRF].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_TRAN_CLS_ORDER_XRF: Index cache size = [35794944], Data cache size = [71589888]
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_TRAN_CLS_ORDER_XRF{{DSQ}}]. Total errors [0] 
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3:READER_1_1] has the ID [17].
+2026-09-04 08:08:21 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3:TRANSF_1_1] has the ID [18].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 3
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 3
+
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229801_12_0_47086664A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_TRAN_CLS_ORDER_XRF_MAX: Index cache size = [35792400], Data cache size = [71589888]
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX{{DSQ}}]. Total errors [0] 
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12:READER_1_1] has the ID [19].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12:TRANSF_1_1] has the ID [20].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 4
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 4
+
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229801_13_0_47086664A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_SYSTEM_DIM].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_SYSTEM_DIM: Index cache size = [35791600], Data cache size = [71589888]
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_SYSTEM_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13:READER_1_1] has the ID [21].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13:TRANSF_1_1] has the ID [22].
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:08:22 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:38:22 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:38:23 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:38:23 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 185
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 185
+
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:38:23 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229801_20_0_47086664A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_TRAN_CLASS_DIM].
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_TRAN_CLASS_DIM: Index cache size = [35819520], Data cache size = [71589888]
+2026-09-04 08:08:23 : INFO : (13304732 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_TRAN_CLASS_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_TRAN_CLASS_DIM] at: Thu Sep 03 22:38:22 2026
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_TRAN_CLASS_DIM] at: Thu Sep 03 22:38:22 2026
+2026-09-04 08:08:23 : INFO : (13304732 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [SQ_FEL_FV_TRANS_FDR]. Total errors [0] 
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_TRAN_CLASS_DIM] at: Thu Sep 03 22:38:22 2026
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_TRAN_CLASS_DIM] at: Thu Sep 03 22:38:22 2026
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8035 : Load complete time: Thu Sep 03 22:38:22 2026
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: FEL_TRAN_CLASS_DIM (Instance Name: [FEL_TRAN_CLASS_DIM_updt])
+WRT_8044 No data loaded for this target
+
+
+WRT_8036 Target: FEL_TRAN_CLASS_DIM (Instance Name: [FEL_TRAN_CLASS_DIM_insrt])
+WRT_8044 No data loaded for this target
+
+
+
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8043 : *****END LOAD SESSION*****
+2026-09-04 08:08:23 : INFO : (13304732 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8006 : Writer run completed.
+2026-09-04 08:08:23 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_FEL_FV_TRANS_FDR] has completed.
+	Total Run Time = [3.980823] secs
+	Total Idle Time = [0.000000] secs
+	Busy Percentage = [100.000000]
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_FEL_FV_TRANS_FDR] has completed.
+	Total Run Time = [2.712895] secs
+	Total Idle Time = [2.710001] secs
+	Busy Percentage = [0.106699]
+	Transformation-specific statistics for this thread were not accurate enough to report.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [FEL_TRAN_CLASS_DIM_updt, FEL_TRAN_CLASS_DIM_insrt] has completed. The total run time was insufficient for any meaningful statistics.
+
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [185] rows in the lookup table for [LKP_FEL_TRAN_CLASS_DIM], in memory, is [405504] bytes
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [185] rows in the lookup table for [LKP_FEL_TRAN_CLASS_DIM], in memory, is [24576] bytes
+2026-09-04 08:08:23 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24005 : PETL_24005 Starting post-session tasks. : (Thu Sep 03 22:38:23 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | POST-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [POST-SESS] has the ID [23].
+2026-09-04 08:08:23 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Thu Sep 03 22:38:23 2026)
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229801_7_0_47086664A64] for transformation [LKP_MAX_TRANSACTION_CLS_KEY].
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229801_11_0_47086664A64] for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF].
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229801_12_0_47086664A64] for transformation [LKP_FEL_TRAN_CLS_ORDER_XRF_MAX].
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229801_13_0_47086664A64] for transformation [LKP_FEL_SYSTEM_DIM].
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229801_20_0_47086664A64] for transformation [LKP_FEL_TRAN_CLASS_DIM].
+2026-09-04 08:08:23 : INFO : (13304732 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6018 : The session completed with [0] row transformation errors. 
+2026-09-04 08:08:23 : INFO : (13304732 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24002 : Parallel Pipeline Engine finished.
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24012 : Session run completed successfully.
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6252 : Source Load Summary.
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [SQ_FEL_FV_TRANS_FDR] (Instance Name: [SQ_FEL_FV_TRANS_FDR])
+	 Output Rows [164], Affected Rows [164], Applied Rows [164], Rejected Rows [0]
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6253 : Target Load Summary.
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_TRAN_CLASS_DIM] (Instance Name: [FEL_TRAN_CLASS_DIM_updt])
+	 Output Rows [0], Affected Rows [0], Applied Rows [0], Rejected Rows [0]
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_TRAN_CLASS_DIM] (Instance Name: [FEL_TRAN_CLASS_DIM_insrt])
+	 Output Rows [0], Affected Rows [0], Applied Rows [0], Rejected Rows [0]
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6023 : 
+===================================================
+
+2026-09-04 08:08:23 : INFO : (13304732 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6020 : Session [s_m_FEL_TRAN_CLASS_DIM] completed at [Thu Sep 03 22:38:23 2026].

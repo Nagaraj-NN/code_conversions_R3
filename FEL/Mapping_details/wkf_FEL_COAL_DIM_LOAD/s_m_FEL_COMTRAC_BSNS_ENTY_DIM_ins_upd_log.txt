@@ -1,0 +1,178 @@
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : VAR_27027 : Use default value [] for mapping parameter:[$$FUELWORKS].
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6014 : Initializing session [s_m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd] at [Thu Sep 03 22:36:43 2026].
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6683 : Repository Name: [edwp]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6684 : Server Name: [pmserver_edwp_2]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6686 : Folder: [FEL]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6685 : Workflow: [wkf_FEL_COAL_DIM_LOAD] Run Instance Name: [] Run Id: [47086664]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6992 : Operating System Type [AIX]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6101 : Mapping name: m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd.
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6963 : Pre 85 Timestamp Compatibility is Enabled
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableMetricsCollection,No]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [FileRdrTreatNullCharAs,\040]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [ServerPort,54001]
+2026-09-04 08:06:43 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6703 : Session [s_m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd] is run by 64-bit Integration Service  [node01_edwp], version [202510], build [0924].
+2026-09-04 08:06:43 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MANAGER] has the ID [1].
+2026-09-04 08:06:43 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24058 : Running Partition Group [1].
+2026-09-04 08:06:43 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24000 : Parallel Pipeline Engine initializing.
+2026-09-04 08:06:43 : INFO : (16712080 | MONITOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MONITOR] has the ID [2].
+2026-09-04 08:06:43 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24001 : Parallel Pipeline Engine running.
+2026-09-04 08:06:43 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24003 : Initializing session run.
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MAPPING] has the ID [3].
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1569 : Server Mode: [ASCII]
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1570 : Server Code page: [ISO 8859-1 Western European]
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6151 : The session sort order is [Binary].
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65111 : Current Timezone:[UTC -5:0]
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65112 : Current Process ID:[16712080]
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6156 : Using low precision processing.
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6180 : Deadlock retry logic will not be implemented.
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6187 : Session target-based commit interval is [10000].
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6307 : DTM error log disabled. 
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7022 : TShmWriter: Initialized
+2026-09-04 08:06:43 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21075 : Connecting to database [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:06:44 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6007 : DTM initialized successfully for session [s_m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd]
+2026-09-04 08:06:44 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24033 : All DTM Connection Info: [<NONE>].
+2026-09-04 08:06:44 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Thu Sep 03 22:36:44 2026)
+2026-09-04 08:06:44 : INFO : (16712080 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2026-09-04 08:06:44 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Thu Sep 03 22:36:44 2026)
+2026-09-04 08:06:44 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24006 : Starting data movement.
+2026-09-04 08:06:44 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 2336208 bytes and Block size is 84304 bytes.
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1] has the ID [5].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_SYSTEM_DIM]: Default sql to create lookup cache: SELECT SYS_ID,SYS_NM FROM feladm.FEL_SYSTEM_DIM ORDER BY SYS_NM
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [25565281] to [25568400].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2] has the ID [6].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_DATATYPE_DIM]: Default sql to create lookup cache: SELECT DATA_TYPE_ID,DATA_TYPE_NM FROM feladm.FEL_DATATYPE_DIM ORDER BY DATA_TYPE_NM
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_DATATYPE_DIM] from [25565281] to [25568000].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_DATATYPE_DIM] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3] has the ID [7].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_CONSOLIDATION_ID]: Lookup override sql to create cache: SELECT  xrf.CONSOLIDATION_ID AS CONSOLIDATION_ID,  XRF.DATA_TYP_ID AS DATA_TYP_ID,  XRF.SYSTEM_ID AS SYSTEM_ID,  upper(trim(XRF.BUSINESS_ID)) AS BUSINESS_ID FROM feladm.FEL_MASTER_DIM_XRF xrf ORDER BY DATA_TYP_ID,SYSTEM_ID,BUSINESS_ID,CONSOLIDATION_ID
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_CONSOLIDATION_ID] from [25565281] to [25566720].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_CONSOLIDATION_ID] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_4] has the ID [8].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_MAX_CONSOLIDATION_ID]: Lookup override sql to create cache: SELECT  MAX(CONSOLIDATION_ID) AS MAX_CONSOLIDATION_ID FROM FELADM.FEL_MASTER_DIM_XRF
+  -- ORDER BY MAX_CONSOLIDATION_ID
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_MAX_CONSOLIDATION_ID] from [25565281] to [25566800].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_MAX_CONSOLIDATION_ID] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_5] has the ID [9].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_MAX_BSNS_ENTY_KEY]: Lookup override sql to create cache: SELECT  MAX(BSNS_ENTY_KEY) AS MAX_BSNS_ENTY_KEY FROM FELADM.FEL_BSNS_ENTY_DIM
+  -- ORDER BY MAX_BSNS_ENTY_KEY
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_MAX_BSNS_ENTY_KEY] from [25565281] to [25566800].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_MAX_BSNS_ENTY_KEY] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_6] has the ID [10].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_CONSOLIDATED_MASTER_REC]: Lookup override sql to create cache: SELECT  XRF.BUSINESS_NM AS BUSINESS_NM,  SYS.SYS_NM AS SYSTEM_NM,  XRF.CONSOLIDATION_ID AS CONSOLIDATION_ID,  UPPER(XRF.MASTER_FL) AS MASTER_FL FROM feladm.FEL_MASTER_DIM_XRF XRF
+INNER JOIN FELADM.FEL_SYSTEM_DIM SYS
+ON SYS.SYS_ID = XRF.SYSTEM_ID ORDER BY CONSOLIDATION_ID,MASTER_FL,BUSINESS_NM,SYSTEM_NM
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_CONSOLIDATED_MASTER_REC] from [25565281] to [25568400].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_CONSOLIDATED_MASTER_REC] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_7] has the ID [11].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_BSNS_ENTY_DIM_COMTRAC]: Default sql to create lookup cache: SELECT BSNS_ENTY_KEY,STATUS_TX,BSNS_ENTY_TYPE_NM,BSNS_ENTY_NM,BSNS_ENTY_SHORT_NM,COMPANY_NM,CONSOLIDATION_ID,CONSOLIDATION_NM,CNSLDTN_SYS_NM,BSNS_ENTY_ID,SYSTEM_ID FROM feladm.FEL_BSNS_ENTY_DIM ORDER BY BSNS_ENTY_ID,SYSTEM_ID
+
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_BSNS_ENTY_DIM_COMTRAC] from [25565281] to [25568400].
+2026-09-04 08:06:44 : INFO : (16712080 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_BSNS_ENTY_DIM_COMTRAC] from [51130562] to [51134464].
+2026-09-04 08:06:44 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [READER_1_1_1] has the ID [12].
+2026-09-04 08:06:44 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:06:44 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:06:44 : INFO : (16712080 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [13].
+2026-09-04 08:06:44 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [WRITER_1_*_1] has the ID [14].
+2026-09-04 08:06:44 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_BSNS_ENTY_DIM :SQL INSERT statement:
+INSERT INTO feladm.FEL_BSNS_ENTY_DIM(BSNS_ENTY_KEY,BSNS_ENTY_ID,STATUS_TX,BSNS_ENTY_TYPE_NM,BSNS_ENTY_NM,BSNS_ENTY_SHORT_NM,COMPANY_NM,AP_VNDR_ID,BSNS_ENTY_OLD_NM,LDC_CD,SYSTEM_ID,SYSTEM_NM,CONSOLIDATION_ID,CONSOLIDATION_NM,CNSLDTN_SYS_NM,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_BSNS_ENTY_DIM :SQL UPDATE statement:
+UPDATE feladm.FEL_BSNS_ENTY_DIM SET BSNS_ENTY_ID = ?, STATUS_TX = ?, BSNS_ENTY_TYPE_NM = ?, BSNS_ENTY_NM = ?, BSNS_ENTY_SHORT_NM = ?, COMPANY_NM = ?, AP_VNDR_ID = ?, BSNS_ENTY_OLD_NM = ?, LDC_CD = ?, SYSTEM_ID = ?, SYSTEM_NM = ?, CONSOLIDATION_ID = ?, CONSOLIDATION_NM = ?, CNSLDTN_SYS_NM = ?, LAST_UPDT_TS = ? WHERE BSNS_ENTY_KEY = ?
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_BSNS_ENTY_DIM :SQL INSERT statement:
+INSERT INTO feladm.FEL_BSNS_ENTY_DIM(BSNS_ENTY_KEY,BSNS_ENTY_ID,STATUS_TX,BSNS_ENTY_TYPE_NM,BSNS_ENTY_NM,BSNS_ENTY_SHORT_NM,COMPANY_NM,AP_VNDR_ID,BSNS_ENTY_OLD_NM,LDC_CD,SYSTEM_ID,SYSTEM_NM,CONSOLIDATION_ID,CONSOLIDATION_NM,CNSLDTN_SYS_NM,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_BSNS_ENTY_DIM :SQL UPDATE statement:
+UPDATE feladm.FEL_BSNS_ENTY_DIM SET BSNS_ENTY_ID = ?, STATUS_TX = ?, BSNS_ENTY_TYPE_NM = ?, BSNS_ENTY_NM = ?, BSNS_ENTY_SHORT_NM = ?, COMPANY_NM = ?, AP_VNDR_ID = ?, BSNS_ENTY_OLD_NM = ?, LDC_CD = ?, SYSTEM_ID = ?, SYSTEM_NM = ?, CONSOLIDATION_ID = ?, CONSOLIDATION_NM = ?, CNSLDTN_SYS_NM = ?, LAST_UPDT_TS = ? WHERE BSNS_ENTY_KEY = ?
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8270 : Target connection group #1 consists of target(s) [FEL_BSNS_ENTY_DIM, FEL_BSNS_ENTY_DIM]
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8003 : Writer initialization complete.
+2026-09-04 08:06:45 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:06:45 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4010 : SQ instance [SQ_FEL_COMTRAC_BSNS_ENTY_FDR] SQL Query [SELECT feladm.FEL_COMTRAC_BSNS_ENTY_FDR.BSNS_ENTY_ID, feladm.FEL_COMTRAC_BSNS_ENTY_FDR.STATUS_TX, feladm.FEL_COMTRAC_BSNS_ENTY_FDR.BSNS_ENTY_TYPE_NM, feladm.FEL_COMTRAC_BSNS_ENTY_FDR.BSNS_ENTY_NM, feladm.FEL_COMTRAC_BSNS_ENTY_FDR.BSNS_ENTY_SHORT_NM, feladm.FEL_COMTRAC_BSNS_ENTY_FDR.COMPANY_NM FROM feladm.FEL_COMTRAC_BSNS_ENTY_FDR WHERE LAST_UPDT_TS >= '2026-09-02 22:30:11'
+AND 'C' = 'C'
+--and UPPER(TRIM(STATUS_TX)) = 'ACTIVE']
+2026-09-04 08:06:45 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:36:45 2026)
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8005 : Writer run started.
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Thu Sep 03 22:36:44 2026
+
+Target tables:
+
+     FEL_BSNS_ENTY_DIM
+     FEL_BSNS_ENTY_DIM
+
+
+2026-09-04 08:06:45 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16019 : Read [0] rows, read [0] error rows for source table [FEL_COMTRAC_BSNS_ENTY_FDR] instance name [FEL_COMTRAC_BSNS_ENTY_FDR]
+2026-09-04 08:06:45 : INFO : (16712080 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_BSNS_ENTY_DIM] at: Thu Sep 03 22:36:44 2026
+2026-09-04 08:06:45 : INFO : (16712080 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [SQ_FEL_COMTRAC_BSNS_ENTY_FDR]. Total errors [0] 
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_BSNS_ENTY_DIM] at: Thu Sep 03 22:36:44 2026
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_BSNS_ENTY_DIM] at: Thu Sep 03 22:36:44 2026
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_BSNS_ENTY_DIM] at: Thu Sep 03 22:36:44 2026
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8035 : Load complete time: Thu Sep 03 22:36:44 2026
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: FEL_BSNS_ENTY_DIM (Instance Name: [FEL_BSNS_ENTY_DIM_comtrac_insrt])
+WRT_8044 No data loaded for this target
+
+
+WRT_8036 Target: FEL_BSNS_ENTY_DIM (Instance Name: [FEL_BSNS_ENTY_DIM_comtrac_updt])
+WRT_8044 No data loaded for this target
+
+
+
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8043 : *****END LOAD SESSION*****
+2026-09-04 08:06:45 : INFO : (16712080 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8006 : Writer run completed.
+2026-09-04 08:06:45 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_FEL_COMTRAC_BSNS_ENTY_FDR] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_FEL_COMTRAC_BSNS_ENTY_FDR] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [FEL_BSNS_ENTY_DIM_comtrac_insrt, FEL_BSNS_ENTY_DIM_comtrac_updt] has completed. The total run time was insufficient for any meaningful statistics.
+
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [0] rows in the lookup table for [LKP_CONSOLIDATED_MASTER_REC], in memory, is [0] bytes
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [0] rows in the lookup table for [LKP_CONSOLIDATED_MASTER_REC], in memory, is [0] bytes
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [0] rows in the lookup table for [LKP_BSNS_ENTY_DIM_COMTRAC], in memory, is [0] bytes
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [0] rows in the lookup table for [LKP_BSNS_ENTY_DIM_COMTRAC], in memory, is [0] bytes
+2026-09-04 08:06:45 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24005 : PETL_24005 Starting post-session tasks. : (Thu Sep 03 22:36:45 2026)
+2026-09-04 08:06:45 : INFO : (16712080 | POST-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [POST-SESS] has the ID [15].
+2026-09-04 08:06:45 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Thu Sep 03 22:36:45 2026)
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_42_0_47086664A64] for transformation [LKP_FEL_SYSTEM_DIM].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_41_0_47086664A64] for transformation [LKP_FEL_DATATYPE_DIM].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_64_0_47086664A64] for transformation [LKP_CONSOLIDATION_ID].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_62_0_47086664A64] for transformation [LKP_MAX_CONSOLIDATION_ID].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_61_0_47086664A64] for transformation [LKP_MAX_BSNS_ENTY_KEY].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_63_0_47086664A64] for transformation [LKP_CONSOLIDATED_MASTER_REC].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP222537_38_0_47086664A64] for transformation [LKP_BSNS_ENTY_DIM_COMTRAC].
+2026-09-04 08:06:45 : INFO : (16712080 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6018 : The session completed with [0] row transformation errors. 
+2026-09-04 08:06:45 : INFO : (16712080 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24002 : Parallel Pipeline Engine finished.
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24012 : Session run completed successfully.
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6252 : Source Load Summary.
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [SQ_FEL_COMTRAC_BSNS_ENTY_FDR] (Instance Name: [SQ_FEL_COMTRAC_BSNS_ENTY_FDR])
+	 Output Rows [0], Affected Rows [0], Applied Rows [0], Rejected Rows [0]
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6253 : Target Load Summary.
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_BSNS_ENTY_DIM] (Instance Name: [FEL_BSNS_ENTY_DIM_comtrac_insrt])
+	 Output Rows [0], Affected Rows [0], Applied Rows [0], Rejected Rows [0]
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_BSNS_ENTY_DIM] (Instance Name: [FEL_BSNS_ENTY_DIM_comtrac_updt])
+	 Output Rows [0], Affected Rows [0], Applied Rows [0], Rejected Rows [0]
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6023 : 
+===================================================
+
+2026-09-04 08:06:45 : INFO : (16712080 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6020 : Session [s_m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd] completed at [Thu Sep 03 22:36:45 2026].
