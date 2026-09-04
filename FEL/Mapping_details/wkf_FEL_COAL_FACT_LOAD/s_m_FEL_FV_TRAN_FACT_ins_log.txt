@@ -1,0 +1,2093 @@
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6014 : Initializing session [s_m_FEL_FV_TRAN_FACT_ins] at [Thu Sep 03 22:40:02 2026].
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6683 : Repository Name: [edwp]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6684 : Server Name: [pmserver_edwp_2]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6686 : Folder: [FEL]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6685 : Workflow: [wkf_FEL_COAL_FACT_LOAD] Run Instance Name: [] Run Id: [47086697]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6992 : Operating System Type [AIX]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6101 : Mapping name: m_FEL_FV_TRAN_FACT_ins.
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6963 : Pre 85 Timestamp Compatibility is Enabled
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableMetricsCollection,No]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [FileRdrTreatNullCharAs,\040]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [ServerPort,54001]
+2026-09-04 08:10:02 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6703 : Session [s_m_FEL_FV_TRAN_FACT_ins] is run by 64-bit Integration Service  [node01_edwp], version [202510], build [0924].
+2026-09-04 08:10:02 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MANAGER] has the ID [1].
+2026-09-04 08:10:02 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24058 : Running Partition Group [1].
+2026-09-04 08:10:02 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24000 : Parallel Pipeline Engine initializing.
+2026-09-04 08:10:02 : INFO : (13304818 | MONITOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MONITOR] has the ID [2].
+2026-09-04 08:10:02 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24001 : Parallel Pipeline Engine running.
+2026-09-04 08:10:02 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24003 : Initializing session run.
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MAPPING] has the ID [3].
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1569 : Server Mode: [ASCII]
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1570 : Server Code page: [ISO 8859-1 Western European]
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6151 : The session sort order is [Binary].
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65111 : Current Timezone:[UTC -5:0]
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65112 : Current Process ID:[13304818]
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6156 : Using low precision processing.
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6180 : Deadlock retry logic will not be implemented.
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6187 : Session target-based commit interval is [10000].
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6307 : DTM error log disabled. 
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7022 : TShmWriter: Initialized
+2026-09-04 08:10:02 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21075 : Connecting to database [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:03 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6007 : DTM initialized successfully for session [s_m_FEL_FV_TRAN_FACT_ins]
+2026-09-04 08:10:03 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24033 : All DTM Connection Info: [<NONE>].
+2026-09-04 08:10:03 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Thu Sep 03 22:40:03 2026)
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21349 : No load constraints for Target [FEL_FV_TRAN_FACT]. It does not reference any primary table from the same active source or transaction generator.
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21104 : Determining truncate order for [FEL_FV_TRAN_FACT] [instance id:20]
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21531 :     Truncate order for [FEL_FV_TRAN_FACT] [instance id:20] determined successfully
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8365 : WRT_8365 Starting truncate for target table [feladm.FEL_FV_TRAN_FACT]. : (Thu Sep 03 22:40:03 2026)
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8451 : Query used for Truncate table [TRUNCATE TABLE feladm.FEL_FV_TRAN_FACT]
+2026-09-04 08:10:03 : INFO : (13304818 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8022 : WRT_8022 Truncate table for table [feladm.FEL_FV_TRAN_FACT] succeeded. : (Thu Sep 03 22:40:03 2026)
+2026-09-04 08:10:03 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Thu Sep 03 22:40:03 2026)
+2026-09-04 08:10:03 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24006 : Starting data movement.
+2026-09-04 08:10:03 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 2299792 bytes and Block size is 125544 bytes.
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1] has the ID [5].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_SYSTEM_DIM]: Default sql to create lookup cache: SELECT SYS_ID,SYS_NM FROM feladm.FEL_SYSTEM_DIM ORDER BY SYS_NM
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [8521760] to [8522800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_SYSTEM_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2] has the ID [6].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_ACCTG_MONTH_VW]: Default sql to create lookup cache: SELECT ACCTG_MO_DAY_ID,MONTH_NB,CALENDAR_YEAR FROM feladm.FEL_ACCTG_MONTH_VW ORDER BY MONTH_NB,CALENDAR_YEAR
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_ACCTG_MONTH_VW] from [8521760] to [8522800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_ACCTG_MONTH_VW] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3] has the ID [7].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_AEP_DATE]: Default sql to create lookup cache: SELECT DATE_ID,FULL_DATE_DT FROM FELADM.AEP_DATE ORDER BY FULL_DATE_DT
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_AEP_DATE] from [8521760] to [8524800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_AEP_DATE] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_4] has the ID [8].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_TRAN_CLASS_DIM]: Lookup override sql to create cache: SELECT  cls.TRAN_CLS_KEY AS TRAN_CLS_KEY,  trim(upper(cls.TRAN_CLS_LVL_1_NM)) AS TRAN_CLS_LVL_1_NM,  trim(upper(cls.TRAN_CLS_LVL_2_NM)) AS TRAN_CLS_LVL_2_NM,  trim(upper(cls.TRAN_CLS_LVL_3_NM)) AS TRAN_CLS_LVL_3_NM,  trim(upper(cls.TRAN_CLS_LVL_4_NM)) AS TRAN_CLS_LVL_4_NM,  trim(upper(cls.TRAN_CLS_LVL_5_NM)) AS TRAN_CLS_LVL_5_NM FROM feladm.FEL_TRAN_CLASS_DIM cls ORDER BY TRAN_CLS_LVL_1_NM,TRAN_CLS_LVL_2_NM,TRAN_CLS_LVL_3_NM,TRAN_CLS_LVL_4_NM,TRAN_CLS_LVL_5_NM,TRAN_CLS_KEY
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_TRAN_CLASS_DIM] from [8521760] to [9086976].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_TRAN_CLASS_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_5] has the ID [9].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_ACCT_TYP_DIM]: Lookup override sql to create cache: SELECT  dim.ACCT_TYP_KEY AS ACCT_TYP_KEY,  upper(trim(DIM.ACCT_TYP_NM)) AS ACCT_TYP_NM FROM feladm.FEL_ACCT_TYP_DIM dim ORDER BY ACCT_TYP_NM,ACCT_TYP_KEY
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_ACCT_TYP_DIM] from [8521760] to [8522800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_ACCT_TYP_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_6] has the ID [10].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_INVTRY_LOC_DIM]: Lookup override sql to create cache: SELECT  iloc.INVTRY_LOC_KEY AS INVTRY_LOC_KEY,  trim(upper(iloc.INVTRY_CMDTY_NM)) AS INVTRY_CMDTY_NM,  trim(upper(iloc.INVTRY_CMDTY_TYPE_NM)) AS INVTRY_CMDTY_TYPE_NM,  iloc.INVTRY_PRMRY_FCLTY_KEY AS INVTRY_PRMRY_FCLTY_KEY,  iloc.INVTRY_SCNDRY_FCLTY_KEY AS INVTRY_SCNDRY_FCLTY_KEY,  iloc.INVTRY_LOC_ID AS INVTRY_LOC_ID,  iloc.SYSTEM_ID AS SYSTEM_ID FROM feladm.FEL_INVTRY_LOC_DIM iloc ORDER BY INVTRY_LOC_ID,SYSTEM_ID,INVTRY_LOC_KEY,INVTRY_CMDTY_NM,INVTRY_CMDTY_TYPE_NM,INVTRY_PRMRY_FCLTY_KEY,INVTRY_SCNDRY_FCLTY_KEY
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_INVTRY_LOC_DIM] from [8521760] to [8522800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_INVTRY_LOC_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_7] has the ID [11].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_BSNS_ENTY_KEY]: Default sql to create lookup cache: SELECT BSNS_ENTY_KEY,FACILITY_KEY,SYSTEM_ID FROM feladm.FEL_FACILITY_DIM ORDER BY FACILITY_KEY,SYSTEM_ID
+
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_BSNS_ENTY_KEY] from [8521760] to [8522800].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_BSNS_ENTY_KEY] from [17043520] to [17047552].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_8) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_8] has the ID [12].
+2026-09-04 08:10:03 : INFO : (13304818 | LKPDP_8) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_GL_ACCT_DIM_VW]: Lookup override sql to create cache: SELECT  upper(trim(VW.ACCOUNT)) AS ACCOUNT FROM feladm.PS_Z_GL_ACCT_DIM vw ORDER BY ACCOUNT
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_8) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_GL_ACCT_DIM_VW] from [8521760] to [8524800].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_8) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_GL_ACCT_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_9) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_9] has the ID [13].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_9) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_REG_CONS_DIM_VW]: Lookup override sql to create cache: SELECT  reg.EPM_BUS_UNIT_GL_ID AS EPM_BUS_UNIT_GL_ID,  trim(upper(reg.BUSINESS_UNIT_GL)) AS BUSINESS_UNIT_GL FROM feladm.PS_Z_REG_CONS_DIM_VW reg ORDER BY BUSINESS_UNIT_GL,EPM_BUS_UNIT_GL_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_9) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_REG_CONS_DIM_VW] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_9) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_REG_CONS_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_10) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_10] has the ID [14].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_10) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_DEPT_DIM_VW]: Lookup override sql to create cache: SELECT  VW.EPM_DEPT_ID AS EPM_DEPT_ID,  trim(upper(VW.DEPTID)) AS DEPTID FROM feladm.PS_Z_DEPT_DIM_VW vw ORDER BY DEPTID,EPM_DEPT_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_10) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_DEPT_DIM_VW] from [8521760] to [8524800].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_10) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_DEPT_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_11) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_11] has the ID [15].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_11) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_AEP_WORK_ORDER_ID]: Lookup override sql to create cache: SELECT  wo.WORK_ORDER_ID AS WORK_ORDER_ID,  trim(upper(wo.BUSINESS_UNIT_PC)) AS BUSINESS_UNIT_PC,  trim(upper(wo.PRIMARY_SOURCE_CD)) AS PRIMARY_SOURCE_CD,  trim(upper(wo.PROJECT_ID)) AS PROJECT_ID,  trim(upper(wo.ACTIVITY_ID)) AS ACTIVITY_ID FROM feladm.AEP_WORK_ORDER_DIM wo ORDER BY BUSINESS_UNIT_PC,PRIMARY_SOURCE_CD,PROJECT_ID,ACTIVITY_ID,WORK_ORDER_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_11) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_AEP_WORK_ORDER_ID] from [8521760] to [8524800].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_11) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_AEP_WORK_ORDER_ID] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12] has the ID [16].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_PROJ_DIM_VW]: Lookup override sql to create cache: SELECT  VW.EPM_PROJECT_ID AS EPM_PROJECT_ID,  trim(upper(VW.PROJECT_ID)) AS PROJECT_ID FROM feladm.PS_Z_PROJ_DIM vw ORDER BY PROJECT_ID,EPM_PROJECT_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_PROJ_DIM_VW] from [8521760] to [8524800].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_PROJ_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13] has the ID [17].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_COST_CLS_DIM_VW]: Lookup override sql to create cache: SELECT  VW.EPM_RSRC_TYPE_ID AS EPM_RSRC_TYPE_ID,  trim(upper(VW.RESOURCE_TYPE)) AS RESOURCE_TYPE FROM feladm.PS_Z_COST_CLS_DIM vw ORDER BY RESOURCE_TYPE,EPM_RSRC_TYPE_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_COST_CLS_DIM_VW] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_COST_CLS_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_14) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_14] has the ID [18].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_14) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_AEP_WORK_ORDER_PCBU]: Lookup override sql to create cache: SELECT  trim(upper(wo.BUSINESS_UNIT_PC)) AS BUSINESS_UNIT_PC FROM feladm.AEP_WORK_ORDER_DIM wo ORDER BY BUSINESS_UNIT_PC
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_14) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_AEP_WORK_ORDER_PCBU] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_14) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_AEP_WORK_ORDER_PCBU] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_15) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_15] has the ID [19].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_15) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_RES_S_CAT_DIM]: Lookup override sql to create cache: SELECT  trim(DIM.RESOURCE_SUB_CAT) AS RESOURCE_SUB_CAT FROM feladm.PS_Z_RES_S_CAT_DIM dim ORDER BY RESOURCE_SUB_CAT
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_15) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_RES_S_CAT_DIM] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_15) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_RES_S_CAT_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_16) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_16] has the ID [20].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_16) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_PS_Z_PROCS_ACT_DIM_VW]: Lookup override sql to create cache: SELECT  VW.EPM_ABM_ACTV_ID AS EPM_ABM_ACTV_ID,  trim(upper(VW.RESOURCE_CATEGORY)) AS RESOURCE_CATEGORY FROM feladm.PS_Z_PROCS_ACT_DIM vw ORDER BY RESOURCE_CATEGORY,EPM_ABM_ACTV_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_16) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_PS_Z_PROCS_ACT_DIM_VW] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_16) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_PS_Z_PROCS_ACT_DIM_VW] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_17) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_17] has the ID [21].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_17) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_JO_BSNS_ENTY_KEY]: Default sql to create lookup cache: SELECT BSNS_ENTY_KEY,BSNS_ENTY_ID,SYSTEM_ID FROM feladm.FEL_BSNS_ENTY_DIM ORDER BY BSNS_ENTY_ID,SYSTEM_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_17) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_JO_BSNS_ENTY_KEY] from [8521760] to [8522800].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_17) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_JO_BSNS_ENTY_KEY] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_18) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_18] has the ID [22].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_18) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_CONTRACT_DIM]: Lookup override sql to create cache: SELECT  DIM.CONTRACT_KEY AS CONTRACT_KEY,  trim(upper(DIM.CONTRACT_ID)) AS CONTRACT_ID,  DIM.SYSTEM_ID AS SYSTEM_ID FROM feladm.FEL_CONTRACT_DIM DIM ORDER BY CONTRACT_ID,SYSTEM_ID,CONTRACT_KEY
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_18) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_CONTRACT_DIM] from [8521760] to [8531200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_18) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_CONTRACT_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_19) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_19] has the ID [23].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_19) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21097 : Lookup Transformation [LKP_FEL_CNTRCT_PROD_CD_DIM]: Default sql to create lookup cache: SELECT CNTRCT_PROD_KEY,CNTRCT_DTL_ID FROM feladm.FEL_CNTRCT_PROD_CD_DIM ORDER BY CNTRCT_DTL_ID
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_19) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_CNTRCT_PROD_CD_DIM] from [8521760] to [8523200].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_19) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_CNTRCT_PROD_CD_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_20) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_20] has the ID [24].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_20) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_GNRTN_UNIT_DIM]: Lookup override sql to create cache: SELECT  F.UNIT_KEY AS UNIT_KEY,  trim(f.UNIT_ID) AS UNIT_ID,  f.SYSTEM_ID AS SYSTEM_ID FROM feladm.FEL_GNRTN_UNIT_DIM f ORDER BY UNIT_ID,SYSTEM_ID,UNIT_KEY
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_20) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_GNRTN_UNIT_DIM] from [8521760] to [8526000].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_20) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_GNRTN_UNIT_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_21) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_21] has the ID [25].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_21) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21312 : Lookup Transformation [LKP_FEL_ACCTG_INVTRY_LOC_DIM]: Lookup override sql to create cache: SELECT  aloc.ACCTG_INVTRY_LOC_KEY AS ACCTG_INVTRY_LOC_KEY,  trim(upper(aloc.ACCTG_INVTRY_LOC_NM)) AS ACCTG_INVTRY_LOC_NM,  trim(upper(aloc.INVTRY_CMDTY_TYPE_NM)) AS INVTRY_CMDTY_TYPE_NM,  trim(upper(aloc.INVTRY_CMDTY_NM)) AS INVTRY_CMDTY_NM FROM feladm.FEL_ACCTG_INVTRY_LOC_DIM aloc ORDER BY ACCTG_INVTRY_LOC_NM,INVTRY_CMDTY_TYPE_NM,INVTRY_CMDTY_NM,ACCTG_INVTRY_LOC_KEY
+
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_21) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Index Cache] size for transformation [LKP_FEL_ACCTG_INVTRY_LOC_DIM] from [8521760] to [8540160].
+2026-09-04 08:10:04 : INFO : (13304818 | LKPDP_21) : (IS | pmserver_edwp_2) : node01_edwp : TE_7212 : Increasing [Data Cache] size for transformation [LKP_FEL_ACCTG_INVTRY_LOC_DIM] from [17043520] to [17047552].
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [READER_1_1_1] has the ID [26].
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [COMTRACP], Type [Oracle], User [feladm]
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:04 : INFO : (13304818 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [27].
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [WRITER_1_*_1] has the ID [28].
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8147 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [OFF]
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_FV_TRAN_FACT :SQL INSERT statement:
+INSERT INTO feladm.FEL_FV_TRAN_FACT(FNCL_VIEW_TRAN_KEY,TRAN_ID,SYSTEM_ID,ACCTG_MO_DAY_ID,CAL_DAY_ID,TRAN_CLS_KEY,OWNING_FCLTY_KEY,GEOG_FCLTY_KEY,BSNS_ENTY_KEY,JO_BSNS_ENTY_KEY,ACCTG_INVTRY_LOC_KEY,INVTRY_LOC_KEY,UNIT_KEY,CONTRACT_KEY,CNTRCT_PROD_KEY,ACCT_TYP_KEY,ACCOUNT_CD,PROJ_CST_BSNS_UNT_ID,EPM_DEPT_ID,EPM_ABM_ACTV_ID,EPM_BSNS_UNT_GL_ID,EPM_RSRC_TYP_ID,EPM_PROJ_ID,WO_ID,RSRC_SBCTGY_CD,ENTRY_ID,RECEIPT_ID,RECLAIM_ID,TRANSACTION_QY,TRANSACTION_AT,DELETE_FL,LAST_UPDT_TS)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8270 : Target connection group #1 consists of target(s) [FEL_FV_TRAN_FACT]
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8003 : Writer initialization complete.
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4010 : SQ instance [SQ_AEP_DW_FV_TRANS_VW] SQL Query [SELECT AEP_DW_FV_TRANS_VW.ACCT_YEAR_MONTH_DAY, AEP_DW_FV_TRANS_VW.TRANSACTION_DATE, AEP_DW_FV_TRANS_VW.TRAN_CLS_LVL1_NM, AEP_DW_FV_TRANS_VW.TRAN_CLASS_LVL2_NM, AEP_DW_FV_TRANS_VW.TRAN_CLASS_LVL3_NM, AEP_DW_FV_TRANS_VW.TRAN_CLASS_LVL4_NM, AEP_DW_FV_TRANS_VW.TRAN_CLASS_LVL5_NM, AEP_DW_FV_TRANS_VW.FAENTRY_TYPE, AEP_DW_FV_TRANS_VW.FAENTRY_ID, AEP_DW_FV_TRANS_VW.FATRAN_TYPE, AEP_DW_FV_TRANS_VW.FATRAN_ID, AEP_DW_FV_TRANS_VW.FATRAN_DESC, AEP_DW_FV_TRANS_VW.ACCTTYPECLASSNAME, AEP_DW_FV_TRANS_VW.SOURCETYPE, AEP_DW_FV_TRANS_VW.ACCT_INV_LOC_NM, AEP_DW_FV_TRANS_VW.INV_LOC_ID, AEP_DW_FV_TRANS_VW.GEN_UNIT_ID, AEP_DW_FV_TRANS_VW.CNTRCT_ID, AEP_DW_FV_TRANS_VW.CNTRCTDTL_ID, AEP_DW_FV_TRANS_VW.CNTRC_PROD_CD, AEP_DW_FV_TRANS_VW.CF_GL_ACCT, AEP_DW_FV_TRANS_VW.CF_DEPT, AEP_DW_FV_TRANS_VW.CF_WORK_ORDER, AEP_DW_FV_TRANS_VW.CF_COST_COMP, AEP_DW_FV_TRANS_VW.CF_PROJ_COST_BU, AEP_DW_FV_TRANS_VW.CF_RESOURCE_CAT, AEP_DW_FV_TRANS_VW.CF_ABM_ACTIVITY, AEP_DW_FV_TRANS_VW.CF_PROJECT, AEP_DW_FV_TRANS_VW.CF_GL_BUS_UNIT, AEP_DW_FV_TRANS_VW.QTY, AEP_DW_FV_TRANS_VW.AMT, AEP_DW_FV_TRANS_VW.RECLAIM_ID, AEP_DW_FV_TRANS_VW.RECEIPT_ID, AEP_DW_FV_TRANS_VW.JO_BSNS_ENTY_ID FROM AEP_DW_FV_TRANS_VW]
+2026-09-04 08:10:04 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:04 2026)
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8005 : Writer run started.
+2026-09-04 08:10:04 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Thu Sep 03 22:40:04 2026
+
+Target tables:
+
+     FEL_FV_TRAN_FACT
+
+
+2026-09-04 08:10:15 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:READER_1_1] has the ID [29].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:15 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21699 : Waiting for consumer to free buffer block. Please increase the dtm buffer pool size.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_1:TRANSF_1_1] has the ID [30].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 4
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 4
+
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_14_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_SYSTEM_DIM].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_SYSTEM_DIM: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_1:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_SYSTEM_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2:READER_1_1] has the ID [31].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_2:TRANSF_1_1] has the ID [32].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 857
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 856
+
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_19_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_ACCTG_MONTH_VW].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_ACCTG_MONTH_VW: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_2:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_ACCTG_MONTH_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3:READER_1_1] has the ID [33].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_3:TRANSF_1_1] has the ID [34].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 25938
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 25938
+
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:15 2026)
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_6_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_AEP_DATE].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_AEP_DATE: Index cache size = [8524800], Data cache size = [17047552]
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_3:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_AEP_DATE{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_4) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_4:READER_1_1] has the ID [35].
+2026-09-04 08:10:15 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_4:TRANSF_1_1] has the ID [36].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 185
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 185
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_9_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_TRAN_CLASS_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_TRAN_CLASS_DIM: Index cache size = [9086976], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_4:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_TRAN_CLASS_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_5:READER_1_1] has the ID [37].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_5:TRANSF_1_1] has the ID [38].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 16
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 16
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_33_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_ACCT_TYP_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_ACCT_TYP_DIM: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_5:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_ACCT_TYP_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_6:READER_1_1] has the ID [39].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_6:TRANSF_1_1] has the ID [40].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 704
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 704
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_10_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_INVTRY_LOC_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_INVTRY_LOC_DIM: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_6:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_INVTRY_LOC_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_18:READER_1_1] has the ID [41].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_18:TRANSF_1_1] has the ID [42].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 3770
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 3770
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_15_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_CONTRACT_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_CONTRACT_DIM: Index cache size = [8531200], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_18:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_CONTRACT_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_19:READER_1_1] has the ID [43].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_19:TRANSF_1_1] has the ID [44].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 2202
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 2202
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_16_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_CNTRCT_PROD_CD_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_CNTRCT_PROD_CD_DIM: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_19:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_CNTRCT_PROD_CD_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_20:READER_1_1] has the ID [45].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_20:TRANSF_1_1] has the ID [46].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 531
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 531
+
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:16 2026)
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_13_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_GNRTN_UNIT_DIM].
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_GNRTN_UNIT_DIM: Index cache size = [8526000], Data cache size = [17047552]
+2026-09-04 08:10:16 : INFO : (13304818 | LKPDP_20:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_GNRTN_UNIT_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_21:READER_1_1] has the ID [47].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_21:TRANSF_1_1] has the ID [48].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 89
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 89
+
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_11_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_FEL_ACCTG_INVTRY_LOC_DIM].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_FEL_ACCTG_INVTRY_LOC_DIM: Index cache size = [8540160], Data cache size = [17047552]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_21:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_FEL_ACCTG_INVTRY_LOC_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_7:READER_1_1] has the ID [49].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_7:TRANSF_1_1] has the ID [50].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 141
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 141
+
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_30_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_BSNS_ENTY_KEY].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_BSNS_ENTY_KEY: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_7:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_BSNS_ENTY_KEY{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_8:READER_1_1] has the ID [51].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_8:TRANSF_1_1] has the ID [52].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 8992
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 8992
+
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_21_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_GL_ACCT_DIM_VW].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_GL_ACCT_DIM_VW: Index cache size = [8524800], Data cache size = [17047552]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_8:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_GL_ACCT_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_9:READER_1_1] has the ID [53].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_9:TRANSF_1_1] has the ID [54].
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:17 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:17 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 486
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 486
+
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_22_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_REG_CONS_DIM_VW].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_REG_CONS_DIM_VW: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_9:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_REG_CONS_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_10:READER_1_1] has the ID [55].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_10:TRANSF_1_1] has the ID [56].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 4251
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 4251
+
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_23_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_DEPT_DIM_VW].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_DEPT_DIM_VW: Index cache size = [8524800], Data cache size = [17047552]
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_10:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_DEPT_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_11:READER_1_1] has the ID [57].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_11:TRANSF_1_1] has the ID [58].
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:18 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:18 2026)
+2026-09-04 08:10:33 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:33 2026)
+2026-09-04 08:10:33 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:33 2026)
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 14901621
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 14715140
+
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:57 2026)
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_29_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_AEP_WORK_ORDER_ID].
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_AEP_WORK_ORDER_ID: Index cache size = [8524800], Data cache size = [17047552]
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_11:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_AEP_WORK_ORDER_ID{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_12) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12:READER_1_1] has the ID [59].
+2026-09-04 08:10:57 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_12:TRANSF_1_1] has the ID [60].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 116469
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 116469
+
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_24_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_PROJ_DIM_VW].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_PROJ_DIM_VW: Index cache size = [8524800], Data cache size = [17047552]
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_12:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_PROJ_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13:READER_1_1] has the ID [61].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_13:TRANSF_1_1] has the ID [62].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 235
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 235
+
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_25_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_COST_CLS_DIM_VW].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_COST_CLS_DIM_VW: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_13:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_COST_CLS_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_14:READER_1_1] has the ID [63].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_14:TRANSF_1_1] has the ID [64].
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:10:58 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:40:58 2026)
+2026-09-04 08:11:01 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:41:01 2026)
+2026-09-04 08:11:01 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:41:01 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 14901621
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 43
+
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_28_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_AEP_WORK_ORDER_PCBU].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_AEP_WORK_ORDER_PCBU: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_14:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_AEP_WORK_ORDER_PCBU{{DSQ}}]. Total errors [0] 
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_15:READER_1_1] has the ID [65].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_15:TRANSF_1_1] has the ID [66].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 4453
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 4453
+
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_35_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_RES_S_CAT_DIM].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_RES_S_CAT_DIM: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_15:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_RES_S_CAT_DIM{{DSQ}}]. Total errors [0] 
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_16:READER_1_1] has the ID [67].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_16:TRANSF_1_1] has the ID [68].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 664
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 664
+
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_27_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_PS_Z_PROCS_ACT_DIM_VW].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_PS_Z_PROCS_ACT_DIM_VW: Index cache size = [8523200], Data cache size = [17047552]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_16:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_PS_Z_PROCS_ACT_DIM_VW{{DSQ}}]. Total errors [0] 
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 609824 bytes and Block size is 65536 bytes.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_17:READER_1_1] has the ID [69].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [LKPDP_17:TRANSF_1_1] has the ID [70].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:READER_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21079 : DBG_21079 Creating Lookup Cache : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21682 : Lookup table row count : 1081
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21297 : Lookup cache row count : 1081
+
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21294 : DBG_21294 Lookup cache creation completed : (Thu Sep 03 22:41:10 2026)
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1671 : Created new cache files PMLKUP229809_36_0_47086697A64.[dat/idx] in directory /edwpb1/appl/edwprd/Informatica_CDI-PC/Informatica/platform/home/server/infa_shared/Cache for Lookup [LKP_JO_BSNS_ENTY_KEY].
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21641 : LKP_JO_BSNS_ENTY_KEY: Index cache size = [8522800], Data cache size = [17047552]
+2026-09-04 08:11:10 : INFO : (13304818 | LKPDP_17:TRANSF_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [LKP_JO_BSNS_ENTY_KEY{{DSQ}}]. Total errors [0] 
+2026-09-04 08:11:10 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_FV_TRAN_FACT] at: Thu Sep 03 22:41:09 2026
+2026-09-04 08:11:11 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:10 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 10220      Applied: 10220      Rejected: 0          Affected: 10220     
+
+2026-09-04 08:11:11 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:10 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 20440      Applied: 20440      Rejected: 0          Affected: 20440     
+
+2026-09-04 08:11:11 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:10 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 30660      Applied: 30660      Rejected: 0          Affected: 30660     
+
+2026-09-04 08:11:11 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:10 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 40880      Applied: 40880      Rejected: 0          Affected: 40880     
+
+2026-09-04 08:11:11 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:11 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 51100      Applied: 51100      Rejected: 0          Affected: 51100     
+
+2026-09-04 08:11:12 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:11 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 61320      Applied: 61320      Rejected: 0          Affected: 61320     
+
+2026-09-04 08:11:12 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:11 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 71540      Applied: 71540      Rejected: 0          Affected: 71540     
+
+2026-09-04 08:11:12 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:12 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 81760      Applied: 81760      Rejected: 0          Affected: 81760     
+
+2026-09-04 08:11:13 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:12 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 91980      Applied: 91980      Rejected: 0          Affected: 91980     
+
+2026-09-04 08:11:13 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:12 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 102200     Applied: 102200     Rejected: 0          Affected: 102200    
+
+2026-09-04 08:11:13 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:12 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 112420     Applied: 112420     Rejected: 0          Affected: 112420    
+
+2026-09-04 08:11:13 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:13 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 122640     Applied: 122640     Rejected: 0          Affected: 122640    
+
+2026-09-04 08:11:14 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:13 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 132860     Applied: 132860     Rejected: 0          Affected: 132860    
+
+2026-09-04 08:11:14 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:13 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 143080     Applied: 143080     Rejected: 0          Affected: 143080    
+
+2026-09-04 08:11:14 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:13 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 153300     Applied: 153300     Rejected: 0          Affected: 153300    
+
+2026-09-04 08:11:14 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:13 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 163520     Applied: 163520     Rejected: 0          Affected: 163520    
+
+2026-09-04 08:11:15 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:14 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 173740     Applied: 173740     Rejected: 0          Affected: 173740    
+
+2026-09-04 08:11:15 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:14 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 183960     Applied: 183960     Rejected: 0          Affected: 183960    
+
+2026-09-04 08:11:15 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:14 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 194180     Applied: 194180     Rejected: 0          Affected: 194180    
+
+2026-09-04 08:11:15 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:14 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 204400     Applied: 204400     Rejected: 0          Affected: 204400    
+
+2026-09-04 08:11:16 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:15 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 214620     Applied: 214620     Rejected: 0          Affected: 214620    
+
+2026-09-04 08:11:16 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:15 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 224840     Applied: 224840     Rejected: 0          Affected: 224840    
+
+2026-09-04 08:11:16 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:15 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 235060     Applied: 235060     Rejected: 0          Affected: 235060    
+
+2026-09-04 08:11:16 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:15 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 245280     Applied: 245280     Rejected: 0          Affected: 245280    
+
+2026-09-04 08:11:16 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:16 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 255500     Applied: 255500     Rejected: 0          Affected: 255500    
+
+2026-09-04 08:11:17 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:16 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 265720     Applied: 265720     Rejected: 0          Affected: 265720    
+
+2026-09-04 08:11:17 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:16 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 275940     Applied: 275940     Rejected: 0          Affected: 275940    
+
+2026-09-04 08:11:17 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:16 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 286160     Applied: 286160     Rejected: 0          Affected: 286160    
+
+2026-09-04 08:11:17 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:16 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 296380     Applied: 296380     Rejected: 0          Affected: 296380    
+
+2026-09-04 08:11:18 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:17 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 306600     Applied: 306600     Rejected: 0          Affected: 306600    
+
+2026-09-04 08:11:18 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:17 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 316820     Applied: 316820     Rejected: 0          Affected: 316820    
+
+2026-09-04 08:11:18 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:17 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 327040     Applied: 327040     Rejected: 0          Affected: 327040    
+
+2026-09-04 08:11:18 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:17 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 337260     Applied: 337260     Rejected: 0          Affected: 337260    
+
+2026-09-04 08:11:18 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:18 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 347480     Applied: 347480     Rejected: 0          Affected: 347480    
+
+2026-09-04 08:11:19 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:18 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 357700     Applied: 357700     Rejected: 0          Affected: 357700    
+
+2026-09-04 08:11:19 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:18 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 367920     Applied: 367920     Rejected: 0          Affected: 367920    
+
+2026-09-04 08:11:19 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:18 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 378140     Applied: 378140     Rejected: 0          Affected: 378140    
+
+2026-09-04 08:11:19 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:19 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 388360     Applied: 388360     Rejected: 0          Affected: 388360    
+
+2026-09-04 08:11:20 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:19 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 398580     Applied: 398580     Rejected: 0          Affected: 398580    
+
+2026-09-04 08:11:20 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:19 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 408800     Applied: 408800     Rejected: 0          Affected: 408800    
+
+2026-09-04 08:11:20 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:19 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 419020     Applied: 419020     Rejected: 0          Affected: 419020    
+
+2026-09-04 08:11:20 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:19 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 429240     Applied: 429240     Rejected: 0          Affected: 429240    
+
+2026-09-04 08:11:20 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:20 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 439460     Applied: 439460     Rejected: 0          Affected: 439460    
+
+2026-09-04 08:11:21 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:20 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 449680     Applied: 449680     Rejected: 0          Affected: 449680    
+
+2026-09-04 08:11:21 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:20 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 459900     Applied: 459900     Rejected: 0          Affected: 459900    
+
+2026-09-04 08:11:21 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:20 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 470120     Applied: 470120     Rejected: 0          Affected: 470120    
+
+2026-09-04 08:11:21 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:21 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 480340     Applied: 480340     Rejected: 0          Affected: 480340    
+
+2026-09-04 08:11:22 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:21 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 490560     Applied: 490560     Rejected: 0          Affected: 490560    
+
+2026-09-04 08:11:22 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:21 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 500780     Applied: 500780     Rejected: 0          Affected: 500780    
+
+2026-09-04 08:11:22 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:21 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 511000     Applied: 511000     Rejected: 0          Affected: 511000    
+
+2026-09-04 08:11:22 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:21 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 521220     Applied: 521220     Rejected: 0          Affected: 521220    
+
+2026-09-04 08:11:23 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:22 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 531440     Applied: 531440     Rejected: 0          Affected: 531440    
+
+2026-09-04 08:11:23 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:22 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 541660     Applied: 541660     Rejected: 0          Affected: 541660    
+
+2026-09-04 08:11:23 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:22 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 551880     Applied: 551880     Rejected: 0          Affected: 551880    
+
+2026-09-04 08:11:23 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:22 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 562100     Applied: 562100     Rejected: 0          Affected: 562100    
+
+2026-09-04 08:11:24 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:23 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 572320     Applied: 572320     Rejected: 0          Affected: 572320    
+
+2026-09-04 08:11:24 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:23 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 582540     Applied: 582540     Rejected: 0          Affected: 582540    
+
+2026-09-04 08:11:24 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:23 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 592760     Applied: 592760     Rejected: 0          Affected: 592760    
+
+2026-09-04 08:11:24 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:24 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 602980     Applied: 602980     Rejected: 0          Affected: 602980    
+
+2026-09-04 08:11:25 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:24 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 613200     Applied: 613200     Rejected: 0          Affected: 613200    
+
+2026-09-04 08:11:25 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:24 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 623420     Applied: 623420     Rejected: 0          Affected: 623420    
+
+2026-09-04 08:11:25 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:24 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 633640     Applied: 633640     Rejected: 0          Affected: 633640    
+
+2026-09-04 08:11:25 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:24 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 643860     Applied: 643860     Rejected: 0          Affected: 643860    
+
+2026-09-04 08:11:26 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:25 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 654080     Applied: 654080     Rejected: 0          Affected: 654080    
+
+2026-09-04 08:11:26 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:25 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 664300     Applied: 664300     Rejected: 0          Affected: 664300    
+
+2026-09-04 08:11:26 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:25 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 674520     Applied: 674520     Rejected: 0          Affected: 674520    
+
+2026-09-04 08:11:26 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:25 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 684740     Applied: 684740     Rejected: 0          Affected: 684740    
+
+2026-09-04 08:11:26 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:25 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 694960     Applied: 694960     Rejected: 0          Affected: 694960    
+
+2026-09-04 08:11:27 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:26 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 705180     Applied: 705180     Rejected: 0          Affected: 705180    
+
+2026-09-04 08:11:27 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:26 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 715400     Applied: 715400     Rejected: 0          Affected: 715400    
+
+2026-09-04 08:11:27 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:26 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 725620     Applied: 725620     Rejected: 0          Affected: 725620    
+
+2026-09-04 08:11:27 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:26 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 735840     Applied: 735840     Rejected: 0          Affected: 735840    
+
+2026-09-04 08:11:27 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:27 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 746060     Applied: 746060     Rejected: 0          Affected: 746060    
+
+2026-09-04 08:11:28 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:27 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 756280     Applied: 756280     Rejected: 0          Affected: 756280    
+
+2026-09-04 08:11:28 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:27 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 766500     Applied: 766500     Rejected: 0          Affected: 766500    
+
+2026-09-04 08:11:28 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:27 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 776720     Applied: 776720     Rejected: 0          Affected: 776720    
+
+2026-09-04 08:11:28 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:27 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 786940     Applied: 786940     Rejected: 0          Affected: 786940    
+
+2026-09-04 08:11:29 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:28 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 797160     Applied: 797160     Rejected: 0          Affected: 797160    
+
+2026-09-04 08:11:29 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:28 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 807380     Applied: 807380     Rejected: 0          Affected: 807380    
+
+2026-09-04 08:11:29 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:28 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 817600     Applied: 817600     Rejected: 0          Affected: 817600    
+
+2026-09-04 08:11:29 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:28 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 827820     Applied: 827820     Rejected: 0          Affected: 827820    
+
+2026-09-04 08:11:30 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:29 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 838040     Applied: 838040     Rejected: 0          Affected: 838040    
+
+2026-09-04 08:11:30 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:29 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 848260     Applied: 848260     Rejected: 0          Affected: 848260    
+
+2026-09-04 08:11:30 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:29 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 858480     Applied: 858480     Rejected: 0          Affected: 858480    
+
+2026-09-04 08:11:30 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:29 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 868700     Applied: 868700     Rejected: 0          Affected: 868700    
+
+2026-09-04 08:11:30 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:29 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 878920     Applied: 878920     Rejected: 0          Affected: 878920    
+
+2026-09-04 08:11:31 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:30 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 889140     Applied: 889140     Rejected: 0          Affected: 889140    
+
+2026-09-04 08:11:31 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:30 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 899360     Applied: 899360     Rejected: 0          Affected: 899360    
+
+2026-09-04 08:11:31 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:30 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 909580     Applied: 909580     Rejected: 0          Affected: 909580    
+
+2026-09-04 08:11:31 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:30 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 919800     Applied: 919800     Rejected: 0          Affected: 919800    
+
+2026-09-04 08:11:32 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:31 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 930020     Applied: 930020     Rejected: 0          Affected: 930020    
+
+2026-09-04 08:11:32 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:31 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 940240     Applied: 940240     Rejected: 0          Affected: 940240    
+
+2026-09-04 08:11:32 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:31 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 950460     Applied: 950460     Rejected: 0          Affected: 950460    
+
+2026-09-04 08:11:32 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:31 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 960680     Applied: 960680     Rejected: 0          Affected: 960680    
+
+2026-09-04 08:11:32 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:31 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 970900     Applied: 970900     Rejected: 0          Affected: 970900    
+
+2026-09-04 08:11:33 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:32 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 981120     Applied: 981120     Rejected: 0          Affected: 981120    
+
+2026-09-04 08:11:33 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:32 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 991340     Applied: 991340     Rejected: 0          Affected: 991340    
+
+2026-09-04 08:11:33 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:32 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1001560    Applied: 1001560    Rejected: 0          Affected: 1001560   
+
+2026-09-04 08:11:33 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:32 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1011780    Applied: 1011780    Rejected: 0          Affected: 1011780   
+
+2026-09-04 08:11:34 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:33 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1022000    Applied: 1022000    Rejected: 0          Affected: 1022000   
+
+2026-09-04 08:11:34 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:33 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1032220    Applied: 1032220    Rejected: 0          Affected: 1032220   
+
+2026-09-04 08:11:34 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:33 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1042440    Applied: 1042440    Rejected: 0          Affected: 1042440   
+
+2026-09-04 08:11:34 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:33 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1052660    Applied: 1052660    Rejected: 0          Affected: 1052660   
+
+2026-09-04 08:11:35 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:34 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1062880    Applied: 1062880    Rejected: 0          Affected: 1062880   
+
+2026-09-04 08:11:35 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:34 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1073100    Applied: 1073100    Rejected: 0          Affected: 1073100   
+
+2026-09-04 08:11:35 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:34 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1083320    Applied: 1083320    Rejected: 0          Affected: 1083320   
+
+2026-09-04 08:11:35 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:34 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1093540    Applied: 1093540    Rejected: 0          Affected: 1093540   
+
+2026-09-04 08:11:35 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:34 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1103760    Applied: 1103760    Rejected: 0          Affected: 1103760   
+
+2026-09-04 08:11:36 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:35 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1113980    Applied: 1113980    Rejected: 0          Affected: 1113980   
+
+2026-09-04 08:11:36 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:35 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1124200    Applied: 1124200    Rejected: 0          Affected: 1124200   
+
+2026-09-04 08:11:36 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:35 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1134420    Applied: 1134420    Rejected: 0          Affected: 1134420   
+
+2026-09-04 08:11:36 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:35 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1144640    Applied: 1144640    Rejected: 0          Affected: 1144640   
+
+2026-09-04 08:11:36 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:36 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1154860    Applied: 1154860    Rejected: 0          Affected: 1154860   
+
+2026-09-04 08:11:37 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:36 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1165080    Applied: 1165080    Rejected: 0          Affected: 1165080   
+
+2026-09-04 08:11:37 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:36 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1175300    Applied: 1175300    Rejected: 0          Affected: 1175300   
+
+2026-09-04 08:11:37 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:36 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1185520    Applied: 1185520    Rejected: 0          Affected: 1185520   
+
+2026-09-04 08:11:37 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:36 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1195740    Applied: 1195740    Rejected: 0          Affected: 1195740   
+
+2026-09-04 08:11:38 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:37 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1205960    Applied: 1205960    Rejected: 0          Affected: 1205960   
+
+2026-09-04 08:11:38 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:37 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1216180    Applied: 1216180    Rejected: 0          Affected: 1216180   
+
+2026-09-04 08:11:38 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:37 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1226400    Applied: 1226400    Rejected: 0          Affected: 1226400   
+
+2026-09-04 08:11:38 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:37 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1236620    Applied: 1236620    Rejected: 0          Affected: 1236620   
+
+2026-09-04 08:11:38 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:38 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1246840    Applied: 1246840    Rejected: 0          Affected: 1246840   
+
+2026-09-04 08:11:39 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:38 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1257060    Applied: 1257060    Rejected: 0          Affected: 1257060   
+
+2026-09-04 08:11:39 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:38 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1267280    Applied: 1267280    Rejected: 0          Affected: 1267280   
+
+2026-09-04 08:11:39 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:38 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1277500    Applied: 1277500    Rejected: 0          Affected: 1277500   
+
+2026-09-04 08:11:40 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:39 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1287720    Applied: 1287720    Rejected: 0          Affected: 1287720   
+
+2026-09-04 08:11:40 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:39 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1297940    Applied: 1297940    Rejected: 0          Affected: 1297940   
+
+2026-09-04 08:11:40 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:39 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1308160    Applied: 1308160    Rejected: 0          Affected: 1308160   
+
+2026-09-04 08:11:40 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:39 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1318380    Applied: 1318380    Rejected: 0          Affected: 1318380   
+
+2026-09-04 08:11:40 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:40 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1328600    Applied: 1328600    Rejected: 0          Affected: 1328600   
+
+2026-09-04 08:11:41 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:40 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1338820    Applied: 1338820    Rejected: 0          Affected: 1338820   
+
+2026-09-04 08:11:41 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:40 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1349040    Applied: 1349040    Rejected: 0          Affected: 1349040   
+
+2026-09-04 08:11:41 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:40 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1359260    Applied: 1359260    Rejected: 0          Affected: 1359260   
+
+2026-09-04 08:11:41 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:41 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1369480    Applied: 1369480    Rejected: 0          Affected: 1369480   
+
+2026-09-04 08:11:42 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:41 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1379700    Applied: 1379700    Rejected: 0          Affected: 1379700   
+
+2026-09-04 08:11:42 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:41 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1389920    Applied: 1389920    Rejected: 0          Affected: 1389920   
+
+2026-09-04 08:11:42 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:41 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1400140    Applied: 1400140    Rejected: 0          Affected: 1400140   
+
+2026-09-04 08:11:42 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:42 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1410360    Applied: 1410360    Rejected: 0          Affected: 1410360   
+
+2026-09-04 08:11:43 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:42 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1420580    Applied: 1420580    Rejected: 0          Affected: 1420580   
+
+2026-09-04 08:11:43 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:42 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1430800    Applied: 1430800    Rejected: 0          Affected: 1430800   
+
+2026-09-04 08:11:43 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:42 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1441020    Applied: 1441020    Rejected: 0          Affected: 1441020   
+
+2026-09-04 08:11:43 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:43 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1451240    Applied: 1451240    Rejected: 0          Affected: 1451240   
+
+2026-09-04 08:11:44 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:43 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1461460    Applied: 1461460    Rejected: 0          Affected: 1461460   
+
+2026-09-04 08:11:44 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:43 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1471680    Applied: 1471680    Rejected: 0          Affected: 1471680   
+
+2026-09-04 08:11:44 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:43 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1481900    Applied: 1481900    Rejected: 0          Affected: 1481900   
+
+2026-09-04 08:11:44 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:44 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1492120    Applied: 1492120    Rejected: 0          Affected: 1492120   
+
+2026-09-04 08:11:45 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:44 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1502340    Applied: 1502340    Rejected: 0          Affected: 1502340   
+
+2026-09-04 08:11:45 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:44 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1512560    Applied: 1512560    Rejected: 0          Affected: 1512560   
+
+2026-09-04 08:11:45 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:44 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1522780    Applied: 1522780    Rejected: 0          Affected: 1522780   
+
+2026-09-04 08:11:45 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:44 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1533000    Applied: 1533000    Rejected: 0          Affected: 1533000   
+
+2026-09-04 08:11:45 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:45 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1543220    Applied: 1543220    Rejected: 0          Affected: 1543220   
+
+2026-09-04 08:11:46 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:45 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1553440    Applied: 1553440    Rejected: 0          Affected: 1553440   
+
+2026-09-04 08:11:46 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:45 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1563660    Applied: 1563660    Rejected: 0          Affected: 1563660   
+
+2026-09-04 08:11:46 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:45 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1573880    Applied: 1573880    Rejected: 0          Affected: 1573880   
+
+2026-09-04 08:11:46 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:45 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1584100    Applied: 1584100    Rejected: 0          Affected: 1584100   
+
+2026-09-04 08:11:47 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:46 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1594320    Applied: 1594320    Rejected: 0          Affected: 1594320   
+
+2026-09-04 08:11:47 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:46 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1604540    Applied: 1604540    Rejected: 0          Affected: 1604540   
+
+2026-09-04 08:11:47 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:46 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1614760    Applied: 1614760    Rejected: 0          Affected: 1614760   
+
+2026-09-04 08:11:47 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:46 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1624980    Applied: 1624980    Rejected: 0          Affected: 1624980   
+
+2026-09-04 08:11:48 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:47 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1635200    Applied: 1635200    Rejected: 0          Affected: 1635200   
+
+2026-09-04 08:11:48 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:47 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1645420    Applied: 1645420    Rejected: 0          Affected: 1645420   
+
+2026-09-04 08:11:48 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:48 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1655640    Applied: 1655640    Rejected: 0          Affected: 1655640   
+
+2026-09-04 08:11:49 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:48 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1665860    Applied: 1665860    Rejected: 0          Affected: 1665860   
+
+2026-09-04 08:11:49 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:48 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1676080    Applied: 1676080    Rejected: 0          Affected: 1676080   
+
+2026-09-04 08:11:49 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:48 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1686300    Applied: 1686300    Rejected: 0          Affected: 1686300   
+
+2026-09-04 08:11:49 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:49 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1696520    Applied: 1696520    Rejected: 0          Affected: 1696520   
+
+2026-09-04 08:11:50 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:49 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1706740    Applied: 1706740    Rejected: 0          Affected: 1706740   
+
+2026-09-04 08:11:50 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:49 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1716960    Applied: 1716960    Rejected: 0          Affected: 1716960   
+
+2026-09-04 08:11:50 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:49 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1727180    Applied: 1727180    Rejected: 0          Affected: 1727180   
+
+2026-09-04 08:11:50 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:49 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1737400    Applied: 1737400    Rejected: 0          Affected: 1737400   
+
+2026-09-04 08:11:50 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:50 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1747620    Applied: 1747620    Rejected: 0          Affected: 1747620   
+
+2026-09-04 08:11:51 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:50 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1757840    Applied: 1757840    Rejected: 0          Affected: 1757840   
+
+2026-09-04 08:11:51 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:50 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1768060    Applied: 1768060    Rejected: 0          Affected: 1768060   
+
+2026-09-04 08:11:51 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:50 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1778280    Applied: 1778280    Rejected: 0          Affected: 1778280   
+
+2026-09-04 08:11:51 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:50 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1788500    Applied: 1788500    Rejected: 0          Affected: 1788500   
+
+2026-09-04 08:11:52 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:51 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1798720    Applied: 1798720    Rejected: 0          Affected: 1798720   
+
+2026-09-04 08:11:52 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:51 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1808940    Applied: 1808940    Rejected: 0          Affected: 1808940   
+
+2026-09-04 08:11:52 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:51 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1819160    Applied: 1819160    Rejected: 0          Affected: 1819160   
+
+2026-09-04 08:11:52 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:51 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1829380    Applied: 1829380    Rejected: 0          Affected: 1829380   
+
+2026-09-04 08:11:53 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:52 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1839600    Applied: 1839600    Rejected: 0          Affected: 1839600   
+
+2026-09-04 08:11:53 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:52 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1849820    Applied: 1849820    Rejected: 0          Affected: 1849820   
+
+2026-09-04 08:11:53 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:52 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1860040    Applied: 1860040    Rejected: 0          Affected: 1860040   
+
+2026-09-04 08:11:53 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:52 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1870260    Applied: 1870260    Rejected: 0          Affected: 1870260   
+
+2026-09-04 08:11:53 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:52 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1880480    Applied: 1880480    Rejected: 0          Affected: 1880480   
+
+2026-09-04 08:11:54 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:53 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1890700    Applied: 1890700    Rejected: 0          Affected: 1890700   
+
+2026-09-04 08:11:54 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:53 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1900920    Applied: 1900920    Rejected: 0          Affected: 1900920   
+
+2026-09-04 08:11:54 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:53 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1911140    Applied: 1911140    Rejected: 0          Affected: 1911140   
+
+2026-09-04 08:11:54 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:53 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1921360    Applied: 1921360    Rejected: 0          Affected: 1921360   
+
+2026-09-04 08:11:54 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:54 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1931580    Applied: 1931580    Rejected: 0          Affected: 1931580   
+
+2026-09-04 08:11:55 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:54 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1941800    Applied: 1941800    Rejected: 0          Affected: 1941800   
+
+2026-09-04 08:11:55 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:54 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1952020    Applied: 1952020    Rejected: 0          Affected: 1952020   
+
+2026-09-04 08:11:55 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:54 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1962240    Applied: 1962240    Rejected: 0          Affected: 1962240   
+
+2026-09-04 08:11:55 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:54 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1972460    Applied: 1972460    Rejected: 0          Affected: 1972460   
+
+2026-09-04 08:11:55 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:55 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1982680    Applied: 1982680    Rejected: 0          Affected: 1982680   
+
+2026-09-04 08:11:56 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:55 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 1992900    Applied: 1992900    Rejected: 0          Affected: 1992900   
+
+2026-09-04 08:11:56 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:55 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2003120    Applied: 2003120    Rejected: 0          Affected: 2003120   
+
+2026-09-04 08:11:56 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:55 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2013340    Applied: 2013340    Rejected: 0          Affected: 2013340   
+
+2026-09-04 08:11:56 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:55 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2023560    Applied: 2023560    Rejected: 0          Affected: 2023560   
+
+2026-09-04 08:11:56 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:56 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2033780    Applied: 2033780    Rejected: 0          Affected: 2033780   
+
+2026-09-04 08:11:57 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:56 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2044000    Applied: 2044000    Rejected: 0          Affected: 2044000   
+
+2026-09-04 08:11:57 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:56 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2054220    Applied: 2054220    Rejected: 0          Affected: 2054220   
+
+2026-09-04 08:11:57 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:56 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2064440    Applied: 2064440    Rejected: 0          Affected: 2064440   
+
+2026-09-04 08:11:57 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:56 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2074660    Applied: 2074660    Rejected: 0          Affected: 2074660   
+
+2026-09-04 08:11:57 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:57 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2084880    Applied: 2084880    Rejected: 0          Affected: 2084880   
+
+2026-09-04 08:11:58 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:57 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2095100    Applied: 2095100    Rejected: 0          Affected: 2095100   
+
+2026-09-04 08:11:58 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:57 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2105320    Applied: 2105320    Rejected: 0          Affected: 2105320   
+
+2026-09-04 08:11:58 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:57 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2115540    Applied: 2115540    Rejected: 0          Affected: 2115540   
+
+2026-09-04 08:11:58 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:58 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2125760    Applied: 2125760    Rejected: 0          Affected: 2125760   
+
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8161 : 
+TARGET BASED COMMIT POINT  Thu Sep 03 22:41:58 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2135980    Applied: 2135980    Rejected: 0          Affected: 2135980   
+
+2026-09-04 08:11:59 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16019 : Read [2138256] rows, read [0] error rows for source table [AEP_DW_FV_TRANS_VW] instance name [AEP_DW_FV_TRANS_VW]
+2026-09-04 08:11:59 : INFO : (13304818 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:11:59 : INFO : (13304818 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [SQ_AEP_DW_FV_TRANS_VW]. Total errors [0] 
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_FV_TRAN_FACT] at: Thu Sep 03 22:41:58 2026
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8141 : 
+Commit on end-of-data  Thu Sep 03 22:41:58 2026
+===================================================
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2138256    Applied: 2138256    Rejected: 0          Affected: 2138256   
+
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8035 : Load complete time: Thu Sep 03 22:41:58 2026
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: FEL_FV_TRAN_FACT (Instance Name: [FEL_FV_TRAN_FACT])
+WRT_8038 Inserted rows - Requested: 2138256    Applied: 2138256    Rejected: 0          Affected: 2138256   
+
+
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8043 : *****END LOAD SESSION*****
+2026-09-04 08:11:59 : INFO : (13304818 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8006 : Writer run completed.
+2026-09-04 08:11:59 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_AEP_DW_FV_TRANS_VW] has completed.
+	Total Run Time = [114.777918] secs
+	Total Idle Time = [66.896531] secs
+	Busy Percentage = [41.716550]
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_AEP_DW_FV_TRANS_VW] has completed.
+	Total Run Time = [104.199229] secs
+	Total Idle Time = [59.181462] secs
+	Busy Percentage = [43.203551]
+	Transformation-specific statistics for this thread were not accurate enough to report.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [FEL_FV_TRAN_FACT] has completed.
+	Total Run Time = [55.631438] secs
+	Total Idle Time = [26.019311] secs
+	Busy Percentage = [53.229124]
+
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [185] rows in the lookup table for [LKP_FEL_TRAN_CLASS_DIM], in memory, is [400896] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [185] rows in the lookup table for [LKP_FEL_TRAN_CLASS_DIM], in memory, is [16384] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [16] rows in the lookup table for [LKP_FEL_ACCT_TYP_DIM], in memory, is [5200] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [16] rows in the lookup table for [LKP_FEL_ACCT_TYP_DIM], in memory, is [16384] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [704] rows in the lookup table for [LKP_FEL_INVTRY_LOC_DIM], in memory, is [39600] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [704] rows in the lookup table for [LKP_FEL_INVTRY_LOC_DIM], in memory, is [81920] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [89] rows in the lookup table for [LKP_FEL_ACCTG_INVTRY_LOC_DIM], in memory, is [20480] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [89] rows in the lookup table for [LKP_FEL_ACCTG_INVTRY_LOC_DIM], in memory, is [16384] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [3770] rows in the lookup table for [LKP_FEL_CONTRACT_DIM], in memory, is [496000] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [3770] rows in the lookup table for [LKP_FEL_CONTRACT_DIM], in memory, is [73728] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [2202] rows in the lookup table for [LKP_FEL_CNTRCT_PROD_CD_DIM], in memory, is [67200] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [2202] rows in the lookup table for [LKP_FEL_CNTRCT_PROD_CD_DIM], in memory, is [49152] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1793 : The index cache size that would hold [531] rows in the lookup table for [LKP_FEL_GNRTN_UNIT_DIM], in memory, is [42000] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1792 : The data cache size that would hold [531] rows in the lookup table for [LKP_FEL_GNRTN_UNIT_DIM], in memory, is [24576] bytes
+2026-09-04 08:11:59 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24005 : PETL_24005 Starting post-session tasks. : (Thu Sep 03 22:41:59 2026)
+2026-09-04 08:11:59 : INFO : (13304818 | POST-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [POST-SESS] has the ID [71].
+2026-09-04 08:11:59 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Thu Sep 03 22:41:59 2026)
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_14_0_47086697A64] for transformation [LKP_FEL_SYSTEM_DIM].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_19_0_47086697A64] for transformation [LKP_FEL_ACCTG_MONTH_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_6_0_47086697A64] for transformation [LKP_AEP_DATE].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_9_0_47086697A64] for transformation [LKP_FEL_TRAN_CLASS_DIM].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_33_0_47086697A64] for transformation [LKP_FEL_ACCT_TYP_DIM].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_10_0_47086697A64] for transformation [LKP_FEL_INVTRY_LOC_DIM].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_30_0_47086697A64] for transformation [LKP_BSNS_ENTY_KEY].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_21_0_47086697A64] for transformation [LKP_PS_Z_GL_ACCT_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_22_0_47086697A64] for transformation [LKP_PS_Z_REG_CONS_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_23_0_47086697A64] for transformation [LKP_PS_Z_DEPT_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_29_0_47086697A64] for transformation [LKP_AEP_WORK_ORDER_ID].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_24_0_47086697A64] for transformation [LKP_PS_Z_PROJ_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_25_0_47086697A64] for transformation [LKP_PS_Z_COST_CLS_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_28_0_47086697A64] for transformation [LKP_AEP_WORK_ORDER_PCBU].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_35_0_47086697A64] for transformation [LKP_PS_Z_RES_S_CAT_DIM].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_27_0_47086697A64] for transformation [LKP_PS_Z_PROCS_ACT_DIM_VW].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_36_0_47086697A64] for transformation [LKP_JO_BSNS_ENTY_KEY].
+2026-09-04 08:11:59 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_15_0_47086697A64] for transformation [LKP_FEL_CONTRACT_DIM].
+2026-09-04 08:12:00 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_16_0_47086697A64] for transformation [LKP_FEL_CNTRCT_PROD_CD_DIM].
+2026-09-04 08:12:00 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_13_0_47086697A64] for transformation [LKP_FEL_GNRTN_UNIT_DIM].
+2026-09-04 08:12:00 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7216 : Deleting cache files [PMLKUP229809_11_0_47086697A64] for transformation [LKP_FEL_ACCTG_INVTRY_LOC_DIM].
+2026-09-04 08:12:00 : INFO : (13304818 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6018 : The session completed with [0] row transformation errors. 
+2026-09-04 08:12:00 : INFO : (13304818 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24002 : Parallel Pipeline Engine finished.
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24012 : Session run completed successfully.
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6252 : Source Load Summary.
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [SQ_AEP_DW_FV_TRANS_VW] (Instance Name: [SQ_AEP_DW_FV_TRANS_VW])
+	 Output Rows [2138256], Affected Rows [2138256], Applied Rows [2138256], Rejected Rows [0]
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6253 : Target Load Summary.
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_FV_TRAN_FACT] (Instance Name: [FEL_FV_TRAN_FACT])
+	 Output Rows [2138256], Affected Rows [2138256], Applied Rows [2138256], Rejected Rows [0]
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6023 : 
+===================================================
+
+2026-09-04 08:12:00 : INFO : (13304818 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6020 : Session [s_m_FEL_FV_TRAN_FACT_ins] completed at [Thu Sep 03 22:42:00 2026].
