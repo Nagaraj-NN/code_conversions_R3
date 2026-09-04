@@ -1,0 +1,119 @@
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : VAR_27027 : Use default value [] for mapping parameter:[$$REC_STATUS].
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : VAR_27027 : Use default value [] for mapping parameter:[$$RUN_STATUS].
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : VAR_27027 : Use default value [] for mapping parameter:[$$START_TIME].
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6014 : Initializing session [s_m_FEL_COAL_RCPTS_QTY_QLTY_FDR_del] at [Thu Sep 03 22:43:08 2026].
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6683 : Repository Name: [edwp]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6684 : Server Name: [pmserver_edwp_2]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6686 : Folder: [FEL]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6685 : Workflow: [wkf_FEL_COAL_DIM_FACT_DEL] Run Instance Name: [] Run Id: [47086722]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6992 : Operating System Type [AIX]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6101 : Mapping name: m_FEL_COAL_RCPTS_QTY_QLTY_FDR_del.
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6963 : Pre 85 Timestamp Compatibility is Enabled
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [EnableMetricsCollection,No]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [FileRdrTreatNullCharAs,\040]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6708 : Using configuration property [ServerPort,54001]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6703 : Session [s_m_FEL_COAL_RCPTS_QTY_QLTY_FDR_del] is run by 64-bit Integration Service  [node01_edwp], version [202510], build [0924].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MANAGER] has the ID [1].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24058 : Running Partition Group [1].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24000 : Parallel Pipeline Engine initializing.
+2026-09-04 08:13:08 : INFO : (20120600 | MONITOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MONITOR] has the ID [2].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24001 : Parallel Pipeline Engine running.
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24003 : Initializing session run.
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [MAPPING] has the ID [3].
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1569 : Server Mode: [ASCII]
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1570 : Server Code page: [ISO 8859-1 Western European]
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6151 : The session sort order is [Binary].
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65111 : Current Timezone:[UTC -5:0]
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : CMN_65112 : Current Process ID:[20120600]
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6156 : Using low precision processing.
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6180 : Deadlock retry logic will not be implemented.
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6187 : Session target-based commit interval is [10000].
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6307 : DTM error log disabled. 
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TE_7022 : TShmWriter: Initialized
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6007 : DTM initialized successfully for session [s_m_FEL_COAL_RCPTS_QTY_QLTY_FDR_del]
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24033 : All DTM Connection Info: [<NONE>].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Thu Sep 03 22:43:08 2026)
+2026-09-04 08:13:08 : INFO : (20120600 | PRE-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2026-09-04 08:13:08 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Thu Sep 03 22:43:08 2026)
+2026-09-04 08:13:08 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24006 : Starting data movement.
+2026-09-04 08:13:08 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6660 : Total Buffer Pool size is 1219648 bytes and Block size is 65536 bytes.
+2026-09-04 08:13:08 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [READER_1_1_1] has the ID [5].
+2026-09-04 08:13:08 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21438 : Reader: Source is [GENDB001], Type [Oracle], User [feladm]
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16003 : Initialization completed successfully.
+2026-09-04 08:13:09 : INFO : (20120600 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [6].
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [WRITER_1_*_1] has the ID [7].
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8366 : Bulk mode is not applicable to delete, update, or data-driven sessions, default to normal mode.
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8148 : Writer: Target is Database [GENDB001], Type [Oracle], User [feladm], Bulk Mode [N/A]
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8124 : Target Table FEL_COAL_RCPTS_QTY_QLTY_FDR :SQL DELETE statement:
+DELETE FROM feladm.FEL_COAL_RCPTS_QTY_QLTY_FDR WHERE RECEIPT_ID = ?
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8270 : Target connection group #1 consists of target(s) [FEL_COAL_RCPTS_QTY_QLTY_FDR]
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8003 : Writer initialization complete.
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16007 : Reader run started.
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8005 : Writer run started.
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Thu Sep 03 22:43:09 2026
+
+Target tables:
+
+     FEL_COAL_RCPTS_QTY_QLTY_FDR
+
+
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4010 : SQ instance [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR] SQL Query [SELECT feladm.FEL_COAL_RCPTS_QTY_QLTY_FDR.RECEIPT_ID FROM feladm.FEL_COAL_RCPTS_QTY_QLTY_FDR WHERE UPPER(TRIM(STATUS_TX)) = 'INACTIVE']
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4049 : RR_4049 SQL Query issued to database : (Thu Sep 03 22:43:09 2026)
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : RR_4050 : RR_4050 First row returned from database to reader : (Thu Sep 03 22:43:09 2026)
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16019 : Read [23] rows, read [0] error rows for source table [FEL_COAL_RCPTS_QTY_QLTY_FDR] instance name [FEL_COAL_RCPTS_QTY_QLTY_FDR]
+2026-09-04 08:13:09 : INFO : (20120600 | READER_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : BLKR_16008 : Reader run completed.
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8167 : Start loading table [FEL_COAL_RCPTS_QTY_QLTY_FDR] at: Thu Sep 03 22:43:09 2026
+2026-09-04 08:13:09 : INFO : (20120600 | TRANSF_1_1_1) : (IS | pmserver_edwp_2) : node01_edwp : DBG_21216 : Finished transformations for Source Qualifier [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR]. Total errors [0] 
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8168 : End loading table [FEL_COAL_RCPTS_QTY_QLTY_FDR] at: Thu Sep 03 22:43:09 2026
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8141 : 
+Commit on end-of-data  Thu Sep 03 22:43:09 2026
+===================================================
+
+WRT_8036 Target: FEL_COAL_RCPTS_QTY_QLTY_FDR (Instance Name: [FEL_COAL_RCPTS_QTY_QLTY_FDR1])
+WRT_8040 Deleted rows  - Requested: 23         Applied: 23         Rejected: 0          Affected: 23        
+
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8035 : Load complete time: Thu Sep 03 22:43:09 2026
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: FEL_COAL_RCPTS_QTY_QLTY_FDR (Instance Name: [FEL_COAL_RCPTS_QTY_QLTY_FDR1])
+WRT_8040 Deleted rows  - Requested: 23         Applied: 23         Rejected: 0          Affected: 23        
+
+
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8043 : *****END LOAD SESSION*****
+2026-09-04 08:13:09 : INFO : (20120600 | WRITER_1_*_1) : (IS | pmserver_edwp_2) : node01_edwp : WRT_8006 : Writer run completed.
+2026-09-04 08:13:09 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [FEL_COAL_RCPTS_QTY_QLTY_FDR1] has completed. The total run time was insufficient for any meaningful statistics.
+
+2026-09-04 08:13:09 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24005 : PETL_24005 Starting post-session tasks. : (Thu Sep 03 22:43:09 2026)
+2026-09-04 08:13:09 : INFO : (20120600 | POST-SESS) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24091 : Thread [POST-SESS] has the ID [8].
+2026-09-04 08:13:09 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Thu Sep 03 22:43:09 2026)
+2026-09-04 08:13:09 : INFO : (20120600 | MAPPING) : (IS | pmserver_edwp_2) : node01_edwp : TM_6018 : The session completed with [0] row transformation errors. 
+2026-09-04 08:13:09 : INFO : (20120600 | MANAGER) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24002 : Parallel Pipeline Engine finished.
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : PETL_24012 : Session run completed successfully.
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6252 : Source Load Summary.
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR] (Instance Name: [SQ_FEL_COAL_RCPTS_QTY_QLTY_FDR])
+	 Output Rows [23], Affected Rows [23], Applied Rows [23], Rejected Rows [0]
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6253 : Target Load Summary.
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : CMN_1740 : Table: [FEL_COAL_RCPTS_QTY_QLTY_FDR] (Instance Name: [FEL_COAL_RCPTS_QTY_QLTY_FDR1])
+	 Output Rows [23], Affected Rows [23], Applied Rows [23], Rejected Rows [0]
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6023 : 
+===================================================
+
+2026-09-04 08:13:09 : INFO : (20120600 | DIRECTOR) : (IS | pmserver_edwp_2) : node01_edwp : TM_6020 : Session [s_m_FEL_COAL_RCPTS_QTY_QLTY_FDR_del] completed at [Thu Sep 03 22:43:09 2026].
