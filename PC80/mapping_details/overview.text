@@ -1,0 +1,5 @@
+i am uploading informatica mapping and full workflow  xml file, identify the respective session from workflow and SQ override in session level and session log, 
+please get override queries from session log, please convert this to snowflake sql format, ensure you are not leaving anything while converting, 
+the logic must converted apple to apple. Consider you are an expert informatica developer and knows very well how to convert this into a snowflake sql and you are an expert in snowflake as well.
+Dont place comments in the code. Please highlight if there are parameters or variables used, also list down source tables, look up tables and targert tables used and also mention what kind of operation is being done 
+in high-level like insert, insert+update like this, if something else that also need to be mentioned in this format and also if any pre-sql or post-sql's exist please incude them in the above comments
