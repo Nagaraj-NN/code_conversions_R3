@@ -1,0 +1,247 @@
+-- ==========================================================================
+-- Model      : FEL_COAL_RCPTS_COST_FACT
+-- Mapping    : m_FEL_COAL_RCPTS_COST_FACT_ins_upd
+-- Workflow   : wkf_FEL_COAL_FACT_LOAD
+-- Session    : s_m_FEL_COAL_RCPTS_COST_FACT_ins_upd
+-- Target     : GENDB01.FELADM.FEL_COAL_RCPTS_COST_FACT
+-- Load type  : table + UPDATE post-hook + INSERT post-hook
+-- --------------------------------------------------------------------------
+-- INSERT + UPDATE, data driven. RTR_NEW_EXSIT splits on the target fact
+-- lookup; the unconnected DEFAULT1 group is discarded.
+--
+-- The Informatica router branches are preserved as validated: the model
+-- holds the transformed source row set once, and the two post-hooks
+-- apply the UPDATE branch and the INSERT branch to the real target.
+--
+-- Carried for the UPDATE branch only: FDR_LAST_UPDT_TS
+-- ==========================================================================
+
+{{ config(
+    materialized='table',
+    alias='FEL_COAL_RCPTS_COST_FACT_SRC',
+    meta={"mapping_name": "m_FEL_COAL_RCPTS_COST_FACT_ins_upd", "workflow_name": "wkf_FEL_COAL_FACT_LOAD", "session_name": "s_m_FEL_COAL_RCPTS_COST_FACT_ins_upd"},
+    pre_hook=[
+        log_model_start(this, 'TBD_FEL_COAL_RCPTS_COST_FACT', target_object='GENDB01.FELADM.FEL_COAL_RCPTS_COST_FACT')
+    ],
+    post_hook=[
+        "UPDATE {{ source('GENDB01_FELADM','FEL_COAL_RCPTS_COST_FACT') }} TGT
+     SET
+         SHP_DT_ID         = SRC.SHP_DT_ID,
+         UNLOADD_DT_ID     = SRC.UNLOADD_DT_ID,
+         PRCD_DT_ID        = SRC.PRCD_DT_ID,
+         OWNING_FCLTY_KEY  = SRC.OWNING_FCLTY_KEY,
+         GEOG_FCLTY_KEY    = SRC.GEOG_FCLTY_KEY,
+         INVTRY_LOC_KEY    = SRC.INVTRY_LOC_KEY,
+         BSNS_ENTY_SLR_KEY = SRC.BSNS_ENTY_SLR_KEY,
+         BSNS_ENTY_BYR_KEY = SRC.BSNS_ENTY_BYR_KEY,
+         SAMPLED_KEY       = SRC.SAMPLED_KEY,
+         CONTRACT_KEY      = SRC.CONTRACT_KEY,
+         CNTRCT_PROD_KEY   = SRC.CNTRCT_PROD_KEY,
+         CMDTY_SRC_KEY     = SRC.CMDTY_SRC_KEY,
+         RCPT_CST_AT       = SRC.RCPT_CST_AT,
+         LAST_UPDT_TS      = SRC.LAST_UPDT_TS
+     FROM {{ this }} SRC
+     WHERE TGT.RECEIPT_KEY   = SRC.RECEIPT_KEY
+       AND TGT.CST_CMPNT_KEY = SRC.CST_CMPNT_KEY
+       AND (   SRC.FDR_LAST_UPDT_TS >= TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+            OR NOT (    SRC.OWNING_FCLTY_KEY  = TGT.OWNING_FCLTY_KEY
+                    AND SRC.GEOG_FCLTY_KEY    = TGT.GEOG_FCLTY_KEY
+                    AND SRC.INVTRY_LOC_KEY    = TGT.INVTRY_LOC_KEY
+                    AND SRC.BSNS_ENTY_SLR_KEY = TGT.BSNS_ENTY_SLR_KEY
+                    AND SRC.BSNS_ENTY_BYR_KEY = TGT.BSNS_ENTY_BYR_KEY
+                    AND SRC.SAMPLED_KEY       = TGT.SAMPLED_KEY
+                    AND SRC.CONTRACT_KEY      = TGT.CONTRACT_KEY
+                    AND SRC.CNTRCT_PROD_KEY   = TGT.CNTRCT_PROD_KEY
+                    AND SRC.CMDTY_SRC_KEY     = TGT.CMDTY_SRC_KEY
+                    AND SRC.RCPT_CST_AT       = TGT.RCPT_CST_AT))",
+        "INSERT INTO {{ source('GENDB01_FELADM','FEL_COAL_RCPTS_COST_FACT') }} (
+         RECEIPT_KEY,
+         CST_CMPNT_KEY,
+         SHP_DT_ID,
+         UNLOADD_DT_ID,
+         PRCD_DT_ID,
+         OWNING_FCLTY_KEY,
+         GEOG_FCLTY_KEY,
+         INVTRY_LOC_KEY,
+         BSNS_ENTY_SLR_KEY,
+         BSNS_ENTY_BYR_KEY,
+         SAMPLED_KEY,
+         CONTRACT_KEY,
+         CNTRCT_PROD_KEY,
+         CMDTY_SRC_KEY,
+         RCPT_CST_AT,
+         LAST_UPDT_TS
+     )
+     SELECT
+         SRC.RECEIPT_KEY,
+         SRC.CST_CMPNT_KEY,
+         SRC.SHP_DT_ID,
+         SRC.UNLOADD_DT_ID,
+         SRC.PRCD_DT_ID,
+         SRC.OWNING_FCLTY_KEY,
+         SRC.GEOG_FCLTY_KEY,
+         SRC.INVTRY_LOC_KEY,
+         SRC.BSNS_ENTY_SLR_KEY,
+         SRC.BSNS_ENTY_BYR_KEY,
+         SRC.SAMPLED_KEY,
+         SRC.CONTRACT_KEY,
+         SRC.CNTRCT_PROD_KEY,
+         SRC.CMDTY_SRC_KEY,
+         SRC.RCPT_CST_AT,
+         SRC.LAST_UPDT_TS
+     FROM {{ this }} SRC
+     WHERE NOT EXISTS (
+         SELECT 1
+         FROM {{ source('GENDB01_FELADM','FEL_COAL_RCPTS_COST_FACT') }} L
+         WHERE L.RECEIPT_KEY   = SRC.RECEIPT_KEY
+           AND L.CST_CMPNT_KEY = SRC.CST_CMPNT_KEY
+     )",
+        log_model_end(this, 'TBD_FEL_COAL_RCPTS_COST_FACT', target_object='GENDB01.FELADM.FEL_COAL_RCPTS_COST_FACT')
+    ]
+) }}
+
+SELECT
+    CAST(LKP_RD.RECEIPT_KEY AS NUMBER(10,0))                                                             AS RECEIPT_KEY,
+    CAST(LKP_CC.CST_CMPNT_KEY AS NUMBER(10,0))                                                           AS CST_CMPNT_KEY,
+    CAST(IFF(LKP_SHP.DATE_ID IS NULL, -2, LKP_SHP.DATE_ID) AS NUMBER(5,0))                               AS SHP_DT_ID,
+    CAST(IFF(LKP_UNL.DATE_ID IS NULL, -2, LKP_UNL.DATE_ID) AS NUMBER(5,0))                               AS UNLOADD_DT_ID,
+    CAST(IFF(LKP_PRC.DATE_ID IS NULL, -2, LKP_PRC.DATE_ID) AS NUMBER(5,0))                               AS PRCD_DT_ID,
+    CAST(IFF(LKP_IL.INVTRY_SCNDRY_FCLTY_KEY IS NULL, -2, LKP_IL.INVTRY_SCNDRY_FCLTY_KEY) AS NUMBER(10,0)) AS OWNING_FCLTY_KEY,
+    CAST(IFF(LKP_IL.INVTRY_PRMRY_FCLTY_KEY IS NULL, -2, LKP_IL.INVTRY_PRMRY_FCLTY_KEY) AS NUMBER(10,0))  AS GEOG_FCLTY_KEY,
+    CAST(IFF(LKP_IL.INVTRY_LOC_KEY IS NULL, -2, LKP_IL.INVTRY_LOC_KEY) AS NUMBER(10,0))                  AS INVTRY_LOC_KEY,
+    CAST(IFF(LKP_SLR.BSNS_ENTY_KEY IS NULL, -2, LKP_SLR.BSNS_ENTY_KEY) AS NUMBER(10,0))                  AS BSNS_ENTY_SLR_KEY,
+    CAST(IFF(LKP_BYR.BSNS_ENTY_KEY IS NULL, -2, LKP_BYR.BSNS_ENTY_KEY) AS NUMBER(10,0))                  AS BSNS_ENTY_BYR_KEY,
+    CAST(IFF(DQ.DERIVED_SAMPLED_RCPT_KEY IS NULL, -2, DQ.DERIVED_SAMPLED_RCPT_KEY) AS NUMBER(10,0))      AS SAMPLED_KEY,
+    CAST(IFF(LKP_CD.CONTRACT_KEY IS NULL, -2, LKP_CD.CONTRACT_KEY) AS NUMBER(10,0))                      AS CONTRACT_KEY,
+    CAST(IFF(LKP_CP.CNTRCT_PROD_KEY IS NULL, -2, LKP_CP.CNTRCT_PROD_KEY) AS NUMBER(10,0))                AS CNTRCT_PROD_KEY,
+    CAST(IFF(LKP_CS.CMDTY_SRC_KEY IS NULL, -2, LKP_CS.CMDTY_SRC_KEY) AS NUMBER(10,0))                    AS CMDTY_SRC_KEY,
+    CAST(IFF(DQ.RCPT_CST_AT IS NULL, 0, DQ.RCPT_CST_AT) AS NUMBER(12,3))                                 AS RCPT_CST_AT,
+    CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)                                                           AS LAST_UPDT_TS,
+    DQ.FDR_LAST_UPDT_TS
+FROM (
+        SELECT
+            SQ.RECEIPT_ID,
+            SQ.CMDTY_SRC_ID,
+            SQ.SHIPPED_TS,
+            SQ.UNLOADD_TS,
+            SQ.PRICED_DT,
+            SQ.INVTRY_LOC_ID,
+            SQ.CNTRCT_DTL_ID,
+            SQ.RCPT_CST_AT,
+            SQ.LAST_UPDT_TS                                                                   AS FDR_LAST_UPDT_TS,
+            LEFT(UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.CST_CMPNT_CD))) = 0 THEN ' ' ELSE RTRIM(SQ.CST_CMPNT_CD) END), 20) AS O_CST_CMPNT_CD,
+            UPPER(CASE WHEN LENGTH(LTRIM(RTRIM(SQ.CONTRACT_ID))) = 0 THEN ' ' ELSE RTRIM(SQ.CONTRACT_ID) END)             AS O_CNTRCT_ID,
+            IFF((SELECT MIN(SAMPLED_KEY) FROM {{ source('GENDB01_FELADM','FEL_SAMPLED_DIM') }}
+                  WHERE SMPLD_RSN_TX = CASE WHEN LENGTH(LTRIM(RTRIM(SQ.UNSMPLD_RSN_TX))) = 0 THEN ' ' ELSE RTRIM(SQ.UNSMPLD_RSN_TX) END) IS NULL,
+                IFF(SQ.ASH_QLTY_PCT <> 0 OR SQ.SULFUR_QLTY_PCT <> 0
+                 OR SQ.MOISTURE_QLTY_PCT <> 0 OR SQ.BTU_PER_LB_MSR <> 0,
+                    (SELECT MIN(SAMPLED_KEY) FROM {{ source('GENDB01_FELADM','FEL_SAMPLED_DIM') }} WHERE SMPLD_RSN_TX = 'Sampled'),
+                    (SELECT MIN(SAMPLED_KEY) FROM {{ source('GENDB01_FELADM','FEL_SAMPLED_DIM') }} WHERE SMPLD_RSN_TX = 'Unknown')),
+                (SELECT MIN(SAMPLED_KEY) FROM {{ source('GENDB01_FELADM','FEL_SAMPLED_DIM') }}
+                  WHERE SMPLD_RSN_TX = CASE WHEN LENGTH(LTRIM(RTRIM(SQ.UNSMPLD_RSN_TX))) = 0 THEN ' ' ELSE RTRIM(SQ.UNSMPLD_RSN_TX) END)) AS DERIVED_SAMPLED_RCPT_KEY,
+            (SELECT MIN(SYS_ID) FROM {{ source('GENDB01_FELADM','FEL_SYSTEM_DIM') }} WHERE SYS_NM = 'COMTRAC')         AS V_SYS_ID
+        FROM (
+            SELECT
+                C.RECEIPT_ID,
+                C.CST_CMPNT_CD,
+                C.RCPT_CST_AT,
+                C.LAST_UPDT_TS,
+                Q.CMDTY_SRC_ID,
+                Q.SHIPPED_TS,
+                Q.UNLOADD_TS,
+                Q.PRICED_DT,
+                Q.INVTRY_LOC_ID,
+                Q.UNSMPLD_RSN_TX,
+                Q.CONTRACT_ID,
+                Q.CNTRCT_DTL_ID,
+                Q.ASH_QLTY_PCT,
+                Q.SULFUR_QLTY_PCT,
+                Q.MOISTURE_QLTY_PCT,
+                Q.BTU_PER_LB_MSR
+            FROM {{ source('GENDB01_FELADM','FEL_COAL_RCPTS_QTY_QLTY_FDR') }} Q,
+                 {{ source('GENDB01_FELADM','FEL_COAL_RCPTS_COST_FDR') }} C
+            WHERE C.RECEIPT_ID            = Q.RECEIPT_ID
+              AND UPPER(TRIM(Q.STATUS_TX)) = 'ACTIVE'
+              AND 'C' = 'C'
+              AND UPPER(TRIM(C.STATUS_TX)) = 'ACTIVE'
+              AND 'C' = 'C'
+        ) SQ
+    ) DQ
+    LEFT JOIN (
+        SELECT RECEIPT_KEY, RECEIPT_ID
+        FROM {{ source('GENDB01_FELADM','FEL_RECEIPT_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY RECEIPT_ID ORDER BY RECEIPT_KEY) = 1
+    ) LKP_RD
+      ON LKP_RD.RECEIPT_ID = DQ.RECEIPT_ID
+    LEFT JOIN (
+        SELECT D.CST_CMPNT_KEY, UPPER(TRIM(D.CST_CMPNT_CD)) AS CST_CMPNT_CD, D.SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_COST_CMPNT_DIM') }} D
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY UPPER(TRIM(D.CST_CMPNT_CD)), D.SYSTEM_ID ORDER BY D.CST_CMPNT_KEY) = 1
+    ) LKP_CC
+      ON LKP_CC.CST_CMPNT_CD = DQ.O_CST_CMPNT_CD
+     AND LKP_CC.SYSTEM_ID    = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT DATE_ID, FULL_DATE_DT
+        FROM {{ source('GENDB01_FELADM','AEP_DATE') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY FULL_DATE_DT ORDER BY FULL_DATE_DT) = 1
+    ) LKP_SHP
+      ON LKP_SHP.FULL_DATE_DT = TRUNC(DQ.SHIPPED_TS, 'DD')
+    LEFT JOIN (
+        SELECT DATE_ID, FULL_DATE_DT
+        FROM {{ source('GENDB01_FELADM','AEP_DATE') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY FULL_DATE_DT ORDER BY FULL_DATE_DT) = 1
+    ) LKP_UNL
+      ON LKP_UNL.FULL_DATE_DT = TRUNC(DQ.UNLOADD_TS, 'DD')
+    LEFT JOIN (
+        SELECT DATE_ID, FULL_DATE_DT
+        FROM {{ source('GENDB01_FELADM','AEP_DATE') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY FULL_DATE_DT ORDER BY FULL_DATE_DT) = 1
+    ) LKP_PRC
+      ON LKP_PRC.FULL_DATE_DT = DQ.PRICED_DT
+    LEFT JOIN (
+        SELECT INVTRY_LOC_KEY, INVTRY_PRMRY_FCLTY_KEY, INVTRY_SCNDRY_FCLTY_KEY, INVTRY_LOC_ID
+        FROM {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY INVTRY_LOC_ID ORDER BY INVTRY_LOC_KEY) = 1
+    ) LKP_IL
+      ON LKP_IL.INVTRY_LOC_ID = DQ.INVTRY_LOC_ID
+    LEFT JOIN (
+        SELECT CNTRCT_PROD_KEY, CNTRCT_DTL_ID
+        FROM {{ source('GENDB01_FELADM','FEL_CNTRCT_PROD_CD_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY CNTRCT_DTL_ID ORDER BY CNTRCT_PROD_KEY) = 1
+    ) LKP_CP
+      ON LKP_CP.CNTRCT_DTL_ID = DQ.CNTRCT_DTL_ID
+    LEFT JOIN (
+        SELECT ct.CURR_CNTRCT_VNDR_ID, ct.CURR_BYR_ID, UPPER(TRIM(ct.CONTRACT_ID)) AS CONTRACT_ID
+        FROM {{ source('GENDB01_FELADM','FEL_COMTRAC_CONTRACT_FDR') }} ct
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY UPPER(TRIM(ct.CONTRACT_ID)) ORDER BY ct.CURR_CNTRCT_VNDR_ID, ct.CURR_BYR_ID) = 1
+    ) LKP_CF
+      ON LKP_CF.CONTRACT_ID = DQ.O_CNTRCT_ID
+    LEFT JOIN (
+        SELECT cnt.CONTRACT_KEY, UPPER(TRIM(cnt.CONTRACT_ID)) AS CONTRACT_ID, cnt.SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_CONTRACT_DIM') }} cnt
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY UPPER(TRIM(cnt.CONTRACT_ID)), cnt.SYSTEM_ID ORDER BY cnt.CONTRACT_KEY) = 1
+    ) LKP_CD
+      ON LKP_CD.CONTRACT_ID = DQ.O_CNTRCT_ID
+     AND LKP_CD.SYSTEM_ID   = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT CMDTY_SRC_KEY, CMDTY_SRC_ID, CMDTY_SRC_EFCTV_DT, CMDTY_SRC_EXPR_DT
+        FROM {{ source('GENDB01_FELADM','FEL_CMDTY_SRC_DIM') }}
+    ) LKP_CS
+      ON LKP_CS.CMDTY_SRC_ID       = DQ.CMDTY_SRC_ID
+     AND LKP_CS.CMDTY_SRC_EFCTV_DT <= TRUNC(DQ.UNLOADD_TS, 'DD')
+     AND LKP_CS.CMDTY_SRC_EXPR_DT  >= TRUNC(DQ.UNLOADD_TS, 'DD')
+    LEFT JOIN (
+        SELECT BSNS_ENTY_KEY, BSNS_ENTY_ID, SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_BSNS_ENTY_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY BSNS_ENTY_ID, SYSTEM_ID ORDER BY BSNS_ENTY_KEY) = 1
+    ) LKP_SLR
+      ON LKP_SLR.BSNS_ENTY_ID = LKP_CF.CURR_CNTRCT_VNDR_ID
+     AND LKP_SLR.SYSTEM_ID    = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT BSNS_ENTY_KEY, BSNS_ENTY_ID, SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_BSNS_ENTY_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY BSNS_ENTY_ID, SYSTEM_ID ORDER BY BSNS_ENTY_KEY) = 1
+    ) LKP_BYR
+      ON LKP_BYR.BSNS_ENTY_ID = LKP_CF.CURR_BYR_ID
+     AND LKP_BYR.SYSTEM_ID    = DQ.V_SYS_ID
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY DQ.RECEIPT_ID, DQ.O_CST_CMPNT_CD ORDER BY LKP_CS.CMDTY_SRC_KEY) = 1

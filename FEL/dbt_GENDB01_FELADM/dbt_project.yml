@@ -1,0 +1,45 @@
+name: dbt_GENDB01_FELADM
+version: 1.0.0
+config-version: 2
+
+profile: dbt_GENDB01_FELADM
+
+model-paths: [models]
+analysis-paths: [analyses]
+test-paths: [tests]
+seed-paths: [seeds]
+macro-paths: [macros]
+snapshot-paths: [snapshots]
+
+models:
+  dbt_GENDB01_FELADM:
+    +materialized: view
+    FELADM:
+      +database: GENDB01
+      +schema: FELADM
+      +materialized: table
+    METADATA:
+      +database: GENDB01
+      +schema: METADATA
+      +materialized: table
+
+vars:
+  app_name_by_schema:
+    FELADM: FEL
+    METADATA: FEL
+    COMMON: FEL
+    TEST_DBT_SCH: FEL
+
+seeds:
+  dbt_GENDB01_FELADM:
+    +database: GENDB01
+    +schema: METADATA
+    +quote_columns: false
+    FEL_JOB_CONTROL_SEEDS:
+      +column_types:
+        JOB_ID: varchar(50)
+        JOB_NAME: varchar(100)
+        AUTOSYS_JOB_NAME: varchar(100)
+
+on-run-end:
+  - "{{ mark_failed_jobs(results) }}"

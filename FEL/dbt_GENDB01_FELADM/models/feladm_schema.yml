@@ -1,0 +1,106 @@
+version: 2
+
+# Source definitions for the FEL conversion.
+#
+# GENDB01_FELADM resolves through {{ target.database }} so dev / qa / uat / prod
+# and the ephemeral ci database all follow the target. GENDB01_DEV_SANDBOX_COMMON
+# is pinned, exactly as the reference project pins its BRONZE_* sources: those
+# _TEST views stand in for the ComTrac, PowerManager and flat-file readers and
+# live in the sandbox database regardless of which target is running.
+
+sources:
+
+  - name: GENDB01_FELADM
+    database: "{{ target.database }}"
+    schema: FELADM
+    tables:
+      - name: AEP_DATE
+      - name: AEP_WORK_ORDER_DIM
+      - name: FEL_ACCTG_INVTRY_LOC_DIM
+      - name: FEL_ACCTG_MONTH_VW
+      - name: FEL_ACCT_TYP_DIM
+      - name: FEL_BSNS_ENTY_DIM
+      - name: FEL_CMDTY_SRC_DIM
+      - name: FEL_CMDTY_SRC_FDR
+      - name: FEL_CNTRCT_MNTHY_SMRY_FACT
+      - name: FEL_CNTRCT_PROD_CD_DIM
+      - name: FEL_COAL_CNSMN_FACT
+      - name: FEL_COAL_CNSMN_FDR
+      - name: FEL_COAL_RCPTS_COST_FACT
+      - name: FEL_COAL_RCPTS_COST_FDR
+      - name: FEL_COAL_RCPTS_QTY_QLTY_FACT
+      - name: FEL_COAL_RCPTS_QTY_QLTY_FDR
+      - name: FEL_COMTRAC_BSNS_ENTY_FDR
+      - name: FEL_COMTRAC_CNTRCT_OBLGN_FDR
+      - name: FEL_COMTRAC_CNTRCT_PROD_CD_FDR
+      - name: FEL_COMTRAC_CONTRACT_FDR
+      - name: FEL_COMTRAC_FACILITY_FDR
+      - name: FEL_COMTRAC_GNRTN_UNIT_FDR
+      - name: FEL_CONTRACT_DIM
+      - name: FEL_COST_CMPNT_DIM
+      - name: FEL_DATATYPE_DIM
+      - name: FEL_FACILITY_DIM
+      - name: FEL_FUEL_CODE_FDR
+      - name: FEL_FV_BEGBAL_FACT
+      - name: FEL_FV_BEGBAL_FDR
+      - name: FEL_FV_TRANS_FDR
+      - name: FEL_FV_TRAN_FACT
+      - name: FEL_GNRTN_UNIT_DIM
+      - name: FEL_INVTRY_LOC_DIM
+      - name: FEL_INVTRY_LOC_FDR
+      - name: FEL_JO_DSPSTN_BRDG
+      - name: FEL_JO_RCPT_BRDG
+      - name: FEL_MASTER_DIM_XRF
+      - name: FEL_OPTG_MONTH_VW
+      - name: FEL_PWRMGR_GNRTN_UNIT_FDR
+      - name: FEL_PWRMGR_LOAD_TYPE_FDR
+      - name: FEL_RECEIPT_DIM
+      - name: FEL_SAMPLED_DIM
+      - name: FEL_SYSTEM_DIM
+      - name: FEL_TRAN_CLASS_DIM
+      - name: FEL_TRAN_CLS_ORDER_XRF
+      - name: PS_Z_COST_CLS_DIM
+      - name: PS_Z_DEPT_DIM_VW
+      - name: PS_Z_PROCS_ACT_DIM
+      - name: PS_Z_PROJ_DIM
+      - name: PS_Z_REG_CONS_DIM_VW
+
+  - name: GENDB01_METADATA
+    database: "{{ target.database }}"
+    schema: METADATA
+    tables:
+      - name: FEL_JOB_CONTROL
+      - name: FEL_JOB_EXECUTION
+      - name: FEL_JOB_PARAMETERS
+      - name: FEL_JOB_CONTROL_SEEDS
+
+  - name: GENDB01_DEV_SANDBOX_COMMON
+    database: GENDB01_DEV_SANDBOX
+    schema: COMMON
+    tables:
+      - name: AEP_DW_ACCT_INV_LOC_VW_TEST
+      - name: AEP_DW_BUSINESSENTITY_VW_TEST
+      - name: AEP_DW_COMMODITYSOURCE_VW_TEST
+      - name: AEP_DW_CONSUMPTION_VW_TEST
+      - name: AEP_DW_CONTRACTDTL_VW_TEST
+      - name: AEP_DW_CONTRACT_OBLIGATIONS_VW_TEST
+      - name: AEP_DW_CONTRACT_VW_TEST
+      - name: AEP_DW_FACILITY_VW_TEST
+      - name: AEP_DW_FV_BEGBAL_VW_TEST
+      - name: AEP_DW_FV_JO_DISPOSED_VW_TEST
+      - name: AEP_DW_FV_TRANS_VW_TEST
+      - name: AEP_DW_GENUNIT_VW_TEST
+      - name: AEP_DW_INVENTORYLOC_VW_TEST
+      - name: AEP_DW_RECEIPT_COSTDTL_VW_TEST
+      - name: AEP_DW_RECEIPT_VW_TEST
+      - name: CAP_UNIT_CAPABILITY_TEST
+      - name: COST_TYPE_DIM_DATA_TEST
+      - name: ENUMTABLE_TEST
+      - name: FUELCODES_TEST
+      - name: FUEL_CODE_TEST
+      - name: PERMVALUE_TEST
+      - name: PS_Z_GL_ACCT_DIM_TEST
+      - name: PS_Z_RES_S_CAT_DIM_TEST
+      - name: UNIT_TEST
+      - name: UNIT_TYPE_TEST
+      - name: UTILITY_OPERATOR_TEST

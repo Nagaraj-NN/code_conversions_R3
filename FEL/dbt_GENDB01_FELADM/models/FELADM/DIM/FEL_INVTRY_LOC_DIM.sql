@@ -1,0 +1,176 @@
+-- ==========================================================================
+-- Model      : FEL_INVTRY_LOC_DIM
+-- Mapping    : m_FEL_INVTRY_LOC_DIM_ins_upd
+-- Workflow   : wkf_FEL_COAL_DIM_LOAD
+-- Session    : s_m_FEL_INVTRY_LOC_DIM_ins_upd
+-- Target     : GENDB01.FELADM.FEL_INVTRY_LOC_DIM
+-- Load type  : table + UPDATE post-hook + INSERT post-hook
+-- --------------------------------------------------------------------------
+-- INSERT + UPDATE, data driven. RTRTRANS splits on the dimension lookup;
+-- the unconnected DEFAULT1 group is discarded.
+--
+-- The Informatica router branches are preserved as validated: the model
+-- holds the transformed source row set once, and the two post-hooks
+-- apply the UPDATE branch and the INSERT branch to the real target.
+-- ==========================================================================
+
+{{ config(
+    materialized='table',
+    alias='FEL_INVTRY_LOC_DIM_SRC',
+    meta={"mapping_name": "m_FEL_INVTRY_LOC_DIM_ins_upd", "workflow_name": "wkf_FEL_COAL_DIM_LOAD", "session_name": "s_m_FEL_INVTRY_LOC_DIM_ins_upd"},
+    pre_hook=[
+        log_model_start(this, 'TBD_FEL_INVTRY_LOC_DIM', target_object='GENDB01.FELADM.FEL_INVTRY_LOC_DIM')
+    ],
+    post_hook=[
+        "UPDATE {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_DIM') }} TGT
+     SET
+         INVTRY_LOC_ID           = SRC.INVTRY_LOC_ID,
+         INVTRY_LOC_NM           = SRC.INVTRY_LOC_NM,
+         INVTRY_LOC_TYPE_NM      = SRC.INVTRY_LOC_TYPE_NM,
+         INVTRY_LOC_DSPLY_NM     = SRC.INVTRY_LOC_DSPLY_NM,
+         INVTRY_LOC_STAT_TX      = SRC.INVTRY_LOC_STAT_TX,
+         INVTRY_CMDTY_NM         = SRC.INVTRY_CMDTY_NM,
+         INVTRY_CMDTY_TYPE_NM    = SRC.INVTRY_CMDTY_TYPE_NM,
+         INVTRY_PRMRY_FCLTY_KEY  = SRC.INVTRY_PRMRY_FCLTY_KEY,
+         INVTRY_SCNDRY_FCLTY_KEY = SRC.INVTRY_SCNDRY_FCLTY_KEY,
+         SYSTEM_ID               = SRC.SYSTEM_ID,
+         SYSTEM_NM               = SRC.SYSTEM_NM,
+         CONSOLIDATION_ID        = SRC.CONSOLIDATION_ID,
+         CONSOLIDATION_NM        = SRC.CONSOLIDATION_NM,
+         CNSLDTN_SYS_NM          = SRC.CNSLDTN_SYS_NM,
+         LAST_UPDT_TS            = SRC.LAST_UPDT_TS
+     FROM {{ this }} SRC
+     WHERE TGT.INVTRY_LOC_ID = SRC.INVTRY_LOC_ID
+       AND TGT.SYSTEM_ID     = SRC.SYSTEM_ID
+       AND (   SRC.INVTRY_LOC_NM           <> TGT.INVTRY_LOC_NM
+            OR SRC.INVTRY_CMDTY_TYPE_NM    <> TGT.INVTRY_CMDTY_TYPE_NM
+            OR SRC.INVTRY_CMDTY_NM         <> TGT.INVTRY_CMDTY_NM
+            OR SRC.INVTRY_LOC_TYPE_NM      <> TGT.INVTRY_LOC_TYPE_NM
+            OR SRC.INVTRY_LOC_DSPLY_NM     <> TGT.INVTRY_LOC_DSPLY_NM
+            OR SRC.INVTRY_LOC_STAT_TX      <> TGT.INVTRY_LOC_STAT_TX
+            OR SRC.INVTRY_PRMRY_FCLTY_KEY  <> TGT.INVTRY_PRMRY_FCLTY_KEY
+            OR SRC.INVTRY_SCNDRY_FCLTY_KEY <> TGT.INVTRY_SCNDRY_FCLTY_KEY
+            OR SRC.CONSOLIDATION_ID        <> TGT.CONSOLIDATION_ID
+            OR SRC.CONSOLIDATION_NM        <> TGT.CONSOLIDATION_NM
+            OR SRC.CNSLDTN_SYS_NM          <> TGT.CNSLDTN_SYS_NM)",
+        "INSERT INTO {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_DIM') }} (
+         INVTRY_LOC_KEY,
+         INVTRY_LOC_ID,
+         INVTRY_LOC_NM,
+         INVTRY_LOC_TYPE_NM,
+         INVTRY_LOC_DSPLY_NM,
+         INVTRY_LOC_STAT_TX,
+         INVTRY_CMDTY_NM,
+         INVTRY_CMDTY_TYPE_NM,
+         INVTRY_PRMRY_FCLTY_KEY,
+         INVTRY_SCNDRY_FCLTY_KEY,
+         SYSTEM_ID,
+         SYSTEM_NM,
+         CONSOLIDATION_ID,
+         CONSOLIDATION_NM,
+         CNSLDTN_SYS_NM,
+         LAST_UPDT_TS
+     )
+     SELECT
+         SRC.INVTRY_LOC_KEY,
+         SRC.INVTRY_LOC_ID,
+         SRC.INVTRY_LOC_NM,
+         SRC.INVTRY_LOC_TYPE_NM,
+         SRC.INVTRY_LOC_DSPLY_NM,
+         SRC.INVTRY_LOC_STAT_TX,
+         SRC.INVTRY_CMDTY_NM,
+         SRC.INVTRY_CMDTY_TYPE_NM,
+         SRC.INVTRY_PRMRY_FCLTY_KEY,
+         SRC.INVTRY_SCNDRY_FCLTY_KEY,
+         SRC.SYSTEM_ID,
+         SRC.SYSTEM_NM,
+         SRC.CONSOLIDATION_ID,
+         SRC.CONSOLIDATION_NM,
+         SRC.CNSLDTN_SYS_NM,
+         SRC.LAST_UPDT_TS
+     FROM {{ this }} SRC
+     WHERE NOT EXISTS (
+         SELECT 1
+         FROM {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_DIM') }} L
+         WHERE L.INVTRY_LOC_ID = SRC.INVTRY_LOC_ID
+           AND L.SYSTEM_ID     = SRC.SYSTEM_ID
+     )",
+        log_model_end(this, 'TBD_FEL_INVTRY_LOC_DIM', target_object='GENDB01.FELADM.FEL_INVTRY_LOC_DIM')
+    ]
+) }}
+
+SELECT
+    CAST(DQ.O_INV_LOC_KEY AS NUMBER(10,0))                                             AS INVTRY_LOC_KEY,
+    DQ.INVTRY_LOC_ID,
+    DQ.INVTRY_LOC_NM,
+    DQ.INVTRY_LOC_TYPE_NM,
+    DQ.INVTRY_LOC_DSPLY_NM,
+    DQ.INVTRY_LOC_STAT_TX,
+    DQ.INVTRY_CMDTY_NM,
+    DQ.INVTRY_CMDTY_TYPE_NM,
+    CAST(IFF(LKP_PF.FACILITY_KEY IS NULL,
+                 IFF(DQ.INVTRY_PRMRY_FCLTY_ID IS NULL, -2, -1), LKP_PF.FACILITY_KEY) AS NUMBER(10,0)) AS INVTRY_PRMRY_FCLTY_KEY,
+    CAST(IFF(LKP_SF.FACILITY_KEY IS NULL,
+                 IFF(DQ.INVTRY_SCNDRY_FCLTY_ID IS NULL, -2, -1), LKP_SF.FACILITY_KEY) AS NUMBER(10,0)) AS INVTRY_SCNDRY_FCLTY_KEY,
+    CAST(DQ.V_SYS_ID AS NUMBER(5,0))                                                   AS SYSTEM_ID,
+    LEFT('COMTRAC', 25)                                                                AS SYSTEM_NM,
+    CAST(DQ.O_CONSOLIDATION_ID AS NUMBER(10,0))                                        AS CONSOLIDATION_ID,
+    LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, DQ.INVTRY_LOC_NM, MSTR.BUSINESS_NM), 255)  AS CONSOLIDATION_NM,
+    LEFT(IFF(MSTR.CONSOLIDATION_ID IS NULL, 'COMTRAC', MSTR.SYSTEM_NM), 25)            AS CNSLDTN_SYS_NM,
+    CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)                                         AS LAST_UPDT_TS
+FROM (
+        SELECT
+            SQ.INVTRY_LOC_ID,
+            SQ.INVTRY_PRMRY_FCLTY_ID,
+            SQ.INVTRY_SCNDRY_FCLTY_ID,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_LOC_NM)))        = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_LOC_NM)        END AS INVTRY_LOC_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_CMDTY_TYPE_NM))) = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_CMDTY_TYPE_NM) END AS INVTRY_CMDTY_TYPE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_CMDTY_NM)))      = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_CMDTY_NM)      END AS INVTRY_CMDTY_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_LOC_TYPE_NM)))   = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_LOC_TYPE_NM)   END AS INVTRY_LOC_TYPE_NM,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_LOC_STAT_TX)))   = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_LOC_STAT_TX)   END AS INVTRY_LOC_STAT_TX,
+            CASE WHEN LENGTH(LTRIM(RTRIM(SQ.INVTRY_LOC_DSPLY_NM)))  = 0 THEN ' ' ELSE RTRIM(SQ.INVTRY_LOC_DSPLY_NM)  END AS INVTRY_LOC_DSPLY_NM,
+            (SELECT MIN(SYS_ID) FROM {{ source('GENDB01_FELADM','FEL_SYSTEM_DIM') }} WHERE SYS_NM = 'COMTRAC')      AS V_SYS_ID,
+            IFF(XRF.CONSOLIDATION_ID IS NOT NULL, XRF.CONSOLIDATION_ID,
+                NVL((SELECT MAX(CONSOLIDATION_ID) FROM {{ source('GENDB01_FELADM','FEL_MASTER_DIM_XRF') }}), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.INVTRY_LOC_ID))                           AS O_CONSOLIDATION_ID,
+            NVL((SELECT MAX(INVTRY_LOC_KEY) FROM {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_DIM') }}), 0)
+                + ROW_NUMBER() OVER (ORDER BY SQ.INVTRY_LOC_ID)                            AS O_INV_LOC_KEY
+        FROM {{ source('GENDB01_FELADM','FEL_INVTRY_LOC_FDR') }} SQ
+        LEFT JOIN (
+            SELECT xrf.CONSOLIDATION_ID, XRF.DATA_TYP_ID, XRF.SYSTEM_ID,
+                   UPPER(TRIM(XRF.BUSINESS_ID)) AS BUSINESS_ID
+            FROM {{ source('GENDB01_FELADM','FEL_MASTER_DIM_XRF') }} xrf
+            QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.DATA_TYP_ID, XRF.SYSTEM_ID, UPPER(TRIM(XRF.BUSINESS_ID))
+                                       ORDER BY xrf.CONSOLIDATION_ID) = 1
+        ) XRF
+          ON XRF.DATA_TYP_ID = (SELECT MIN(DATA_TYPE_ID) FROM {{ source('GENDB01_FELADM','FEL_DATATYPE_DIM') }} WHERE DATA_TYPE_NM = 'INVTRYLOC')
+         AND XRF.SYSTEM_ID   = (SELECT MIN(SYS_ID) FROM {{ source('GENDB01_FELADM','FEL_SYSTEM_DIM') }} WHERE SYS_NM = 'COMTRAC')
+         AND XRF.BUSINESS_ID = LEFT(UPPER(TO_VARCHAR(SQ.INVTRY_LOC_ID)), 20)
+        WHERE SQ.LAST_UPDT_TS >= TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+          AND 'C' = 'C'
+    ) DQ
+    LEFT JOIN (
+        SELECT FACILITY_KEY, FACILITY_ID, SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_FACILITY_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY FACILITY_ID, SYSTEM_ID ORDER BY FACILITY_KEY) = 1
+    ) LKP_PF
+      ON LKP_PF.FACILITY_ID = DQ.INVTRY_PRMRY_FCLTY_ID
+     AND LKP_PF.SYSTEM_ID   = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT FACILITY_KEY, FACILITY_ID, SYSTEM_ID
+        FROM {{ source('GENDB01_FELADM','FEL_FACILITY_DIM') }}
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY FACILITY_ID, SYSTEM_ID ORDER BY FACILITY_KEY) = 1
+    ) LKP_SF
+      ON LKP_SF.FACILITY_ID = DQ.INVTRY_SCNDRY_FCLTY_ID
+     AND LKP_SF.SYSTEM_ID   = DQ.V_SYS_ID
+    LEFT JOIN (
+        SELECT XRF.BUSINESS_NM, SYS.SYS_NM AS SYSTEM_NM, XRF.CONSOLIDATION_ID,
+               UPPER(XRF.MASTER_FL) AS MASTER_FL
+        FROM {{ source('GENDB01_FELADM','FEL_MASTER_DIM_XRF') }} XRF
+        INNER JOIN {{ source('GENDB01_FELADM','FEL_SYSTEM_DIM') }} SYS
+          ON SYS.SYS_ID = XRF.SYSTEM_ID
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY XRF.CONSOLIDATION_ID, UPPER(XRF.MASTER_FL)
+                                   ORDER BY XRF.BUSINESS_NM, SYS.SYS_NM) = 1
+    ) MSTR
+      ON MSTR.CONSOLIDATION_ID = DQ.O_CONSOLIDATION_ID
+     AND MSTR.MASTER_FL        = 'Y'

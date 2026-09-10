@@ -1,0 +1,223 @@
+==============================================================================
+DATE PARAMETERS THAT STILL NEED THE JOB_CONTROL FRAMEWORK
+==============================================================================
+
+Every Informatica mapping under FEL/Executed_sqls/ that carried a date or
+time session parameter had that parameter resolved to a literal before the
+script was validated, and the dbt models copy those literals verbatim.
+They are therefore FROZEN: each model reloads the same window on every run.
+
+This file lists what has to be swapped for a job-control lookup.
+
+Nothing here is a defect in the conversion - the models reproduce the
+validated script exactly, which is what the conversion was asked to do. The
+remaining work is to replace each literal with the run window the framework
+supplies.
+
+Models: 47.  Models carrying a frozen window: 22.
+
+
+------------------------------------------------------------------------------
+SECTION A - FROZEN LOAD WINDOWS  ($$START_TIME / $$END_TIME)
+------------------------------------------------------------------------------
+Incremental extracts. The window bounds a source timestamp column, so a
+frozen window means the model re-reads the same slice forever and never
+advances.
+
+  A1  bounded window, both ends frozen  (11 models)
+
+  FEL_CMDTY_SRC_FDR                  m_FEL_CMDTY_SRC_FDR_Cmtrt_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_DT
+
+  FEL_COAL_CNSMN_FDR                 m_FEL_COAL_CNSMN_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_DT
+
+  FEL_COAL_RCPTS_COST_FDR            m_FEL_COAL_RCPTS_COST_FDR_Cmtrt_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MODDATETIME
+
+  FEL_COAL_RCPTS_QTY_QLTY_FDR        m_FEL_COAL_RCPTS_QTY_QLTY_FDR_Cmtrt_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MODDATETIME
+
+  FEL_COMTRAC_BSNS_ENTY_FDR          m_FEL_COMTRAC_BSNS_ENTY_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_BY_DT
+
+  FEL_COMTRAC_CNTRCT_OBLGN_FDR       m_FEL_COMTRAC_CNTRCT_OBLGN_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MODDATETIME
+
+  FEL_COMTRAC_CNTRCT_PROD_CD_FDR     m_FEL_COMTRAC_CNTRCT_PROD_CD_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_DT
+
+  FEL_COMTRAC_CONTRACT_FDR           m_FEL_COMTRAC_CONTRACT_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_DT
+
+  FEL_COMTRAC_FACILITY_FDR           m_FEL_COMTRAC_FACILITY_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_BY_DT
+
+  FEL_COMTRAC_GNRTN_UNIT_FDR         m_FEL_COMTRAC_GNRTN_UNIT_FDR_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_DT
+
+  FEL_INVTRY_LOC_FDR                 m_FEL_INVTRY_LOC_FDR_Cmtrt_ins_upd
+      workflow : wkf_FEL_CMTRT_FDR_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      end      : TO_TIMESTAMP_NTZ('09/03/2026 22:30:12', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SQ.MOD_BY_DT
+
+
+  A2  open-ended window, only the lower bound frozen  (11 models)
+
+  FEL_BSNS_ENTY_DIM                  m_FEL_COMTRAC_BSNS_ENTY_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_CMDTY_SRC_DIM                  m_FEL_CMDTY_SRC_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_CNTRCT_PROD_CD_DIM             m_FEL_CNTRCT_PROD_CD_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_COAL_CNSMN_FACT                m_FEL_COAL_CNSMN_FACT_ins_upd
+      workflow : wkf_FEL_COAL_FACT_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SRC.FDR_LAST_UPDT_TS
+
+  FEL_COAL_RCPTS_COST_FACT           m_FEL_COAL_RCPTS_COST_FACT_ins_upd
+      workflow : wkf_FEL_COAL_FACT_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SRC.FDR_LAST_UPDT_TS
+
+  FEL_COAL_RCPTS_QTY_QLTY_FACT       m_FEL_COAL_RCPTS_QTY_QLTY_FACT_ins_upd
+      workflow : wkf_FEL_COAL_FACT_LOAD
+      start    : TO_TIMESTAMP_NTZ('09/02/2026 22:30:11', 'MM/DD/YYYY HH24:MI:SS')
+      filters  : SRC.FDR_LAST_UPDT_TS
+
+  FEL_CONTRACT_DIM                   m_FEL_COMTRAC_CONTRACT_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_FACILITY_DIM                   m_FEL_COMTRAC_FACILITY_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_GNRTN_UNIT_DIM                 m_FEL_COMTRAC_GNRTN_UNIT_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_INVTRY_LOC_DIM                 m_FEL_INVTRY_LOC_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+  FEL_RECEIPT_DIM                    m_FEL_RECEIPT_DIM_ins_upd
+      workflow : wkf_FEL_COAL_DIM_LOAD
+      start    : TO_TIMESTAMP_NTZ('2026-09-02 22:30:11', 'YYYY-MM-DD HH24:MI:SS')
+      filters  : SQ.LAST_UPDT_TS
+
+
+------------------------------------------------------------------------------
+SECTION B - CONSTANTS, NOT PARAMETERS
+------------------------------------------------------------------------------
+These were session variables in the validated script and are inlined in the
+models. They are literals, not windows, and need no framework:
+
+  $V_SESSSTARTTIME  -> CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)
+                       Informatica SESSSTARTTIME, one value per session. The
+                       model materialises it once into LAST_UPDT_TS and both
+                       hooks read that column, so every row of a run still
+                       carries the same stamp.
+  $V_COMTRAC        -> 'COMTRAC'      system dimension name
+  $V_REC_STATUS     -> 'ACTIVE'       feeder record status
+  $V_RUN_STATUS     -> 'C'            ComTrac run status; the predicate
+                       becomes the tautology 'C' = 'C' and is kept as
+                       authored rather than removed.
+  $V_BUSINESSENTITY -> 'BUSINESSENTITY'   FEL_DATATYPE_DIM lookup key
+  $V_FACILITY       -> 'FACILITY'         FEL_DATATYPE_DIM lookup key
+  $V_GEN_UNIT       -> 'GEN_UNIT'         FEL_DATATYPE_DIM lookup key
+  $V_INVTRYLOC      -> 'INVTRYLOC'        FEL_DATATYPE_DIM lookup key
+
+  The four FEL_DATATYPE_DIM keys were never echoed in any session log, so
+  the literals are the names as they appear in the mapping. Confirm them
+  against FEL_DATATYPE_DIM.DATA_TYPE_NM before the first production run.
+
+
+------------------------------------------------------------------------------
+SECTION C - HOW TO MAKE THE SWAP
+------------------------------------------------------------------------------
+The scaffolding is already in the project but deliberately not wired, so
+that today every model reproduces its validated script exactly:
+
+  seeds/FEL_JOB_CONTROL_SEEDS.csv    one row per model
+  models/METADATA/FEL_JOB_CONTROL.sql  merges the seed into the control table
+  macros/open_control_window.sql     opens the window in a pre-hook
+  macros/update_control_table.sql    rolls the window in a post-hook
+
+For each model in Section A:
+
+  1. put the real Autosys job name in the seed, replacing TBD_<MODEL>, and
+     in log_model_start / log_model_end in that model.
+  2. add under the config block:
+         -- depends_on: {{ ref('FEL_JOB_CONTROL') }}
+  3. add to pre_hook, after log_model_start:
+         open_control_window(this, '<AUTOSYS_JOB_NAME>')
+     and to post_hook, before log_model_end:
+         update_control_table(this, '<AUTOSYS_JOB_NAME>')
+  4. add a JOB_CONTROL CTE at the top of the model body:
+         WITH JOB_CONTROL AS (
+             SELECT JOB_ID, START_DATE, END_DATE
+             FROM {{ source('GENDB01_METADATA','FEL_JOB_CONTROL') }}
+             WHERE JOB_NAME = '<MODEL>'
+               AND AUTOSYS_JOB_NAME = '<AUTOSYS_JOB_NAME>'
+         ),
+  5. replace the frozen literal in the filter:
+         <col> >  (SELECT START_DATE FROM JOB_CONTROL)
+         <col> <= (SELECT END_DATE   FROM JOB_CONTROL)
+
+ENFORCEMENT
+-----------
+log_model_start calls assert_ready_for_promotion, which raises a compiler error
+on the qa, uat and prod targets if a frozen date literal is still in the model
+body, or if the Autosys job name still starts with TBD. dev and ci are left
+alone. So a model in Section A cannot be promoted until its window is real:
+`dbt compile --target qa` fails with the model name and a pointer to this file.
+
+The name used in open_control_window, update_control_table,
+log_model_start, log_model_end, the JOB_CONTROL CTE and the seed must all
+be the same string. If any one of them disagrees the UPDATE matches no row,
+the window never advances, and nothing raises an error.
