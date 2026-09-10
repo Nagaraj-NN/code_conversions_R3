@@ -1,0 +1,47 @@
+dbt_CRPDB01_EPMADM:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      role: DP_DW_IT_TRANSFORMER
+      warehouse: TRANSFORMER_WH
+      user: DBT_SVC
+      database: CRPDB01
+      schema: EPMADM
+      threads: 16
+
+    qa:
+      type: snowflake
+      role: DP_DW_IT_TRANSFORMER
+      user: DBT_SVC_QA
+      warehouse: TRANSFORMER_WH
+      database: CRPDB01
+      schema: EPMADM
+      threads: 8
+
+    uat:
+      type: snowflake
+      role: DP_DW_IT_TRANSFORMER
+      user: DBT_SVC_UAT
+      warehouse: TRANSFORMER_WH
+      database: CRPDB01
+      schema: EPMADM
+      threads: 8
+
+    prod:
+      type: snowflake
+      role: DP_DW_IT_TRANSFORMER
+      user: DBT_SVC_PROD
+      warehouse: TRANSFORMER_WH
+      database: CRPDB01
+      schema: EPMADM
+      threads: 8
+
+    ci:
+      type: snowflake
+      role: DP_DW_IT_TRANSFORMER
+      user: DBT_SVC
+      warehouse: TRANSFORMER_WH
+      database: TEST_DBT_DB
+      schema: TEST_DBT_SCH
+      threads: 8

@@ -21,12 +21,12 @@
     relation. Measured on dbt 1.10.15 / dbt-snowflake 1.10.8, model MY_MODEL
     with alias MY_MODEL_SRC:
 
-        pre_hook=[ my_macro(this) ]        ->  GENDB01.FELADM.MY_MODEL
-        macro emits a literal {{ this }}   ->  GENDB01.FELADM.MY_MODEL_SRC
-        pre_hook=[ "... {{ this }} ..." ]  ->  GENDB01.FELADM.MY_MODEL_SRC
+        pre_hook=[ my_macro(this) ]        ->  CRPDB01.EPMADM.MY_MODEL
+        macro emits a literal {{ this }}   ->  CRPDB01.EPMADM.MY_MODEL_SRC
+        pre_hook=[ "... {{ this }} ..." ]  ->  CRPDB01.EPMADM.MY_MODEL_SRC
 
-    So the `model_name` argument is the un-aliased relation, which for the 40
-    aliased models here is the TARGET table rather than the model's own. A count
+    So the `model_name` argument is the un-aliased relation, which for every
+    aliased model here is the TARGET table rather than the model's own. A count
     taken from it would report the size of the target instead of the rows this
     model produced. RECORDS_PROCESSED and SOURCE_OBJECT therefore emit a literal
     {{ this }} for dbt to render later, when the alias is in effect.
@@ -35,8 +35,7 @@
     happens to equal it, so the reference project's `model_name.name` yields the
     same value and is correct; model.name states it explicitly and stays right
     whenever the hook is rendered. It must match the r.node.name that
-    mark_failed_jobs keys on and, for a run-window model, the seed's JOB_NAME -
-    and it does.
+    mark_failed_jobs keys on, and it does.
 
     What RECORDS_PROCESSED counts, by model shape:
 

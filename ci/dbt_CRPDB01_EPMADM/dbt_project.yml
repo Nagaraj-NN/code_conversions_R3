@@ -1,0 +1,29 @@
+name: dbt_CRPDB01_EPMADM
+version: 1.0.0
+config-version: 2
+
+profile: dbt_CRPDB01_EPMADM
+
+model-paths: [models]
+analysis-paths: [analyses]
+test-paths: [tests]
+seed-paths: [seeds]
+macro-paths: [macros]
+snapshot-paths: [snapshots]
+
+models:
+  dbt_CRPDB01_EPMADM:
+    +materialized: view
+    EPMADM:
+      +database: CRPDB01
+      +schema: EPMADM
+      +materialized: table
+
+vars:
+  app_name_by_schema:
+    EPMADM: EPMADM
+    METADATA: EPMADM
+    TEST_DBT_SCH: EPMADM
+
+on-run-end:
+  - "{{ mark_failed_jobs(results) }}"

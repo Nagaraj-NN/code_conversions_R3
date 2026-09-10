@@ -12,6 +12,14 @@
 -- Full reload. The Informatica writer carried Truncate target table
 -- option = YES, run by the PRE-SESS thread ahead of the load, so the
 -- truncate is a pre-hook here and the model itself is the target.
+--
+-- Source: the validated script's body reads FROM AEP_DW_FV_JO_RECEIPT_VW
+-- with no database or schema, although its own header names the source as
+-- GENDB01_DEV_SANDBOX.COMMON.AEP_DW_FV_JO_RECEIPT_VW_TEST - where every
+-- sister script reads its AEP_DW_FV_*_TEST view. Left bare, dbt resolves it
+-- against GENDB01.FELADM, and because the TRUNCATE pre-hook runs first a
+-- missing view would leave this table empty. It reads the header's source,
+-- as FEL_JO_DSPSTN_BRDG does.
 -- ==========================================================================
 
 {{ config(
@@ -36,7 +44,7 @@ SELECT
     CAST(IFF(LKP_BE.BSNS_ENTY_KEY IS NOT NULL, LKP_BE.BSNS_ENTY_KEY, -2) AS NUMBER(10,0))     AS BSNS_ENTY_KEY,
     CAST(IFF(LKP_IL.INVTRY_LOC_KEY IS NOT NULL, LKP_IL.INVTRY_LOC_KEY, -2) AS NUMBER(10,0))   AS INVTRY_LOC_KEY,
     CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)                                                AS LAST_UPDT_TS
-FROM AEP_DW_FV_JO_RECEIPT_VW SQ
+FROM {{ source('GENDB01_DEV_SANDBOX_COMMON','AEP_DW_FV_JO_RECEIPT_VW_TEST') }} SQ
 LEFT JOIN (
     SELECT ACCTG_MO_DAY_ID, MONTH_NB, CALENDAR_YEAR
     FROM {{ source('GENDB01_FELADM','FEL_ACCTG_MONTH_VW') }}

@@ -1,0 +1,55 @@
+version: 2
+
+# Source definitions for the CI conversion: wkf_LOAD_CI_ATOMIC and
+# wkf_LOAD_CI_ATOMIC_AUDIT.
+#
+# Every group resolves through {{ target.database }}, as the reference project's
+# application schemas do, so dev / qa / uat / prod follow the target. The
+# validated scripts name CRPDB01_DEV_SANDBOX because that is the database they
+# were executed in.
+#
+# CI_PSFT_SOURCE holds the four PeopleSoft objects the mappings READ. It is
+# declared exactly where the validated scripts read them - EPMADM - but that is
+# not where they live:
+#
+#   - the scripts' own execution log reports PS_Z_CPP_CH_LOG_VW and
+#     PS_Z_CI_REV_DTLVW as "does not exist or not authorized" in EPMADM;
+#   - PS_Z_JTP_RELATE_CI is also a TARGET in EPMADM, and the script truncates it
+#     and then reloads it from itself.
+#
+# So the Informatica source connection pointed somewhere else, and the
+# converter collapsed it onto the target schema. Repoint this one group once
+# the replicated PeopleSoft schema is known; no model changes. Until then the
+# model PS_Z_JTP_RELATE_CI refuses to compile, because as declared its source
+# and its target are the same physical table.
+
+sources:
+
+  - name: CRPDB01_EPMADM
+    database: "{{ target.database }}"
+    schema: EPMADM
+    tables:
+      - name: PS_Z_JOB_CONTROL
+      - name: PS_Z_CI_D00
+      - name: PS_Z_CPP_D00
+      - name: PS_Z_CI_EST_F00
+      - name: PS_Z_CI_DELETE_LOG
+      - name: PS_Z_CPP_DELETE_LOG
+      - name: PS_Z_EPM_AUDIT
+
+  - name: CI_PSFT_SOURCE
+    database: "{{ target.database }}"
+    schema: EPMADM
+    tables:
+      - name: PS_Z_CI_CHG_LOG_VW
+      - name: PS_Z_CPP_CH_LOG_VW
+      - name: PS_Z_CI_REV_DTLVW
+      - name: PS_Z_JTP_RELATE_CI
+
+  - name: CRPDB01_METADATA
+    database: "{{ target.database }}"
+    schema: METADATA
+    tables:
+      - name: EPMADM_JOB_CONTROL
+      - name: EPMADM_JOB_EXECUTION
+      - name: EPMADM_JOB_PARAMETERS

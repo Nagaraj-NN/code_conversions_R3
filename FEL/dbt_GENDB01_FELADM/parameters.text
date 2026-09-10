@@ -183,7 +183,7 @@ SECTION C - HOW TO MAKE THE SWAP
 The scaffolding is already in the project but deliberately not wired, so
 that today every model reproduces its validated script exactly:
 
-  seeds/FEL_JOB_CONTROL_SEEDS.csv    one row per model
+  seeds/FEL_JOB_CONTROL_SEEDS.csv    one row per Section A model (22)
   models/METADATA/FEL_JOB_CONTROL.sql  merges the seed into the control table
   macros/open_control_window.sql     opens the window in a pre-hook
   macros/update_control_table.sql    rolls the window in a post-hook

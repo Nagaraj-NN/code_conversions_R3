@@ -26,7 +26,7 @@ models/FELADM/DIM/         15 dimension models
 models/FELADM/FACT/        10 fact models
 models/FELADM/BRDG/         2 bridge models
 models/METADATA/            1 job-control model
-seeds/                     FEL_JOB_CONTROL_SEEDS.csv, one row per model
+seeds/                     FEL_JOB_CONTROL_SEEDS.csv, one row per run-window model (22)
 inventory.md               per model: sources, lookups, hook tables, target
 parameters.text            the frozen date parameters and how to unfreeze them
 ```
@@ -94,8 +94,13 @@ their filter columns and the exact steps to move them onto the job-control
 window. The scaffolding for that swap ships here but is deliberately not wired.
 
 **Autosys job names are placeholders.** Every model uses `TBD_<MODEL_NAME>` in
-`log_model_start` / `log_model_end` and in the seed. Replace both, plus the
-seed row, together — the four must agree or the control row never matches.
+`log_model_start` / `log_model_end`, and the 22 run-window models also in the
+seed. Replace them together — they must agree or the control row never matches.
+
+**The seed holds only run-window models.** As in `dp-cust-cxnext`, where 27 of
+81 models have a seed row, a model is in `FEL_JOB_CONTROL_SEEDS.csv` only if it
+reads its load window from `FEL_JOB_CONTROL` — here the 22 in `parameters.text`.
+The other 25 have Autosys names and log hooks but no window, so no seed row.
 
 **One INNER JOIN became a LEFT JOIN in 7 models.** Where the validated script
 stated the router's matched branch with an inner join to a lookup and the
@@ -104,6 +109,14 @@ branches keep their rows. Each of those lookups is reduced to one row per key
 by its own `QUALIFY`, and the UPDATE hook still filters on the lookup column,
 so no row is updated that was not updated before. The affected models say so in
 their header.
+
+**One bare table name was qualified.** `m_FEL_JO_RCPT_BRDG_ins` reads
+`FROM AEP_DW_FV_JO_RECEIPT_VW` with no schema, while its own header names the
+source as `GENDB01_DEV_SANDBOX.COMMON.AEP_DW_FV_JO_RECEIPT_VW_TEST`.
+`FEL_JO_RCPT_BRDG` reads the header's source, as its sister
+`FEL_JO_DSPSTN_BRDG` does. Left bare, it would resolve against
+`GENDB01.FELADM`, and its truncate pre-hook would empty the table before the
+read failed.
 
 **Informatica quirks are preserved, not corrected.** Tautologies such as
 `'C' = 'C'` (from `$$RUN_STATUS`), asymmetric column widths between the insert
@@ -191,10 +204,22 @@ reference project's, with `FEL` in place of `CXNADM`.
 Each model was checked against its validated script for expression identity
 (balanced-paren extraction of every `CASE` / `IFF` / `NVL` / `COALESCE` /
 `DECODE` / `MD5` block, compared token by token) and for literal and identifier
-survival. All 46 scripts pass with zero lost expressions, literals or
-identifiers. Structural checks — paren balance, jinja balance, every `source()`
+survival. 45 of 46 scripts pass with zero lost expressions, literals or
+identifiers; the 46th, `m_FEL_JO_RCPT_BRDG_ins`, differs only by the source
+qualification described above. Structural checks — paren balance, jinja balance, every `source()`
 declared, no leftover session variable, no DML outside a hook, log hooks
 present — pass on all 48 models.
+
+A second, independent check runs on what dbt compiled rather than on the model
+files. For all 46 scripts the ordered list of writes (verb and target table)
+equals what the models' hooks and materializations execute. Every literal,
+identifier, qualified column and comparison predicate survives, apart from the
+source qualification above and two predicates in `FEL_GNRTN_UNIT_DIM` whose
+alias moved from `DQ.` to `SRC.` - the same columns, computed by the same
+expressions. The 7 truncate-and-reload models output exactly their script's
+INSERT columns, in order, so dbt's name-based insert matches the script's
+positional one. Every table the compiled SQL touches is a declared source or a
+model.
 
 `dbt parse`, `dbt compile` and `dbt build` all run clean against a stubbed
 Snowflake connection (`PASS=50 WARN=0 ERROR=0 SKIP=0`), which exercises the real

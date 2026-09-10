@@ -1,0 +1,8 @@
+# Ignore dbt artifacts
+target/
+dbt_modules/
+dbt_packages/
+logs/
+
+# dbt anonymous-usage id, written on every local run
+.user.yml

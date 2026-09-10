@@ -88,6 +88,7 @@ sources:
       - name: AEP_DW_FACILITY_VW_TEST
       - name: AEP_DW_FV_BEGBAL_VW_TEST
       - name: AEP_DW_FV_JO_DISPOSED_VW_TEST
+      - name: AEP_DW_FV_JO_RECEIPT_VW_TEST
       - name: AEP_DW_FV_TRANS_VW_TEST
       - name: AEP_DW_GENUNIT_VW_TEST
       - name: AEP_DW_INVENTORYLOC_VW_TEST

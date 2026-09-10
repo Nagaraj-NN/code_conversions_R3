@@ -14,7 +14,7 @@
     SOURCE_OBJECT emits a literal {{ this }} rather than the model_name
     argument. A macro called inside config() runs at PARSE time, before the
     model's own alias config is applied, so the argument is the un-aliased
-    relation - the target table for the 40 aliased models here. Emitting the
+    relation - the target table for every aliased model here. Emitting the
     literal makes dbt render it later, with the alias in effect. See the note
     in log_model_end.sql for the measurements behind this.
 
@@ -97,7 +97,7 @@
     dev and ci are left alone: building with frozen literals is exactly what you
     want while converting and validating. qa, uat and prod refuse to compile.
 
-    parameters.text lists every affected model and the swap, step by step.
+    The README lists what is still open for each model.
 #}
 {% macro assert_ready_for_promotion(autosys_job_name) %}
 
@@ -109,7 +109,7 @@
             {{ exceptions.raise_compiler_error(
                 model.name ~ ": a frozen date literal is still in the model body."
                 ~ " Move it onto the JOB_CONTROL run window before promoting to "
-                ~ target.name ~ ". parameters.text has the steps for this model."
+                ~ target.name ~ ". The README lists the models this applies to."
             ) }}
         {% endif %}
 
@@ -117,8 +117,8 @@
             {{ exceptions.raise_compiler_error(
                 model.name ~ ": placeholder autosys_job_name '" ~ autosys_job_name
                 ~ "'. Set the real Autosys job name in log_model_start and"
-                ~ " log_model_end, and in seeds/FEL_JOB_CONTROL_SEEDS.csv if the model"
-                ~ " uses the run window - they must agree or the control row never matches."
+                ~ " log_model_end - log_model_end matches on it, so the two must"
+                ~ " agree or the STARTED row is never closed."
             ) }}
         {% endif %}
 
