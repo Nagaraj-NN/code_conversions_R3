@@ -1,0 +1,342 @@
+name: Snowflake dbt Continuous Deployment
+
+on:
+  push:
+    branches:
+      - dev
+      - qa
+      - uat
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  actions: read
+  checks: write
+
+jobs:
+  deploy:
+    runs-on: [RHEL8]
+    #runs-on: [self-hosted, Linux, X64, gitapnap11]
+
+    concurrency:
+      group: cd-deploy-${{ github.ref_name }}
+      cancel-in-progress: true
+
+    steps:
+      # --------------------------------------------------
+      # Checkout
+      # --------------------------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------
+      # Install Snowflake CLI (same action as CI)
+      # --------------------------------------------------
+      - name: Install Snowflake CLI
+        uses: snowflakedb/snowflake-cli-action@v2.0
+        env:
+          UV_PYTHON_PREFERENCE: only-managed
+          UV_PYTHON: "3.11"
+        with:
+          cli-version: 3.18.0
+
+      # --------------------------------------------------
+      # Resolve dbt project name
+      # --------------------------------------------------
+      - name: Resolve dbt project name
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DBT_PROJECT_NAME=$(grep '^name:' dbt_project.yml | cut -d':' -f2 | xargs)
+          DBT_PROJECT_NAME=$(echo "$DBT_PROJECT_NAME" | tr -d "'\"")
+
+          if [ -z "$DBT_PROJECT_NAME" ]; then
+            echo "Failed to resolve dbt project name"
+            exit 1
+          fi
+
+          echo "CD_PROJECT=$DBT_PROJECT_NAME" >> "$GITHUB_ENV"
+      
+
+      # --------------------------------------------------
+      # Resolve environment
+      # --------------------------------------------------
+      - name: Resolve Snowflake environment
+        run: |
+          case "${{ github.ref_name }}" in
+            dev)
+              echo "SNOW_CONN=dev" >> $GITHUB_ENV
+              echo "DBT_TARGET=dev" >> $GITHUB_ENV
+              ;;
+            qa)
+              echo "SNOW_CONN=qa" >> $GITHUB_ENV
+              echo "DBT_TARGET=qa" >> $GITHUB_ENV
+              ;;
+            uat)
+              echo "SNOW_CONN=uat" >> $GITHUB_ENV
+              echo "DBT_TARGET=uat" >> $GITHUB_ENV
+              ;;
+            main)
+              echo "SNOW_CONN=prod" >> $GITHUB_ENV
+              echo "DBT_TARGET=prod" >> $GITHUB_ENV
+              ;;
+            *)
+              echo "Unsupported branch"
+              exit 1
+              ;;
+          esac
+
+      # --------------------------------------------------
+      # Extract database and schema
+      # --------------------------------------------------
+
+      - name: Resolve database, schema and app name
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          target = os.environ["DBT_TARGET"]
+
+          project_text = Path("dbt_project.yml").read_text(
+              encoding="utf-8"
+          )
+
+          profiles_text = Path("profiles.yml").read_text(
+              encoding="utf-8"
+          )
+
+          source_database = None
+          source_schema = None
+
+          inside_target = False
+          target_indent = None
+
+          for line in profiles_text.splitlines():
+
+              stripped = line.strip()
+              indent = len(line) - len(line.lstrip())
+
+              if stripped == f"{target}:":
+                  inside_target = True
+                  target_indent = indent
+                  continue
+
+              if (
+                  inside_target
+                  and stripped
+                  and not stripped.startswith("#")
+                  and ":" in stripped
+                  and indent <= target_indent
+              ):
+                  inside_target = False
+
+              if inside_target and stripped.startswith("database:"):
+                  source_database = stripped.split(":", 1)[1].strip()
+
+              if inside_target and stripped.startswith("schema:"):
+                  source_schema = stripped.split(":", 1)[1].strip()
+
+          if not source_database:
+              raise RuntimeError(
+                f"database was not found under target {target}"
+            )
+
+          if not source_schema:
+              raise RuntimeError(
+                f"schema was not found under target {target}"
+            )
+
+          app_name = source_schema
+
+          mapping_match = re.search(
+              r"app_name_by_schema:\s*\n((?:\s+\w+\s*:\s*\w+\s*\n?)*)",
+              project_text,
+              re.MULTILINE,
+          )
+
+          if mapping_match:
+
+              mapping_block = mapping_match.group(1)
+
+              schema_match = re.search(
+                  rf"^\s*{re.escape(source_schema)}\s*:\s*([A-Za-z0-9_]+)\s*$",
+                  mapping_block,
+                  re.MULTILINE,
+              )
+
+              if schema_match:
+                  app_name = schema_match.group(1)
+
+          with open(os.environ["GITHUB_ENV"], "a") as env_file:
+
+              env_file.write(
+                  f"DBT_DATABASE={source_database}\n"
+              )
+              env_file.write(
+                  f"DBT_SCHEMA={source_schema}\n"
+              )
+              env_file.write(
+                  f"APP_NAME={app_name}\n"
+              )
+
+          print(f"DBT_DATABASE={source_database}")
+          print(f"DBT_SCHEMA={source_schema}")
+          print(f"APP_NAME={app_name}")
+
+          PY
+      
+
+
+      # --------------------------------------------------
+      # Validate resolved values
+      # --------------------------------------------------
+      - name: Validate resolved values
+        run: |
+          echo "DBT_TARGET=${DBT_TARGET}"
+          echo "DBT_DATABASE=${DBT_DATABASE}"
+          echo "DBT_SCHEMA=${DBT_SCHEMA}"
+          echo "APP_NAME=${APP_NAME}"
+
+
+      # --------------------------------------------------
+      # Configure Snowflake
+      # --------------------------------------------------
+      - name: Configure Snowflake
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p "$HOME/.snowflake"
+
+          case "$SNOW_CONN" in
+            dev)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_DEV }}"
+              USER="${{ secrets.SNOWFLAKE_USER_DEV }}"
+              ;;
+            qa)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_QA }}"
+              USER="${{ secrets.SNOWFLAKE_USER_QA }}"
+              ;;
+            uat)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_UAT }}"
+              USER="${{ secrets.SNOWFLAKE_USER_UAT }}"
+              ;;
+            prod)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_PROD }}"
+              USER="${{ secrets.SNOWFLAKE_USER_PROD }}"
+              ;;
+            *)
+              echo "Unknown Snowflake connection: $SNOW_CONN"
+              exit 1
+              ;;
+          esac
+
+          printf '%s\n' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > key.p8
+          chmod 600 key.p8
+
+          cat > "$HOME/.snowflake/config.toml" <<EOF
+          [connections.$SNOW_CONN]
+          account = "$ACCOUNT"
+          host = "$ACCOUNT.privatelink.snowflakecomputing.com"
+          user = "$USER"
+          role = "${{ secrets.SNOWFLAKE_ROLE }}"
+          warehouse = "${{ secrets.SNOWFLAKE_WAREHOUSE }}"
+          private_key_path = "$GITHUB_WORKSPACE/key.p8"
+          authenticator = "SNOWFLAKE_JWT"
+          EOF
+
+          chmod 600 "$HOME/.snowflake/config.toml"
+      # --------------------------------------------------
+      # Verify connection
+      # --------------------------------------------------
+      - name: Verify Snowflake connection
+        run: |
+          snow --version
+          snow sql -c "$SNOW_CONN" -q "
+            SELECT CURRENT_ROLE(), CURRENT_WAREHOUSE();
+          "
+
+      # --------------------------------------------------
+      # Bootstrap METADATA tables
+      # --------------------------------------------------
+      - name: Bootstrap METADATA tables
+        run: |
+          snow sql -c "$SNOW_CONN" -q "
+            CREATE SCHEMA IF NOT EXISTS ${DBT_DATABASE}.METADATA;
+
+            CREATE TABLE IF NOT EXISTS ${DBT_DATABASE}.METADATA.${APP_NAME}_JOB_CONTROL (
+              JOB_ID NUMBER(30,0) NOT NULL,
+              JOB_NAME VARCHAR,
+              AUTOSYS_JOB_NAME VARCHAR,
+              START_DATE TIMESTAMP_NTZ,
+              END_DATE TIMESTAMP_NTZ,
+              PREV_START_DATE TIMESTAMP_NTZ,
+              PREV_END_DATE TIMESTAMP_NTZ,
+              RUN_WINDOW NUMBER,
+              ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+              ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+              CONSTRAINT PK_${APP_NAME}_JOB_CONTROL PRIMARY KEY (JOB_ID)
+            );
+
+            CREATE TABLE IF NOT EXISTS ${DBT_DATABASE}.METADATA.${APP_NAME}_JOB_EXECUTION (
+              JOB_NAME VARCHAR,
+              AUTOSYS_JOB_NAME VARCHAR,
+              JOB_STATUS VARCHAR,
+              START_TIMESTAMP TIMESTAMP_NTZ,
+              END_TIMESTAMP TIMESTAMP_NTZ,
+              SOURCE_OBJECT VARCHAR,
+              TARGET_OBJECT VARCHAR,
+              RECORDS_PROCESSED NUMBER,
+              ERROR_MESSAGE VARCHAR,
+              ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+              ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+            );
+
+            CREATE TABLE IF NOT EXISTS ${DBT_DATABASE}.METADATA.${APP_NAME}_JOB_PARAMETERS (
+              PARAM_ID NUMBER AUTOINCREMENT START 1001 INCREMENT 1,
+              JOB_NAME VARCHAR,
+              AUTOSYS_JOB_NAME VARCHAR,
+              PARAM_NAME VARCHAR,
+              PARAM_VALUE VARCHAR,
+              ACTIVE_IND VARCHAR DEFAULT 'Y',
+              ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+              ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+            );
+          "
+
+      # --------------------------------------------------
+      # Prepare clean dbt project
+      # --------------------------------------------------
+      - name: Prepare clean dbt folder
+        run: |
+          rm -rf clean_dbt
+          mkdir -p clean_dbt
+
+          rsync -av \
+            --exclude 'snowcli_pkg' \
+            --exclude 'venv' \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '__pycache__' \
+            --exclude '*.pyc' \
+            --exclude 'target' \
+            ./ clean_dbt/
+
+      # --------------------------------------------------
+      # Deploy dbt project
+      # --------------------------------------------------
+      - name: Deploy dbt project
+        run: |
+          snow dbt deploy "${DBT_DATABASE}"."${DBT_SCHEMA}"."${CD_PROJECT}" \
+            --source ./clean_dbt \
+            --dbt-version 1.10.15 \
+            --connection "$SNOW_CONN" \
+            --force
