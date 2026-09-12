@@ -60,17 +60,24 @@ adds any JOBID it lacks, never replacing a row. The models that use it:
 
 ## Guards
 
-`macros/assert_psft_source.sql`, called at the top of the model body so it runs
-before any hook:
+`macros/assert_psft_source.sql`, called at the top of the model body, stops
+compilation when a PeopleSoft source is its own target. It checks configuration
+only, so it cannot fail a deploy:
 
 | Model | Stops compilation when |
 |---|---|
-| `PS_Z_JTP_RELATE_CI` | its source does not exist; or its PeopleSoft source is its own target |
-| `PS_Z_CPP_D00` | its source view does not exist (the TRUNCATE would empty the table before the read failed) |
-| `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | their PeopleSoft source is their own target (kept as a safeguard) |
+| `PS_Z_JTP_RELATE_CI` | its PeopleSoft source is its own target |
+| `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | the same (kept as a safeguard) |
 
-With `CI_PSFT_SOURCE` on `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT` the source-is-target
-check passes everywhere; only a missing source stops a model.
+With `CI_PSFT_SOURCE` on `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT` this passes
+everywhere.
+
+The two truncate-and-reload models, `PS_Z_JTP_RELATE_CI` and `PS_Z_CPP_D00`,
+read one row of their source in a pre-hook ahead of the TRUNCATE. If the source
+does not exist or cannot be read, the model fails there and its table is left
+as it was. That check used to run at compile time, which also stopped
+`snow dbt deploy` on CI (2026-09-12), because Snowflake compiles the project
+when it creates the dbt project object.
 
 ## Not converted
 

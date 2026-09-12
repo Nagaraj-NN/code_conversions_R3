@@ -19,12 +19,13 @@
 -- conversion resolved both to the same name.
 --
 -- The source is declared in its own group, CI_PSFT_SOURCE, and
--- assert_psft_source below stops compilation - before the TRUNCATE can run -
--- while that source is this model's own table, or does not exist. Repoint
--- CI_PSFT_SOURCE in models/epmadm_schema.yml and this model builds unchanged.
+-- assert_psft_source below stops compilation while that source is this
+-- model's own table. A pre-hook reads one row of the source before the
+-- TRUNCATE, so a source that does not exist or cannot be read fails the model
+-- before the table is emptied.
 -- ==========================================================================
 
-{{ assert_psft_source(source('CI_PSFT_SOURCE', 'PS_Z_JTP_RELATE_CI'), this, must_exist=true) }}
+{{ assert_psft_source(source('CI_PSFT_SOURCE', 'PS_Z_JTP_RELATE_CI'), this) }}
 
 {{ config(
     materialized='incremental',
@@ -33,6 +34,7 @@
     meta={"mapping_name": "m_ps_z_jtp_relate_ci_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC"},
     pre_hook=[
         log_model_start(this, 'TBD_PS_Z_JTP_RELATE_CI', target_object=target.database ~ '.EPMADM.PS_Z_JTP_RELATE_CI'),
+        "SELECT 1 FROM {{ source('CI_PSFT_SOURCE','PS_Z_JTP_RELATE_CI') }} LIMIT 1",
         "TRUNCATE TABLE IF EXISTS {{ this }}"
     ],
     post_hook=[

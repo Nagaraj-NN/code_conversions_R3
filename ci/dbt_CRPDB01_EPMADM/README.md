@@ -163,19 +163,22 @@ and, by its name, others outside this project.
 
 ## Guards
 
-**`assert_psft_source`** (`macros/assert_psft_source.sql`) is called at the top
-of the model body, so it runs at compile time, before any hook:
+Two guards stop a load before it can do damage:
 
-- **source is the target** - `PS_Z_JTP_RELATE_CI`, `PS_Z_CI_PMRG_ANLS_TBL_INS`,
+- **source is the target** - `assert_psft_source`
+  (`macros/assert_psft_source.sql`), called at the top of the model body, so at
+  compile time; it compares configuration only. Used by `PS_Z_JTP_RELATE_CI`, `PS_Z_CI_PMRG_ANLS_TBL_INS`,
   `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS`.
   With `CI_PSFT_SOURCE` on bronze this passes everywhere; it stays so that a
   source pointed back into EPMADM stops the model instead of reading its own
   target. On the `ci` target it would only warn.
-- **source does not exist** - `PS_Z_JTP_RELATE_CI` and `PS_Z_CPP_D00`, the two
-  truncate-and-reload models, so a TRUNCATE is never sent ahead of a read that
-  will fail. Fatal on every target. The lookup is `show objects like`, compared
-  without regard to case: dbt's own `adapter.get_relation` raises on bronze's
-  lower-case names instead of finding them.
+- **source cannot be read** - `PS_Z_JTP_RELATE_CI` and `PS_Z_CPP_D00`, the two
+  truncate-and-reload models, read one row of their source in a pre-hook ahead
+  of the TRUNCATE. If the source does not exist or cannot be read, the model
+  fails there and its table is left as it was. This runs when the model runs,
+  not at compile time: `snow dbt deploy` compiles the whole project with the
+  profile's default target, so a compile-time check that depends on what exists
+  fails the deploy itself - CI's did, on 2026-09-12 (*Live runs*).
 
 **Promotion guard.** Carried from FEL: `log_model_start` refuses to compile on
 `qa`, `uat` and `prod` while a model's Autosys job name starts with `TBD`. All
@@ -222,7 +225,8 @@ on the rewritten profile, against a stubbed Snowflake connection:
 |---|---|
 | Resolve / Configure / Validate | pass - `CRPDB01`, `EPMADM`, app `EPMADM_CI`, CI `CRPDB01_CI.EPMADM`, project `DBT_CI_EPMADM_CI` |
 | compile + build, every object present | compile passes; build `PASS=18 ERROR=0`, no warnings |
-| compile + build, objects missing | fails: JTP and `PS_Z_CPP_D00` stop on their missing bronze source |
+| deploy-time compile (default target `dev`), 7 views missing | passes - nothing at compile time depends on what exists |
+| compile + build, 7 views missing | compile passes; build `PASS=10 ERROR=8` - the 8 models that read the views; `PS_Z_CPP_D00` fails at its pre-hook and no TRUNCATE of it is sent |
 | what the build touches | writes only `CRPDB01_CI.EPMADM` and `CRPDB01_CI.METADATA`; reads PeopleSoft from `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT` |
 
 `snow dbt deploy` and `EXECUTE DBT PROJECT` themselves were not run.
@@ -238,11 +242,9 @@ on the rewritten profile, against a stubbed Snowflake connection:
 - the CI role must read `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT`: `PS_Z_JOB_CONTROL`,
   `PS_Z_JTP_RELATE_CI`, `PS_Z_IR_DETAIL_TBL`, `PS_Z_PMRG_ANLS_TBL`,
   `PS_Z_PMRG_CPP_TBL`, `PS_Z_CI_GEN_STAT`, `PS_Z_CPP_GEN_STAT`.
-- CI cannot pass until the 7 PeopleSoft views exist and the two GEN_STAT
-  tables are readable - see *Live runs*. It fails as early as the `compile`
-  step: `PS_Z_CPP_D00`'s existence check runs at compile time and stops on
-  `PS_Z_CPP_DTL_VW`. Offline, with every object present, compile and build both
-  pass.
+- CI's `build` cannot pass until the 7 PeopleSoft views exist and the two
+  GEN_STAT tables are readable - see *Live runs*. The deploy and `compile` no
+  longer depend on them.
 
 Two behaviours of the workflow as supplied: `CI_SCHEMA` is the source schema
 itself (`EPMADM`), not a per-PR schema, so concurrent pull requests share it;
@@ -284,11 +286,12 @@ model's columns match the original SELECT and INSERT lists, in order.
 
 **The 8 models from the session scripts.** Each is cut mechanically from its
 script, which is refused if its table references differ from the spec. Strict
-equality, 48 of 48: every `USING` subquery equals the model body and every
+equality, 49 of 49: every `USING` subquery equals the model body and every
 `ON` / `WHEN MATCHED` / `WHEN NOT MATCHED` clause equals the hook, with the same
 target and aliases; every table reference compiles where the spec says -
 PeopleSoft reads to `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT`, router lookups to
-`CRPDB01.EPMADM`; `PS_Z_CPP_D00` outputs exactly its 49 INSERT columns, in order.
+`CRPDB01.EPMADM`; `PS_Z_CPP_D00` outputs exactly its 49 INSERT columns, in order, and
+reads one row of its view in a pre-hook before its TRUNCATE.
 
 **All 16.** Every table the compiled SQL touches is a declared source or a model.
 
@@ -297,8 +300,9 @@ the real dbt Jinja pipeline, only the warehouse round trip faked:
 
 | run | result |
 |---|---|
-| `dbt build --target dev`, every object present | `PASS=18 ERROR=0` - `on-run-start` creates and tops up `PS_Z_JOB_CONTROL_CI`; the stub reports names in lower case, as bronze does, and the existence guards still find them |
-| `dbt build --target dev`, objects missing | `PASS=16 ERROR=2` - JTP and `PS_Z_CPP_D00` stop on their missing source; no TRUNCATE sent |
+| `dbt build --target dev`, every object present | `PASS=18 ERROR=0` - `on-run-start` creates and tops up `PS_Z_JOB_CONTROL_CI`; in both truncate-and-reload models the probe runs before the TRUNCATE |
+| `dbt compile`, default target, 7 views missing - what `snow dbt deploy` runs | passes, all 16 models compile |
+| `dbt build --target dev`, 7 views missing | `PASS=10 ERROR=8` - the 8 models that read them; `PS_Z_CPP_D00` fails at its probe and no TRUNCATE of it is sent |
 | `dbt build`, target database `CRPDB01_DEV_SANDBOX` | `PASS=18 ERROR=0`; every write, METADATA row and `TARGET_OBJECT` is in the sandbox - no `CRPDB01` outside comments |
 | `dbt compile --target qa`, per model | the TBD guard stops all 16 |
 | the admin CI workflow | see *CI / CD* |
@@ -309,8 +313,8 @@ The runs against Snowflake itself are under *Live runs*.
 
 Three runs in `CRPDB01_DEV_SANDBOX` - Snowflake-native dbt 1.9.4, role
 `DP_DW_IT_DEVELOPER` - and `analyses/check_bronze_peoplesoft.sql`, whose results
-are summarised at its top. The third run's log, committed 2026-09-13, is
-`ci/f.txt`. It repeats the second exactly - same project checksum, same 16
+are summarised at its top. The third run's log (`ci/f.txt` at commit 9ee8b2e)
+repeats the second exactly - same project checksum, same 16
 errors - because the fixes below had not been deployed yet.
 
 **What bronze is.** 210 unmanaged Iceberg tables (catalog `GLUE_REST_BRONZE`)
@@ -323,9 +327,21 @@ tables and none of the 7 views.
 | Cause | Models | Status |
 |---|---|---|
 | A fixed `+database: CRPDB01` wrote the models to `CRPDB01.EPMADM` while the sources read the sandbox; the `_SRC` tables there already exist under another owner | OWNERSHIP error: `PS_Z_JOB_CONTROL_UPD_DTTM`, `_UPD_STATUS`, `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_EST_F00_ATOMIC_AUDIT`; and `mark_failed_jobs` looked for `CRPDB01.METADATA` | fixed - models and audit rows follow `target.database` |
-| dbt's `adapter.get_relation` found bronze's `"bronze_peoplesoft"."ps_z_jtp_relate_ci"` only as a case-insensitive match and raised instead of returning it | `PS_Z_JTP_RELATE_CI` | fixed - `assert_psft_source` checks existence with `show objects like`, ignoring case; the source is declared unquoted again |
+| dbt's `adapter.get_relation` found bronze's `"bronze_peoplesoft"."ps_z_jtp_relate_ci"` only as a case-insensitive match and raised instead of returning it | `PS_Z_JTP_RELATE_CI` | fixed - existence is now checked by a pre-hook that reads one row, which Snowflake resolves whatever the case; the source is declared unquoted again |
 | PeopleSoft views are not in bronze, and the scripts' own error headers show six of them missing in `CRPDB01_DEV_SANDBOX.EPMADM` too: `PS_Z_CI_CHG_LOG_VW`, `PS_Z_CPP_CH_LOG_VW`, `PS_Z_CI_REV_DTLVW`, `PS_Z_CI_DTL_VW`, `PS_Z_CPP_DTL_VW`, `PS_Z_PDS_CI_VW`, `PS_Z_PDS_CPP_VW` | `PS_Z_CI_D00_DEL`, `PS_Z_CPP_D00_DEL`, `PS_Z_CI_EST_F00_DEL`, `PS_Z_CI_D00_INS_UPD`, `PS_Z_CPP_D00` (stopped before its TRUNCATE), `PS_Z_PDS_CI_DTL_INS`, `PS_Z_PDS_CPP_DTL_INS`, `PS_Z_CI_REV_DTLVW_AUDIT` | open - each view has to be rebuilt from its PeopleSoft definition over the bronze tables |
 | `Equality deletes on Iceberg tables are not supported` reading bronze `ps_z_ci_gen_stat` / `ps_z_cpp_gen_stat` | `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | platform - Snowflake cannot read an Iceberg table whose deletes are equality deletes; bronze has to be compacted or written with position deletes |
+
+**Admin CI, pull request 1 on `dp-corp-ci`** (log in `ci/f.txt` since commit
+4217de2) - the first CI run with the fixes above. Resolve, the METADATA
+bootstrap, Configure and Validate passed: `CRPDB01_CI`, `EPMADM`, app
+`EPMADM_CI`, project `DBT_CI_EPMADM_CI`. `snow dbt deploy` then failed. Snowflake
+compiles the project while it creates the dbt project object, using the
+profile's default target (`dev`), and the compile-time existence check stopped
+on the missing `PS_Z_CPP_DTL_VW`. Fixed: that check is now a pre-hook (*Guards*),
+so the deploy and CI's `compile` step go through and `build` reports each
+blocked model on its own. The workflow's last step shows `CRPDB01_CI.EPMADM`
+holding 621 tables and 486 views; query 5 of the analysis shows whether the 7
+PeopleSoft views are among them.
 
 The first run's `PS_Z_JOB_CONTROL_CI does not exist` is gone: in the second,
 `on-run-start` created the table and its INSERT from bronze succeeded. The

@@ -10,21 +10,24 @@
          load read its own target: a truncate-and-reload empties it, a MERGE
          brings in nothing new.
 
-      2. must_exist=true: the source does not exist. Used by the
-         truncate-and-reload models, where the TRUNCATE pre-hook would otherwise
-         empty the target before the read failed.
-
     Repointing CI_PSFT_SOURCE in models/epmadm_schema.yml at the replicated
-    PeopleSoft schema clears both, with no model change.
+    PeopleSoft schema clears it, with no model change.
 
-    CI_PSFT_SOURCE now points at BRONZE_CORP_CONF.BRONZE_PEOPLESOFT, so check 1
-    passes on every target; it stays to catch a source that is repointed back
-    into EPMADM. On the ci target it only logs a warning, because there every
-    source that follows target.database lands in the one CI schema. Check 2
-    stays fatal on every target: a missing source fails the build anyway, and
-    this fails it before the TRUNCATE.
+    It compares configuration only and never queries the database. Snowflake
+    compiles the whole project when `snow dbt deploy` creates the dbt project
+    object - with the profile's default target, dev - so a compile-time check
+    that depends on what exists fails the deploy itself. This macro's former
+    must_exist check did exactly that to CI on 2026-09-12, because
+    PS_Z_CPP_DTL_VW does not exist. The truncate-and-reload models now read one
+    row of their source in a pre-hook ahead of the TRUNCATE instead; see
+    PS_Z_JTP_RELATE_CI and PS_Z_CPP_D00.
+
+    CI_PSFT_SOURCE now points at BRONZE_CORP_CONF.BRONZE_PEOPLESOFT, so the
+    check passes on every target; it stays to catch a source that is repointed
+    back into EPMADM. On the ci target it only logs a warning, because there
+    every source that follows target.database lands in the one CI schema.
 #}
-{% macro assert_psft_source(src, tgt, must_exist=false) %}
+{% macro assert_psft_source(src, tgt) %}
 
     {% if execute %}
 
@@ -42,45 +45,6 @@
             {% endif %}
         {% endif %}
 
-        {% if must_exist and not psft_relation_exists(src) %}
-            {{ exceptions.raise_compiler_error(
-                model.name ~ ": its source " ~ src ~ " does not exist. The TRUNCATE pre-hook would"
-                ~ " empty " ~ tgt ~ " before the load failed, so the model stops here."
-            ) }}
-        {% endif %}
-
     {% endif %}
-
-{% endmacro %}
-
-
-{#
-    True if the relation exists, whatever the case of its stored name.
-
-    adapter.get_relation cannot answer this for bronze. It matches dbt's listing
-    of the schema exactly, bronze stores its names in lower case -
-    "bronze_peoplesoft"."ps_z_jtp_relate_ci" - and for a name that differs only
-    in case dbt raises "found an approximate match" instead of returning the
-    relation. That stopped PS_Z_JTP_RELATE_CI on the 2026-09-12 run. Snowflake
-    resolves the unquoted names the models use, so only this lookup has to
-    ignore case.
-
-    SHOW ... LIKE ignores case; the name is compared again because '_' in a LIKE
-    pattern matches any character. A schema that does not exist makes SHOW fail,
-    which stops the model as well.
-#}
-{% macro psft_relation_exists(rel) %}
-
-    {% set found = run_query(
-        "show objects like '" ~ rel.identifier ~ "' in schema " ~ rel.database ~ "." ~ rel.schema
-    ) %}
-
-    {% for row in found.rows %}
-        {% if (row['name'] | upper) == (rel.identifier | upper) %}
-            {{ return(true) }}
-        {% endif %}
-    {% endfor %}
-
-    {{ return(false) }}
 
 {% endmacro %}

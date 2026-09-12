@@ -19,13 +19,13 @@
 -- INSERT columns, in order, and dbt inserts by name.
 --
 -- Converted from ci/CI mappings/RESULT/ - the later upload in ci/ has no
--- new version of this session. assert_psft_source stops compilation if the
--- view does not exist: its execution log reports PS_Z_CPP_DTL_VW missing,
--- and without the check the TRUNCATE would empty PS_Z_CPP_D00 before the
--- read failed.
+-- new version of this session. Its execution log reports PS_Z_CPP_DTL_VW
+-- missing, so a pre-hook reads one row of the view before the TRUNCATE: if
+-- the view cannot be read the model fails there and PS_Z_CPP_D00 is left as
+-- it was. The check runs when the model runs, not at compile time, because
+-- snow dbt deploy compiles the project and a compile-time failure stopped the
+-- deploy itself (CI, 2026-09-12).
 -- ==========================================================================
-
-{{ assert_psft_source(source('CI_PSFT_SOURCE', 'PS_Z_CPP_DTL_VW'), this, must_exist=true) }}
 
 {{ config(
     materialized='incremental',
@@ -34,6 +34,7 @@
     meta={"mapping_name": "m_ps_z_cpp_d00_ins_upd", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_cpp_d00_ins_upd"},
     pre_hook=[
         log_model_start(this, 'TBD_PS_Z_CPP_D00', target_object=target.database ~ '.EPMADM.PS_Z_CPP_D00'),
+        "SELECT 1 FROM {{ source('CI_PSFT_SOURCE','PS_Z_CPP_DTL_VW') }} LIMIT 1",
         "TRUNCATE TABLE IF EXISTS {{ this }}"
     ],
     post_hook=[
