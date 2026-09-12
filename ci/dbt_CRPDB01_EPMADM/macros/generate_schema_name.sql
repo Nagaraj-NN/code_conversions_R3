@@ -1,6 +1,6 @@
 {% macro generate_database_name(custom_database_name, node) %}
     {% if target.name == 'ci' %}
-        TEST_DBT_DB
+        {{ target.database }}
     {% else %}
         {{ custom_database_name if custom_database_name else target.database }}
     {% endif %}
