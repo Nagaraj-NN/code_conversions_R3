@@ -1,26 +1,1957 @@
-DBT job failed: 13 model(s) failed out of 17 total (total time: 21.48s)
-First error in model 'PS_Z_CI_D00_INS_UPD': Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
+
+
+============================== 07:54:39.122573 | 2a2e9bd6-3064-4be9-b362-84da3b104afe ==============================
+[0m07:54:39.122573 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m07:54:39.123646 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt_effective_profiles_hgqvykxy', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/tmp/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt ', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m07:54:39.478101 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m07:54:40.277605 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m07:54:40.667546 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m07:54:40.668262 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m07:54:40.860782 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m07:54:40.863555 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m07:54:40.947723 [info ] [Dummy-1   ]: Found 16 models, 2 operations, 31 sources, 482 macros
+[0m07:54:40.952851 [info ] [Dummy-1   ]: 
+[0m07:54:40.953509 [info ] [Dummy-1   ]: Concurrency: 16 threads (target='dev')
+[0m07:54:40.954070 [info ] [Dummy-1   ]: 
+[0m07:54:40.955001 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m07:54:40.965165 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_CRPDB01'
+[0m07:54:41.111447 [debug] [ThreadPool]: Using snowflake connection "list_CRPDB01"
+[0m07:54:41.112111 [debug] [ThreadPool]: On list_CRPDB01: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "list_CRPDB01"} */
+show terse schemas in database CRPDB01
+    limit 10000
+[0m07:54:41.112703 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m07:54:41.636403 [debug] [ThreadPool]: SQL status: SUCCESS 49 in 0.523 seconds
+[0m07:54:41.643715 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CRPDB01, now list_CRPDB01_EPMADM)
+[0m07:54:41.660816 [debug] [ThreadPool]: Using snowflake connection "list_CRPDB01_EPMADM"
+[0m07:54:41.661453 [debug] [ThreadPool]: On list_CRPDB01_EPMADM: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "list_CRPDB01_EPMADM"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m07:54:41.661996 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m07:54:42.126717 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.465 seconds
+[0m07:54:42.132536 [debug] [ThreadPool]: Using snowflake connection "list_CRPDB01_EPMADM"
+[0m07:54:42.133141 [debug] [ThreadPool]: On list_CRPDB01_EPMADM: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "list_CRPDB01_EPMADM"} */
+show objects in CRPDB01.EPMADM
+    limit 10000
+    
+;
+[0m07:54:43.669601 [debug] [ThreadPool]: SQL status: SUCCESS 1089 in 1.536 seconds
+[0m07:54:43.776332 [debug] [ThreadPool]: Using snowflake connection "list_CRPDB01_EPMADM"
+[0m07:54:43.776985 [debug] [ThreadPool]: On list_CRPDB01_EPMADM: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "list_CRPDB01_EPMADM"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m07:54:43.841516 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.064 seconds
+[0m07:54:44.183256 [debug] [Dummy-1   ]: Writing injected SQL for node "operation.dbt_CRPDB01_EPMADM_CI.dbt_CRPDB01_EPMADM_CI-on-run-start-0"
+[0m07:54:44.189368 [info ] [Dummy-1   ]: 1 of 1 START hook: dbt_CRPDB01_EPMADM_CI.on-run-start.0 ........................ [RUN]
+[0m07:54:44.191180 [debug] [Dummy-1   ]: Using snowflake connection "master"
+[0m07:54:44.191801 [debug] [Dummy-1   ]: On master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "master"} */
+CREATE TABLE IF NOT EXISTS CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI AS
+    SELECT JOBID, TABLE_NAME, LAST_RUN_FROM_DTTM, LAST_RUN_TO_DTTM, STATUS
+    FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JOB_CONTROL;
+[0m07:54:44.192423 [debug] [Dummy-1   ]: Opening a new connection, currently in state init
+[0m07:54:44.694908 [debug] [Dummy-1   ]: SQL status: SUCCESS 1 in 0.502 seconds
+[0m07:54:44.695714 [debug] [Dummy-1   ]: Using snowflake connection "master"
+[0m07:54:44.696392 [debug] [Dummy-1   ]: On master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "master"} */
+INSERT INTO CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI
+        (JOBID, TABLE_NAME, LAST_RUN_FROM_DTTM, LAST_RUN_TO_DTTM, STATUS)
+    SELECT B.JOBID, B.TABLE_NAME, B.LAST_RUN_FROM_DTTM, B.LAST_RUN_TO_DTTM, B.STATUS
+    FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JOB_CONTROL B
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI C
+        WHERE C.JOBID = B.JOBID
+    );
+[0m07:54:45.750707 [debug] [Dummy-1   ]: SQL status: SUCCESS 0 in 1.054 seconds
+[0m07:54:45.752444 [info ] [Dummy-1   ]: 1 of 1 OK hook: dbt_CRPDB01_EPMADM_CI.on-run-start.0 ........................... [[32mOK[0m in 1.58s]
+[0m07:54:45.753018 [info ] [Dummy-1   ]: 
+[0m07:54:45.782772 [debug] [Thread-2 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL
+[0m07:54:45.783517 [debug] [Thread-3 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD
+[0m07:54:45.784195 [debug] [Thread-4 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT
+[0m07:54:45.784852 [debug] [Thread-5 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL
+[0m07:54:45.785492 [debug] [Thread-6 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS
+[0m07:54:45.786200 [debug] [Thread-7 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS
+[0m07:54:45.786925 [info ] [Thread-2 (]: 1 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_D00_DEL_SRC ............... [RUN]
+[0m07:54:45.787565 [debug] [Thread-8 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT
+[0m07:54:45.788224 [debug] [Thread-9 (]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00
+[0m07:54:45.788836 [debug] [Thread-10 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL
+[0m07:54:45.789444 [debug] [Thread-11 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS
+[0m07:54:45.790121 [debug] [Thread-12 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM
+[0m07:54:45.790762 [debug] [Thread-13 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS
+[0m07:54:45.791424 [info ] [Thread-3 (]: 2 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_D00_INS_UPD_SRC ........... [RUN]
+[0m07:54:45.792075 [debug] [Thread-14 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI
+[0m07:54:45.792711 [debug] [Thread-15 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS
+[0m07:54:45.793433 [debug] [Thread-16 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS
+[0m07:54:45.794128 [debug] [Thread-17 ]: Began running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS
+[0m07:54:45.794839 [info ] [Thread-4 (]: 3 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC .. [RUN]
+[0m07:54:45.795552 [info ] [Thread-5 (]: 4 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_EST_F00_DEL_SRC ........... [RUN]
+[0m07:54:45.796262 [info ] [Thread-6 (]: 5 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_GEN_STAT_INS_SRC .......... [RUN]
+[0m07:54:45.796960 [info ] [Thread-7 (]: 6 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC ..... [RUN]
+[0m07:54:45.797709 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_CRPDB01_EPMADM, now model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL)
+[0m07:54:45.798482 [info ] [Thread-8 (]: 7 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CI_REV_DTLVW_AUDIT_SRC ....... [RUN]
+[0m07:54:45.799181 [info ] [Thread-9 (]: 8 of 16 START sql incremental model CRPDB01.EPMADM.PS_Z_CPP_D00 ................ [RUN]
+[0m07:54:45.799870 [info ] [Thread-10 ]: 9 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CPP_D00_DEL_SRC .............. [RUN]
+[0m07:54:45.800575 [info ] [Thread-11 ]: 10 of 16 START sql table model CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT_INS_SRC ........ [RUN]
+[0m07:54:45.801254 [info ] [Thread-12 ]: 11 of 16 START sql table model CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC .... [RUN]
+[0m07:54:45.802024 [info ] [Thread-13 ]: 12 of 16 START sql table model CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC .. [RUN]
+[0m07:54:45.802880 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD'
+[0m07:54:45.803555 [info ] [Thread-14 ]: 13 of 16 START sql incremental model CRPDB01.EPMADM.PS_Z_JTP_RELATE_CI ......... [RUN]
+[0m07:54:45.804251 [info ] [Thread-15 ]: 14 of 16 START sql table model CRPDB01.EPMADM.PS_Z_PDS_CI_DTL_INS_SRC .......... [RUN]
+[0m07:54:45.804935 [info ] [Thread-16 ]: 15 of 16 START sql table model CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL_INS_SRC ......... [RUN]
+[0m07:54:45.805599 [info ] [Thread-17 ]: 16 of 16 START sql table model CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC ........ [RUN]
+[0m07:54:45.806466 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT'
+[0m07:54:45.807193 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL'
+[0m07:54:45.807905 [debug] [Thread-6 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS'
+[0m07:54:45.808616 [debug] [Thread-7 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS'
+[0m07:54:45.809193 [debug] [Thread-2 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL
+[0m07:54:45.809954 [debug] [Thread-8 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT'
+[0m07:54:45.810680 [debug] [Thread-9 (]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00'
+[0m07:54:45.811378 [debug] [Thread-10 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL'
+[0m07:54:45.812070 [debug] [Thread-11 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS'
+[0m07:54:45.812782 [debug] [Thread-12 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM'
+[0m07:54:45.813458 [debug] [Thread-13 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS'
+[0m07:54:45.814099 [debug] [Thread-3 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD
+[0m07:54:45.814849 [debug] [Thread-14 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI'
+[0m07:54:45.815560 [debug] [Thread-15 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS'
+[0m07:54:45.816273 [debug] [Thread-16 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS'
+[0m07:54:45.816989 [debug] [Thread-17 ]: Acquiring new snowflake connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS'
+[0m07:54:45.817556 [debug] [Thread-4 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT
+[0m07:54:45.818195 [debug] [Thread-5 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL
+[0m07:54:45.818753 [debug] [Thread-6 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS
+[0m07:54:45.819300 [debug] [Thread-7 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS
+[0m07:54:45.847791 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"
+[0m07:54:45.848460 [debug] [Thread-8 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT
+[0m07:54:45.849080 [debug] [Thread-9 (]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00
+[0m07:54:45.849679 [debug] [Thread-10 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL
+[0m07:54:45.850415 [debug] [Thread-11 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS
+[0m07:54:45.851007 [debug] [Thread-12 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM
+[0m07:54:45.851567 [debug] [Thread-13 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS
+[0m07:54:45.862871 [debug] [Thread-3 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"
+[0m07:54:45.863620 [debug] [Thread-14 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI
+[0m07:54:45.864245 [debug] [Thread-15 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS
+[0m07:54:45.864822 [debug] [Thread-16 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS
+[0m07:54:45.865394 [debug] [Thread-17 ]: Began compiling node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS
+[0m07:54:45.873877 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"
+[0m07:54:45.882790 [debug] [Thread-5 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"
+[0m07:54:45.902383 [debug] [Thread-6 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"
+[0m07:54:45.914524 [debug] [Thread-7 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"
+[0m07:54:45.923011 [debug] [Thread-8 (]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"
+[0m07:54:45.923915 [debug] [Thread-2 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL
+[0m07:54:45.933222 [debug] [Thread-9 (]: On "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00": cache miss for schema "BRONZE_CORP_CONF.BRONZE_PEOPLESOFT", this is inefficient
+[0m07:54:45.941941 [debug] [Thread-10 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"
+[0m07:54:45.953354 [debug] [Thread-11 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"
+[0m07:54:45.963607 [debug] [Thread-12 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"
+[0m07:54:45.971743 [debug] [Thread-13 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"
+[0m07:54:45.980522 [debug] [Thread-14 ]: On "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI": cache miss for schema "BRONZE_CORP_CONF.BRONZE_PEOPLESOFT", this is inefficient
+[0m07:54:45.981357 [debug] [Thread-3 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD
+[0m07:54:45.990303 [debug] [Thread-15 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"
+[0m07:54:45.999108 [debug] [Thread-16 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"
+[0m07:54:46.011538 [debug] [Thread-17 ]: Writing injected SQL for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"
+[0m07:54:46.012892 [debug] [Thread-4 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT
+[0m07:54:46.013875 [debug] [Thread-5 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL
+[0m07:54:46.014893 [debug] [Thread-6 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS
+[0m07:54:46.015784 [debug] [Thread-7 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS
+[0m07:54:46.035344 [debug] [Thread-8 (]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT
+[0m07:54:46.055772 [debug] [Thread-9 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"
+[0m07:54:46.058642 [debug] [Thread-2 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"
+[0m07:54:46.059862 [debug] [Thread-10 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL
+[0m07:54:46.060794 [debug] [Thread-11 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS
+[0m07:54:46.061719 [debug] [Thread-12 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM
+[0m07:54:46.066825 [debug] [Thread-14 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"
+[0m07:54:46.067457 [debug] [Thread-13 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS
+[0m07:54:46.085586 [debug] [Thread-3 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"
+[0m07:54:46.087040 [debug] [Thread-15 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS
+[0m07:54:46.087982 [debug] [Thread-16 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS
+[0m07:54:46.104606 [debug] [Thread-17 ]: Began executing node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS
+[0m07:54:46.105308 [debug] [Thread-4 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"
+[0m07:54:46.121639 [debug] [Thread-5 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"
+[0m07:54:46.138487 [debug] [Thread-6 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"
+[0m07:54:46.156328 [debug] [Thread-7 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"
+[0m07:54:46.303711 [debug] [Thread-8 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"
+[0m07:54:46.304411 [debug] [Thread-9 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m07:54:46.305140 [debug] [Thread-2 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_D00_DEL',
+        'TBD_PS_Z_CI_D00_DEL',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_D00_DEL_SRC',
+        'CRPDB01.EPMADM.PS_Z_CI_D00',
+        NULL,
+        NULL);
+[0m07:54:46.321233 [debug] [Thread-10 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"
+[0m07:54:46.337416 [debug] [Thread-11 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"
+[0m07:54:46.353840 [debug] [Thread-12 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"
+[0m07:54:46.354608 [debug] [Thread-14 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m07:54:46.372745 [debug] [Thread-13 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"
+[0m07:54:46.373500 [debug] [Thread-3 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_D00_INS_UPD',
+        'TBD_PS_Z_CI_D00_INS_UPD',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_D00_INS_UPD_SRC',
+        'CRPDB01.EPMADM.PS_Z_CI_D00',
+        NULL,
+        NULL);
+[0m07:54:46.389682 [debug] [Thread-15 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"
+[0m07:54:46.405773 [debug] [Thread-16 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"
+[0m07:54:46.421496 [debug] [Thread-17 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"
+[0m07:54:46.422338 [debug] [Thread-4 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_EST_F00_ATOMIC_AUDIT',
+        'TBD_PS_Z_CI_EST_F00_ATOMIC_AUDIT',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC',
+        'CRPDB01.EPMADM.PS_Z_EPM_AUDIT',
+        NULL,
+        NULL);
+[0m07:54:46.423128 [debug] [Thread-5 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_EST_F00_DEL',
+        'TBD_PS_Z_CI_EST_F00_DEL',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_EST_F00_DEL_SRC',
+        'CRPDB01.EPMADM.PS_Z_CI_EST_F00',
+        NULL,
+        NULL);
+[0m07:54:46.423877 [debug] [Thread-6 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_GEN_STAT_INS',
+        'TBD_PS_Z_CI_GEN_STAT_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_GEN_STAT_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_CI_GEN_STAT',
+        NULL,
+        NULL);
+[0m07:54:46.424686 [debug] [Thread-7 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_PMRG_ANLS_TBL_INS',
+        'TBD_PS_Z_CI_PMRG_ANLS_TBL_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_PMRG_ANLS_TBL',
+        NULL,
+        NULL);
+[0m07:54:46.425430 [debug] [Thread-8 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CI_REV_DTLVW_AUDIT',
+        'TBD_PS_Z_CI_REV_DTLVW_AUDIT',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CI_REV_DTLVW_AUDIT_SRC',
+        'CRPDB01.EPMADM.PS_Z_EPM_AUDIT',
+        NULL,
+        NULL);
+[0m07:54:46.426188 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m07:54:46.426804 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m07:54:46.427492 [debug] [Thread-10 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CPP_D00_DEL',
+        'TBD_PS_Z_CPP_D00_DEL',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CPP_D00_DEL_SRC',
+        'CRPDB01.EPMADM.PS_Z_CPP_D00',
+        NULL,
+        NULL);
+[0m07:54:46.428268 [debug] [Thread-11 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_CPP_GEN_STAT_INS',
+        'TBD_PS_Z_CPP_GEN_STAT_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT',
+        NULL,
+        NULL);
+[0m07:54:46.429063 [debug] [Thread-12 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_JOB_CONTROL_UPD_DTTM',
+        'TBD_PS_Z_JOB_CONTROL_UPD_DTTM',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC',
+        'CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI',
+        NULL,
+        NULL);
+[0m07:54:46.429700 [debug] [Thread-14 ]: Opening a new connection, currently in state init
+[0m07:54:46.430478 [debug] [Thread-13 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_JOB_CONTROL_UPD_STATUS',
+        'TBD_PS_Z_JOB_CONTROL_UPD_STATUS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC',
+        'CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI',
+        NULL,
+        NULL);
+[0m07:54:46.431122 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m07:54:46.431791 [debug] [Thread-15 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_PDS_CI_DTL_INS',
+        'TBD_PS_Z_PDS_CI_DTL_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_PDS_CI_DTL_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_PDS_CI_DTL',
+        NULL,
+        NULL);
+[0m07:54:46.432541 [debug] [Thread-16 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_PDS_CPP_DTL_INS',
+        'TBD_PS_Z_PDS_CPP_DTL_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL',
+        NULL,
+        NULL);
+[0m07:54:46.433272 [debug] [Thread-17 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"} */
+insert into CRPDB01_DEV_SANDBOX.METADATA.EPMADM_CI_JOB_EXECUTION (
+        JOB_NAME,
+        AUTOSYS_JOB_NAME,
+        JOB_STATUS,
+        START_TIMESTAMP,
+        END_TIMESTAMP,
+        ROW_CREATE_TIMESTAMP,
+        ROW_UPDATE_TIMESTAMP,
+        SOURCE_OBJECT,
+        TARGET_OBJECT,
+        RECORDS_PROCESSED,
+        ERROR_MESSAGE
+        )
+
+    values (
+        'PS_Z_PMRG_CPP_TBL_INS',
+        'TBD_PS_Z_PMRG_CPP_TBL_INS',
+        'STARTED',
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        NULL,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        CURRENT_TIMESTAMP()::TIMESTAMP_NTZ,
+        'CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC',
+        'CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL',
+        NULL,
+        NULL);
+[0m07:54:46.433956 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m07:54:46.434551 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m07:54:46.435111 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m07:54:46.435648 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m07:54:46.436214 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m07:54:46.437184 [debug] [Thread-10 ]: Opening a new connection, currently in state init
+[0m07:54:46.437863 [debug] [Thread-11 ]: Opening a new connection, currently in state init
+[0m07:54:46.438514 [debug] [Thread-12 ]: Opening a new connection, currently in state init
+[0m07:54:46.439259 [debug] [Thread-13 ]: Opening a new connection, currently in state init
+[0m07:54:46.440086 [debug] [Thread-15 ]: Opening a new connection, currently in state init
+[0m07:54:46.440728 [debug] [Thread-16 ]: Opening a new connection, currently in state init
+[0m07:54:46.441443 [debug] [Thread-17 ]: Opening a new connection, currently in state init
+[0m07:54:47.762425 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.331 seconds
+[0m07:54:47.784341 [debug] [Thread-3 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"
+[0m07:54:47.785356 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 1.350 seconds
+[0m07:54:47.787529 [debug] [Thread-6 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"
+[0m07:54:47.803305 [debug] [Thread-3 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"
+[0m07:54:47.804381 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.377 seconds
+[0m07:54:47.806793 [debug] [Thread-3 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_D00_INS_UPD_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_D00_INS_UPD
+-- Mapping    : m_ps_z_ci_d00_ins_upd
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_ci_d00_ins_upd
+-- Source SQL : ci/s_m_ps_z_ci_d00_ins_upd_apple_to_apple.sql, lines 19-542 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CI_D00
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert of the CI detail dimension from PS_Z_CI_DTL_VW, with
+-- a PS_Z_IR_DETAIL_TBL lookup supplying the IR columns. The MERGE matches
+-- on BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER.
+--
+-- Converted from the _apple_to_apple upload. The other upload for this
+-- session, ci/s_m_ps_z_ci_d00_ins_upd.sql, has the same 119 insert and 116
+-- update columns but joins PS_Z_IR_DETAIL_TBL without de-duplicating it: a
+-- key with two IR rows would put two source rows on one target row and the
+-- MERGE would fail. This version keeps one IR row per key with QUALIFY, as
+-- an Informatica lookup returns one row.
+--
+-- The model is the MERGE's USING subquery and the post-hook is the MERGE
+-- itself, reading the model.
+--
+-- Both tables are read through CI_PSFT_SOURCE. The execution log reports
+-- PS_Z_CI_DTL_VW missing in EPMADM; PS_Z_IR_DETAIL_TBL is taken to be a
+-- PeopleSoft lookup too - move it to CRPDB01_EPMADM if it lives there.
+-- ==========================================================================
+
+
+
+    SELECT
+            SQ.BUSINESS_UNIT AS BUSINESS_UNIT,
+            SQ.PROJECT_ID AS PROJECT_ID,
+            SQ.REVISION_NUMBER AS REVISION_NUMBER,
+            SQ.BUSINESS_UNIT_GL AS BUSINESS_UNIT_GL,
+            SQ.Z_CPP_ID AS Z_CPP_ID,
+            SQ.Z_CI_DESCR AS Z_CI_DESCR,
+            SQ.Z_CI_STATUS AS Z_CI_STATUS,
+            SQ.START_DT AS START_DT,
+            SQ.IN_SERVICE_DT AS IN_SERVICE_DT,
+            SQ.PROJECT_MANAGER AS PROJECT_MANAGER,
+            SQ.CURRENCY_CD AS CURRENCY_CD,
+            SQ.Z_CI_JURIS_SUBID AS Z_CI_JURIS_SUBID,
+            SQ.Z_JURIS_SUB_DESCR AS Z_JURIS_SUB_DESCR,
+            SQ.Z_CI_JURIS_ID AS Z_CI_JURIS_ID,
+            SQ.Z_CI_JURIS_ID_DESC AS Z_CI_JURIS_ID_DESC,
+            SQ.Z_PW_WO_TYPE_ID AS Z_PW_WO_TYPE_ID,
+            SQ.Z_PW_WO_TYPE_DESCR AS Z_PW_WO_TYPE_DESCR,
+            SQ.Z_PW_MAJ_LOC_ID AS Z_PW_MAJ_LOC_ID,
+            CASE WHEN LENGTH(TRIM(COALESCE(SQ.Z_MAJ_LOC_DESCR, ''))) = 0 THEN ' ' ELSE RTRIM(SQ.Z_MAJ_LOC_DESCR) END AS Z_PW_MAJ_LOC_DESCR,
+            SQ.Z_CI_MNDTRY_RSN AS Z_CI_MNDTRY_RSN,
+            SQ.Z_CI_ENV_CODE AS Z_CI_ENV_CODE,
+            SQ.Z_CI_CALC_OVRD_FLG AS Z_CI_CALC_OVRD_FLG,
+            SQ.Z_CI_NPV AS Z_CI_NPV,
+            SQ.Z_CI_NPV_SCORE AS Z_CI_NPV_SCORE,
+            SQ.Z_CI_IRR AS Z_CI_IRR,
+            SQ.Z_CI_IRR_SCORE AS Z_CI_IRR_SCORE,
+            SQ.Z_CI_PAYBACK AS Z_CI_PAYBACK,
+            SQ.Z_CI_PAYBACK_SCORE AS Z_CI_PAYBACK_SCORE,
+            SQ.Z_CI_FINAN_SCORE AS Z_CI_FINAN_SCORE,
+            SQ.Z_CI_LOL AS Z_CI_LOL,
+            SQ.Z_CI_LOL_SCORE AS Z_CI_LOL_SCORE,
+            SQ.Z_CI_CUSTMIN_MIT AS Z_CI_CUSTMIN_MIT,
+            SQ.Z_CI_CUSTMIN_REM AS Z_CI_CUSTMIN_REM,
+            SQ.Z_CI_CUSTMIN_SCORE AS Z_CI_CUSTMIN_SCORE,
+            SQ.Z_CI_UNITREL_SCORE AS Z_CI_UNITREL_SCORE,
+            SQ.Z_CI_UNITFLX_SCORE AS Z_CI_UNITFLX_SCORE,
+            SQ.Z_CI_NROINPO_SCORE AS Z_CI_NROINPO_SCORE,
+            SQ.Z_CI_OPS_OVRD_FLG AS Z_CI_OPS_OVRD_FLG,
+            SQ.Z_CI_OPS_SCORE AS Z_CI_OPS_SCORE,
+            SQ.Z_CI_COMM_SCORE AS Z_CI_COMM_SCORE,
+            SQ.Z_CI_CUST_SCORE AS Z_CI_CUST_SCORE,
+            SQ.Z_CI_CUSTCOM_SCORE AS Z_CI_CUSTCOM_SCORE,
+            SQ.Z_CI_FERC_SCORE AS Z_CI_FERC_SCORE,
+            SQ.Z_CI_EPA_SCORE AS Z_CI_EPA_SCORE,
+            SQ.Z_CI_NRC_SCORE AS Z_CI_NRC_SCORE,
+            SQ.Z_CI_STATE_SCORE AS Z_CI_STATE_SCORE,
+            SQ.Z_CI_LOCAL_SCORE AS Z_CI_LOCAL_SCORE,
+            SQ.Z_CI_REG_SCORE AS Z_CI_REG_SCORE,
+            SQ.Z_CI_EMPLEFF_SCORE AS Z_CI_EMPLEFF_SCORE,
+            SQ.Z_CI_INFRA_SCORE AS Z_CI_INFRA_SCORE,
+            SQ.Z_CI_EMPLBUS_SCORE AS Z_CI_EMPLBUS_SCORE,
+            SQ.Z_CI_PROJ_SCORE AS Z_CI_PROJ_SCORE,
+            SQ.Z_CI_TECH_CON AS Z_CI_TECH_CON,
+            SQ.Z_CI_TECH_PROB AS Z_CI_TECH_PROB,
+            SQ.Z_CI_FIN_CON AS Z_CI_FIN_CON,
+            SQ.Z_CI_FIN_PROB AS Z_CI_FIN_PROB,
+            SQ.Z_CI_SOC_CON AS Z_CI_SOC_CON,
+            SQ.Z_CI_SOC_PROB AS Z_CI_SOC_PROB,
+            SQ.Z_CI_TECH_SCORE AS Z_CI_TECH_SCORE,
+            SQ.Z_CI_FIN_SCORE AS Z_CI_FIN_SCORE,
+            SQ.Z_CI_SOC_SCORE AS Z_CI_SOC_SCORE,
+            SQ.Z_CI_RISK_SCORE AS Z_CI_RISK_SCORE,
+            SQ.Z_CI_OVHD_OVRD_FLG AS Z_CI_OVHD_OVRD_FLG,
+            SQ.Z_CI_DEBT_OVRD_FLG AS Z_CI_DEBT_OVRD_FLG,
+            SQ.Z_CI_EQTY_OVRD_FLG AS Z_CI_EQTY_OVRD_FLG,
+            SQ.Z_CI_FUNC_OH_RT AS Z_CI_FUNC_OH_RT,
+            SQ.Z_CI_JURIS_TAX_RT AS Z_CI_JURIS_TAX_RT,
+            SQ.Z_CI_PRPT_TAX_RT AS Z_CI_PRPT_TAX_RT,
+            SQ.Z_CI_AFUDC_DEBT_B AS Z_CI_AFUDC_DEBT_B,
+            SQ.Z_CI_AFUDC_DEBT_S AS Z_CI_AFUDC_DEBT_S,
+            SQ.Z_CI_AFUDC_EQTY_B AS Z_CI_AFUDC_EQTY_B,
+            SQ.Z_CI_AFUDC_EQTY_S AS Z_CI_AFUDC_EQTY_S,
+            SQ.Z_CI_BK_DPR_LIFE AS Z_CI_BK_DPR_LIFE,
+            SQ.Z_CI_TX_DPR_LIFE AS Z_CI_TX_DPR_LIFE,
+            SQ.Z_CI_MACRS_RATE_01 AS Z_CI_MACRS_RATE_01,
+            SQ.Z_CI_MACRS_RATE_02 AS Z_CI_MACRS_RATE_02,
+            SQ.Z_CI_MACRS_RATE_03 AS Z_CI_MACRS_RATE_03,
+            SQ.Z_CI_MACRS_RATE_04 AS Z_CI_MACRS_RATE_04,
+            SQ.Z_CI_MACRS_RATE_05 AS Z_CI_MACRS_RATE_05,
+            SQ.Z_CI_MACRS_RATE_06 AS Z_CI_MACRS_RATE_06,
+            SQ.Z_CI_MACRS_RATE_07 AS Z_CI_MACRS_RATE_07,
+            SQ.Z_CI_MACRS_RATE_08 AS Z_CI_MACRS_RATE_08,
+            SQ.Z_CI_MACRS_RATE_09 AS Z_CI_MACRS_RATE_09,
+            SQ.Z_CI_MACRS_RATE_10 AS Z_CI_MACRS_RATE_10,
+            SQ.Z_APPROVER AS Z_APPROVER,
+            SQ.Z_APPROVAL_DT AS Z_APPROVAL_DT,
+            SQ.Z_CREATED_BY AS Z_CREATED_BY,
+            SQ.Z_CREATED_BY_DTTM AS Z_CREATED_BY_DTTM,
+            SQ.Z_APPROVED_BY AS Z_APPROVED_BY,
+            SQ.Z_APPROVED_BY_DTTM AS Z_APPROVED_BY_DTTM,
+            SQ.Z_REJECTED_BY AS Z_REJECTED_BY,
+            SQ.Z_REJECTED_BY_DTTM AS Z_REJECTED_BY_DTTM,
+            SQ.LAST_MAINT_OPRID AS LAST_MAINT_OPRID,
+            SQ.LAST_MAINT_DTTM AS LAST_MAINT_DTTM,
+            SQ.Z_CI_PP_FLG AS Z_CI_PP_FLG,
+            SQ.COMPLETION_DATE AS COMPLETION_DATE,
+            SQ.IN_SERVICE_DT_TO AS IN_SERVICE_DT_TO,
+            SQ.PERCENTAGE AS PERCENTAGE,
+            SQ.UNIT_TITLE AS UNIT_TITLE,
+            SQ.Z_PLANT AS Z_PLANT,
+            SQ.Z_CAP_LEASE_FLG AS Z_CAP_LEASE_FLG,
+            LKP_IR.Z_LEAD_ORG AS Z_LEAD_ORG,
+            LKP_IR.Z_OUTAGE AS Z_OUTAGE,
+            LKP_IR.Z_OUTAGE_INCREASE AS Z_OUTAGE_INCREASE,
+            LKP_IR.Z_OUTAGE_DAYS AS Z_OUTAGE_DAYS,
+            LKP_IR.Z_APPY_PROB_CALC AS Z_APPY_PROB_CALC,
+            LKP_IR.OPRID_ENTERED_BY AS OPRID_ENTERED_BY,
+            LKP_IR.OPRID_OWNER AS OPRID_OWNER,
+            LKP_IR.Z_DESIGN_LIFE AS Z_DESIGN_LIFE,
+            LKP_IR.YEAROFDATE AS YEAROFDATE,
+            LKP_IR.APPROVAL_DATE AS APPROVAL_DATE,
+            LKP_IR.APPROVAL_DT AS APPROVAL_DT,
+            LKP_IR.DESCR254_MIXED AS DESCR254_MIXED,
+            LKP_IR.DESCR50_MIXED AS DESCR50_MIXED,
+            LKP_IR.PRIORITY AS PRIORITY,
+            CURRENT_TIMESTAMP() AS LAST_UPDT_TS,
+            LKP_IR.EMPLID2 AS EMPLID2,
+            SQ.Z_PHASE_IR_AMT AS Z_PHASE_IR_AMT,
+            SQ.PL_COLUMN_NUMBER AS PL_COL_NB
+        FROM
+        (
+SELECT PS_Z_CI_DTL_VW.BUSINESS_UNIT, PS_Z_CI_DTL_VW.PROJECT_ID, PS_Z_CI_DTL_VW.REVISION_NUMBER, PS_Z_CI_DTL_VW.BUSINESS_UNIT_GL, PS_Z_CI_DTL_VW.Z_CPP_ID, PS_Z_CI_DTL_VW.Z_CI_DESCR, PS_Z_CI_DTL_VW.Z_CI_STATUS, PS_Z_CI_DTL_VW.START_DT, PS_Z_CI_DTL_VW.IN_SERVICE_DT, PS_Z_CI_DTL_VW.PROJECT_MANAGER, PS_Z_CI_DTL_VW.CURRENCY_CD, PS_Z_CI_DTL_VW.Z_CI_JURIS_SUBID, PS_Z_CI_DTL_VW.Z_JURIS_SUB_DESCR, PS_Z_CI_DTL_VW.Z_CI_JURIS_ID, PS_Z_CI_DTL_VW.Z_CI_JURIS_ID_DESC, PS_Z_CI_DTL_VW.Z_PW_WO_TYPE_ID, PS_Z_CI_DTL_VW.Z_PW_MAJ_LOC_ID, PS_Z_CI_DTL_VW.Z_PW_WO_TYPE_DESCR, PS_Z_CI_DTL_VW.Z_MAJ_LOC_DESCR, PS_Z_CI_DTL_VW.Z_CI_MNDTRY_RSN, PS_Z_CI_DTL_VW.Z_CI_ENV_CODE, PS_Z_CI_DTL_VW.Z_CI_CALC_OVRD_FLG, PS_Z_CI_DTL_VW.Z_CI_NPV, PS_Z_CI_DTL_VW.Z_CI_NPV_SCORE, PS_Z_CI_DTL_VW.Z_CI_IRR, PS_Z_CI_DTL_VW.Z_CI_IRR_SCORE, PS_Z_CI_DTL_VW.Z_CI_PAYBACK, PS_Z_CI_DTL_VW.Z_CI_PAYBACK_SCORE, PS_Z_CI_DTL_VW.Z_CI_FINAN_SCORE, PS_Z_CI_DTL_VW.Z_CI_LOL, PS_Z_CI_DTL_VW.Z_CI_LOL_SCORE, PS_Z_CI_DTL_VW.Z_CI_CUSTMIN_MIT, PS_Z_CI_DTL_VW.Z_CI_CUSTMIN_REM, PS_Z_CI_DTL_VW.Z_CI_CUSTMIN_SCORE, PS_Z_CI_DTL_VW.Z_CI_UNITREL_SCORE, PS_Z_CI_DTL_VW.Z_CI_UNITFLX_SCORE, PS_Z_CI_DTL_VW.Z_CI_NROINPO_SCORE, PS_Z_CI_DTL_VW.Z_CI_OPS_OVRD_FLG, PS_Z_CI_DTL_VW.Z_CI_OPS_SCORE, PS_Z_CI_DTL_VW.Z_CI_COMM_SCORE, PS_Z_CI_DTL_VW.Z_CI_CUST_SCORE, PS_Z_CI_DTL_VW.Z_CI_CUSTCOM_SCORE, PS_Z_CI_DTL_VW.Z_CI_FERC_SCORE, PS_Z_CI_DTL_VW.Z_CI_EPA_SCORE, PS_Z_CI_DTL_VW.Z_CI_NRC_SCORE, PS_Z_CI_DTL_VW.Z_CI_STATE_SCORE, PS_Z_CI_DTL_VW.Z_CI_LOCAL_SCORE, PS_Z_CI_DTL_VW.Z_CI_REG_SCORE, PS_Z_CI_DTL_VW.Z_CI_EMPLEFF_SCORE, PS_Z_CI_DTL_VW.Z_CI_INFRA_SCORE, PS_Z_CI_DTL_VW.Z_CI_EMPLBUS_SCORE, PS_Z_CI_DTL_VW.Z_CI_PROJ_SCORE, PS_Z_CI_DTL_VW.Z_CI_TECH_CON, PS_Z_CI_DTL_VW.Z_CI_TECH_PROB, PS_Z_CI_DTL_VW.Z_CI_FIN_CON, PS_Z_CI_DTL_VW.Z_CI_FIN_PROB, PS_Z_CI_DTL_VW.Z_CI_SOC_CON, PS_Z_CI_DTL_VW.Z_CI_SOC_PROB, PS_Z_CI_DTL_VW.Z_CI_TECH_SCORE, PS_Z_CI_DTL_VW.Z_CI_FIN_SCORE, PS_Z_CI_DTL_VW.Z_CI_SOC_SCORE, PS_Z_CI_DTL_VW.Z_CI_RISK_SCORE, PS_Z_CI_DTL_VW.Z_CI_OVHD_OVRD_FLG, PS_Z_CI_DTL_VW.Z_CI_DEBT_OVRD_FLG, PS_Z_CI_DTL_VW.Z_CI_EQTY_OVRD_FLG, PS_Z_CI_DTL_VW.Z_CI_FUNC_OH_RT, PS_Z_CI_DTL_VW.Z_CI_JURIS_TAX_RT, PS_Z_CI_DTL_VW.Z_CI_PRPT_TAX_RT, PS_Z_CI_DTL_VW.Z_CI_AFUDC_DEBT_B, PS_Z_CI_DTL_VW.Z_CI_AFUDC_DEBT_S, PS_Z_CI_DTL_VW.Z_CI_AFUDC_EQTY_B, PS_Z_CI_DTL_VW.Z_CI_AFUDC_EQTY_S, PS_Z_CI_DTL_VW.Z_CI_BK_DPR_LIFE, PS_Z_CI_DTL_VW.Z_CI_TX_DPR_LIFE, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_01, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_02, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_03, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_04, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_05, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_06, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_07, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_08, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_09, PS_Z_CI_DTL_VW.Z_CI_MACRS_RATE_10, PS_Z_CI_DTL_VW.Z_APPROVER, PS_Z_CI_DTL_VW.Z_APPROVAL_DT, PS_Z_CI_DTL_VW.Z_CREATED_BY, PS_Z_CI_DTL_VW.Z_CREATED_BY_DTTM, PS_Z_CI_DTL_VW.Z_APPROVED_BY, PS_Z_CI_DTL_VW.Z_APPROVED_BY_DTTM, PS_Z_CI_DTL_VW.Z_REJECTED_BY, PS_Z_CI_DTL_VW.Z_REJECTED_BY_DTTM, PS_Z_CI_DTL_VW.LAST_MAINT_OPRID, PS_Z_CI_DTL_VW.LAST_MAINT_DTTM, PS_Z_CI_DTL_VW.Z_CI_PP_FLG, PS_Z_CI_DTL_VW.COMPLETION_DATE, PS_Z_CI_DTL_VW.IN_SERVICE_DT_TO, PS_Z_CI_DTL_VW.PERCENTAGE, PS_Z_CI_DTL_VW.UNIT_TITLE, PS_Z_CI_DTL_VW.Z_PLANT, PS_Z_CI_DTL_VW.Z_CAP_LEASE_FLG, PS_Z_CI_DTL_VW.Z_PHASE_IR_AMT, PS_Z_CI_DTL_VW.PL_COLUMN_NUMBER FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW
+        ) SQ
+        LEFT JOIN
+        (
+            SELECT
+                BUSINESS_UNIT,
+                PROJECT_ID,
+                REVISION_NUMBER,
+                Z_LEAD_ORG,
+                Z_OUTAGE,
+                Z_OUTAGE_INCREASE,
+                Z_OUTAGE_DAYS,
+                Z_APPY_PROB_CALC,
+                OPRID_ENTERED_BY,
+                OPRID_OWNER,
+                Z_DESIGN_LIFE,
+                YEAROFDATE,
+                APPROVAL_DATE,
+                APPROVAL_DT,
+                DESCR254_MIXED,
+                DESCR50_MIXED,
+                PRIORITY,
+                EMPLID2
+            FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_IR_DETAIL_TBL
+            QUALIFY ROW_NUMBER() OVER
+            (
+                PARTITION BY BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER
+                ORDER BY BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER
+            ) = 1
+        ) LKP_IR
+            ON LKP_IR.BUSINESS_UNIT = SQ.BUSINESS_UNIT
+           AND LKP_IR.PROJECT_ID = SQ.PROJECT_ID
+           AND LKP_IR.REVISION_NUMBER = SQ.REVISION_NUMBER
+        );
+[0m07:54:47.813378 [debug] [Thread-6 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"
+[0m07:54:47.815303 [debug] [Thread-2 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"
+[0m07:54:47.817167 [debug] [Thread-6 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_GEN_STAT_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_GEN_STAT_INS
+-- Mapping    : m_ps_z_ci_gen_stat_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_ci_gen_stat_ins
+-- Source SQL : ci/s_m_ps_z_ci_gen_stat_ins.sql, lines 18-245 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CI_GEN_STAT
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- Three LKP_USERID_NAME lookups on PS_PERSONAL_D00 turn the assigned-by,
+-- last-update and approved-by operator ids into names, keeping the id when
+-- no name is found. PS_PERSONAL_D00 is read from EPMADM: the script ran
+-- without error, so it exists there.
+--
+-- Source: the script reads PS_Z_CI_GEN_STAT twice - as the mapping's source and as the
+-- router's lookup on the target - and names EPMADM both times. The lookup
+-- is the EPMADM target; the source is the PeopleSoft PS_Z_CI_GEN_STAT, read through
+-- CI_PSFT_SOURCE. As written the MERGE would read its own target and bring in
+-- nothing new, so assert_psft_source stops compilation until CI_PSFT_SOURCE
+-- points somewhere else.
+-- ==========================================================================
+
+
+
+    
+
+        
+
+        
+
+    
+
+
+
+
+
+SELECT
+    exp.*,
+    lkp_target.BUSINESS_UNIT AS LKP_BUSINESS_UNIT,
+    IFF(lkp_target.BUSINESS_UNIT IS NULL, 'INSERT', 'UPDATE') AS ROUTER_ACTION
+FROM
+(
+    SELECT
+            RTRIM(sq.BUSINESS_UNIT) AS BUSINESS_UNIT,
+            RTRIM(sq.PROJECT_ID) AS PROJECT_ID,
+            RTRIM(sq.Z_ECON_COMPLETE) AS Z_ECON_COMPLETE,
+            RTRIM(sq.Z_EC_COMPLETE) AS Z_EC_COMPLETE,
+            RTRIM(sq.Z_PDS_COMPLETE) AS Z_PDS_COMPLETE,
+            RTRIM(sq.Z_RBTO_COMPLETE) AS Z_RBTO_COMPLETE,
+            RTRIM(sq.Z_SPDM_COMPLETE) AS Z_SPDM_COMPLETE,
+            RTRIM(sq.Z_CI_GEN_STATUS) AS Z_CI_GEN_STATUS,
+            sq.FROM_DATE AS FROM_DATE,
+            sq.TO_DATE AS TO_DATE,
+            RTRIM(sq.Z_EMERGENT) AS Z_EMERGENT,
+            RTRIM(sq.Z_WO_ECON) AS Z_WO_ECON,
+            RTRIM(sq.Z_PDS_SENT) AS Z_PDS_SENT,
+            sq.DATE1 AS DATE1,
+            RTRIM(sq.Z_SCPP_APPROVED) AS Z_SCPP_APPROVED,
+            RTRIM(sq.Z_PMA_ACCEPT) AS Z_PMA_ACCEPT,
+            sq.DATE2 AS DATE2,
+            RTRIM(sq.Z_PMA_REVIEW) AS Z_PMA_REVIEW,
+            sq.DATE3 AS DATE3,
+            sq.Z_ECON_DATE AS Z_ECON_DATE,
+            sq.Z_EC_DATE AS Z_EC_DATE,
+            sq.Z_RBTO_DATE AS Z_RBTO_DATE,
+            sq.Z_SPDM_DATE AS Z_SPDM_DATE,
+            sq.Z_PDS_DATE AS Z_PDS_DATE,
+            RTRIM(sq.Z_PRJ_DEL_MDL) AS Z_PRJ_DEL_MDL,
+            RTRIM(sq.Z_SCR_PRJ_DEL_MDL) AS Z_SCR_PRJ_DEL_MDL,
+            RTRIM(sq.Z_COST_EST_QUALITY) AS Z_COST_EST_QUALITY,
+            RTRIM(sq.Z_ESTIMATE_BASIS) AS Z_ESTIMATE_BASIS,
+            RTRIM(sq.CONFIRMED) AS CONFIRMED,
+            CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS,
+            COALESCE(p_assigned.PERS_NAME, sq.ASSIGNED_BY_OPRID) AS ASSIGNED_BY_OPRID,
+            COALESCE(p_lastupd.PERS_NAME, sq.LASTUPDOPRID) AS LASTUPDOPRID,
+            sq.PRIORITY AS PRIORITY,
+            RTRIM(sq.APPROVED) AS APPROVED,
+            RTRIM(sq.FLEX_PREF_REQ) AS FLEX_PREF_REQ,
+            sq.APPROVAL_DT AS APPROVAL_DT,
+            COALESCE(p_approved.PERS_NAME, sq.OPRID_APPROVED_BY) AS OPRID_APPROVED_BY
+    FROM
+    (
+        SELECT
+            *
+        FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_GEN_STAT
+    ) sq
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_assigned
+        ON p_assigned.ALTER_EMPLID = RTRIM(sq.ASSIGNED_BY_OPRID)
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_lastupd
+        ON p_lastupd.ALTER_EMPLID = RTRIM(sq.LASTUPDOPRID)
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_approved
+        ON p_approved.ALTER_EMPLID = RTRIM(sq.OPRID_APPROVED_BY)
+) exp
+LEFT JOIN
+(
+    SELECT
+        BUSINESS_UNIT,
+        PROJECT_ID
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_CI_GEN_STAT
+    GROUP BY
+        BUSINESS_UNIT,
+        PROJECT_ID
+) lkp_target
+    ON lkp_target.BUSINESS_UNIT = exp.BUSINESS_UNIT
+   AND lkp_target.PROJECT_ID = exp.PROJECT_ID
+        );
+[0m07:54:47.818584 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.385 seconds
+[0m07:54:47.821110 [debug] [Thread-2 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"
+[0m07:54:47.823049 [debug] [Thread-4 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"
+[0m07:54:47.824020 [debug] [Thread-2 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_D00_DEL_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_D00_DEL
+-- Mapping    : m_ps_z_ci_d00_del
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Source SQL : wkf_LOAD_CI_ATOMIC.sql, lines 57-84 (INSERT + DELETE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CI_D00, and PS_Z_CI_DELETE_LOG
+-- Load type  : table + INSERT and DELETE post-hooks
+-- --------------------------------------------------------------------------
+-- Every CI change-log row inside the CI_D00 window is written to the delete
+-- log, and every PS_Z_CI_D00 row whose key appears in that window is deleted,
+-- so the changed rows can be reloaded by the load that follows.
+--
+-- Both validated statements read the same join with the same predicate: the
+-- INSERT takes every column, the DELETE the distinct keys. The model is that
+-- row set, read once, and both hooks read it in the original order. The
+-- DELETE keeps its IN form over the model's keys, so its NULL behaviour is
+-- the original's: a row with a NULL key part is not deleted.
+--
+-- LAST_UPDT_TS is taken when the model materialises rather than when the
+-- INSERT runs - one value for the batch, seconds earlier. RECORDS_PROCESSED
+-- is the change-log rows read, which is the rows written to the delete log.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
+-- ==========================================================================
+
+
+
+SELECT
+    PS_Z_CI_CHG_LOG_VW.BUSINESS_UNIT,
+    PS_Z_CI_CHG_LOG_VW.PROJECT_ID,
+    PS_Z_CI_CHG_LOG_VW.REVISION_NUMBER,
+    PS_Z_CI_CHG_LOG_VW.SEQ_NUM,
+    PS_Z_CI_CHG_LOG_VW.Z_CI_STATUS,
+    PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM,
+    CURRENT_TIMESTAMP() AS LAST_UPDT_TS
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI PS_Z_JOB_CONTROL,
+     BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW PS_Z_CI_CHG_LOG_VW
+WHERE PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM >= PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM
+  AND PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM < PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM
+  AND PS_Z_JOB_CONTROL.JOBID = 'CI_D00'
+        );
+[0m07:54:47.826277 [debug] [Thread-4 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"
+[0m07:54:47.827104 [debug] [Thread-4 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_EST_F00_ATOMIC_AUDIT
+-- Mapping    : m_ps_z_ci_est_f00_atomic_audit
+-- Workflow   : wkf_LOAD_CI_ATOMIC_AUDIT
+-- Source SQL : wkf_LOAD_CI_ATOMIC_AUDIT.sql, lines 63-103 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_EPM_AUDIT
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Completes the latest CI_EST_ATOMIC audit row with the destination row
+-- count and amount from PS_Z_CI_EST_F00. It finds that row by MAX(RUN_DT),
+-- so it must run after PS_Z_CI_REV_DTLVW_AUDIT has inserted it.
+--
+-- The model is the validated MERGE's USING subquery and the post-hook is the
+-- MERGE itself, reading the model. Two authored edge cases are kept:
+--   - PS_Z_CI_EST_F00 empty: the GROUP BY returns no row, nothing is merged,
+--     and the destination figures stay at the 0 the first MERGE wrote.
+--   - no CI_EST_ATOMIC row at all: RUN_DT is NULL, the ON clause cannot
+--     match, and a row with a NULL RUN_DT and no source figures is inserted.
+-- ==========================================================================
+
+
+
+SELECT
+    'CI_EST_ATOMIC' AS TABLE_NAME,
+    ' ' AS LEDGER,
+    R.RUN_DT,
+    SUM(F.AMOUNT) AS Z_DEST_AMOUNT,
+    COUNT(*) AS Z_DEST_QUANTITY
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_CI_EST_F00 AS F
+CROSS JOIN
+(
+    SELECT
+        MAX(A.RUN_DT) AS RUN_DT
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_EPM_AUDIT AS A
+    WHERE A.TABLE_NAME = 'CI_EST_ATOMIC'
+) AS R
+GROUP BY R.RUN_DT
+        );
+[0m07:54:47.845697 [debug] [Thread-11 ]: SQL status: SUCCESS 1 in 1.408 seconds
+[0m07:54:47.847738 [debug] [Thread-11 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"
+[0m07:54:47.853465 [debug] [Thread-11 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"
+[0m07:54:47.854982 [debug] [Thread-11 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CPP_GEN_STAT_INS
+-- Mapping    : m_ps_z_cpp_gen_stat_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_cpp_gen_stat_ins
+-- Source SQL : ci/s_m_ps_z_cpp_gen_stat_ins.sql, lines 18-238 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- Three LKP_USERID_NAME lookups on PS_PERSONAL_D00 turn the assigned-by,
+-- last-update and approved-by operator ids into names, keeping the id when
+-- no name is found. PS_PERSONAL_D00 is read from EPMADM: the script ran
+-- without error, so it exists there.
+--
+-- Source: the script reads PS_Z_CPP_GEN_STAT twice - as the mapping's source and as the
+-- router's lookup on the target - and names EPMADM both times. The lookup
+-- is the EPMADM target; the source is the PeopleSoft PS_Z_CPP_GEN_STAT, read through
+-- CI_PSFT_SOURCE. As written the MERGE would read its own target and bring in
+-- nothing new, so assert_psft_source stops compilation until CI_PSFT_SOURCE
+-- points somewhere else.
+-- ==========================================================================
+
+
+
+    
+
+        
+
+        
+
+    
+
+
+
+
+
+SELECT
+    exp.*,
+    lkp_target.Z_CPP_ID AS LKP_Z_CPP_ID,
+    IFF(lkp_target.Z_CPP_ID IS NULL, 'INSERT', 'UPDATE') AS ROUTER_ACTION
+FROM
+(
+    SELECT
+            sq.Z_CPP_ID AS Z_CPP_ID,
+            RTRIM(sq.Z_ECON_COMPLETE) AS Z_ECON_COMPLETE,
+            RTRIM(sq.Z_EC_COMPLETE) AS Z_EC_COMPLETE,
+            RTRIM(sq.Z_PDS_COMPLETE) AS Z_PDS_COMPLETE,
+            RTRIM(sq.Z_RBTO_COMPLETE) AS Z_RBTO_COMPLETE,
+            RTRIM(sq.Z_SPDM_COMPLETE) AS Z_SPDM_COMPLETE,
+            RTRIM(sq.Z_CI_GEN_STATUS) AS Z_CI_GEN_STATUS,
+            sq.FROM_DATE AS FROM_DATE,
+            sq.TO_DATE AS TO_DATE,
+            RTRIM(sq.Z_EMERGENT) AS Z_EMERGENT,
+            RTRIM(sq.Z_WO_ECON) AS Z_WO_ECON,
+            RTRIM(sq.Z_PDS_SENT) AS Z_PDS_SENT,
+            sq.DATE1 AS DATE1,
+            RTRIM(sq.Z_SCPP_APPROVED) AS Z_SCPP_APPROVED,
+            RTRIM(sq.Z_PMA_ACCEPT) AS Z_PMA_ACCEPT,
+            sq.DATE2 AS DATE2,
+            RTRIM(sq.Z_PMA_REVIEW) AS Z_PMA_REVIEW,
+            sq.DATE3 AS DATE3,
+            sq.Z_ECON_DATE AS Z_ECON_DATE,
+            sq.Z_EC_DATE AS Z_EC_DATE,
+            sq.Z_RBTO_DATE AS Z_RBTO_DATE,
+            sq.Z_SPDM_DATE AS Z_SPDM_DATE,
+            sq.Z_PDS_DATE AS Z_PDS_DATE,
+            RTRIM(sq.Z_PRJ_DEL_MDL) AS Z_PRJ_DEL_MDL,
+            RTRIM(sq.Z_SCR_PRJ_DEL_MDL) AS Z_SCR_PRJ_DEL_MDL,
+            RTRIM(sq.Z_COST_EST_QUALITY) AS Z_COST_EST_QUALITY,
+            RTRIM(sq.Z_ESTIMATE_BASIS) AS Z_ESTIMATE_BASIS,
+            RTRIM(sq.CONFIRMED) AS CONFIRMED,
+            COALESCE(p_assigned.PERS_NAME, sq.ASSIGNED_BY_OPRID) AS ASSIGNED_BY_OPRID,
+            CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS,
+            COALESCE(p_lastupd.PERS_NAME, sq.LASTUPDOPRID) AS LASTUPDOPRID,
+            sq.PRIORITY AS PRIORITY,
+            RTRIM(sq.APPROVED) AS APPROVED,
+            RTRIM(sq.FLEX_PREF_REQ) AS FLEX_PREF_REQ,
+            sq.APPROVAL_DT AS APPROVAL_DT,
+            COALESCE(p_approved.PERS_NAME, sq.OPRID_APPROVED_BY) AS OPRID_APPROVED_BY
+    FROM
+    (
+        SELECT
+            *
+        FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_GEN_STAT
+    ) sq
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_assigned
+        ON p_assigned.ALTER_EMPLID = RTRIM(sq.ASSIGNED_BY_OPRID)
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_lastupd
+        ON p_lastupd.ALTER_EMPLID = RTRIM(sq.LASTUPDOPRID)
+    LEFT JOIN (
+            SELECT
+                SETID,
+                EMPLID,
+                ALTER_EMPLID,
+                PERS_NAME
+            FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_PERSONAL_D00
+            WHERE EFFDT <= CURRENT_DATE()
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY SETID, EMPLID
+                ORDER BY EFFDT DESC
+            ) = 1
+        ) p_approved
+        ON p_approved.ALTER_EMPLID = RTRIM(sq.OPRID_APPROVED_BY)
+) exp
+LEFT JOIN
+(
+    SELECT
+        Z_CPP_ID
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_CPP_GEN_STAT
+    GROUP BY
+        Z_CPP_ID
+) lkp_target
+    ON lkp_target.Z_CPP_ID = exp.Z_CPP_ID
+        );
+[0m07:54:47.862557 [debug] [Thread-12 ]: SQL status: SUCCESS 1 in 1.424 seconds
+[0m07:54:47.863667 [debug] [Thread-14 ]: SQL status: SUCCESS 1 in 1.434 seconds
+[0m07:54:47.865653 [debug] [Thread-12 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"
+[0m07:54:47.868039 [debug] [Thread-14 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"
+[0m07:54:47.868912 [debug] [Thread-14 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"} */
+show objects in BRONZE_CORP_CONF.BRONZE_PEOPLESOFT
+    limit 10000
+    
+;
+[0m07:54:47.870623 [debug] [Thread-12 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"
+[0m07:54:47.871711 [debug] [Thread-12 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_JOB_CONTROL_UPD_DTTM
+-- Mapping    : m_ps_z_job_control_upd_dttm
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Source SQL : wkf_LOAD_CI_ATOMIC.sql, lines 25-37 (2 UPDATEs)
+-- Target     : CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI
+-- Load type  : table + UPDATE post-hooks
+-- --------------------------------------------------------------------------
+-- Opens the load window for CI_EST_F00 and CPP_D00: the old TO becomes the
+-- new FROM, TO moves to now, and STATUS goes to 'R'. The deletes that follow
+-- read their window from these rows, so this job runs first in the workflow
+-- and PS_Z_JOB_CONTROL_UPD_STATUS runs last.
+--
+-- The two UPDATEs are the validated statements unchanged, including the
+-- no-op TABLE_NAME = TABLE_NAME carried from the update strategy. They are
+-- self-contained and do not read this model. The model snapshots the two
+-- job-control rows before they move, so RECORDS_PROCESSED counts them and
+-- the _SRC table keeps the previous window.
+--
+-- CI_D00 is not opened here, although PS_Z_CI_D00_DEL reads the CI_D00
+-- window: no statement in the workflow moves it. See the README.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
+-- ==========================================================================
+
+
+
+SELECT
+    PS_Z_JOB_CONTROL.JOBID,
+    PS_Z_JOB_CONTROL.TABLE_NAME,
+    PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM,
+    PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM,
+    PS_Z_JOB_CONTROL.STATUS
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI PS_Z_JOB_CONTROL
+WHERE PS_Z_JOB_CONTROL.JOBID IN ('CI_EST_F00', 'CPP_D00')
+        );
+[0m07:54:47.880966 [debug] [Thread-10 ]: SQL status: SUCCESS 1 in 1.444 seconds
+[0m07:54:47.882952 [debug] [Thread-10 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"
+[0m07:54:47.884971 [debug] [Thread-10 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"
+[0m07:54:47.885821 [debug] [Thread-10 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CPP_D00_DEL_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CPP_D00_DEL
+-- Mapping    : m_ps_z_cpp_d00_del
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Source SQL : wkf_LOAD_CI_ATOMIC.sql, lines 86-111 (INSERT + DELETE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CPP_D00, and PS_Z_CPP_DELETE_LOG
+-- Load type  : table + INSERT and DELETE post-hooks
+-- --------------------------------------------------------------------------
+-- Every CPP change-log row inside the CPP_D00 window is written to the
+-- delete log, and every PS_Z_CPP_D00 row whose key appears in that window is
+-- deleted, so the changed rows can be reloaded by the load that follows.
+--
+-- Same shape as PS_Z_CI_D00_DEL: one row set read once by both hooks, in the
+-- original order. The validated DELETE has no DISTINCT in its IN list and
+-- none is added; IN is unaffected either way.
+--
+-- The workflow header also lists TRUNCATE TABLE PS_Z_CPP_D00 as PRE SQL, but
+-- the workflow script never runs it, so it is not added here - truncating
+-- first would also make this delete meaningless.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
+-- ==========================================================================
+
+
+
+SELECT
+    PS_Z_CPP_CH_LOG_VW.Z_CPP_ID,
+    PS_Z_CPP_CH_LOG_VW.REVISION_NUMBER,
+    PS_Z_CPP_CH_LOG_VW.SEQ_NUM,
+    PS_Z_CPP_CH_LOG_VW.Z_CPP_STATUS,
+    PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM,
+    CURRENT_TIMESTAMP() AS LAST_UPDT_TS
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI PS_Z_JOB_CONTROL,
+     BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_CH_LOG_VW PS_Z_CPP_CH_LOG_VW
+WHERE PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM >= PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM
+  AND PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM < PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM
+  AND PS_Z_JOB_CONTROL.JOBID = 'CPP_D00'
+        );
+[0m07:54:47.903847 [debug] [Thread-16 ]: SQL status: SUCCESS 1 in 1.463 seconds
+[0m07:54:47.905769 [debug] [Thread-16 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"
+[0m07:54:47.908955 [debug] [Thread-16 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"
+[0m07:54:47.909992 [debug] [Thread-16 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_PDS_CPP_DTL_INS
+-- Mapping    : m_ps_z_pds_cpp_dtl_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_pds_cpp_dtl_ins
+-- Source SQL : ci/s_m_ps_z_pds_cpp_dtl_ins.sql, lines 18-99 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- This upload inserts new keys as well; the first version of this session
+-- only updated. PS_Z_PDS_CPP_VW is read through CI_PSFT_SOURCE; the
+-- execution log reports it missing in EPMADM.
+-- ==========================================================================
+
+
+
+SELECT
+    exp.*,
+    lkp.Z_CPP_ID AS LKP_Z_CPP_ID,
+    IFF(lkp.Z_CPP_ID IS NULL, 'INSERT', 'UPDATE') AS ROUTER_ACTION
+FROM (
+SELECT
+    RTRIM(src.Z_CPP_ID) AS Z_CPP_ID,
+    src.REVISION_NUMBER AS REVISION_NUMBER,
+    src.FISCAL_YEAR AS FISCAL_YEAR,
+    RTRIM(src.Z_CI_COST_CATG) AS Z_CI_COST_CATG,
+    src.Z_FODA AS Z_FODA,
+    src.Z_LABOR AS Z_LABOR,
+    src.Z_MATERIAL AS Z_MATERIAL,
+    src.Z_OTHER AS Z_OTHER,
+    src.Z_FRINGES AS Z_FRINGES,
+    src.Z_OTH_SER AS Z_OTH_SER,
+    src.Z_CONTING AS Z_CONTING,
+    src.Z_FLEET AS Z_FLEET,
+    src.Z_REMOVAL AS Z_REMOVAL,
+    src.Z_LEASE AS Z_LEASE,
+    src.Z_DIR_RML AS Z_DIR_RML,
+    src.Z_DIRECT AS Z_DIRECT,
+    src.Z_OVHD AS Z_OVHD,
+    src.Z_EXP AS Z_EXP,
+    src.Z_APPR_PROJ AS Z_APPR_PROJ,
+    src.Z_AFUDC AS Z_AFUDC,
+    src.Z_AFUDC_DEBT AS Z_AFUDC_DEBT,
+    src.Z_AFUDC_EQUITY AS Z_AFUDC_EQUITY,
+    src.Z_AFUDC_BASIS AS Z_AFUDC_BASIS,
+    src.Z_CIAC AS Z_CIAC,
+    CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS
+FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW src
+) exp
+LEFT JOIN (
+    SELECT
+        Z_CPP_ID,
+        REVISION_NUMBER,
+        FISCAL_YEAR,
+        Z_CI_COST_CATG
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_PDS_CPP_DTL
+    GROUP BY
+        Z_CPP_ID,
+        REVISION_NUMBER,
+        FISCAL_YEAR,
+        Z_CI_COST_CATG
+) lkp
+    ON lkp.Z_CPP_ID = exp.Z_CPP_ID AND
+       lkp.REVISION_NUMBER = exp.REVISION_NUMBER AND
+       lkp.FISCAL_YEAR = exp.FISCAL_YEAR AND
+       lkp.Z_CI_COST_CATG = exp.Z_CI_COST_CATG
+        );
+[0m07:54:47.929214 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 1.503 seconds
+[0m07:54:47.931649 [debug] [Thread-9 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"
+[0m07:54:47.932308 [debug] [Thread-9 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"} */
+show objects in BRONZE_CORP_CONF.BRONZE_PEOPLESOFT
+    limit 10000
+    
+;
+[0m07:54:47.995484 [debug] [Thread-3 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc492a
+[0m07:54:47.996201 [debug] [Thread-3 (]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW' does not exist or not authorized.
+[0m07:54:48.001567 [debug] [Thread-3 (]: Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
   002003 (42S02): SQL compilation error:
   Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW' does not exist or not authorized.
   compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql
-Error 2 in model 'PS_Z_CI_REV_DTLVW_AUDIT': Database Error in model PS_Z_CI_REV_DTLVW_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql)
+[0m07:54:48.004945 [error] [Thread-3 (]: 2 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_D00_INS_UPD_SRC .. [[31mERROR[0m in 2.20s]
+[0m07:54:48.005938 [debug] [Thread-3 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD
+[0m07:54:48.006891 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql.
+[0m07:54:48.075975 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4932
+[0m07:54:48.076732 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+[0m07:54:48.081727 [debug] [Thread-2 (]: Database Error in model PS_Z_CI_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql
+[0m07:54:48.083252 [error] [Thread-2 (]: 1 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_D00_DEL_SRC ...... [[31mERROR[0m in 2.29s]
+[0m07:54:48.084206 [debug] [Thread-2 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL
+[0m07:54:48.085064 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql.
+[0m07:54:48.088119 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.653 seconds
+[0m07:54:48.090070 [debug] [Thread-5 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"
+[0m07:54:48.091954 [debug] [Thread-5 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"
+[0m07:54:48.092783 [debug] [Thread-5 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_EST_F00_DEL_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_EST_F00_DEL
+-- Mapping    : m_ps_z_ci_est_f00_del
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Source SQL : wkf_LOAD_CI_ATOMIC.sql, lines 113-124 (DELETE)
+-- Target     : CRPDB01.EPMADM.PS_Z_CI_EST_F00
+-- Load type  : table + DELETE post-hook
+-- --------------------------------------------------------------------------
+-- Deletes every PS_Z_CI_EST_F00 row whose CI key appears in the CI change log
+-- inside the CI_EST_F00 window. Unlike the D00 deletes, nothing is written
+-- to a delete log.
+--
+-- The model is the validated IN subquery, DISTINCT included, and the DELETE
+-- keeps its IN form over the model, so a row with a NULL key part is not
+-- deleted - as before. RECORDS_PROCESSED is the number of distinct changed
+-- keys, not the number of fact rows removed: one key can match many rows.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
+-- ==========================================================================
+
+
+
+SELECT DISTINCT
+    PS_Z_CI_CHG_LOG_VW.BUSINESS_UNIT,
+    PS_Z_CI_CHG_LOG_VW.PROJECT_ID,
+    PS_Z_CI_CHG_LOG_VW.REVISION_NUMBER
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI PS_Z_JOB_CONTROL,
+     BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW PS_Z_CI_CHG_LOG_VW
+WHERE PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM >= PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM
+  AND PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM < PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM
+  AND PS_Z_JOB_CONTROL.JOBID = 'CI_EST_F00'
+        );
+[0m07:54:48.107968 [debug] [Thread-13 ]: SQL status: SUCCESS 1 in 1.669 seconds
+[0m07:54:48.110014 [debug] [Thread-13 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"
+[0m07:54:48.111605 [debug] [Thread-13 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"
+[0m07:54:48.112410 [debug] [Thread-13 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_JOB_CONTROL_UPD_STATUS
+-- Mapping    : m_ps_z_job_control_upd_status
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Source SQL : wkf_LOAD_CI_ATOMIC.sql, lines 126-132 (2 UPDATEs)
+-- Target     : CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI
+-- Load type  : table + UPDATE post-hooks
+-- --------------------------------------------------------------------------
+-- Closes the CPP_D00 and CI_EST_F00 windows by setting STATUS to 'C'. It is
+-- the last job in the workflow: run earlier, it marks a window complete
+-- while its deletes and loads are still to come.
+--
+-- The two UPDATEs are the validated statements unchanged, in their original
+-- order. The model snapshots the two rows so RECORDS_PROCESSED counts them.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
+-- ==========================================================================
+
+
+
+SELECT
+    PS_Z_JOB_CONTROL.JOBID,
+    PS_Z_JOB_CONTROL.TABLE_NAME,
+    PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM,
+    PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM,
+    PS_Z_JOB_CONTROL.STATUS
+FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI PS_Z_JOB_CONTROL
+WHERE PS_Z_JOB_CONTROL.JOBID IN ('CPP_D00', 'CI_EST_F00')
+        );
+[0m07:54:48.137659 [debug] [Thread-4 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4936
+[0m07:54:48.138435 [debug] [Thread-4 (]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on table 'PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC.
+[0m07:54:48.143256 [debug] [Thread-4 (]: Database Error in model PS_Z_CI_EST_F00_ATOMIC_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql
+[0m07:54:48.144469 [error] [Thread-4 (]: 3 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC  [[31mERROR[0m in 2.34s]
+[0m07:54:48.145331 [debug] [Thread-4 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT
+[0m07:54:48.146299 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_EST_F00_ATOMIC_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql.
+[0m07:54:48.157816 [debug] [Thread-17 ]: SQL status: SUCCESS 1 in 1.716 seconds
+[0m07:54:48.159860 [debug] [Thread-17 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"
+[0m07:54:48.163882 [debug] [Thread-17 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"
+[0m07:54:48.165049 [debug] [Thread-17 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_PMRG_CPP_TBL_INS
+-- Mapping    : m_ps_z_pmrg_cpp_tbl_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_pmrg_cpp_tbl_ins
+-- Source SQL : ci/s_m_ps_z_pmrg_cpp_tbl_ins.sql, lines 18-150 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- Source: the script reads PS_Z_PMRG_CPP_TBL twice - as the mapping's source and as the
+-- router's lookup on the target - and names EPMADM both times. The lookup
+-- is the EPMADM target; the source is the PeopleSoft PS_Z_PMRG_CPP_TBL, read through
+-- CI_PSFT_SOURCE. As written the MERGE would read its own target and bring in
+-- nothing new, so assert_psft_source stops compilation until CI_PSFT_SOURCE
+-- points somewhere else.
+-- ==========================================================================
+
+
+
+    
+
+        
+
+        
+
+    
+
+
+
+
+
+SELECT
+    lkp_router.Z_CPP_ID,
+    lkp_router.REVISION_NUMBER,
+    lkp_router.Z_LOB,
+    lkp_router.Z_CI_IRR_SCORE,
+    lkp_router.Z_CI_NPV,
+    lkp_router.Z_CI_PAYBACK_SCORE,
+    lkp_router.DISCOUNT,
+    lkp_router.ADDTL_ADJUST_PCT,
+    lkp_router.ADDTL_WTHD_PCT,
+    lkp_router.ADJUSTMENT_PCT,
+    lkp_router.Z_COST_RED,
+    lkp_router.EDW_LAST_UPDT_TS,
+    lkp_router.LKP_Z_CPP_ID,
+    IFF(
+        lkp_router.LKP_Z_CPP_ID IS NULL,
+        'INSERT',
+        'UPDATE'
+    ) AS ROUTER_ACTION
+FROM
+(
+    SELECT
+        exp.Z_CPP_ID,
+        exp.REVISION_NUMBER,
+        exp.Z_LOB,
+        exp.Z_CI_IRR_SCORE,
+        exp.Z_CI_NPV,
+        exp.Z_CI_PAYBACK_SCORE,
+        exp.DISCOUNT,
+        exp.ADDTL_ADJUST_PCT,
+        exp.ADDTL_WTHD_PCT,
+        exp.ADJUSTMENT_PCT,
+        exp.Z_COST_RED,
+        exp.EDW_LAST_UPDT_TS,
+        lkp.Z_CPP_ID AS LKP_Z_CPP_ID
+    FROM
+    (
+        SELECT
+            RTRIM(sq.Z_CPP_ID) AS Z_CPP_ID,
+            sq.REVISION_NUMBER AS REVISION_NUMBER,
+            RTRIM(sq.Z_LOB) AS Z_LOB,
+            sq.Z_CI_IRR_SCORE AS Z_CI_IRR_SCORE,
+            sq.Z_CI_NPV AS Z_CI_NPV,
+            sq.Z_CI_PAYBACK_SCORE AS Z_CI_PAYBACK_SCORE,
+            sq.DISCOUNT AS DISCOUNT,
+            sq.ADDTL_ADJUST_PCT AS ADDTL_ADJUST_PCT,
+            sq.ADDTL_WTHD_PCT AS ADDTL_WTHD_PCT,
+            sq.ADJUSTMENT_PCT AS ADJUSTMENT_PCT,
+            sq.Z_COST_RED AS Z_COST_RED,
+            CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS
+        FROM
+        (
+            SELECT
+                Z_CPP_ID,
+                REVISION_NUMBER,
+                Z_LOB,
+                Z_CI_IRR_SCORE,
+                Z_CI_NPV,
+                Z_CI_PAYBACK_SCORE,
+                DISCOUNT,
+                ADDTL_ADJUST_PCT,
+                ADDTL_WTHD_PCT,
+                ADJUSTMENT_PCT,
+                Z_COST_RED
+            FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PMRG_CPP_TBL
+        ) sq
+    ) exp
+    LEFT JOIN
+    (
+        SELECT
+            Z_CPP_ID,
+            REVISION_NUMBER,
+            Z_LOB
+        FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_PMRG_CPP_TBL
+        GROUP BY
+            Z_CPP_ID,
+            REVISION_NUMBER,
+            Z_LOB
+    ) lkp
+        ON lkp.Z_CPP_ID = exp.Z_CPP_ID
+       AND lkp.REVISION_NUMBER = exp.REVISION_NUMBER
+       AND lkp.Z_LOB = exp.Z_LOB
+) lkp_router
+        );
+[0m07:54:48.177113 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 1.741 seconds
+[0m07:54:48.179193 [debug] [Thread-7 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"
+[0m07:54:48.182115 [debug] [Thread-7 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"
+[0m07:54:48.183133 [debug] [Thread-7 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_PMRG_ANLS_TBL_INS
+-- Mapping    : m_ps_z_ci_pmrg_anls_tbl_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_ci_pmrg_anls_tbl_ins
+-- Source SQL : ci/s_m_ps_z_pmrg_anls_tbl_ins.sql, lines 16-73 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_PMRG_ANLS_TBL
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- Source: the script reads PS_Z_PMRG_ANLS_TBL twice - as the mapping's source and as the
+-- router's lookup on the target - and names EPMADM both times. The lookup
+-- is the EPMADM target; the source is the PeopleSoft PS_Z_PMRG_ANLS_TBL, read through
+-- CI_PSFT_SOURCE. As written the MERGE would read its own target and bring in
+-- nothing new, so assert_psft_source stops compilation until CI_PSFT_SOURCE
+-- points somewhere else.
+-- ==========================================================================
+
+
+
+    
+
+        
+
+        
+
+    
+
+
+
+
+
+SELECT
+    exp.*,
+    lkp.BUSINESS_UNIT AS LKP_BUSINESS_UNIT,
+    IFF(lkp.BUSINESS_UNIT IS NULL, 'INSERT', 'UPDATE') AS ROUTER_ACTION
+FROM (
+SELECT
+    RTRIM(src.BUSINESS_UNIT) AS BUSINESS_UNIT,
+    RTRIM(src.PROJECT_ID) AS PROJECT_ID,
+    src.REVISION_NUMBER AS REVISION_NUMBER,
+    RTRIM(src.Z_LOB) AS Z_LOB,
+    src.Z_CI_IRR_SCORE AS Z_CI_IRR_SCORE,
+    src.Z_CI_NPV AS Z_CI_NPV,
+    src.Z_CI_PAYBACK_SCORE AS Z_CI_PAYBACK_SCORE,
+    src.DISCOUNT AS DISCOUNT,
+    src.ADDTL_ADJUST_PCT AS ADDTL_ADJUST_PCT,
+    src.ADDTL_WTHD_PCT AS ADDTL_WTHD_PCT,
+    src.ADJUSTMENT_PCT AS ADJUSTMENT_PCT,
+    src.Z_COST_RED AS Z_COST_RED,
+    CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS
+FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PMRG_ANLS_TBL src
+) exp
+LEFT JOIN (
+    SELECT
+        BUSINESS_UNIT,
+        PROJECT_ID,
+        REVISION_NUMBER,
+        Z_LOB
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_PMRG_ANLS_TBL
+    GROUP BY
+        BUSINESS_UNIT,
+        PROJECT_ID,
+        REVISION_NUMBER,
+        Z_LOB
+) lkp
+    ON lkp.BUSINESS_UNIT = exp.BUSINESS_UNIT AND
+       lkp.PROJECT_ID = exp.PROJECT_ID AND
+       lkp.REVISION_NUMBER = exp.REVISION_NUMBER AND
+       lkp.Z_LOB = exp.Z_LOB
+        );
+[0m07:54:48.199768 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 1.763 seconds
+[0m07:54:48.201793 [debug] [Thread-8 (]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"
+[0m07:54:48.204235 [debug] [Thread-8 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"
+[0m07:54:48.205424 [debug] [Thread-8 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_CI_REV_DTLVW_AUDIT_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_CI_REV_DTLVW_AUDIT
+-- Mapping    : m_ps_z_ci_rev_dtlvw_audit
+-- Workflow   : wkf_LOAD_CI_ATOMIC_AUDIT
+-- Source SQL : wkf_LOAD_CI_ATOMIC_AUDIT.sql, lines 21-61 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_EPM_AUDIT
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Opens today's CI_EST_ATOMIC audit row: source row count and amount from
+-- PS_Z_CI_REV_DTLVW, destination count and amount zeroed until
+-- PS_Z_CI_EST_F00_ATOMIC_AUDIT fills them in.
+--
+-- The model is the validated MERGE's USING subquery and the post-hook is the
+-- MERGE itself, reading the model. RUN_DT is the current timestamp, so WHEN
+-- MATCHED fires only if a row with that exact timestamp already exists - in
+-- practice this always inserts. Kept as authored.
+--
+-- PS_Z_EPM_AUDIT is written by both audit models and, by its name, shared
+-- with other EPM loads, which is why dbt does not own it as an incremental.
+-- ==========================================================================
+
+
+
+SELECT
+    'CI_EST_ATOMIC' AS TABLE_NAME,
+    ' ' AS LEDGER,
+    CURRENT_TIMESTAMP() AS RUN_DT,
+    SUM(S.AMOUNT) AS Z_SRC_AMOUNT,
+    0 AS Z_DEST_AMOUNT,
+    COUNT(*) AS Z_SRC_QUANTITY,
+    0 AS Z_DEST_QUANTITY
+FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW AS S
+        );
+[0m07:54:48.206540 [debug] [Thread-12 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4942
+[0m07:54:48.207562 [debug] [Thread-12 ]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_DTTM_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC.
+[0m07:54:48.212628 [debug] [Thread-12 ]: Database Error in model PS_Z_JOB_CONTROL_UPD_DTTM (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_DTTM_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql
+[0m07:54:48.213996 [error] [Thread-12 ]: 11 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC  [[31mERROR[0m in 2.40s]
+[0m07:54:48.214934 [debug] [Thread-12 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM
+[0m07:54:48.215781 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_JOB_CONTROL_UPD_DTTM (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_DTTM_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql.
+[0m07:54:48.245304 [debug] [Thread-10 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4946
+[0m07:54:48.246071 [debug] [Thread-10 ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_CH_LOG_VW' does not exist or not authorized.
+[0m07:54:48.250988 [debug] [Thread-10 ]: Database Error in model PS_Z_CPP_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_CH_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql
+[0m07:54:48.252206 [error] [Thread-10 ]: 9 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CPP_D00_DEL_SRC ..... [[31mERROR[0m in 2.44s]
+[0m07:54:48.253093 [debug] [Thread-10 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL
+[0m07:54:48.253959 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CPP_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_CH_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql.
+[0m07:54:48.287899 [debug] [Thread-16 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc494a
+[0m07:54:48.288643 [debug] [Thread-16 ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW' does not exist or not authorized.
+[0m07:54:48.294276 [debug] [Thread-16 ]: Database Error in model PS_Z_PDS_CPP_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql
+[0m07:54:48.295043 [debug] [Thread-5 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4952
+[0m07:54:48.296340 [error] [Thread-16 ]: 15 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_PDS_CPP_DTL_INS_SRC  [[31mERROR[0m in 2.48s]
+[0m07:54:48.297047 [debug] [Thread-5 (]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+[0m07:54:48.297983 [debug] [Thread-16 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS
+[0m07:54:48.300673 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_PDS_CPP_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql.
+[0m07:54:48.304036 [debug] [Thread-5 (]: Database Error in model PS_Z_CI_EST_F00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql
+[0m07:54:48.305217 [error] [Thread-5 (]: 4 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_EST_F00_DEL_SRC .. [[31mERROR[0m in 2.50s]
+[0m07:54:48.306134 [debug] [Thread-5 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL
+[0m07:54:48.306935 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_EST_F00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql.
+[0m07:54:48.310801 [debug] [Thread-13 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4956
+[0m07:54:48.311457 [debug] [Thread-13 ]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_STATUS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC.
+[0m07:54:48.316297 [debug] [Thread-13 ]: Database Error in model PS_Z_JOB_CONTROL_UPD_STATUS (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_STATUS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql
+[0m07:54:48.317527 [error] [Thread-13 ]: 12 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC  [[31mERROR[0m in 2.50s]
+[0m07:54:48.318516 [debug] [Thread-13 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS
+[0m07:54:48.319369 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_JOB_CONTROL_UPD_STATUS (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_STATUS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql.
+[0m07:54:48.347970 [debug] [Thread-7 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc495e
+[0m07:54:48.348746 [debug] [Thread-7 (]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on table 'PS_Z_CI_PMRG_ANLS_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC.
+[0m07:54:48.354421 [debug] [Thread-7 (]: Database Error in model PS_Z_CI_PMRG_ANLS_TBL_INS (models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_PMRG_ANLS_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql
+[0m07:54:48.355306 [debug] [Thread-17 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4962
+[0m07:54:48.356676 [error] [Thread-7 (]: 6 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC  [[31mERROR[0m in 2.55s]
+[0m07:54:48.357445 [debug] [Thread-17 ]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on table 'PS_Z_PMRG_CPP_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC.
+[0m07:54:48.358488 [debug] [Thread-7 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS
+[0m07:54:48.361233 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_PMRG_ANLS_TBL_INS (models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_PMRG_ANLS_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql.
+[0m07:54:48.364704 [debug] [Thread-17 ]: Database Error in model PS_Z_PMRG_CPP_TBL_INS (models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_PMRG_CPP_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql
+[0m07:54:48.366008 [error] [Thread-17 ]: 16 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC  [[31mERROR[0m in 2.55s]
+[0m07:54:48.366913 [debug] [Thread-17 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS
+[0m07:54:48.367801 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_PMRG_CPP_TBL_INS (models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_PMRG_CPP_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql.
+[0m07:54:48.397052 [debug] [Thread-8 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4966
+[0m07:54:48.397789 [debug] [Thread-8 (]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW' does not exist or not authorized.
+[0m07:54:48.401501 [debug] [Thread-14 ]: SQL status: SUCCESS 210 in 0.532 seconds
+[0m07:54:48.406522 [debug] [Thread-9 (]: SQL status: SUCCESS 210 in 0.473 seconds
+[0m07:54:48.418666 [debug] [Thread-14 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"
+[0m07:54:48.428944 [debug] [Thread-9 (]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"
+[0m07:54:48.430506 [debug] [Thread-14 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m07:54:48.432939 [debug] [Thread-8 (]: Database Error in model PS_Z_CI_REV_DTLVW_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql)
   002003 (42S02): SQL compilation error:
   Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW' does not exist or not authorized.
   compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql
-Error 3 in model 'PS_Z_CI_EST_F00_DEL': Database Error in model PS_Z_CI_EST_F00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql)
+[0m07:54:48.433675 [debug] [Thread-9 (]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m07:54:48.435508 [error] [Thread-8 (]: 7 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_REV_DTLVW_AUDIT_SRC  [[31mERROR[0m in 2.63s]
+[0m07:54:48.436897 [debug] [Thread-8 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT
+[0m07:54:48.437771 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_REV_DTLVW_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql)
   002003 (42S02): SQL compilation error:
-  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
-  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql
-Error 4 in model 'PS_Z_CI_D00_DEL': Database Error in model PS_Z_CI_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql)
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql.
+[0m07:54:48.442397 [debug] [Thread-15 ]: SQL status: SUCCESS 1 in 2.002 seconds
+[0m07:54:48.444336 [debug] [Thread-15 ]: Writing runtime sql for node "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"
+[0m07:54:48.447798 [debug] [Thread-15 ]: Using snowflake connection "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"
+[0m07:54:48.448851 [debug] [Thread-15 ]: On model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "node_id": "model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS"} */
+create or replace transient table CRPDB01.EPMADM.PS_Z_PDS_CI_DTL_INS_SRC
+         as
+        (-- ==========================================================================
+-- Model      : PS_Z_PDS_CI_DTL_INS
+-- Mapping    : m_ps_z_pds_ci_dtl_ins
+-- Workflow   : wkf_LOAD_CI_ATOMIC
+-- Session    : s_m_ps_z_pds_ci_dtl_ins
+-- Source SQL : ci/s_m_ps_z_pds_ci_dtl_ins.sql, lines 18-104 (MERGE)
+-- Target     : CRPDB01.EPMADM.PS_Z_PDS_CI_DTL
+-- Load type  : table + MERGE post-hook
+-- --------------------------------------------------------------------------
+-- Update-else-insert through the mapping's router: the source rows are
+-- left-joined to a lookup on the target's key, ROUTER_ACTION is UPDATE when
+-- the key exists and INSERT when it does not, and the MERGE acts on it. The
+-- lookup is the target itself on the MERGE's own keys, so this matches on
+-- exactly those keys.
+--
+-- The model is the MERGE's USING subquery - lookup included, so its snapshot
+-- of the target is taken as the model materialises, immediately before the
+-- MERGE - and the post-hook is the MERGE itself, reading the model.
+--
+-- PS_Z_PDS_CI_VW is read through CI_PSFT_SOURCE; the execution log reports
+-- it missing in EPMADM.
+-- ==========================================================================
+
+
+
+SELECT
+    exp.*,
+    lkp.BUSINESS_UNIT AS LKP_BUSINESS_UNIT,
+    IFF(lkp.BUSINESS_UNIT IS NULL, 'INSERT', 'UPDATE') AS ROUTER_ACTION
+FROM (
+SELECT
+    RTRIM(src.BUSINESS_UNIT) AS BUSINESS_UNIT,
+    RTRIM(src.PROJECT_ID) AS PROJECT_ID,
+    src.REVISION_NUMBER AS REVISION_NUMBER,
+    src.FISCAL_YEAR AS FISCAL_YEAR,
+    RTRIM(src.Z_CI_COST_CATG) AS Z_CI_COST_CATG,
+    src.Z_FODA AS Z_FODA,
+    src.Z_LABOR AS Z_LABOR,
+    src.Z_MATERIAL AS Z_MATERIAL,
+    src.Z_OTHER AS Z_OTHER,
+    src.Z_FRINGES AS Z_FRINGES,
+    src.Z_OTH_SER AS Z_OTH_SER,
+    src.Z_CONTING AS Z_CONTING,
+    src.Z_FLEET AS Z_FLEET,
+    src.Z_REMOVAL AS Z_REMOVAL,
+    src.Z_LEASE AS Z_LEASE,
+    src.Z_DIR_RML AS Z_DIR_RML,
+    src.Z_DIRECT AS Z_DIRECT,
+    src.Z_OVHD AS Z_OVHD,
+    src.Z_EXP AS Z_EXP,
+    src.Z_APPR_PROJ AS Z_APPR_PROJ,
+    src.Z_AFUDC AS Z_AFUDC,
+    src.Z_AFUDC_DEBT AS Z_AFUDC_DEBT,
+    src.Z_AFUDC_EQUITY AS Z_AFUDC_EQUITY,
+    src.Z_AFUDC_BASIS AS Z_AFUDC_BASIS,
+    src.Z_CIAC AS Z_CIAC,
+    CURRENT_TIMESTAMP() AS EDW_LAST_UPDT_TS
+FROM BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW src
+) exp
+LEFT JOIN (
+    SELECT
+        BUSINESS_UNIT,
+        PROJECT_ID,
+        REVISION_NUMBER,
+        FISCAL_YEAR,
+        Z_CI_COST_CATG
+    FROM CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_PDS_CI_DTL
+    GROUP BY
+        BUSINESS_UNIT,
+        PROJECT_ID,
+        REVISION_NUMBER,
+        FISCAL_YEAR,
+        Z_CI_COST_CATG
+) lkp
+    ON lkp.BUSINESS_UNIT = exp.BUSINESS_UNIT AND
+       lkp.PROJECT_ID = exp.PROJECT_ID AND
+       lkp.REVISION_NUMBER = exp.REVISION_NUMBER AND
+       lkp.FISCAL_YEAR = exp.FISCAL_YEAR AND
+       lkp.Z_CI_COST_CATG = exp.Z_CI_COST_CATG
+        );
+[0m07:54:48.506358 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.070 seconds
+[0m07:54:48.514865 [debug] [Thread-14 ]: SQL status: SUCCESS 1 in 0.080 seconds
+[0m07:54:48.562723 [debug] [Thread-15 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc497e
+[0m07:54:48.565225 [debug] [Thread-15 ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
+[0m07:54:48.575505 [debug] [Thread-15 ]: Database Error in model PS_Z_PDS_CI_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql)
   002003 (42S02): SQL compilation error:
-  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
-  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql
-Error 5 in model 'PS_Z_CPP_D00': Compilation Error in model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
-  PS_Z_CPP_D00: its source BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_DTL_VW does not exist. The TRUNCATE pre-hook would empty CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_CPP_D00 before the load failed, so the model stops here.
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql
+[0m07:54:48.579003 [error] [Thread-15 ]: 14 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_PDS_CI_DTL_INS_SRC . [[31mERROR[0m in 2.76s]
+[0m07:54:48.583083 [debug] [Thread-15 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS
+[0m07:54:48.587747 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_PDS_CI_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql.
+[0m07:54:48.653375 [debug] [Thread-9 (]: While listing relations in database=BRONZE_CORP_CONF, schema=BRONZE_PEOPLESOFT, found: ogg_test_table, ps_alloc_amt_tbl, ps_alloc_basf_tbl, ps_alloc_basv_tbl, ps_alloc_group_tbl, ps_alloc_grstp_tbl, ps_alloc_offv_tbl, ps_alloc_poolf_tbl, ps_alloc_poolv_tbl, ps_alloc_step_tbl, ps_alloc_targv_tbl, ps_bank_acct_defn, ps_bank_cd_tbl, ps_bi_acct_entry, ps_bi_hdr, ps_bi_hdr_ar, ps_bi_hdr_note, ps_bi_line, ps_bi_line_dst, ps_bi_line_note, ps_bi_line_tax, ps_bus_unit_tbl_ap, ps_bus_unit_tbl_bi, ps_bus_unit_tbl_fs, ps_bus_unit_tbl_gl, ps_bus_unit_tbl_pc, ps_cash_flow_tr, ps_customer, ps_dept_tbl, ps_distrib_line, ps_ex_exp_mthd_tbl, ps_ex_purpose_tbl, ps_ex_sheet_dist, ps_ex_sheet_hdr, ps_ex_sheet_line, ps_ex_trans, ps_ex_types_tbl, ps_fclty_dfn, ps_fclty_memo, ps_gl_account_tbl, ps_hr_acctg_line, ps_installation_ap, ps_instr_header_tr, ps_item, ps_item_activity, ps_item_dst, ps_jrnl_header, ps_jrnl_ln, ps_lc_amend, ps_lc_hdr, ps_lc_status, ps_ledger, ps_ledger_budg, ps_ledger_proj, ps_oper_unit_tbl, ps_payment, ps_payment_tbl, ps_pc_jobcode_tbl, ps_personal_data, ps_po_hdr, ps_po_line, ps_po_line_distrib, ps_po_line_ship, ps_primary_jobs, ps_product_tbl, ps_proj_act_descr, ps_proj_act_loc, ps_proj_act_status, ps_proj_act_tbl, ps_proj_activity, ps_proj_an_grp_map, ps_proj_an_grp_tbl, ps_proj_antype_tbl, ps_proj_catg_tbl, ps_proj_location, ps_proj_res_type, ps_proj_resource, ps_proj_status_tbl, ps_proj_subcat_tbl, ps_proj_type_tbl, ps_project, ps_project_mgr, ps_project_status, ps_pymnt_vchr_xref, ps_pymt_trms_dscnt, ps_pymt_trms_hdr, ps_pymt_trms_net, ps_rt_rate_tbl, ps_source_tbl, ps_stat_tbl, ps_tree_node_tbl, ps_trx_detail_tr, ps_trx_header_tr, ps_trx_interest_tr, ps_trx_portflio_tr, ps_trx_position_tr, ps_tse_misc_fld, ps_tse_pymnt_fld, ps_tse_vchr_fld, ps_tse_vchrln_fld, ps_vchr_acctg_line, ps_vendor, ps_vendor_addr, ps_vendor_cntct, ps_vndr_addr_scrol, ps_voucher, ps_voucher_line, ps_z_analysis_tbl, ps_z_ap_fldgls_stg, ps_z_ap_inv_hist, ps_z_ap_uvl, ps_z_ariba_inv_upd, ps_z_bd_prj_catg, ps_z_bd_prj_class, ps_z_bd_prj_tree, ps_z_bd_treeexp_ld, ps_z_ben_bu_tbl, ps_z_benefit_tbl, ps_z_bill_target, ps_z_bldtel_basis, ps_z_cash_flow_trg, ps_z_ci_chng_log, ps_z_ci_fndtyp_tbl, ps_z_ci_gen_stat, ps_z_ci_juris_hdr, ps_z_ci_juris_sub, ps_z_ci_maj_loc, ps_z_ci_rev_dtl, ps_z_ci_revision, ps_z_cili_ikw_asst, ps_z_cpp_chng_log, ps_z_cpp_gen_stat, ps_z_cpp_header, ps_z_cpp_ir_tbl, ps_z_cpp_rev_dtl, ps_z_cpp_revision, ps_z_dept_dim, ps_z_dscnt_pro, ps_z_employee, ps_z_ex_mc_tbl5010, ps_z_fltact_report, ps_z_fltclr_nonlbr, ps_z_genbu_clrper, ps_z_gl_acct_dim, ps_z_gl_all_lkup, ps_z_glact_report, ps_z_grand_parent, ps_z_guarantee_dtl, ps_z_guarantee_hdr, ps_z_hr_ln_2002, ps_z_hr_ln_2003, ps_z_hr_ln_2004, ps_z_hr_ln_2005, ps_z_icboh_rates, ps_z_imx_distrib, ps_z_ir_detail_tbl, ps_z_job_control, ps_z_jrnl_hd_trg, ps_z_jrnl_ln_trg, ps_z_jtp_relate_ci, ps_z_ld_ur_basis, ps_z_metering, ps_z_mtch_exc_hist, ps_z_numberlist, ps_z_oec_prj, ps_z_pmrg_anls_tbl, ps_z_pmrg_cpp_tbl, ps_z_pr_pb_log, ps_z_prj_driver, ps_z_prj_offsetgrp, ps_z_prjact_report, ps_z_proj_act_addl, ps_z_proj_deletes, ps_z_project, ps_z_psexp_load, ps_z_pymt_xref_trg, ps_z_rfp_rqst_att, ps_z_rfp_rqst_dst, ps_z_rfp_rqst_hdr, ps_z_risk_matrix, ps_z_scb_dept_grp, ps_z_scbact_report, ps_z_scp_ocp_map, ps_z_sec_dept, ps_z_sec_glbu, ps_z_sec_object, ps_z_sec_summary, ps_z_seg_cons_dim, ps_z_sss_basis, ps_z_sum_dtl_prj, ps_z_td_detail, ps_z_telecom, ps_z_tr_biltrl_tbl, ps_z_tr_bu_setup, ps_z_tr_std_tbl, ps_z_trans_add_tbl, ps_z_trx_detail_tr, ps_z_trx_intrst_tg, ps_z_val_audit, ps_z_vchr_acct_trg, ps_z_vchr_apr_hist, ps_z_vchr_doc, ps_z_vealloc_tbl, ps_ztr_bnk_bal_all, pstreedefn, pstreeleaf, pstreenode, psxlatdefn, psxlatitem, tst_ps_z_ariba_inv_upd
+[0m07:54:48.688344 [debug] [Thread-14 ]: While listing relations in database=BRONZE_CORP_CONF, schema=BRONZE_PEOPLESOFT, found: ogg_test_table, ps_alloc_amt_tbl, ps_alloc_basf_tbl, ps_alloc_basv_tbl, ps_alloc_group_tbl, ps_alloc_grstp_tbl, ps_alloc_offv_tbl, ps_alloc_poolf_tbl, ps_alloc_poolv_tbl, ps_alloc_step_tbl, ps_alloc_targv_tbl, ps_bank_acct_defn, ps_bank_cd_tbl, ps_bi_acct_entry, ps_bi_hdr, ps_bi_hdr_ar, ps_bi_hdr_note, ps_bi_line, ps_bi_line_dst, ps_bi_line_note, ps_bi_line_tax, ps_bus_unit_tbl_ap, ps_bus_unit_tbl_bi, ps_bus_unit_tbl_fs, ps_bus_unit_tbl_gl, ps_bus_unit_tbl_pc, ps_cash_flow_tr, ps_customer, ps_dept_tbl, ps_distrib_line, ps_ex_exp_mthd_tbl, ps_ex_purpose_tbl, ps_ex_sheet_dist, ps_ex_sheet_hdr, ps_ex_sheet_line, ps_ex_trans, ps_ex_types_tbl, ps_fclty_dfn, ps_fclty_memo, ps_gl_account_tbl, ps_hr_acctg_line, ps_installation_ap, ps_instr_header_tr, ps_item, ps_item_activity, ps_item_dst, ps_jrnl_header, ps_jrnl_ln, ps_lc_amend, ps_lc_hdr, ps_lc_status, ps_ledger, ps_ledger_budg, ps_ledger_proj, ps_oper_unit_tbl, ps_payment, ps_payment_tbl, ps_pc_jobcode_tbl, ps_personal_data, ps_po_hdr, ps_po_line, ps_po_line_distrib, ps_po_line_ship, ps_primary_jobs, ps_product_tbl, ps_proj_act_descr, ps_proj_act_loc, ps_proj_act_status, ps_proj_act_tbl, ps_proj_activity, ps_proj_an_grp_map, ps_proj_an_grp_tbl, ps_proj_antype_tbl, ps_proj_catg_tbl, ps_proj_location, ps_proj_res_type, ps_proj_resource, ps_proj_status_tbl, ps_proj_subcat_tbl, ps_proj_type_tbl, ps_project, ps_project_mgr, ps_project_status, ps_pymnt_vchr_xref, ps_pymt_trms_dscnt, ps_pymt_trms_hdr, ps_pymt_trms_net, ps_rt_rate_tbl, ps_source_tbl, ps_stat_tbl, ps_tree_node_tbl, ps_trx_detail_tr, ps_trx_header_tr, ps_trx_interest_tr, ps_trx_portflio_tr, ps_trx_position_tr, ps_tse_misc_fld, ps_tse_pymnt_fld, ps_tse_vchr_fld, ps_tse_vchrln_fld, ps_vchr_acctg_line, ps_vendor, ps_vendor_addr, ps_vendor_cntct, ps_vndr_addr_scrol, ps_voucher, ps_voucher_line, ps_z_analysis_tbl, ps_z_ap_fldgls_stg, ps_z_ap_inv_hist, ps_z_ap_uvl, ps_z_ariba_inv_upd, ps_z_bd_prj_catg, ps_z_bd_prj_class, ps_z_bd_prj_tree, ps_z_bd_treeexp_ld, ps_z_ben_bu_tbl, ps_z_benefit_tbl, ps_z_bill_target, ps_z_bldtel_basis, ps_z_cash_flow_trg, ps_z_ci_chng_log, ps_z_ci_fndtyp_tbl, ps_z_ci_gen_stat, ps_z_ci_juris_hdr, ps_z_ci_juris_sub, ps_z_ci_maj_loc, ps_z_ci_rev_dtl, ps_z_ci_revision, ps_z_cili_ikw_asst, ps_z_cpp_chng_log, ps_z_cpp_gen_stat, ps_z_cpp_header, ps_z_cpp_ir_tbl, ps_z_cpp_rev_dtl, ps_z_cpp_revision, ps_z_dept_dim, ps_z_dscnt_pro, ps_z_employee, ps_z_ex_mc_tbl5010, ps_z_fltact_report, ps_z_fltclr_nonlbr, ps_z_genbu_clrper, ps_z_gl_acct_dim, ps_z_gl_all_lkup, ps_z_glact_report, ps_z_grand_parent, ps_z_guarantee_dtl, ps_z_guarantee_hdr, ps_z_hr_ln_2002, ps_z_hr_ln_2003, ps_z_hr_ln_2004, ps_z_hr_ln_2005, ps_z_icboh_rates, ps_z_imx_distrib, ps_z_ir_detail_tbl, ps_z_job_control, ps_z_jrnl_hd_trg, ps_z_jrnl_ln_trg, ps_z_jtp_relate_ci, ps_z_ld_ur_basis, ps_z_metering, ps_z_mtch_exc_hist, ps_z_numberlist, ps_z_oec_prj, ps_z_pmrg_anls_tbl, ps_z_pmrg_cpp_tbl, ps_z_pr_pb_log, ps_z_prj_driver, ps_z_prj_offsetgrp, ps_z_prjact_report, ps_z_proj_act_addl, ps_z_proj_deletes, ps_z_project, ps_z_psexp_load, ps_z_pymt_xref_trg, ps_z_rfp_rqst_att, ps_z_rfp_rqst_dst, ps_z_rfp_rqst_hdr, ps_z_risk_matrix, ps_z_scb_dept_grp, ps_z_scbact_report, ps_z_scp_ocp_map, ps_z_sec_dept, ps_z_sec_glbu, ps_z_sec_object, ps_z_sec_summary, ps_z_seg_cons_dim, ps_z_sss_basis, ps_z_sum_dtl_prj, ps_z_td_detail, ps_z_telecom, ps_z_tr_biltrl_tbl, ps_z_tr_bu_setup, ps_z_tr_std_tbl, ps_z_trans_add_tbl, ps_z_trx_detail_tr, ps_z_trx_intrst_tg, ps_z_val_audit, ps_z_vchr_acct_trg, ps_z_vchr_apr_hist, ps_z_vchr_doc, ps_z_vealloc_tbl, ps_ztr_bnk_bal_all, pstreedefn, pstreeleaf, pstreenode, psxlatdefn, psxlatitem, tst_ps_z_ariba_inv_upd
+[0m07:54:48.698451 [debug] [Thread-9 (]: Compilation Error in model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+  PS_Z_CPP_D00: its source BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_DTL_VW does not exist. The TRUNCATE pre-hook would empty CRPDB01.EPMADM.PS_Z_CPP_D00 before the load failed, so the model stops here.
   
   > in macro assert_psft_source (macros/assert_psft_source.sql)
   > called by model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
-Error 6 in model 'PS_Z_JTP_RELATE_CI': Compilation Error in model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+[0m07:54:48.700017 [error] [Thread-9 (]: 8 of 16 ERROR creating sql incremental model CRPDB01.EPMADM.PS_Z_CPP_D00 ....... [[31mERROR[0m in 2.89s]
+[0m07:54:48.701868 [debug] [Thread-14 ]: Compilation Error in model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
   When searching for a relation, dbt found an approximate match. Instead of guessing 
   which relation to use, dbt will move on. Please delete "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci", or rename it to be less ambiguous.
   Searched for: BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JTP_RELATE_CI
@@ -28,31 +1959,192 @@ Error 6 in model 'PS_Z_JTP_RELATE_CI': Compilation Error in model PS_Z_JTP_RELAT
   
   > in macro assert_psft_source (macros/assert_psft_source.sql)
   > called by model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
-Error 7 in model 'PS_Z_JOB_CONTROL_UPD_STATUS': Database Error in model PS_Z_JOB_CONTROL_UPD_STATUS (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql)
-  002003 (42S02): SQL compilation error:
-  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
-  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql
-Error 8 in model 'PS_Z_PDS_CI_DTL_INS': Database Error in model PS_Z_PDS_CI_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql)
-  002003 (42S02): SQL compilation error:
-  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
-  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql
-Error 9 in model 'PS_Z_JOB_CONTROL_UPD_DTTM': Database Error in model PS_Z_JOB_CONTROL_UPD_DTTM (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql)
-  002003 (42S02): SQL compilation error:
-  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
-  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql
-Error 10 in model 'PS_Z_CI_GEN_STAT_INS': Database Error in model PS_Z_CI_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql)
+[0m07:54:48.702855 [debug] [Thread-9 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00
+[0m07:54:48.704006 [error] [Thread-14 ]: 13 of 16 ERROR creating sql incremental model CRPDB01.EPMADM.PS_Z_JTP_RELATE_CI  [[31mERROR[0m in 2.89s]
+[0m07:54:48.704983 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00' to be skipped because of status 'error'.  Reason: Compilation Error in model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+  PS_Z_CPP_D00: its source BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_DTL_VW does not exist. The TRUNCATE pre-hook would empty CRPDB01.EPMADM.PS_Z_CPP_D00 before the load failed, so the model stops here.
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql).
+[0m07:54:48.705786 [debug] [Thread-14 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI
+[0m07:54:48.706824 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI' to be skipped because of status 'error'.  Reason: Compilation Error in model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+  When searching for a relation, dbt found an approximate match. Instead of guessing 
+  which relation to use, dbt will move on. Please delete "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci", or rename it to be less ambiguous.
+  Searched for: BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JTP_RELATE_CI
+  Found: "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci"
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql).
+[0m07:54:49.052097 [debug] [Thread-6 (]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc492e
+[0m07:54:49.052812 [debug] [Thread-6 (]: Snowflake adapter: Snowflake error: 091968 (0A000): Equality deletes on Iceberg tables are not supported.
+[0m07:54:49.057643 [debug] [Thread-6 (]: Database Error in model PS_Z_CI_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql)
   091968 (0A000): Equality deletes on Iceberg tables are not supported.
   compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql
-Error 11 in model 'PS_Z_CPP_D00_DEL': Database Error in model PS_Z_CPP_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql)
+[0m07:54:49.058957 [error] [Thread-6 (]: 5 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CI_GEN_STAT_INS_SRC . [[31mERROR[0m in 3.25s]
+[0m07:54:49.059833 [debug] [Thread-6 (]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS
+[0m07:54:49.060644 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CI_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql.
+[0m07:54:49.138362 [debug] [Thread-11 ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc493a
+[0m07:54:49.139071 [debug] [Thread-11 ]: Snowflake adapter: Snowflake error: 091968 (0A000): Equality deletes on Iceberg tables are not supported.
+[0m07:54:49.143888 [debug] [Thread-11 ]: Database Error in model PS_Z_CPP_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql
+[0m07:54:49.145107 [error] [Thread-11 ]: 10 of 16 ERROR creating sql table model CRPDB01.EPMADM.PS_Z_CPP_GEN_STAT_INS_SRC  [[31mERROR[0m in 3.33s]
+[0m07:54:49.146038 [debug] [Thread-11 ]: Finished running node model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS
+[0m07:54:49.146854 [debug] [Thread-20 ]: Marking all children of 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS' to be skipped because of status 'error'.  Reason: Database Error in model PS_Z_CPP_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql.
+[0m07:54:49.155849 [info ] [Dummy-1   ]: 
+[0m07:54:49.174388 [info ] [Dummy-1   ]: mark_failed_jobs macro started
+[0m07:54:49.175149 [info ] [Dummy-1   ]: Checking model: PS_Z_CI_D00_INS_UPD | status: error
+[0m07:54:49.175744 [info ] [Dummy-1   ]: Failed model detected: PS_Z_CI_D00_INS_UPD
+[0m07:54:49.176389 [info ] [Dummy-1   ]: DB=CRPDB01, SCHEMA=EPMADM, APP_NAME=EPMADM_CI
+[0m07:54:49.176943 [info ] [Dummy-1   ]: Execution Table: CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION
+[0m07:54:49.177573 [info ] [Dummy-1   ]: Executing SQL: 
+        update CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION
+        set
+          job_status = 'FAILED',
+          end_timestamp = current_timestamp(),
+          row_update_timestamp = current_timestamp(),
+          error_message = 'Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
   002003 (42S02): SQL compilation error:
-  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  Object ''BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW'' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql'
+        where
+          job_name = 'PS_Z_CI_D00_INS_UPD'
+          and job_status = 'STARTED'
+          and end_timestamp is null;
+      
+[0m07:54:49.179056 [debug] [Dummy-1   ]: Using snowflake connection "master"
+[0m07:54:49.179712 [debug] [Dummy-1   ]: On master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "dbt_CRPDB01_EPMADM_CI", "target_name": "dev", "connection_name": "master"} */
+update CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION
+        set
+          job_status = 'FAILED',
+          end_timestamp = current_timestamp(),
+          row_update_timestamp = current_timestamp(),
+          error_message = 'Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
+  002003 (42S02): SQL compilation error:
+  Object ''BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW'' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql'
+        where
+          job_name = 'PS_Z_CI_D00_INS_UPD'
+          and job_status = 'STARTED'
+          and end_timestamp is null;
+[0m07:54:49.180299 [debug] [Dummy-1   ]: Opening a new connection, currently in state init
+[0m07:54:49.584092 [debug] [Dummy-1   ]: Snowflake adapter: Snowflake query id: 01c705fe-0103-152f-0017-f06308cc4996
+[0m07:54:49.584834 [debug] [Dummy-1   ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION' does not exist or not authorized.
+[0m07:54:49.596134 [info ] [Dummy-1   ]: 
+[0m07:54:49.596966 [info ] [Dummy-1   ]: [33mExited because of keyboard interrupt[0m
+[0m07:54:49.597516 [info ] [Dummy-1   ]: 
+[0m07:54:49.598314 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql
+[0m07:54:49.598851 [info ] [Dummy-1   ]: 
+[0m07:54:49.599480 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql
+[0m07:54:49.599961 [info ] [Dummy-1   ]: 
+[0m07:54:49.600640 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_EST_F00_ATOMIC_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_EST_F00_ATOMIC_AUDIT_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_EST_F00_ATOMIC_AUDIT.sql
+[0m07:54:49.601152 [info ] [Dummy-1   ]: 
+[0m07:54:49.601876 [error] [Dummy-1   ]:   Database Error in model PS_Z_JOB_CONTROL_UPD_DTTM (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_DTTM_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_DTTM_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql
+[0m07:54:49.602480 [info ] [Dummy-1   ]: 
+[0m07:54:49.603094 [error] [Dummy-1   ]:   Database Error in model PS_Z_CPP_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_CH_LOG_VW' does not exist or not authorized.
   compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql
-Error 12 in model 'PS_Z_PDS_CPP_DTL_INS': Database Error in model PS_Z_PDS_CPP_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql)
+[0m07:54:49.603565 [info ] [Dummy-1   ]: 
+[0m07:54:49.604211 [error] [Dummy-1   ]:   Database Error in model PS_Z_PDS_CPP_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql)
   002003 (42S02): SQL compilation error:
   Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW' does not exist or not authorized.
   compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql
-Error 13 in model 'PS_Z_CPP_GEN_STAT_INS': Database Error in model PS_Z_CPP_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql)
-  091968 (0A000): Equality deletes on
-
-Command Execution Finished
-
+[0m07:54:49.604702 [info ] [Dummy-1   ]: 
+[0m07:54:49.605307 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_EST_F00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_CHG_LOG_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql
+[0m07:54:49.605778 [info ] [Dummy-1   ]: 
+[0m07:54:49.606530 [error] [Dummy-1   ]:   Database Error in model PS_Z_JOB_CONTROL_UPD_STATUS (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_JOB_CONTROL_UPD_STATUS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_JOB_CONTROL_UPD_STATUS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql
+[0m07:54:49.607017 [info ] [Dummy-1   ]: 
+[0m07:54:49.607647 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_PMRG_ANLS_TBL_INS (models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_CI_PMRG_ANLS_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_CI_PMRG_ANLS_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_PMRG_ANLS_TBL_INS.sql
+[0m07:54:49.608156 [info ] [Dummy-1   ]: 
+[0m07:54:49.608783 [error] [Dummy-1   ]:   Database Error in model PS_Z_PMRG_CPP_TBL_INS (models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql)
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on table 'PS_Z_PMRG_CPP_TBL_INS_SRC'. Your primary role DP_DW_IT_DEVELOPER or one of your secondary roles must have OWNERSHIP granted on TABLE CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL_INS_SRC.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PMRG_CPP_TBL_INS.sql
+[0m07:54:49.609284 [info ] [Dummy-1   ]: 
+[0m07:54:49.609944 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_REV_DTLVW_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql
+[0m07:54:49.610460 [info ] [Dummy-1   ]: 
+[0m07:54:49.611058 [error] [Dummy-1   ]:   Database Error in model PS_Z_PDS_CI_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql
+[0m07:54:49.611530 [info ] [Dummy-1   ]: 
+[0m07:54:49.612157 [error] [Dummy-1   ]:   Compilation Error in model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+  PS_Z_CPP_D00: its source BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_DTL_VW does not exist. The TRUNCATE pre-hook would empty CRPDB01.EPMADM.PS_Z_CPP_D00 before the load failed, so the model stops here.
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+[0m07:54:49.612655 [info ] [Dummy-1   ]: 
+[0m07:54:49.613286 [error] [Dummy-1   ]:   Compilation Error in model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+  When searching for a relation, dbt found an approximate match. Instead of guessing 
+  which relation to use, dbt will move on. Please delete "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci", or rename it to be less ambiguous.
+  Searched for: BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JTP_RELATE_CI
+  Found: "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci"
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+[0m07:54:49.613773 [info ] [Dummy-1   ]: 
+[0m07:54:49.614464 [error] [Dummy-1   ]:   Database Error in model PS_Z_CI_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql
+[0m07:54:49.614932 [info ] [Dummy-1   ]: 
+[0m07:54:49.615518 [error] [Dummy-1   ]:   Database Error in model PS_Z_CPP_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql
+[0m07:54:49.616004 [info ] [Dummy-1   ]: 
+[0m07:54:49.616545 [info ] [Dummy-1   ]: Done. PASS=1 WARN=0 ERROR=16 SKIP=0 TOTAL=17
+[0m07:54:49.617030 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m07:54:49.617452 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_DEL' was properly closed.
+[0m07:54:49.617864 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_D00_INS_UPD' was properly closed.
+[0m07:54:49.618378 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_ATOMIC_AUDIT' was properly closed.
+[0m07:54:49.618792 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_EST_F00_DEL' was properly closed.
+[0m07:54:49.619198 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_GEN_STAT_INS' was properly closed.
+[0m07:54:49.619607 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_PMRG_ANLS_TBL_INS' was properly closed.
+[0m07:54:49.620048 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CI_REV_DTLVW_AUDIT' was properly closed.
+[0m07:54:49.620474 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00' was properly closed.
+[0m07:54:49.620879 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_D00_DEL' was properly closed.
+[0m07:54:49.621286 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_CPP_GEN_STAT_INS' was properly closed.
+[0m07:54:49.621696 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_DTTM' was properly closed.
+[0m07:54:49.622195 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JOB_CONTROL_UPD_STATUS' was properly closed.
+[0m07:54:49.622611 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_JTP_RELATE_CI' was properly closed.
+[0m07:54:49.623020 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CI_DTL_INS' was properly closed.
+[0m07:54:49.623422 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PDS_CPP_DTL_INS' was properly closed.
+[0m07:54:49.623829 [debug] [Dummy-1   ]: Connection 'model.dbt_CRPDB01_EPMADM_CI.PS_Z_PMRG_CPP_TBL_INS' was properly closed.
+[0m07:54:49.624504 [info ] [Dummy-1   ]: 
+[0m07:54:49.625194 [info ] [Dummy-1   ]: Finished running 2 incremental models, 1 project hook, 14 table models in 0 hours 0 minutes and 8.67 seconds (8.67s).
+[0m07:54:49.626116 [error] [Dummy-1   ]: Encountered an error:
+Database Error
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION' does not exist or not authorized.
+[0m07:54:49.628081 [debug] [Dummy-1   ]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 10.601751, "process_in_blocks": "0", "process_kernel_time": 1.17, "process_mem_max_rss": "542380", "process_out_blocks": "0", "process_user_time": 7.37}
+[0m07:54:49.628825 [debug] [Dummy-1   ]: Command `cli build` failed at 07:54:49.628542 after 10.60 seconds
+[0m07:54:49.629397 [debug] [Dummy-1   ]: Flushing usage events
