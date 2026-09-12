@@ -18,24 +18,13 @@
 -- connection and the writer wrote it through the warehouse connection; the
 -- conversion resolved both to the same name.
 --
--- The source is declared in its own group, CI_PSFT_SOURCE, and the check
--- below stops compilation - before the TRUNCATE can run - for as long as that
--- source and this model are the same physical table. Repoint CI_PSFT_SOURCE in
--- models/epmadm_schema.yml and this model builds unchanged.
+-- The source is declared in its own group, CI_PSFT_SOURCE, and
+-- assert_psft_source below stops compilation - before the TRUNCATE can run -
+-- while that source is this model's own table, or does not exist. Repoint
+-- CI_PSFT_SOURCE in models/epmadm_schema.yml and this model builds unchanged.
 -- ==========================================================================
 
-{% if execute %}
-    {% set jtp_src = source('CI_PSFT_SOURCE', 'PS_Z_JTP_RELATE_CI') %}
-    {% if (jtp_src.database | upper, jtp_src.schema | upper, jtp_src.identifier | upper)
-       == (this.database | upper, this.schema | upper, this.identifier | upper) %}
-        {{ exceptions.raise_compiler_error(
-            "PS_Z_JTP_RELATE_CI: its source " ~ jtp_src ~ " is this model's own target."
-            ~ " The pre-hook would truncate it and the load would then read the empty table,"
-            ~ " leaving it empty. Point source CI_PSFT_SOURCE at the replicated PeopleSoft"
-            ~ " schema in models/epmadm_schema.yml."
-        ) }}
-    {% endif %}
-{% endif %}
+{{ assert_psft_source(source('CI_PSFT_SOURCE', 'PS_Z_JTP_RELATE_CI'), this, must_exist=true) }}
 
 {{ config(
     materialized='incremental',

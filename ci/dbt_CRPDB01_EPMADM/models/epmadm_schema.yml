@@ -8,20 +8,26 @@ version: 2
 # validated scripts name CRPDB01_DEV_SANDBOX because that is the database they
 # were executed in.
 #
-# CI_PSFT_SOURCE holds the four PeopleSoft objects the mappings READ. It is
-# declared exactly where the validated scripts read them - EPMADM - but that is
-# not where they live:
+# CI_PSFT_SOURCE holds what the mappings READ from PeopleSoft. It is declared
+# exactly where the validated scripts read it - EPMADM - but that is not where
+# it lives:
 #
-#   - the scripts' own execution log reports PS_Z_CPP_CH_LOG_VW and
-#     PS_Z_CI_REV_DTLVW as "does not exist or not authorized" in EPMADM;
-#   - PS_Z_JTP_RELATE_CI is also a TARGET in EPMADM, and the script truncates it
-#     and then reloads it from itself.
+#   - the scripts' own execution logs report PS_Z_CPP_CH_LOG_VW,
+#     PS_Z_CI_REV_DTLVW, PS_Z_CI_DTL_VW, PS_Z_CPP_DTL_VW, PS_Z_PDS_CI_VW and
+#     PS_Z_PDS_CPP_VW as "does not exist or not authorized" in EPMADM;
+#   - PS_Z_JTP_RELATE_CI, PS_Z_PMRG_ANLS_TBL, PS_Z_PMRG_CPP_TBL,
+#     PS_Z_CI_GEN_STAT and PS_Z_CPP_GEN_STAT are also TARGETS in EPMADM, so as
+#     written each of those loads reads its own target.
 #
 # So the Informatica source connection pointed somewhere else, and the
 # converter collapsed it onto the target schema. Repoint this one group once
 # the replicated PeopleSoft schema is known; no model changes. Until then the
-# model PS_Z_JTP_RELATE_CI refuses to compile, because as declared its source
-# and its target are the same physical table.
+# models that would read their own target, or truncate ahead of a read that
+# cannot succeed, stop at compile time - see macros/assert_psft_source.sql.
+#
+# PS_Z_IR_DETAIL_TBL is placed here as a PeopleSoft lookup; nothing in the input
+# confirms where it lives. PS_PERSONAL_D00 is in EPMADM: the GEN_STAT scripts
+# that read it ran without error.
 
 sources:
 
@@ -36,6 +42,13 @@ sources:
       - name: PS_Z_CI_DELETE_LOG
       - name: PS_Z_CPP_DELETE_LOG
       - name: PS_Z_EPM_AUDIT
+      - name: PS_Z_PDS_CI_DTL
+      - name: PS_Z_PDS_CPP_DTL
+      - name: PS_Z_PMRG_ANLS_TBL
+      - name: PS_Z_PMRG_CPP_TBL
+      - name: PS_Z_CI_GEN_STAT
+      - name: PS_Z_CPP_GEN_STAT
+      - name: PS_PERSONAL_D00
 
   - name: CI_PSFT_SOURCE
     database: "{{ target.database }}"
@@ -45,6 +58,15 @@ sources:
       - name: PS_Z_CPP_CH_LOG_VW
       - name: PS_Z_CI_REV_DTLVW
       - name: PS_Z_JTP_RELATE_CI
+      - name: PS_Z_CI_DTL_VW
+      - name: PS_Z_CPP_DTL_VW
+      - name: PS_Z_PDS_CI_VW
+      - name: PS_Z_PDS_CPP_VW
+      - name: PS_Z_IR_DETAIL_TBL
+      - name: PS_Z_PMRG_ANLS_TBL
+      - name: PS_Z_PMRG_CPP_TBL
+      - name: PS_Z_CI_GEN_STAT
+      - name: PS_Z_CPP_GEN_STAT
 
   - name: CRPDB01_METADATA
     database: "{{ target.database }}"
