@@ -1,1 +1,58 @@
+DBT job failed: 13 model(s) failed out of 17 total (total time: 21.48s)
+First error in model 'PS_Z_CI_D00_INS_UPD': Database Error in model PS_Z_CI_D00_INS_UPD (models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_DTL_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_INS_UPD.sql
+Error 2 in model 'PS_Z_CI_REV_DTLVW_AUDIT': Database Error in model PS_Z_CI_REV_DTLVW_AUDIT (models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CI_REV_DTLVW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/AUDIT/PS_Z_CI_REV_DTLVW_AUDIT.sql
+Error 3 in model 'PS_Z_CI_EST_F00_DEL': Database Error in model PS_Z_CI_EST_F00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_EST_F00_DEL.sql
+Error 4 in model 'PS_Z_CI_D00_DEL': Database Error in model PS_Z_CI_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_D00_DEL.sql
+Error 5 in model 'PS_Z_CPP_D00': Compilation Error in model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+  PS_Z_CPP_D00: its source BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_CPP_DTL_VW does not exist. The TRUNCATE pre-hook would empty CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_CPP_D00 before the load failed, so the model stops here.
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_CPP_D00 (models/EPMADM/ATOMIC/PS_Z_CPP_D00.sql)
+Error 6 in model 'PS_Z_JTP_RELATE_CI': Compilation Error in model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+  When searching for a relation, dbt found an approximate match. Instead of guessing 
+  which relation to use, dbt will move on. Please delete "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci", or rename it to be less ambiguous.
+  Searched for: BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JTP_RELATE_CI
+  Found: "BRONZE_CORP_CONF"."bronze_peoplesoft"."ps_z_jtp_relate_ci"
+  
+  > in macro assert_psft_source (macros/assert_psft_source.sql)
+  > called by model PS_Z_JTP_RELATE_CI (models/EPMADM/ATOMIC/PS_Z_JTP_RELATE_CI.sql)
+Error 7 in model 'PS_Z_JOB_CONTROL_UPD_STATUS': Database Error in model PS_Z_JOB_CONTROL_UPD_STATUS (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_STATUS.sql
+Error 8 in model 'PS_Z_PDS_CI_DTL_INS': Database Error in model PS_Z_PDS_CI_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CI_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CI_DTL_INS.sql
+Error 9 in model 'PS_Z_JOB_CONTROL_UPD_DTTM': Database Error in model PS_Z_JOB_CONTROL_UPD_DTTM (models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_JOB_CONTROL_UPD_DTTM.sql
+Error 10 in model 'PS_Z_CI_GEN_STAT_INS': Database Error in model PS_Z_CI_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on Iceberg tables are not supported.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CI_GEN_STAT_INS.sql
+Error 11 in model 'PS_Z_CPP_D00_DEL': Database Error in model PS_Z_CPP_D00_DEL (models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'CRPDB01_DEV_SANDBOX.EPMADM.PS_Z_JOB_CONTROL_CI' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_CPP_D00_DEL.sql
+Error 12 in model 'PS_Z_PDS_CPP_DTL_INS': Database Error in model PS_Z_PDS_CPP_DTL_INS (models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_PDS_CPP_VW' does not exist or not authorized.
+  compiled code at target/run/dbt_CRPDB01_EPMADM_CI/models/EPMADM/ATOMIC/PS_Z_PDS_CPP_DTL_INS.sql
+Error 13 in model 'PS_Z_CPP_GEN_STAT_INS': Database Error in model PS_Z_CPP_GEN_STAT_INS (models/EPMADM/ATOMIC/PS_Z_CPP_GEN_STAT_INS.sql)
+  091968 (0A000): Equality deletes on
+
+Command Execution Finished
 
