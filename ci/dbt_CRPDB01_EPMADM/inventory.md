@@ -1,4 +1,4 @@
-# Inventory — dbt_CRPDB01_EPMADM
+# Inventory — dbt_CRPDB01_EPMADM_CI
 
 One model per mapping. The input is the two workflow-level scripts in
 `ci/CI mappings/RESULT/` (`wkf_LOAD_CI_ATOMIC`, `wkf_LOAD_CI_ATOMIC_AUDIT`) plus
@@ -25,12 +25,12 @@ Autosys enforces order, as for FEL. These are the orderings the data depends on:
 
 | # | Model | Mapping | Source SQL | Materialization | Reads | Writes | RECORDS_PROCESSED |
 |---|---|---|---|---|---|---|---|
-| 1 | `PS_Z_JOB_CONTROL_UPD_DTTM` | m_ps_z_job_control_upd_dttm | RESULT/wkf_LOAD_CI_ATOMIC.sql 25–37 | table `_SRC` | PS_Z_JOB_CONTROL | UPDATE PS_Z_JOB_CONTROL ×2 | job-control rows moved (2) |
+| 1 | `PS_Z_JOB_CONTROL_UPD_DTTM` | m_ps_z_job_control_upd_dttm | RESULT/wkf_LOAD_CI_ATOMIC.sql 25–37 | table `_SRC` | PS_Z_JOB_CONTROL_CI | UPDATE PS_Z_JOB_CONTROL_CI ×2 | job-control rows moved (2) |
 | 2 | `PS_Z_JTP_RELATE_CI` | m_ps_z_jtp_relate_ci_ins | RESULT/wkf_LOAD_CI_ATOMIC.sql 39–55 | incremental / append, `full_refresh=false` | PS_Z_JTP_RELATE_CI (PeopleSoft) | TRUNCATE + load of itself | rows loaded |
-| 3 | `PS_Z_CI_D00_DEL` | m_ps_z_ci_d00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 57–84 | table `_SRC` | PS_Z_JOB_CONTROL, PS_Z_CI_CHG_LOG_VW | INSERT PS_Z_CI_DELETE_LOG; DELETE PS_Z_CI_D00 | change-log rows = delete-log rows |
-| 4 | `PS_Z_CPP_D00_DEL` | m_ps_z_cpp_d00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 86–111 | table `_SRC` | PS_Z_JOB_CONTROL, PS_Z_CPP_CH_LOG_VW | INSERT PS_Z_CPP_DELETE_LOG; DELETE PS_Z_CPP_D00 | change-log rows = delete-log rows |
-| 5 | `PS_Z_CI_EST_F00_DEL` | m_ps_z_ci_est_f00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 113–124 | table `_SRC` | PS_Z_JOB_CONTROL, PS_Z_CI_CHG_LOG_VW | DELETE PS_Z_CI_EST_F00 | distinct changed keys (not fact rows) |
-| 6 | `PS_Z_JOB_CONTROL_UPD_STATUS` | m_ps_z_job_control_upd_status | RESULT/wkf_LOAD_CI_ATOMIC.sql 126–132 | table `_SRC` | PS_Z_JOB_CONTROL | UPDATE PS_Z_JOB_CONTROL ×2 | job-control rows closed (2) |
+| 3 | `PS_Z_CI_D00_DEL` | m_ps_z_ci_d00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 57–84 | table `_SRC` | PS_Z_JOB_CONTROL_CI, PS_Z_CI_CHG_LOG_VW | INSERT PS_Z_CI_DELETE_LOG; DELETE PS_Z_CI_D00 | change-log rows = delete-log rows |
+| 4 | `PS_Z_CPP_D00_DEL` | m_ps_z_cpp_d00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 86–111 | table `_SRC` | PS_Z_JOB_CONTROL_CI, PS_Z_CPP_CH_LOG_VW | INSERT PS_Z_CPP_DELETE_LOG; DELETE PS_Z_CPP_D00 | change-log rows = delete-log rows |
+| 5 | `PS_Z_CI_EST_F00_DEL` | m_ps_z_ci_est_f00_del | RESULT/wkf_LOAD_CI_ATOMIC.sql 113–124 | table `_SRC` | PS_Z_JOB_CONTROL_CI, PS_Z_CI_CHG_LOG_VW | DELETE PS_Z_CI_EST_F00 | distinct changed keys (not fact rows) |
+| 6 | `PS_Z_JOB_CONTROL_UPD_STATUS` | m_ps_z_job_control_upd_status | RESULT/wkf_LOAD_CI_ATOMIC.sql 126–132 | table `_SRC` | PS_Z_JOB_CONTROL_CI | UPDATE PS_Z_JOB_CONTROL_CI ×2 | job-control rows closed (2) |
 | 7 | `PS_Z_CI_REV_DTLVW_AUDIT` | m_ps_z_ci_rev_dtlvw_audit | RESULT/wkf_LOAD_CI_ATOMIC_AUDIT.sql 21–61 | table `_SRC` | PS_Z_CI_REV_DTLVW | MERGE PS_Z_EPM_AUDIT | 1 audit row |
 | 8 | `PS_Z_CI_EST_F00_ATOMIC_AUDIT` | m_ps_z_ci_est_f00_atomic_audit | RESULT/wkf_LOAD_CI_ATOMIC_AUDIT.sql 63–103 | table `_SRC` | PS_Z_CI_EST_F00, PS_Z_EPM_AUDIT | MERGE PS_Z_EPM_AUDIT | 1 audit row, or 0 if the fact is empty |
 | 9 | `PS_Z_CI_D00_INS_UPD` | m_ps_z_ci_d00_ins_upd | ci/s_m_ps_z_ci_d00_ins_upd_apple_to_apple.sql 19–542 | table `_SRC` | PS_Z_CI_DTL_VW, PS_Z_IR_DETAIL_TBL (PeopleSoft) | MERGE PS_Z_CI_D00 | source rows read |
@@ -42,6 +42,20 @@ Autosys enforces order, as for FEL. These are the orderings the data depends on:
 | 15 | `PS_Z_CI_GEN_STAT_INS` | m_ps_z_ci_gen_stat_ins | ci/s_m_ps_z_ci_gen_stat_ins.sql 18–245 | table `_SRC` | PS_Z_CI_GEN_STAT (PeopleSoft; and EPMADM as router lookup), PS_PERSONAL_D00 ×3 | MERGE PS_Z_CI_GEN_STAT | source rows read |
 | 16 | `PS_Z_CPP_GEN_STAT_INS` | m_ps_z_cpp_gen_stat_ins | ci/s_m_ps_z_cpp_gen_stat_ins.sql 18–238 | table `_SRC` | PS_Z_CPP_GEN_STAT (PeopleSoft; and EPMADM as router lookup), PS_PERSONAL_D00 ×3 | MERGE PS_Z_CPP_GEN_STAT | source rows read |
 
+## Job control
+
+The load windows live in `CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI`, the application's
+own copy of PeopleSoft's `PS_Z_JOB_CONTROL` (replicated to bronze, read-only).
+`on-run-start` runs `macros/ci_ps_z_job_control.sql`: it creates the table from
+`BRONZE_CORP_CONF.BRONZE_PEOPLESOFT.PS_Z_JOB_CONTROL` if it does not exist and
+adds any JOBID it lacks, never replacing a row. The models that use it:
+
+| JOBID | Opened by | Read by | Closed by |
+|---|---|---|---|
+| `CPP_D00` | `PS_Z_JOB_CONTROL_UPD_DTTM` | `PS_Z_CPP_D00_DEL` | `PS_Z_JOB_CONTROL_UPD_STATUS` |
+| `CI_EST_F00` | `PS_Z_JOB_CONTROL_UPD_DTTM` | `PS_Z_CI_EST_F00_DEL` | `PS_Z_JOB_CONTROL_UPD_STATUS` |
+| `CI_D00` | - | `PS_Z_CI_D00_DEL` | - |
+
 ## Guards
 
 `macros/assert_psft_source.sql`, called at the top of the model body so it runs
@@ -49,12 +63,12 @@ before any hook:
 
 | Model | Stops compilation when |
 |---|---|
-| `PS_Z_JTP_RELATE_CI` | its PeopleSoft source is its own target, or does not exist |
+| `PS_Z_JTP_RELATE_CI` | its source does not exist; or its PeopleSoft source is its own target |
 | `PS_Z_CPP_D00` | its source view does not exist (the TRUNCATE would empty the table before the read failed) |
-| `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | their PeopleSoft source is their own target |
+| `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | their PeopleSoft source is their own target (kept as a safeguard) |
 
-All of them clear once `CI_PSFT_SOURCE` points at the replicated PeopleSoft
-schema.
+With `CI_PSFT_SOURCE` on `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT` the source-is-target
+check passes everywhere; only a missing source stops a model.
 
 ## Not converted
 

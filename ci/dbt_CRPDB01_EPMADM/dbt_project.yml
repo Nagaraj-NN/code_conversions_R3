@@ -1,8 +1,8 @@
-name: dbt_CRPDB01_EPMADM
+name: dbt_CRPDB01_EPMADM_CI
 version: 1.0.0
 config-version: 2
 
-profile: dbt_CRPDB01_EPMADM
+profile: dbt_CRPDB01_EPMADM_CI
 
 model-paths: [models]
 analysis-paths: [analyses]
@@ -12,7 +12,7 @@ macro-paths: [macros]
 snapshot-paths: [snapshots]
 
 models:
-  dbt_CRPDB01_EPMADM:
+  dbt_CRPDB01_EPMADM_CI:
     +materialized: view
     EPMADM:
       +database: CRPDB01
@@ -21,9 +21,12 @@ models:
 
 vars:
   app_name_by_schema:
-    EPMADM: EPMADM
-    METADATA: EPMADM
-    TEST_DBT_SCH: EPMADM
+    EPMADM: EPMADM_CI
+    METADATA: EPMADM_CI
+    TEST_DBT_SCH: EPMADM_CI
+
+on-run-start:
+  - "{{ ci_ps_z_job_control() }}"
 
 on-run-end:
   - "{{ mark_failed_jobs(results) }}"

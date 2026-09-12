@@ -14,6 +14,11 @@
 -- keeps its IN form over the model, so a row with a NULL key part is not
 -- deleted - as before. RECORDS_PROCESSED is the number of distinct changed
 -- keys, not the number of fact rows removed: one key can match many rows.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
 -- ==========================================================================
 
 {{ config(
@@ -37,7 +42,7 @@ SELECT DISTINCT
     PS_Z_CI_CHG_LOG_VW.BUSINESS_UNIT,
     PS_Z_CI_CHG_LOG_VW.PROJECT_ID,
     PS_Z_CI_CHG_LOG_VW.REVISION_NUMBER
-FROM {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL') }} PS_Z_JOB_CONTROL,
+FROM {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL_CI') }} PS_Z_JOB_CONTROL,
      {{ source('CI_PSFT_SOURCE','PS_Z_CI_CHG_LOG_VW') }} PS_Z_CI_CHG_LOG_VW
 WHERE PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM >= PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM
   AND PS_Z_CI_CHG_LOG_VW.LAST_MAINT_DTTM < PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM

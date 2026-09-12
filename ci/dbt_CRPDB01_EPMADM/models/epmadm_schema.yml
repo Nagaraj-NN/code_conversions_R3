@@ -3,31 +3,26 @@ version: 2
 # Source definitions for the CI conversion: wkf_LOAD_CI_ATOMIC and
 # wkf_LOAD_CI_ATOMIC_AUDIT.
 #
-# Every group resolves through {{ target.database }}, as the reference project's
-# application schemas do, so dev / qa / uat / prod follow the target. The
-# validated scripts name CRPDB01_DEV_SANDBOX because that is the database they
-# were executed in.
+# CRPDB01_EPMADM and CRPDB01_METADATA resolve through {{ target.database }}, as
+# the reference project's application schemas do, so dev / qa / uat / prod and
+# the CI database follow the target. The validated scripts name
+# CRPDB01_DEV_SANDBOX because that is the database they were executed in.
 #
-# CI_PSFT_SOURCE holds what the mappings READ from PeopleSoft. It is declared
-# exactly where the validated scripts read it - EPMADM - but that is not where
-# it lives:
+# CI_PSFT_SOURCE holds what the mappings READ from PeopleSoft. The validated
+# scripts name those objects in EPMADM, but PeopleSoft is replicated to
+# BRONZE_CORP_CONF.BRONZE_PEOPLESOFT, which is where this project - like the
+# sibling EPMADM project dp-corp-ar80 - reads it. The database is pinned, as the
+# reference project pins its BRONZE_* sources, so every target, CI included,
+# reads the same bronze tables.
 #
-#   - the scripts' own execution logs report PS_Z_CPP_CH_LOG_VW,
-#     PS_Z_CI_REV_DTLVW, PS_Z_CI_DTL_VW, PS_Z_CPP_DTL_VW, PS_Z_PDS_CI_VW and
-#     PS_Z_PDS_CPP_VW as "does not exist or not authorized" in EPMADM;
-#   - PS_Z_JTP_RELATE_CI, PS_Z_PMRG_ANLS_TBL, PS_Z_PMRG_CPP_TBL,
-#     PS_Z_CI_GEN_STAT and PS_Z_CPP_GEN_STAT are also TARGETS in EPMADM, so as
-#     written each of those loads reads its own target.
+# PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+# PS_Z_JOB_CONTROL. PeopleSoft's lives in bronze, where it cannot be updated;
+# macros/ci_ps_z_job_control.sql creates the copy from it on the first run and
+# adds any JOBID it lacks, and the job-control models open, read and close the
+# CI_D00 / CPP_D00 / CI_EST_F00 windows there.
 #
-# So the Informatica source connection pointed somewhere else, and the
-# converter collapsed it onto the target schema. Repoint this one group once
-# the replicated PeopleSoft schema is known; no model changes. Until then the
-# models that would read their own target, or truncate ahead of a read that
-# cannot succeed, stop at compile time - see macros/assert_psft_source.sql.
-#
-# PS_Z_IR_DETAIL_TBL is placed here as a PeopleSoft lookup; nothing in the input
-# confirms where it lives. PS_PERSONAL_D00 is in EPMADM: the GEN_STAT scripts
-# that read it ran without error.
+# PS_PERSONAL_D00 is in EPMADM: the GEN_STAT scripts that read it ran without
+# error.
 
 sources:
 
@@ -35,7 +30,7 @@ sources:
     database: "{{ target.database }}"
     schema: EPMADM
     tables:
-      - name: PS_Z_JOB_CONTROL
+      - name: PS_Z_JOB_CONTROL_CI
       - name: PS_Z_CI_D00
       - name: PS_Z_CPP_D00
       - name: PS_Z_CI_EST_F00
@@ -51,9 +46,10 @@ sources:
       - name: PS_PERSONAL_D00
 
   - name: CI_PSFT_SOURCE
-    database: "{{ target.database }}"
-    schema: EPMADM
+    database: BRONZE_CORP_CONF
+    schema: BRONZE_PEOPLESOFT
     tables:
+      - name: PS_Z_JOB_CONTROL
       - name: PS_Z_CI_CHG_LOG_VW
       - name: PS_Z_CPP_CH_LOG_VW
       - name: PS_Z_CI_REV_DTLVW
@@ -72,6 +68,6 @@ sources:
     database: "{{ target.database }}"
     schema: METADATA
     tables:
-      - name: EPMADM_JOB_CONTROL
-      - name: EPMADM_JOB_EXECUTION
-      - name: EPMADM_JOB_PARAMETERS
+      - name: EPMADM_CI_JOB_CONTROL
+      - name: EPMADM_CI_JOB_EXECUTION
+      - name: EPMADM_CI_JOB_PARAMETERS

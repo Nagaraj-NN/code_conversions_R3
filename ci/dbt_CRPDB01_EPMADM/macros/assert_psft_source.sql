@@ -17,12 +17,12 @@
     Repointing CI_PSFT_SOURCE in models/epmadm_schema.yml at the replicated
     PeopleSoft schema clears both, with no model change.
 
-    On the ci target check 1 only logs a warning. The admin CI workflow builds
-    every source and target into one schema, TEST_DBT_DB.<ci_schema>, so a
-    PeopleSoft source and its EPMADM target are the same table there by
-    construction; failing would fail every CI run. Check 2 stays fatal on every
-    target: a missing source fails the build anyway, and this fails it before
-    the TRUNCATE.
+    CI_PSFT_SOURCE now points at BRONZE_CORP_CONF.BRONZE_PEOPLESOFT, so check 1
+    passes on every target; it stays to catch a source that is repointed back
+    into EPMADM. On the ci target it only logs a warning, because there every
+    source that follows target.database lands in the one CI schema. Check 2
+    stays fatal on every target: a missing source fails the build anyway, and
+    this fails it before the TRUNCATE.
 #}
 {% macro assert_psft_source(src, tgt, must_exist=false) %}
 

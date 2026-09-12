@@ -1,4 +1,4 @@
-dbt_CRPDB01_EPMADM:
+dbt_CRPDB01_EPMADM_CI:
   target: dev
   outputs:
     dev:
@@ -42,6 +42,6 @@ dbt_CRPDB01_EPMADM:
       role: DP_DW_IT_TRANSFORMER
       user: DBT_SVC
       warehouse: TRANSFORMER_WH
-      database: TEST_DBT_DB
-      schema: TEST_DBT_SCH
+      database: CRPDB01_CI
+      schema: EPMADM
       threads: 8

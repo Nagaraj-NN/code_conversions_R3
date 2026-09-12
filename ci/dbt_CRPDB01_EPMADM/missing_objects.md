@@ -4,7 +4,13 @@ Built from the `SOURCE Tables` / `TARGET TABLE` header lines and the error block
 of every CI script: the workflow and session scripts in `ci/CI mappings/RESULT/`
 and the session scripts uploaded to `ci/`. "Missing" means the script's own
 error block reports `does not exist or not authorized` in
-`CRPDB01_DEV_SANDBOX.EPMADM`.
+`CRPDB01_DEV_SANDBOX.EPMADM`, where the scripts were executed.
+
+The project now reads the PeopleSoft objects from
+`BRONZE_CORP_CONF.BRONZE_PEOPLESOFT` (source group `CI_PSFT_SOURCE`) and keeps
+the load windows in its own `PS_Z_JOB_CONTROL_CI`, created from bronze's
+`PS_Z_JOB_CONTROL` - so the "Declared" column shows where each object is read
+from today.
 
 ## Reported missing (7)
 
@@ -14,7 +20,7 @@ error block reports `does not exist or not authorized` in
 | `PS_Z_CI_REV_DTLVW` | `wkf_LOAD_CI_ATOMIC_AUDIT.sql` | `CI_PSFT_SOURCE` |
 | `PS_Z_CPP_CH_LOG_VW` | `wkf_LOAD_CI_ATOMIC.sql` | `CI_PSFT_SOURCE` |
 | `PS_Z_CPP_DTL_VW` | `s_m_ps_z_cpp_d00_ins_upd.sql` | `CI_PSFT_SOURCE` |
-| `PS_Z_JOB_CONTROL` | `wkf_LOAD_CI_ATOMIC.sql` | `CRPDB01_EPMADM` |
+| `PS_Z_JOB_CONTROL` | `wkf_LOAD_CI_ATOMIC.sql` | `CI_PSFT_SOURCE` |
 | `PS_Z_PDS_CI_VW` | `s_m_ps_z_pds_ci_dtl_ins.sql` | `CI_PSFT_SOURCE` |
 | `PS_Z_PDS_CPP_VW` | `s_m_ps_z_pds_cpp_dtl_ins.sql` | `CI_PSFT_SOURCE` |
 

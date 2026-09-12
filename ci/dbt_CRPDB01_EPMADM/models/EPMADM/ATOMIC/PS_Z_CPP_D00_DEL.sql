@@ -17,6 +17,11 @@
 -- The workflow header also lists TRUNCATE TABLE PS_Z_CPP_D00 as PRE SQL, but
 -- the workflow script never runs it, so it is not added here - truncating
 -- first would also make this delete meaningless.
+--
+-- PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
+-- PS_Z_JOB_CONTROL, which is replicated to bronze and cannot be updated.
+-- on-run-start creates it from bronze and adds missing JOBIDs; see
+-- macros/ci_ps_z_job_control.sql. The validated script names PS_Z_JOB_CONTROL.
 -- ==========================================================================
 
 {{ config(
@@ -47,7 +52,7 @@ SELECT
     PS_Z_CPP_CH_LOG_VW.Z_CPP_STATUS,
     PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM,
     CURRENT_TIMESTAMP() AS LAST_UPDT_TS
-FROM {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL') }} PS_Z_JOB_CONTROL,
+FROM {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL_CI') }} PS_Z_JOB_CONTROL,
      {{ source('CI_PSFT_SOURCE','PS_Z_CPP_CH_LOG_VW') }} PS_Z_CPP_CH_LOG_VW
 WHERE PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM >= PS_Z_JOB_CONTROL.LAST_RUN_FROM_DTTM
   AND PS_Z_CPP_CH_LOG_VW.LAST_MAINT_DTTM < PS_Z_JOB_CONTROL.LAST_RUN_TO_DTTM
