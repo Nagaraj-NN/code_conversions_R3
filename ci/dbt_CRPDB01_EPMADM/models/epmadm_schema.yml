@@ -21,6 +21,11 @@ version: 2
 # adds any JOBID it lacks, and the job-control models open, read and close the
 # CI_D00 / CPP_D00 / CI_EST_F00 windows there.
 #
+# Bronze stores some object names in lower case. Those tables keep their
+# upper-case name for source() and declare the stored name as a quoted
+# identifier: PS_Z_JTP_RELATE_CI is stored as "ps_z_jtp_relate_ci" (reported by
+# dbt on the 2026-09-12 run in CRPDB01_DEV_SANDBOX).
+#
 # PS_PERSONAL_D00 is in EPMADM: the GEN_STAT scripts that read it ran without
 # error.
 
@@ -54,6 +59,9 @@ sources:
       - name: PS_Z_CPP_CH_LOG_VW
       - name: PS_Z_CI_REV_DTLVW
       - name: PS_Z_JTP_RELATE_CI
+        identifier: ps_z_jtp_relate_ci
+        quoting:
+          identifier: true
       - name: PS_Z_CI_DTL_VW
       - name: PS_Z_CPP_DTL_VW
       - name: PS_Z_PDS_CI_VW
