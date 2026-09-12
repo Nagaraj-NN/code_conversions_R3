@@ -26,7 +26,7 @@
     alias='PS_Z_CI_EST_F00_DEL_SRC',
     meta={"mapping_name": "m_ps_z_ci_est_f00_del", "workflow_name": "wkf_LOAD_CI_ATOMIC"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CI_EST_F00_DEL', target_object='CRPDB01.EPMADM.PS_Z_CI_EST_F00')
+        log_model_start(this, 'TBD_PS_Z_CI_EST_F00_DEL', target_object=target.database ~ '.EPMADM.PS_Z_CI_EST_F00')
     ],
     post_hook=[
         "DELETE FROM {{ source('CRPDB01_EPMADM','PS_Z_CI_EST_F00') }}
@@ -34,7 +34,7 @@
          SELECT BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER
          FROM {{ this }}
      )",
-        log_model_end(this, 'TBD_PS_Z_CI_EST_F00_DEL', target_object='CRPDB01.EPMADM.PS_Z_CI_EST_F00')
+        log_model_end(this, 'TBD_PS_Z_CI_EST_F00_DEL', target_object=target.database ~ '.EPMADM.PS_Z_CI_EST_F00')
     ]
 ) }}
 

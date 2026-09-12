@@ -15,16 +15,26 @@ version: 2
 # reference project pins its BRONZE_* sources, so every target, CI included,
 # reads the same bronze tables.
 #
+# Bronze is Iceberg (catalog GLUE_REST_BRONZE) and stores schema, table and
+# column names in lower case. Snowflake resolves the unquoted upper-case names
+# used here to them - on the 2026-09-12 run on-run-start read bronze
+# PS_Z_JOB_CONTROL's lower-case columns unquoted - so nothing is quoted. Only
+# dbt's own relation lookup is exact about case, and assert_psft_source checks
+# existence without it.
+#
+# Seven of the 14 are PeopleSoft views, and bronze replicates tables only.
+# PS_Z_CI_CHG_LOG_VW, PS_Z_CPP_CH_LOG_VW, PS_Z_CI_REV_DTLVW, PS_Z_CI_DTL_VW,
+# PS_Z_CPP_DTL_VW, PS_Z_PDS_CI_VW and PS_Z_PDS_CPP_VW are not in bronze
+# (analyses/check_bronze_peoplesoft.sql, 2026-09-12), and the validated scripts
+# report six of them missing in CRPDB01_DEV_SANDBOX.EPMADM as well. They stay
+# declared here until each is rebuilt from its PeopleSoft definition over the
+# bronze tables; the models that read them fail until then. See the README.
+#
 # PS_Z_JOB_CONTROL_CI is this application's own copy of PeopleSoft's
 # PS_Z_JOB_CONTROL. PeopleSoft's lives in bronze, where it cannot be updated;
 # macros/ci_ps_z_job_control.sql creates the copy from it on the first run and
 # adds any JOBID it lacks, and the job-control models open, read and close the
 # CI_D00 / CPP_D00 / CI_EST_F00 windows there.
-#
-# Bronze stores some object names in lower case. Those tables keep their
-# upper-case name for source() and declare the stored name as a quoted
-# identifier: PS_Z_JTP_RELATE_CI is stored as "ps_z_jtp_relate_ci" (reported by
-# dbt on the 2026-09-12 run in CRPDB01_DEV_SANDBOX).
 #
 # PS_PERSONAL_D00 is in EPMADM: the GEN_STAT scripts that read it ran without
 # error.
@@ -59,9 +69,6 @@ sources:
       - name: PS_Z_CPP_CH_LOG_VW
       - name: PS_Z_CI_REV_DTLVW
       - name: PS_Z_JTP_RELATE_CI
-        identifier: ps_z_jtp_relate_ci
-        quoting:
-          identifier: true
       - name: PS_Z_CI_DTL_VW
       - name: PS_Z_CPP_DTL_VW
       - name: PS_Z_PDS_CI_VW

@@ -9,7 +9,9 @@ each of their statements is assigned to a mapping by target table and JOBID.
 
 ## Run order
 
-Autosys enforces order, as for FEL. These are the orderings the data depends on:
+Autosys enforces order, as for FEL; dbt does not. The models have no refs
+between them, so a whole-project `dbt build` starts them all at once - it did on
+2026-09-12 (README, *Open items*). These are the orderings the data depends on:
 
 | Must run | Why |
 |---|---|

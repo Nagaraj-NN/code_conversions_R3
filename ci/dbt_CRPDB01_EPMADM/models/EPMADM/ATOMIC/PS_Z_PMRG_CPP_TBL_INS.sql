@@ -32,7 +32,7 @@
     alias='PS_Z_PMRG_CPP_TBL_INS_SRC',
     meta={"mapping_name": "m_ps_z_pmrg_cpp_tbl_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_pmrg_cpp_tbl_ins"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_PMRG_CPP_TBL_INS', target_object='CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL')
+        log_model_start(this, 'TBD_PS_Z_PMRG_CPP_TBL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PMRG_CPP_TBL')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_PMRG_CPP_TBL') }} t
@@ -83,7 +83,7 @@
              s.Z_COST_RED,
              s.EDW_LAST_UPDT_TS
          )",
-        log_model_end(this, 'TBD_PS_Z_PMRG_CPP_TBL_INS', target_object='CRPDB01.EPMADM.PS_Z_PMRG_CPP_TBL')
+        log_model_end(this, 'TBD_PS_Z_PMRG_CPP_TBL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PMRG_CPP_TBL')
     ]
 ) }}
 

@@ -24,7 +24,7 @@
     alias='PS_Z_CI_REV_DTLVW_AUDIT_SRC',
     meta={"mapping_name": "m_ps_z_ci_rev_dtlvw_audit", "workflow_name": "wkf_LOAD_CI_ATOMIC_AUDIT"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CI_REV_DTLVW_AUDIT', target_object='CRPDB01.EPMADM.PS_Z_EPM_AUDIT')
+        log_model_start(this, 'TBD_PS_Z_CI_REV_DTLVW_AUDIT', target_object=target.database ~ '.EPMADM.PS_Z_EPM_AUDIT')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_EPM_AUDIT') }} AS T
@@ -41,7 +41,7 @@
      (TABLE_NAME, LEDGER, RUN_DT, Z_SRC_AMOUNT, Z_DEST_AMOUNT, Z_SRC_QUANTITY, Z_DEST_QUANTITY)
      VALUES
      (S.TABLE_NAME, S.LEDGER, S.RUN_DT, S.Z_SRC_AMOUNT, S.Z_DEST_AMOUNT, S.Z_SRC_QUANTITY, S.Z_DEST_QUANTITY)",
-        log_model_end(this, 'TBD_PS_Z_CI_REV_DTLVW_AUDIT', target_object='CRPDB01.EPMADM.PS_Z_EPM_AUDIT')
+        log_model_end(this, 'TBD_PS_Z_CI_REV_DTLVW_AUDIT', target_object=target.database ~ '.EPMADM.PS_Z_EPM_AUDIT')
     ]
 ) }}
 

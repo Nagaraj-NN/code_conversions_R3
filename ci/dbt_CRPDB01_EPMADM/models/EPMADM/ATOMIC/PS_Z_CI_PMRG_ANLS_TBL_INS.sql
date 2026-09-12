@@ -32,7 +32,7 @@
     alias='PS_Z_CI_PMRG_ANLS_TBL_INS_SRC',
     meta={"mapping_name": "m_ps_z_ci_pmrg_anls_tbl_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_ci_pmrg_anls_tbl_ins"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CI_PMRG_ANLS_TBL_INS', target_object='CRPDB01.EPMADM.PS_Z_PMRG_ANLS_TBL')
+        log_model_start(this, 'TBD_PS_Z_CI_PMRG_ANLS_TBL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PMRG_ANLS_TBL')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_PMRG_ANLS_TBL') }} t
@@ -54,7 +54,7 @@
          EDW_LAST_UPDT_TS = s.EDW_LAST_UPDT_TS
      WHEN NOT MATCHED AND s.ROUTER_ACTION = 'INSERT' THEN INSERT (BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER, Z_LOB, Z_CI_IRR_SCORE, Z_CI_NPV, Z_CI_PAYBACK_SCORE, DISCOUNT, ADDTL_ADJUST_PCT, ADDTL_WTHD_PCT, ADJUSTMENT_PCT, Z_COST_RED, EDW_LAST_UPDT_TS)
      VALUES (s.BUSINESS_UNIT, s.PROJECT_ID, s.REVISION_NUMBER, s.Z_LOB, s.Z_CI_IRR_SCORE, s.Z_CI_NPV, s.Z_CI_PAYBACK_SCORE, s.DISCOUNT, s.ADDTL_ADJUST_PCT, s.ADDTL_WTHD_PCT, s.ADJUSTMENT_PCT, s.Z_COST_RED, s.EDW_LAST_UPDT_TS)",
-        log_model_end(this, 'TBD_PS_Z_CI_PMRG_ANLS_TBL_INS', target_object='CRPDB01.EPMADM.PS_Z_PMRG_ANLS_TBL')
+        log_model_end(this, 'TBD_PS_Z_CI_PMRG_ANLS_TBL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PMRG_ANLS_TBL')
     ]
 ) }}
 

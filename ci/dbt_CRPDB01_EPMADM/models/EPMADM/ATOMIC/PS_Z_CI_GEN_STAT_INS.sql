@@ -37,7 +37,7 @@
     alias='PS_Z_CI_GEN_STAT_INS_SRC',
     meta={"mapping_name": "m_ps_z_ci_gen_stat_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_ci_gen_stat_ins"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CI_GEN_STAT_INS', target_object='CRPDB01.EPMADM.PS_Z_CI_GEN_STAT')
+        log_model_start(this, 'TBD_PS_Z_CI_GEN_STAT_INS', target_object=target.database ~ '.EPMADM.PS_Z_CI_GEN_STAT')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_CI_GEN_STAT') }} t
@@ -161,7 +161,7 @@
              s.APPROVAL_DT,
              s.OPRID_APPROVED_BY
      )",
-        log_model_end(this, 'TBD_PS_Z_CI_GEN_STAT_INS', target_object='CRPDB01.EPMADM.PS_Z_CI_GEN_STAT')
+        log_model_end(this, 'TBD_PS_Z_CI_GEN_STAT_INS', target_object=target.database ~ '.EPMADM.PS_Z_CI_GEN_STAT')
     ]
 ) }}
 

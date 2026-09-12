@@ -12,6 +12,15 @@ the load windows in its own `PS_Z_JOB_CONTROL_CI`, created from bronze's
 `PS_Z_JOB_CONTROL` - so the "Declared" column shows where each object is read
 from today.
 
+Bronze itself was checked on 2026-09-12 (`analyses/check_bronze_peoplesoft.sql`).
+It holds the 7 PeopleSoft tables, stored in lower case: `PS_Z_JOB_CONTROL`,
+`PS_Z_JTP_RELATE_CI`, `PS_Z_IR_DETAIL_TBL`, `PS_Z_PMRG_ANLS_TBL`,
+`PS_Z_PMRG_CPP_TBL`, `PS_Z_CI_GEN_STAT`, `PS_Z_CPP_GEN_STAT`. It holds none of
+the 7 PeopleSoft views: the six below ending in `VW` and `PS_Z_CI_CHG_LOG_VW`,
+which no script reported missing. So of the objects reported missing, only
+`PS_Z_JOB_CONTROL` is now found; the views have to be rebuilt from their
+PeopleSoft definitions (README, *Open items*).
+
 ## Reported missing (7)
 
 | Object | Reported by | Declared in the dbt project |

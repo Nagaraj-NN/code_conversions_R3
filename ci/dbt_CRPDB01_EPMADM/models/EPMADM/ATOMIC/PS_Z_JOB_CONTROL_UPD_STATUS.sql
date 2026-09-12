@@ -24,7 +24,7 @@
     alias='PS_Z_JOB_CONTROL_UPD_STATUS_SRC',
     meta={"mapping_name": "m_ps_z_job_control_upd_status", "workflow_name": "wkf_LOAD_CI_ATOMIC"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_JOB_CONTROL_UPD_STATUS', target_object='CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI')
+        log_model_start(this, 'TBD_PS_Z_JOB_CONTROL_UPD_STATUS', target_object=target.database ~ '.EPMADM.PS_Z_JOB_CONTROL_CI')
     ],
     post_hook=[
         "UPDATE {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL_CI') }}
@@ -33,7 +33,7 @@
         "UPDATE {{ source('CRPDB01_EPMADM','PS_Z_JOB_CONTROL_CI') }}
      SET STATUS = 'C'
      WHERE JOBID = 'CI_EST_F00'",
-        log_model_end(this, 'TBD_PS_Z_JOB_CONTROL_UPD_STATUS', target_object='CRPDB01.EPMADM.PS_Z_JOB_CONTROL_CI')
+        log_model_end(this, 'TBD_PS_Z_JOB_CONTROL_UPD_STATUS', target_object=target.database ~ '.EPMADM.PS_Z_JOB_CONTROL_CI')
     ]
 ) }}
 

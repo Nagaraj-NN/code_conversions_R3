@@ -15,7 +15,11 @@ models:
   dbt_CRPDB01_EPMADM_CI:
     +materialized: view
     EPMADM:
-      +database: CRPDB01
+      # The target's database, as the EPMADM and METADATA sources use: CRPDB01 on
+      # dev / qa / uat / prod, CRPDB01_CI on ci, the sandbox when a run targets
+      # one. A fixed CRPDB01 here sent a sandbox run's writes to CRPDB01 while it
+      # read the sandbox (ci/f.txt, 2026-09-12).
+      +database: "{{ target.database }}"
       +schema: EPMADM
       +materialized: table
 

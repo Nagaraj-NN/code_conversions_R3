@@ -26,7 +26,7 @@
     alias='PS_Z_PDS_CI_DTL_INS_SRC',
     meta={"mapping_name": "m_ps_z_pds_ci_dtl_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_pds_ci_dtl_ins"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_PDS_CI_DTL_INS', target_object='CRPDB01.EPMADM.PS_Z_PDS_CI_DTL')
+        log_model_start(this, 'TBD_PS_Z_PDS_CI_DTL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PDS_CI_DTL')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_PDS_CI_DTL') }} t
@@ -61,7 +61,7 @@
          EDW_LAST_UPDT_TS = s.EDW_LAST_UPDT_TS
      WHEN NOT MATCHED AND s.ROUTER_ACTION = 'INSERT' THEN INSERT (BUSINESS_UNIT, PROJECT_ID, REVISION_NUMBER, FISCAL_YEAR, Z_CI_COST_CATG, Z_FODA, Z_LABOR, Z_MATERIAL, Z_OTHER, Z_FRINGES, Z_OTH_SER, Z_CONTING, Z_FLEET, Z_REMOVAL, Z_LEASE, Z_DIR_RML, Z_DIRECT, Z_OVHD, Z_EXP, Z_APPR_PROJ, Z_AFUDC, Z_AFUDC_DEBT, Z_AFUDC_EQUITY, Z_AFUDC_BASIS, Z_CIAC, EDW_LAST_UPDT_TS)
      VALUES (s.BUSINESS_UNIT, s.PROJECT_ID, s.REVISION_NUMBER, s.FISCAL_YEAR, s.Z_CI_COST_CATG, s.Z_FODA, s.Z_LABOR, s.Z_MATERIAL, s.Z_OTHER, s.Z_FRINGES, s.Z_OTH_SER, s.Z_CONTING, s.Z_FLEET, s.Z_REMOVAL, s.Z_LEASE, s.Z_DIR_RML, s.Z_DIRECT, s.Z_OVHD, s.Z_EXP, s.Z_APPR_PROJ, s.Z_AFUDC, s.Z_AFUDC_DEBT, s.Z_AFUDC_EQUITY, s.Z_AFUDC_BASIS, s.Z_CIAC, s.EDW_LAST_UPDT_TS)",
-        log_model_end(this, 'TBD_PS_Z_PDS_CI_DTL_INS', target_object='CRPDB01.EPMADM.PS_Z_PDS_CI_DTL')
+        log_model_end(this, 'TBD_PS_Z_PDS_CI_DTL_INS', target_object=target.database ~ '.EPMADM.PS_Z_PDS_CI_DTL')
     ]
 ) }}
 

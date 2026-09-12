@@ -65,10 +65,13 @@ so each of their statements is assigned to a mapping by target table and JOBID.
 Each session script holds one mapping. Every model's header gives the exact
 source file and lines.
 
-**Database is `CRPDB01`, app name is `EPMADM_CI`.** The scripts name
-`CRPDB01_DEV_SANDBOX` because that is where they were executed; the models
-write `CRPDB01.EPMADM`, the same way the reference writes `UTLDB01` although its
-scripts named `UTLDB01_DEV_SANDBOX`. `app_name_by_schema` maps `EPMADM` to
+**Database follows the target, app name is `EPMADM_CI`.** The scripts name
+`CRPDB01_DEV_SANDBOX` because that is where they were executed. The models, the
+EPMADM and METADATA sources and the audit rows' `TARGET_OBJECT` all use
+`target.database`: `CRPDB01` on dev, qa, uat and prod (every such target in
+`profiles.yml`), `CRPDB01_CI` on ci, and the sandbox when a developer's run
+targets it. `dp-corp-ar80` fixes `+database: CRPDB01` instead; on the first live
+run that sent a sandbox run's writes to `CRPDB01` - see *Live runs*. `app_name_by_schema` maps `EPMADM` to
 `EPMADM_CI`, so this application's run log and control tables are
 `METADATA.EPMADM_CI_JOB_CONTROL`, `EPMADM_CI_JOB_EXECUTION` and
 `EPMADM_CI_JOB_PARAMETERS` - kept apart from the other applications that also
@@ -80,9 +83,11 @@ team skill's name, `CRPDB01_EPMADM`.
 the sibling EPMADM project `dp-corp-ar80` reads PeopleSoft too. Its database is
 pinned rather than following the target, as the reference project pins its
 `BRONZE_*` sources, so every target, CI included, reads the same bronze
-objects. It holds the 14 objects the mappings read from PeopleSoft, including
-`PS_Z_JOB_CONTROL` and `PS_Z_IR_DETAIL_TBL`. Bronze column names are read
-unquoted throughout.
+objects. It declares the 14 objects the mappings read from PeopleSoft. Bronze
+holds 7 of them - the tables - as lower-case Iceberg tables with lower-case
+columns, which Snowflake resolves from the unquoted upper-case names used here,
+so nothing is quoted. The other 7 are PeopleSoft views, which bronze does not
+replicate; see *Live runs*.
 
 **Job control lives in `PS_Z_JOB_CONTROL_CI`.** The workflow opens the
 `CPP_D00` and `CI_EST_F00` windows, the deletes read them, and the last model
@@ -168,7 +173,9 @@ of the model body, so it runs at compile time, before any hook:
   target. On the `ci` target it would only warn.
 - **source does not exist** - `PS_Z_JTP_RELATE_CI` and `PS_Z_CPP_D00`, the two
   truncate-and-reload models, so a TRUNCATE is never sent ahead of a read that
-  will fail. Fatal on every target.
+  will fail. Fatal on every target. The lookup is `show objects like`, compared
+  without regard to case: dbt's own `adapter.get_relation` raises on bronze's
+  lower-case names instead of finding them.
 
 **Promotion guard.** Carried from FEL: `log_model_start` refuses to compile on
 `qa`, `uat` and `prod` while a model's Autosys job name starts with `TBD`. All
@@ -229,10 +236,13 @@ on the rewritten profile, against a stubbed Snowflake connection:
   `PS_Z_PMRG_CPP_TBL`, `PS_Z_CI_GEN_STAT`, `PS_Z_CPP_GEN_STAT`,
   `PS_PERSONAL_D00`. `PS_Z_JOB_CONTROL_CI` is created by the project itself.
 - the CI role must read `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT`: `PS_Z_JOB_CONTROL`,
-  `PS_Z_CI_CHG_LOG_VW`, `PS_Z_CPP_CH_LOG_VW`, `PS_Z_CI_REV_DTLVW`,
-  `PS_Z_JTP_RELATE_CI`, `PS_Z_CI_DTL_VW`, `PS_Z_CPP_DTL_VW`, `PS_Z_PDS_CI_VW`,
-  `PS_Z_PDS_CPP_VW`, `PS_Z_IR_DETAIL_TBL`, `PS_Z_PMRG_ANLS_TBL`,
+  `PS_Z_JTP_RELATE_CI`, `PS_Z_IR_DETAIL_TBL`, `PS_Z_PMRG_ANLS_TBL`,
   `PS_Z_PMRG_CPP_TBL`, `PS_Z_CI_GEN_STAT`, `PS_Z_CPP_GEN_STAT`.
+- CI cannot pass until the 7 PeopleSoft views exist and the two GEN_STAT
+  tables are readable - see *Live runs*. It fails as early as the `compile`
+  step: `PS_Z_CPP_D00`'s existence check runs at compile time and stops on
+  `PS_Z_CPP_DTL_VW`. Offline, with every object present, compile and build both
+  pass.
 
 Two behaviours of the workflow as supplied: `CI_SCHEMA` is the source schema
 itself (`EPMADM`), not a per-PR schema, so concurrent pull requests share it;
@@ -246,14 +256,15 @@ guard stops any model still carrying a `TBD_` Autosys name on qa, uat or prod.
 
 ## Run auditing
 
-Same macros as FEL, so `CRPDB01.METADATA.EPMADM_CI_JOB_EXECUTION` gets a full row
+Same macros as FEL, so `METADATA.EPMADM_CI_JOB_EXECUTION` in the target's database gets a full row
 per model - `SOURCE_OBJECT`, `TARGET_OBJECT` and `RECORDS_PROCESSED` included.
 What `RECORDS_PROCESSED` means differs by model; `inventory.md` says which.
 
 ## Prerequisites
 
-`CRPDB01.METADATA` must hold `EPMADM_CI_JOB_EXECUTION`, which the log macros
-write, and the dbt role must read `BRONZE_CORP_CONF.BRONZE_PEOPLESOFT`.
+`METADATA.EPMADM_CI_JOB_EXECUTION` must exist in the target's database - the log
+macros write it, and CD and CI create it - and the dbt role must read
+`BRONZE_CORP_CONF.BRONZE_PEOPLESOFT`.
 `PS_Z_JOB_CONTROL_CI` is created on the first run.
 
 ## Verification
@@ -286,41 +297,66 @@ the real dbt Jinja pipeline, only the warehouse round trip faked:
 
 | run | result |
 |---|---|
-| `dbt build --target dev`, every object present | `PASS=18 ERROR=0` - `on-run-start` creates and tops up `PS_Z_JOB_CONTROL_CI` |
+| `dbt build --target dev`, every object present | `PASS=18 ERROR=0` - `on-run-start` creates and tops up `PS_Z_JOB_CONTROL_CI`; the stub reports names in lower case, as bronze does, and the existence guards still find them |
 | `dbt build --target dev`, objects missing | `PASS=16 ERROR=2` - JTP and `PS_Z_CPP_D00` stop on their missing source; no TRUNCATE sent |
+| `dbt build`, target database `CRPDB01_DEV_SANDBOX` | `PASS=18 ERROR=0`; every write, METADATA row and `TARGET_OBJECT` is in the sandbox - no `CRPDB01` outside comments |
 | `dbt compile --target qa`, per model | the TBD guard stops all 16 |
 | the admin CI workflow | see *CI / CD* |
 
-Nothing here has been run against a live Snowflake account.
+The runs against Snowflake itself are under *Live runs*.
 
-## First real run - 2026-09-12 (`ci/f.txt`)
+## Live runs - 2026-09-12
 
-The project ran in `CRPDB01_DEV_SANDBOX`: 13 of 17 failed, for four reasons.
+Three runs in `CRPDB01_DEV_SANDBOX` - Snowflake-native dbt 1.9.4, role
+`DP_DW_IT_DEVELOPER` - and `analyses/check_bronze_peoplesoft.sql`, whose results
+are summarised at its top. The third run's log, committed 2026-09-13, is
+`ci/f.txt`. It repeats the second exactly - same project checksum, same 16
+errors - because the fixes below had not been deployed yet.
+
+**What bronze is.** 210 unmanaged Iceberg tables (catalog `GLUE_REST_BRONZE`)
+and no views. Schema, table and column names are all stored in lower case, and
+Snowflake resolves unquoted upper-case names to them: `on-run-start` read
+`PS_Z_JOB_CONTROL`'s columns unquoted, and the GEN_STAT loads got as far as the
+Iceberg scan. Of the 14 PeopleSoft objects the mappings read, bronze has the 7
+tables and none of the 7 views.
 
 | Cause | Models | Status |
 |---|---|---|
-| Bronze stores `PS_Z_JTP_RELATE_CI` as `"ps_z_jtp_relate_ci"`; dbt found only a case-insensitive match and refused to guess | `PS_Z_JTP_RELATE_CI` | fixed - the source declares the stored name as a quoted identifier |
-| PeopleSoft views not found in bronze. `PS_Z_CPP_DTL_VW` does not exist under any case - `assert_psft_source` stopped `PS_Z_CPP_D00` before its TRUNCATE. `PS_Z_CI_DTL_VW`, `PS_Z_CI_REV_DTLVW`, `PS_Z_PDS_CI_VW`, `PS_Z_PDS_CPP_VW` are missing or stored in lower case | `PS_Z_CPP_D00`, `PS_Z_CI_D00_INS_UPD`, `PS_Z_CI_REV_DTLVW_AUDIT`, `PS_Z_PDS_CI_DTL_INS`, `PS_Z_PDS_CPP_DTL_INS` | open - `analyses/check_bronze_peoplesoft.sql` shows which; a view that is not in bronze has to be recreated from its PeopleSoft definition over the bronze tables |
-| `PS_Z_JOB_CONTROL_CI` did not exist: `on-run-start` either did not run or did not create it | `PS_Z_JOB_CONTROL_UPD_DTTM`, `_UPD_STATUS`, `PS_Z_CI_D00_DEL`, `PS_Z_CPP_D00_DEL`, `PS_Z_CI_EST_F00_DEL` | open - needs the run's log around `on-run-start`; the analysis's last query shows whether the table exists now |
-| `Equality deletes on Iceberg tables are not supported`, reading bronze `PS_Z_CI_GEN_STAT` / `PS_Z_CPP_GEN_STAT` | `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | platform - Snowflake cannot read an Iceberg table whose change files use equality deletes; bronze has to be compacted or written with position deletes |
+| A fixed `+database: CRPDB01` wrote the models to `CRPDB01.EPMADM` while the sources read the sandbox; the `_SRC` tables there already exist under another owner | OWNERSHIP error: `PS_Z_JOB_CONTROL_UPD_DTTM`, `_UPD_STATUS`, `PS_Z_CI_PMRG_ANLS_TBL_INS`, `PS_Z_PMRG_CPP_TBL_INS`, `PS_Z_CI_EST_F00_ATOMIC_AUDIT`; and `mark_failed_jobs` looked for `CRPDB01.METADATA` | fixed - models and audit rows follow `target.database` |
+| dbt's `adapter.get_relation` found bronze's `"bronze_peoplesoft"."ps_z_jtp_relate_ci"` only as a case-insensitive match and raised instead of returning it | `PS_Z_JTP_RELATE_CI` | fixed - `assert_psft_source` checks existence with `show objects like`, ignoring case; the source is declared unquoted again |
+| PeopleSoft views are not in bronze, and the scripts' own error headers show six of them missing in `CRPDB01_DEV_SANDBOX.EPMADM` too: `PS_Z_CI_CHG_LOG_VW`, `PS_Z_CPP_CH_LOG_VW`, `PS_Z_CI_REV_DTLVW`, `PS_Z_CI_DTL_VW`, `PS_Z_CPP_DTL_VW`, `PS_Z_PDS_CI_VW`, `PS_Z_PDS_CPP_VW` | `PS_Z_CI_D00_DEL`, `PS_Z_CPP_D00_DEL`, `PS_Z_CI_EST_F00_DEL`, `PS_Z_CI_D00_INS_UPD`, `PS_Z_CPP_D00` (stopped before its TRUNCATE), `PS_Z_PDS_CI_DTL_INS`, `PS_Z_PDS_CPP_DTL_INS`, `PS_Z_CI_REV_DTLVW_AUDIT` | open - each view has to be rebuilt from its PeopleSoft definition over the bronze tables |
+| `Equality deletes on Iceberg tables are not supported` reading bronze `ps_z_ci_gen_stat` / `ps_z_cpp_gen_stat` | `PS_Z_CI_GEN_STAT_INS`, `PS_Z_CPP_GEN_STAT_INS` | platform - Snowflake cannot read an Iceberg table whose deletes are equality deletes; bronze has to be compacted or written with position deletes |
 
-The two PMRG loads and `PS_Z_CI_EST_F00_ATOMIC_AUDIT` passed, so bronze
-`PS_Z_PMRG_ANLS_TBL` and `PS_Z_PMRG_CPP_TBL` resolve under their upper-case names
-with upper-case columns. Not every bronze object is named the same way.
+The first run's `PS_Z_JOB_CONTROL_CI does not exist` is gone: in the second,
+`on-run-start` created the table and its INSERT from bronze succeeded. The
+analysis's query 4 found no table - run it again as the role dbt runs with.
+
+With both fixes, six models should now build in the sandbox -
+`PS_Z_JOB_CONTROL_UPD_DTTM`, `_UPD_STATUS`, `PS_Z_JTP_RELATE_CI`, both PMRG loads
+and `PS_Z_CI_EST_F00_ATOMIC_AUDIT` - unless their bronze tables use equality
+deletes as well. The other ten wait on the views and on bronze GEN_STAT.
 
 ## Open items
 
-1. Run `analyses/check_bronze_peoplesoft.sql` and share the output: the exact
-   names and column case of the 14 PeopleSoft objects, which are Iceberg, and
-   whether `PS_Z_JOB_CONTROL_CI` exists.
-2. The log of the 2026-09-12 run around `on-run-start`, to see why
-   `PS_Z_JOB_CONTROL_CI` was not created.
-3. The bronze Iceberg tables that use equality deletes (`PS_Z_CI_GEN_STAT`,
-   `PS_Z_CPP_GEN_STAT`) - for the platform team.
-4. The PeopleSoft views that are not in bronze need their definitions
-   recreated over the bronze tables.
-5. `m_ps_z_ci_est_f00_ins_upd` has no SQL yet - it is the only
+1. **The 7 PeopleSoft views.** Their definitions are needed - from PeopleSoft
+   (Application Designer, or the view text in the PeopleSoft database) - so each
+   can be rebuilt as a dbt view over the bronze tables and the models repointed
+   to it. Queries 5 and 6 of the analysis check whether any of them, or
+   PeopleTools' `PSSQLTEXTDEFN`, which holds every view's SQL, exists elsewhere in
+   the account. Bronze has likely base tables - `ps_z_ci_chng_log`,
+   `ps_z_cpp_chng_log`, `ps_z_ci_rev_dtl`, `ps_z_ci_revision`, `ps_z_cpp_rev_dtl`,
+   `ps_z_cpp_revision`, `ps_z_cpp_header`, `ps_z_cpp_ir_tbl`, `ps_project` - but a
+   view's joins and filters cannot be guessed.
+2. Bronze `ps_z_ci_gen_stat` and `ps_z_cpp_gen_stat` use Iceberg equality
+   deletes - for the platform team.
+3. **Run order.** A whole-project `dbt build` - as run on 2026-09-12, and as CI
+   runs it - starts all 16 models at once: they have no refs between them, and
+   the order in `inventory.md` is left to Autosys, as for FEL. On real data that
+   would let `PS_Z_JOB_CONTROL_UPD_STATUS` close windows while the deletes still
+   read them. A `-- depends_on: {{ ref(...) }}` line per model would make dbt
+   keep that order without changing a single-model Autosys run.
+4. `m_ps_z_ci_est_f00_ins_upd` has no SQL yet - it is the only
    `wkf_LOAD_CI_ATOMIC` mapping without a model.
-6. What advances the `CI_D00` window.
-7. `CRPDB01_CI.EPMADM` and bronze access for CI, as listed under *CI / CD*.
-8. Real Autosys job names for all 16 models.
+5. What advances the `CI_D00` window.
+6. `CRPDB01_CI.EPMADM` and bronze access for CI, as listed under *CI / CD*.
+7. Real Autosys job names for all 16 models.

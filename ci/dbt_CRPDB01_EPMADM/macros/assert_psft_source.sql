@@ -42,7 +42,7 @@
             {% endif %}
         {% endif %}
 
-        {% if must_exist and adapter.get_relation(database=src.database, schema=src.schema, identifier=src.identifier) is none %}
+        {% if must_exist and not psft_relation_exists(src) %}
             {{ exceptions.raise_compiler_error(
                 model.name ~ ": its source " ~ src ~ " does not exist. The TRUNCATE pre-hook would"
                 ~ " empty " ~ tgt ~ " before the load failed, so the model stops here."
@@ -50,5 +50,37 @@
         {% endif %}
 
     {% endif %}
+
+{% endmacro %}
+
+
+{#
+    True if the relation exists, whatever the case of its stored name.
+
+    adapter.get_relation cannot answer this for bronze. It matches dbt's listing
+    of the schema exactly, bronze stores its names in lower case -
+    "bronze_peoplesoft"."ps_z_jtp_relate_ci" - and for a name that differs only
+    in case dbt raises "found an approximate match" instead of returning the
+    relation. That stopped PS_Z_JTP_RELATE_CI on the 2026-09-12 run. Snowflake
+    resolves the unquoted names the models use, so only this lookup has to
+    ignore case.
+
+    SHOW ... LIKE ignores case; the name is compared again because '_' in a LIKE
+    pattern matches any character. A schema that does not exist makes SHOW fail,
+    which stops the model as well.
+#}
+{% macro psft_relation_exists(rel) %}
+
+    {% set found = run_query(
+        "show objects like '" ~ rel.identifier ~ "' in schema " ~ rel.database ~ "." ~ rel.schema
+    ) %}
+
+    {% for row in found.rows %}
+        {% if (row['name'] | upper) == (rel.identifier | upper) %}
+            {{ return(true) }}
+        {% endif %}
+    {% endfor %}
+
+    {{ return(false) }}
 
 {% endmacro %}

@@ -33,11 +33,11 @@
     full_refresh=false,
     meta={"mapping_name": "m_ps_z_cpp_d00_ins_upd", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_cpp_d00_ins_upd"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CPP_D00', target_object='CRPDB01.EPMADM.PS_Z_CPP_D00'),
+        log_model_start(this, 'TBD_PS_Z_CPP_D00', target_object=target.database ~ '.EPMADM.PS_Z_CPP_D00'),
         "TRUNCATE TABLE IF EXISTS {{ this }}"
     ],
     post_hook=[
-        log_model_end(this, 'TBD_PS_Z_CPP_D00', target_object='CRPDB01.EPMADM.PS_Z_CPP_D00')
+        log_model_end(this, 'TBD_PS_Z_CPP_D00', target_object=target.database ~ '.EPMADM.PS_Z_CPP_D00')
     ]
 ) }}
 

@@ -32,11 +32,11 @@
     full_refresh=false,
     meta={"mapping_name": "m_ps_z_jtp_relate_ci_ins", "workflow_name": "wkf_LOAD_CI_ATOMIC"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_JTP_RELATE_CI', target_object='CRPDB01.EPMADM.PS_Z_JTP_RELATE_CI'),
+        log_model_start(this, 'TBD_PS_Z_JTP_RELATE_CI', target_object=target.database ~ '.EPMADM.PS_Z_JTP_RELATE_CI'),
         "TRUNCATE TABLE IF EXISTS {{ this }}"
     ],
     post_hook=[
-        log_model_end(this, 'TBD_PS_Z_JTP_RELATE_CI', target_object='CRPDB01.EPMADM.PS_Z_JTP_RELATE_CI')
+        log_model_end(this, 'TBD_PS_Z_JTP_RELATE_CI', target_object=target.database ~ '.EPMADM.PS_Z_JTP_RELATE_CI')
     ]
 ) }}
 

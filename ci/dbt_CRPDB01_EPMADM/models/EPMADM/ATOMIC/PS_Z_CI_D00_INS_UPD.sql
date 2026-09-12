@@ -31,7 +31,7 @@
     alias='PS_Z_CI_D00_INS_UPD_SRC',
     meta={"mapping_name": "m_ps_z_ci_d00_ins_upd", "workflow_name": "wkf_LOAD_CI_ATOMIC", "session_name": "s_m_ps_z_ci_d00_ins_upd"},
     pre_hook=[
-        log_model_start(this, 'TBD_PS_Z_CI_D00_INS_UPD', target_object='CRPDB01.EPMADM.PS_Z_CI_D00')
+        log_model_start(this, 'TBD_PS_Z_CI_D00_INS_UPD', target_object=target.database ~ '.EPMADM.PS_Z_CI_D00')
     ],
     post_hook=[
         "MERGE INTO {{ source('CRPDB01_EPMADM','PS_Z_CI_D00') }} TGT
@@ -401,7 +401,7 @@
          SRC.Z_PHASE_IR_AMT,
          SRC.PL_COL_NB
      )",
-        log_model_end(this, 'TBD_PS_Z_CI_D00_INS_UPD', target_object='CRPDB01.EPMADM.PS_Z_CI_D00')
+        log_model_end(this, 'TBD_PS_Z_CI_D00_INS_UPD', target_object=target.database ~ '.EPMADM.PS_Z_CI_D00')
     ]
 ) }}
 
