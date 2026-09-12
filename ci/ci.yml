@@ -1,0 +1,640 @@
+name: Snowflake dbt CI
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ci:
+    if: github.event.action != 'closed'
+
+    runs-on:
+      - RHEL8
+      #- self-hosted
+      #- Linux
+      #- X64
+      #- gitapnap11
+
+    env:
+      DBT_TARGET: ci
+      #PR_NUMBER: ${{ github.event.pull_request.number }}
+
+    steps:
+      # --------------------------------------------------
+      # Checkout
+      # --------------------------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------
+      # Resolve SOURCE_*/CI_* from dbt_project.yml + profiles.yml
+      # so this workflow stays generic across repositories.
+      # --------------------------------------------------
+      - name: Resolve database and schema from dbt project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          project_text = Path("dbt_project.yml").read_text(encoding="utf-8")
+          profiles_text = Path("profiles.yml").read_text(encoding="utf-8")
+
+          source_database = None
+          source_schema = None
+
+          inside_dev = False
+          dev_indent = None
+
+          for line in profiles_text.splitlines():
+              stripped = line.strip()
+              indent = len(line) - len(line.lstrip())
+
+              if stripped == "dev:":
+                  inside_dev = True
+                  dev_indent = indent
+                  continue
+
+              if (
+                  inside_dev
+                  and stripped
+                  and not stripped.startswith("#")
+                  and ":" in stripped
+                  and indent <= dev_indent
+              ):
+                  inside_dev = False
+
+              if inside_dev and stripped.startswith("database:"):
+                  source_database = (
+                      stripped.split(":", 1)[1]
+                      .strip()
+                      .strip("'\"")
+                  )
+
+              if inside_dev and stripped.startswith("schema:"):
+                  source_schema = (
+                      stripped.split(":", 1)[1]
+                      .strip()
+                      .strip("'\"")
+                  )
+
+          def first_match(pattern: str, text: str, flags=0):
+              match = re.search(pattern, text, flags)
+              return match.group(1).strip() if match else None
+          
+          if not source_database:
+              raise RuntimeError(
+                  "database was not found under the dev target in profiles.yml"
+              )
+
+          if not source_schema:
+              raise RuntimeError(
+                  "schema was not found under the dev target in profiles.yml"
+              )
+
+          
+
+          # CI database comes from the ci target in profiles.yml
+          ci_database = None
+          inside_ci = False
+          ci_indent = None
+
+          for line in profiles_text.splitlines():
+              stripped = line.strip()
+              indent = len(line) - len(line.lstrip())
+
+              if stripped == "ci:":
+                  inside_ci = True
+                  ci_indent = indent
+                  continue
+
+              if (
+                  inside_ci
+                  and stripped
+                  and not stripped.startswith("#")
+                  and ":" in stripped
+                  and indent <= ci_indent
+              ):
+                  inside_ci = False
+
+              if inside_ci and stripped.startswith("database:"):
+                  ci_database = stripped.split(":", 1)[1].strip().strip("'\"")
+                  break
+
+          if not ci_database:
+              raise RuntimeError(
+                  "database was not found under the ci target in profiles.yml"
+              )
+          
+          app_name = source_schema
+
+          mapping_match = re.search(
+          r"app_name_by_schema:\s*\n((?:\s+[A-Za-z0-9_]+\s*:\s*[A-Za-z0-9_]+\s*\n?)*)",
+          project_text,
+          re.MULTILINE,
+          )
+
+          if mapping_match:
+              mapping_block = mapping_match.group(1)
+          
+              schema_match = re.search(
+              rf"^\s*{re.escape(source_schema)}\s*:\s*([A-Za-z0-9_]+)\s*$",
+              mapping_block,
+              re.MULTILINE,
+              )
+
+              if schema_match:
+                  app_name = schema_match.group(1)
+
+          ci_schema = f"{source_schema}"
+          ci_project = f"DBT_CI_{app_name}"
+
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:
+              env_file.write(f"SOURCE_DATABASE={source_database}\n")
+              env_file.write(f"SOURCE_SCHEMA={source_schema}\n")
+              env_file.write(f"APP_NAME={app_name}\n")
+              env_file.write(f"CI_DATABASE={ci_database}\n")
+              env_file.write(f"CI_SCHEMA={ci_schema}\n")
+              env_file.write(f"CI_PROJECT={ci_project}\n")
+
+          print(f"SOURCE_DATABASE={source_database}")
+          print(f"SOURCE_SCHEMA={source_schema}")
+          print(f"APP_NAME={app_name}")
+          print(f"CI_DATABASE={ci_database}")
+          print(f"CI_SCHEMA={ci_schema}")
+          print(f"CI_PROJECT={ci_project}")
+          PY
+
+      # --------------------------------------------------
+      # Clear UV tool cache and fix PATH for Snowflake CLI installation, Run this if python module that uv is using is corrupted or incomplete.
+      # --------------------------------------------------
+      #- name: Prepare environment for Snowflake CLI
+      #  shell: bash
+      #  run: |
+      #    set -euo pipefail
+
+          #echo "Clearing stale UV tool cache and snow executable..."
+          #rm -rf ~/.local/share/uv/tools/snowflake-cli || true
+          #rm -rf ~/.cache/uv/archive-* || true
+          #rm -f ~/.local/bin/snow || true
+
+          #echo "Removing broken Python from PATH..."
+          # Remove the broken Python directory from PATH
+          #NEW_PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '/appl/ghrunner/python/Python-3.11.1' | tr '\n' ':' | sed 's/:$//')
+          #echo "PATH=$NEW_PATH" >> "$GITHUB_ENV"
+          #echo "Updated PATH (broken Python removed)"
+          
+      # --------------------------------------------------
+      # Install Snowflake CLI
+      # --------------------------------------------------
+      - name: Install Snowflake CLI
+        uses: snowflakedb/snowflake-cli-action@v2.0
+        env:
+          UV_PYTHON_PREFERENCE: managed
+          UV_PYTHON: "3.11"
+        with:
+          cli-version: 3.18.0
+
+      # --------------------------------------------------
+      # Resolve target Snowflake account
+      # --------------------------------------------------
+      - name: Resolve Snowflake environment
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          case "${{ github.base_ref }}" in
+            dev)
+              echo "SNOW_CONN=dev" >> "$GITHUB_ENV"
+              ;;
+            qa)
+              echo "SNOW_CONN=qa" >> "$GITHUB_ENV"
+              ;;
+            uat)
+              echo "SNOW_CONN=uat" >> "$GITHUB_ENV"
+              ;;
+            main)
+              echo "SNOW_CONN=prod" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "Unsupported base branch: ${{ github.base_ref }}"
+              exit 1
+              ;;
+          esac
+
+      # --------------------------------------------------
+      # Configure Snowflake CLI
+      # --------------------------------------------------
+      - name: Configure Snowflake connection
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p "$HOME/.snowflake"
+
+          case "$SNOW_CONN" in
+            dev)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_DEV }}"
+              USER="${{ secrets.SNOWFLAKE_USER_DEV }}"
+              ;;
+            qa)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_QA }}"
+              USER="${{ secrets.SNOWFLAKE_USER_QA }}"
+              ;;
+            uat)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_UAT }}"
+              USER="${{ secrets.SNOWFLAKE_USER_UAT }}"
+              ;;
+            prod)
+              ACCOUNT="${{ secrets.SNOWFLAKE_ACCOUNT_PROD }}"
+              USER="${{ secrets.SNOWFLAKE_USER_PROD }}"
+              ;;
+            *)
+              echo "Unknown Snowflake connection: $SNOW_CONN"
+              exit 1
+              ;;
+          esac
+
+          printf '%s\n' "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > key.p8
+          chmod 600 key.p8
+
+          cat > "$HOME/.snowflake/config.toml" <<EOF
+          [connections.$SNOW_CONN]
+          account = "$ACCOUNT"
+          host = "$ACCOUNT.privatelink.snowflakecomputing.com"
+          user = "$USER"
+          role = "${{ secrets.SNOWFLAKE_ROLE }}"
+          warehouse = "${{ secrets.SNOWFLAKE_WAREHOUSE }}"
+          private_key_path = "$GITHUB_WORKSPACE/key.p8"
+          authenticator = "SNOWFLAKE_JWT"
+          EOF
+
+          chmod 600 "$HOME/.snowflake/config.toml"
+
+      # --------------------------------------------------
+      # Verify connection
+      # --------------------------------------------------
+      - name: Verify Snowflake connection
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow --version
+
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              SELECT
+                CURRENT_ACCOUNT() AS ACCOUNT_NAME,
+                CURRENT_USER() AS USER_NAME,
+                CURRENT_ROLE() AS ROLE_NAME,
+                CURRENT_WAREHOUSE() AS WAREHOUSE_NAME;
+            "
+
+
+      # --------------------------------------------------
+      # Bootstrap METADATA tables (first run won't have them)
+      # The model hooks (log_model_start/end) write to
+      # ${CI_DATABASE}.METADATA.${SOURCE_SCHEMA}_JOB_EXECUTION
+      # These are created empty and reused across PR runs.
+      # --------------------------------------------------
+      - name: Bootstrap METADATA tables
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              USE DATABASE ${CI_DATABASE};
+              CREATE SCHEMA IF NOT EXISTS METADATA;
+
+              CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_CONTROL (
+                JOB_ID NUMBER(30,0) NOT NULL,
+                JOB_NAME VARCHAR,
+                AUTOSYS_JOB_NAME VARCHAR,
+                START_DATE TIMESTAMP_NTZ,
+                END_DATE TIMESTAMP_NTZ,
+                PREV_START_DATE TIMESTAMP_NTZ,
+                PREV_END_DATE TIMESTAMP_NTZ,
+                RUN_WINDOW NUMBER,
+                ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+                ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+                CONSTRAINT PK_${APP_NAME}_JOB_CONTROL PRIMARY KEY (JOB_ID)
+              );
+
+              CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_EXECUTION (
+                JOB_NAME VARCHAR,
+                AUTOSYS_JOB_NAME VARCHAR,
+                JOB_STATUS VARCHAR,
+                START_TIMESTAMP TIMESTAMP_NTZ,
+                END_TIMESTAMP TIMESTAMP_NTZ,
+                SOURCE_OBJECT VARCHAR,
+                TARGET_OBJECT VARCHAR,
+                RECORDS_PROCESSED NUMBER,
+                ERROR_MESSAGE VARCHAR,
+                ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+                ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+              );
+
+              CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_PARAMETERS (
+                PARAM_ID NUMBER AUTOINCREMENT START 1001 INCREMENT 1,
+                JOB_NAME VARCHAR,
+                AUTOSYS_JOB_NAME VARCHAR,
+                PARAM_NAME VARCHAR,
+                PARAM_VALUE VARCHAR,
+                ACTIVE_IND VARCHAR DEFAULT 'Y',
+                ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+                ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+              );
+            "
+
+      # --------------------------------------------------
+      # Verify Metadata Tables Are Created Correctly
+      # --------------------------------------------------
+      - name: Verify metadata tables
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              SELECT TABLE_NAME
+              FROM ${CI_DATABASE}.INFORMATION_SCHEMA.TABLES
+              WHERE TABLE_SCHEMA = 'METADATA'
+              ORDER BY TABLE_NAME;
+            "
+
+      # --------------------------------------------------
+      # Prepare project folder for deployment
+      # --------------------------------------------------
+      - name: Prepare clean dbt project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rm -rf clean_dbt
+          mkdir -p clean_dbt
+
+          rsync -av \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.venv' \
+            --exclude 'venv' \
+            --exclude 'snowcli_pkg' \
+            --exclude 'target' \
+            --exclude 'logs' \
+            --exclude 'dbt_packages' \
+            --exclude '__pycache__' \
+            --exclude '*.pyc' \
+            ./ clean_dbt/
+
+          test -f clean_dbt/dbt_project.yml
+          test -f clean_dbt/profiles.yml
+
+      # --------------------------------------------------
+      # Point the copied CI profile to the PR schema and
+      # map the ephemeral CI schema -> source app_name
+      # (same pattern as TEST_DBT_SCH in dbt_project.yml).
+      # --------------------------------------------------
+      - name: Configure copied CI profile
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          database = os.environ["CI_DATABASE"]
+          schema = os.environ["CI_SCHEMA"]
+          source_schema = os.environ["SOURCE_SCHEMA"]
+          app_name = os.environ["APP_NAME"]
+
+          # --- profiles.yml: point ci target at PR schema ---
+          path = Path("clean_dbt/profiles.yml")
+          lines = path.read_text(encoding="utf-8").splitlines()
+
+          inside_ci = False
+          ci_indent = None
+          found_ci = False
+          found_database = False
+          found_schema = False
+
+          output = []
+
+          for line in lines:
+              stripped = line.strip()
+              indent = len(line) - len(line.lstrip())
+
+              if stripped == "ci:":
+                  inside_ci = True
+                  ci_indent = indent
+                  found_ci = True
+                  output.append(line)
+                  continue
+
+              if (
+                  inside_ci
+                  and stripped
+                  and not stripped.startswith("#")
+                  and ":" in stripped
+                  and indent <= ci_indent
+              ):
+                  inside_ci = False
+
+              if inside_ci and stripped.startswith("database:"):
+                  output.append(
+                      f"{' ' * indent}database: {database}"
+                  )
+                  found_database = True
+                  continue
+
+              if inside_ci and stripped.startswith("schema:"):
+                  output.append(
+                      f"{' ' * indent}schema: {schema}"
+                  )
+                  found_schema = True
+                  continue
+
+              output.append(line)
+
+          if not found_ci:
+              raise RuntimeError(
+                  "The ci target was not found in profiles.yml"
+              )
+
+          if not found_database:
+              raise RuntimeError(
+                  "database was not found under the ci target"
+              )
+
+          if not found_schema:
+              raise RuntimeError(
+                  "schema was not found under the ci target"
+              )
+
+          path.write_text(
+              "\n".join(output) + "\n",
+              encoding="utf-8"
+          )
+
+          # --- dbt_project.yml: app_name_by_schema[CI_SCHEMA]=SOURCE_SCHEMA ---
+          project_path = Path("clean_dbt/dbt_project.yml")
+          project_text = project_path.read_text(encoding="utf-8")
+
+          # Already present (e.g. re-run) — nothing to do
+          mapping_line = f"    {schema}: {app_name}"
+          if re.search(
+              r"^\s*" + re.escape(schema) + r"\s*:",
+              project_text,
+              re.M,
+          ):
+              print(
+                  f"app_name_by_schema already has {schema}"
+              )
+          else:
+              match = re.search(
+                  r"^vars:\s*\n"
+                  r"(?:[ \t]+.*\n)*?"
+                  r"([ \t]+)app_name_by_schema:\s*\n"
+                  r"((?:[ \t]+[A-Za-z0-9_]+\s*:[ \t]*.*\n)*)",
+                  project_text,
+                  re.M,
+              )
+              if not match:
+                  raise RuntimeError(
+                      "app_name_by_schema not found in dbt_project.yml"
+                  )
+
+              entry_indent = match.group(1) + "  "
+              insert_at = match.end()
+              project_text = (
+                  project_text[:insert_at]
+                  + f"{entry_indent}{schema}: {app_name}\n"
+                  + project_text[insert_at:]
+              )
+              project_path.write_text(project_text, encoding="utf-8")
+              print(
+                  f"Mapped app_name_by_schema[{schema}] = {app_name}"
+              )
+          PY
+
+      # --------------------------------------------------
+      # Verify exactly what will be deployed
+      # --------------------------------------------------
+      - name: Validate CI configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Expected database: ${CI_DATABASE}"
+          echo "Expected schema:   ${CI_SCHEMA}"
+          echo "Source schema:     ${SOURCE_SCHEMA}"
+          echo "APP_NAME:          ${APP_NAME}"
+
+          echo ""
+          echo "Deployed profiles.yml:"
+          cat clean_dbt/profiles.yml
+
+          echo ""
+          echo "Deployed app_name_by_schema:"
+          grep -A20 "app_name_by_schema:" clean_dbt/dbt_project.yml || true
+
+          echo ""
+          echo "Deployed generate-name macros:"
+          grep -Rni \
+            -E "generate_database_name|generate_schema_name|ci_schema" \
+            clean_dbt/macros || true
+
+          grep -q "database: ${CI_DATABASE}" \
+            clean_dbt/profiles.yml
+
+          grep -q "schema: ${CI_SCHEMA}" \
+            clean_dbt/profiles.yml
+
+          grep -q "${CI_SCHEMA}: ${APP_NAME}" \
+          clean_dbt/dbt_project.yml
+
+          grep -Rqs "var('ci_schema'" \
+            clean_dbt/macros
+
+      # --------------------------------------------------
+      # Deploy Snowflake-hosted dbt project
+      # --------------------------------------------------
+      - name: Deploy dbt project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow dbt deploy \
+            "${CI_DATABASE}.${CI_SCHEMA}.${CI_PROJECT}" \
+            --source ./clean_dbt \
+            --dbt-version 1.10.15 \
+            --connection "$SNOW_CONN" \
+            --force
+
+      # --------------------------------------------------
+      # Compile using the PR-specific schema variable
+      # --------------------------------------------------
+      - name: Compile dbt project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              EXECUTE DBT PROJECT
+                ${CI_DATABASE}.${CI_SCHEMA}.${CI_PROJECT}
+              ARGS = 'compile --target ${DBT_TARGET} --vars ''{\"ci_schema\":\"${CI_SCHEMA}\"}''';
+            "
+
+      # --------------------------------------------------
+      # Build using the PR-specific schema variable
+      # --------------------------------------------------
+      - name: Build dbt project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              EXECUTE DBT PROJECT
+                ${CI_DATABASE}.${CI_SCHEMA}.${CI_PROJECT}
+              ARGS = 'build --target ${DBT_TARGET} --vars ''{\"ci_schema\":\"${CI_SCHEMA}\"}''';
+            "
+
+      # --------------------------------------------------
+      # Show resulting objects
+      # --------------------------------------------------
+      - name: Show CI objects
+        if: always()
+        shell: bash
+        run: |
+          snow sql \
+            --connection "$SNOW_CONN" \
+            --query "
+              SELECT
+                TABLE_TYPE,
+                COUNT(*) AS OBJECT_COUNT
+              FROM ${CI_DATABASE}.INFORMATION_SCHEMA.TABLES
+              WHERE TABLE_SCHEMA = '${CI_SCHEMA}'
+              GROUP BY TABLE_TYPE
+              ORDER BY TABLE_TYPE;
+            " || true
+
+  
