@@ -1,0 +1,1424 @@
+2026-09-13T11:48:49.8563646Z Requested labels: RHEL8
+2026-09-13T11:48:49.8564067Z Job defined at: AEP/dp-corp-ci-mart/.github/workflows/ci.yml@refs/pull/1/merge
+2026-09-13T11:48:49.8564161Z Waiting for a runner to pick up this job...
+2026-09-13T11:48:50.6008410Z Job is about to start running on the runner: gitapnap17 (enterprise)
+2026-09-13T11:48:53.2906033Z Current runner version: '2.328.0'
+2026-09-13T11:48:53.2912500Z Runner name: 'gitapnap17'
+2026-09-13T11:48:53.2913232Z Runner group name: 'Default'
+2026-09-13T11:48:53.2914119Z Machine name: 'gitapnap17'
+2026-09-13T11:48:53.2916920Z ##[group]GITHUB_TOKEN Permissions
+2026-09-13T11:48:53.2919038Z Contents: read
+2026-09-13T11:48:53.2919636Z Metadata: read
+2026-09-13T11:48:53.2920207Z PullRequests: write
+2026-09-13T11:48:53.2920790Z ##[endgroup]
+2026-09-13T11:48:53.2923262Z Secret source: Actions
+2026-09-13T11:48:53.2923973Z Prepare workflow directory
+2026-09-13T11:48:53.3304835Z Prepare all required actions
+2026-09-13T11:48:53.3336368Z Getting action download info
+2026-09-13T11:48:53.8554070Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-13T11:48:55.3003085Z Download action repository 'snowflakedb/snowflake-cli-action@v2.0' (SHA:9227851a83e3f8f05d097aba2cca8235f180834e)
+2026-09-13T11:48:55.8211225Z Getting action download info
+2026-09-13T11:48:56.6654980Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-09-13T11:48:58.3746617Z Complete job name: ci
+2026-09-13T11:48:58.4356737Z A job started hook has been configured by the self-hosted runner administrator
+2026-09-13T11:48:58.4488208Z ##[group]Run '/appl/ghrunner/actions-runner-scripts/ghe-runner-pre-workflow-script.sh'
+2026-09-13T11:48:58.4501860Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:48:58.4502386Z ##[endgroup]
+2026-09-13T11:48:58.7031220Z ------DEBUGGING VARIABLES------
+2026-09-13T11:48:58.7057620Z User: ghrunner
+2026-09-13T11:48:58.7061679Z Working Directory: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:48:58.7272367Z ##[group]Run actions/checkout@v4
+2026-09-13T11:48:58.7272751Z with:
+2026-09-13T11:48:58.7273046Z   repository: AEP/dp-corp-ci-mart
+2026-09-13T11:48:58.7273529Z   token: ***
+2026-09-13T11:48:58.7273808Z   ssh-strict: true
+2026-09-13T11:48:58.7274082Z   ssh-user: git
+2026-09-13T11:48:58.7274393Z   persist-credentials: true
+2026-09-13T11:48:58.7274682Z   clean: true
+2026-09-13T11:48:58.7274968Z   sparse-checkout-cone-mode: true
+2026-09-13T11:48:58.7275273Z   fetch-depth: 1
+2026-09-13T11:48:58.7275540Z   fetch-tags: false
+2026-09-13T11:48:58.7275814Z   show-progress: true
+2026-09-13T11:48:58.7276083Z   lfs: false
+2026-09-13T11:48:58.7276345Z   submodules: false
+2026-09-13T11:48:58.7276624Z   set-safe-directory: true
+2026-09-13T11:48:58.7276930Z   allow-unsafe-pr-checkout: false
+2026-09-13T11:48:58.7277284Z env:
+2026-09-13T11:48:58.7277561Z   DBT_TARGET: ci
+2026-09-13T11:48:58.7279240Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:48:58.7280767Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:48:58.7281132Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:48:58.7281495Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:48:58.7281864Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:48:58.7282209Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:48:58.7282572Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:48:58.7282977Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:48:58.7283428Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:48:58.7283867Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:48:58.7284252Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:48:58.7284607Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:48:58.7285067Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:48:58.7285598Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:48:58.7285904Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:48:58.7286245Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:48:58.7286560Z ##[endgroup]
+2026-09-13T11:49:00.2255113Z Syncing repository: AEP/dp-corp-ci-mart
+2026-09-13T11:49:00.2256387Z ##[group]Getting Git version info
+2026-09-13T11:49:00.2256873Z Working directory is '/appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart'
+2026-09-13T11:49:00.2257549Z [command]/appl/ghrunner/git/bin/git version
+2026-09-13T11:49:00.2289408Z git version 2.42.1
+2026-09-13T11:49:00.2306397Z ##[endgroup]
+2026-09-13T11:49:00.2314272Z Copying '/appl/ghrunner/.gitconfig' to '/appl/actions-runner/_work/_temp/7db93f77-5a74-41ab-a441-7a9aecc9dac2/.gitconfig'
+2026-09-13T11:49:00.2322712Z Temporarily overriding HOME='/appl/actions-runner/_work/_temp/7db93f77-5a74-41ab-a441-7a9aecc9dac2' before making global git config changes
+2026-09-13T11:49:00.2323451Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-13T11:49:00.2327642Z [command]/appl/ghrunner/git/bin/git config --global --add safe.directory /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:49:00.2513135Z Deleting the contents of '/appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart'
+2026-09-13T11:49:00.2731946Z ##[group]Initializing the repository
+2026-09-13T11:49:00.2739613Z [command]/appl/ghrunner/git/bin/git init /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:49:00.2813908Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-13T11:49:00.2814618Z hint: is subject to change. To configure the initial branch name to use in all
+2026-09-13T11:49:00.2815156Z hint: of your new repositories, which will suppress this warning, call:
+2026-09-13T11:49:00.2815564Z hint: 
+2026-09-13T11:49:00.2815888Z hint: 	git config --global init.defaultBranch <name>
+2026-09-13T11:49:00.2816248Z hint: 
+2026-09-13T11:49:00.2816600Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-13T11:49:00.2817104Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-13T11:49:00.2817493Z hint: 
+2026-09-13T11:49:00.2817769Z hint: 	git branch -m <name>
+2026-09-13T11:49:00.3072032Z Initialized empty Git repository in /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart/.git/
+2026-09-13T11:49:00.3081191Z [command]/appl/ghrunner/git/bin/git remote add origin https://github.aepsc.com/AEP/dp-corp-ci-mart
+2026-09-13T11:49:00.3288033Z ##[endgroup]
+2026-09-13T11:49:00.3291809Z ##[group]Disabling automatic garbage collection
+2026-09-13T11:49:00.3292691Z [command]/appl/ghrunner/git/bin/git config --local gc.auto 0
+2026-09-13T11:49:00.3397326Z ##[endgroup]
+2026-09-13T11:49:00.3398438Z ##[group]Setting up auth
+2026-09-13T11:49:00.3400638Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-13T11:49:00.3485148Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-13T11:49:00.4043077Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.aepsc\.com\/\.extraheader
+2026-09-13T11:49:00.4097812Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.aepsc\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.aepsc.com/.extraheader' || :"
+2026-09-13T11:49:00.4587943Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-13T11:49:00.4633611Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-13T11:49:00.5122266Z [command]/appl/ghrunner/git/bin/git config --local http.https://github.aepsc.com/.extraheader AUTHORIZATION: basic ***
+2026-09-13T11:49:00.5288670Z ##[endgroup]
+2026-09-13T11:49:00.5289904Z ##[group]Fetching the repository
+2026-09-13T11:49:00.5290722Z [command]/appl/ghrunner/git/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8b88477d2551a6809480e7617dde914fddaf1467:refs/remotes/pull/1/merge
+2026-09-13T11:49:00.8323742Z From https://github.aepsc.com/AEP/dp-corp-ci-mart
+2026-09-13T11:49:00.8324273Z  * [new ref]         8b88477d2551a6809480e7617dde914fddaf1467 -> pull/1/merge
+2026-09-13T11:49:00.8382308Z ##[endgroup]
+2026-09-13T11:49:00.8383029Z ##[group]Determining the checkout info
+2026-09-13T11:49:00.8384313Z ##[endgroup]
+2026-09-13T11:49:00.8389195Z [command]/appl/ghrunner/git/bin/git sparse-checkout disable
+2026-09-13T11:49:00.8664793Z [command]/appl/ghrunner/git/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-13T11:49:00.8781237Z ##[group]Checking out the ref
+2026-09-13T11:49:00.8785650Z [command]/appl/ghrunner/git/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2026-09-13T11:49:01.0522700Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-09-13T11:49:01.0523086Z 
+2026-09-13T11:49:01.0523415Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-13T11:49:01.0523894Z changes and commit them, and you can discard any commits you make in this
+2026-09-13T11:49:01.0524414Z state without impacting any branches by switching back to a branch.
+2026-09-13T11:49:01.0524684Z 
+2026-09-13T11:49:01.0524888Z If you want to create a new branch to retain commits you create, you may
+2026-09-13T11:49:01.0525329Z do so (now or later) by using -c with the switch command. Example:
+2026-09-13T11:49:01.0525582Z 
+2026-09-13T11:49:01.0525995Z   git switch -c <new-branch-name>
+2026-09-13T11:49:01.0526213Z 
+2026-09-13T11:49:01.0526373Z Or undo this operation with:
+2026-09-13T11:49:01.0526558Z 
+2026-09-13T11:49:01.0526689Z   git switch -
+2026-09-13T11:49:01.0526865Z 
+2026-09-13T11:49:01.0527090Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-13T11:49:01.0527386Z 
+2026-09-13T11:49:01.0527706Z HEAD is now at 8b88477 Merge 80884295e93d1e2f79d5e9ea57dc6ef5e9ac0550 into b675ca91b1c73b40fe09b1c189b2a9bb8a6d9e59
+2026-09-13T11:49:01.0535807Z ##[endgroup]
+2026-09-13T11:49:01.0714601Z [command]/appl/ghrunner/git/bin/git log -1 --format=%H
+2026-09-13T11:49:01.0762846Z 8b88477d2551a6809480e7617dde914fddaf1467
+2026-09-13T11:49:01.5694565Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:01.5695295Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:01.5695585Z [36;1m[0m
+2026-09-13T11:49:01.5695859Z [36;1mpython3 <<'PY'[0m
+2026-09-13T11:49:01.5696139Z [36;1mimport os[0m
+2026-09-13T11:49:01.5696408Z [36;1mimport re[0m
+2026-09-13T11:49:01.5696688Z [36;1mfrom pathlib import Path[0m
+2026-09-13T11:49:01.5696996Z [36;1m[0m
+2026-09-13T11:49:01.5697346Z [36;1mproject_text = Path("dbt_project.yml").read_text(encoding="utf-8")[0m
+2026-09-13T11:49:01.5697824Z [36;1mprofiles_text = Path("profiles.yml").read_text(encoding="utf-8")[0m
+2026-09-13T11:49:01.5698215Z [36;1m[0m
+2026-09-13T11:49:01.5698474Z [36;1msource_database = None[0m
+2026-09-13T11:49:01.5698866Z [36;1msource_schema = None[0m
+2026-09-13T11:49:01.5699149Z [36;1m[0m
+2026-09-13T11:49:01.5699405Z [36;1minside_dev = False[0m
+2026-09-13T11:49:01.5699703Z [36;1mdev_indent = None[0m
+2026-09-13T11:49:01.5699978Z [36;1m[0m
+2026-09-13T11:49:01.5700309Z [36;1mfor line in profiles_text.splitlines():[0m
+2026-09-13T11:49:01.5700657Z [36;1m    stripped = line.strip()[0m
+2026-09-13T11:49:01.5701007Z [36;1m    indent = len(line) - len(line.lstrip())[0m
+2026-09-13T11:49:01.5701335Z [36;1m[0m
+2026-09-13T11:49:01.5701607Z [36;1m    if stripped == "dev:":[0m
+2026-09-13T11:49:01.5701923Z [36;1m        inside_dev = True[0m
+2026-09-13T11:49:01.5702238Z [36;1m        dev_indent = indent[0m
+2026-09-13T11:49:01.5702548Z [36;1m        continue[0m
+2026-09-13T11:49:01.5702816Z [36;1m[0m
+2026-09-13T11:49:01.5703061Z [36;1m    if ([0m
+2026-09-13T11:49:01.5703341Z [36;1m        inside_dev[0m
+2026-09-13T11:49:01.5703822Z [36;1m        and stripped[0m
+2026-09-13T11:49:01.5704143Z [36;1m        and not stripped.startswith("#")[0m
+2026-09-13T11:49:01.5704485Z [36;1m        and ":" in stripped[0m
+2026-09-13T11:49:01.5704795Z [36;1m        and indent <= dev_indent[0m
+2026-09-13T11:49:01.5705107Z [36;1m    ):[0m
+2026-09-13T11:49:01.5705384Z [36;1m        inside_dev = False[0m
+2026-09-13T11:49:01.5705676Z [36;1m[0m
+2026-09-13T11:49:01.5705984Z [36;1m    if inside_dev and stripped.startswith("database:"):[0m
+2026-09-13T11:49:01.5706349Z [36;1m        source_database = ([0m
+2026-09-13T11:49:01.5706678Z [36;1m            stripped.split(":", 1)[1][0m
+2026-09-13T11:49:01.5706997Z [36;1m            .strip()[0m
+2026-09-13T11:49:01.5707294Z [36;1m            .strip("'\"")[0m
+2026-09-13T11:49:01.5707591Z [36;1m        )[0m
+2026-09-13T11:49:01.5707846Z [36;1m[0m
+2026-09-13T11:49:01.5708149Z [36;1m    if inside_dev and stripped.startswith("schema:"):[0m
+2026-09-13T11:49:01.5708508Z [36;1m        source_schema = ([0m
+2026-09-13T11:49:01.5709284Z [36;1m            stripped.split(":", 1)[1][0m
+2026-09-13T11:49:01.5709735Z [36;1m            .strip()[0m
+2026-09-13T11:49:01.5710044Z [36;1m            .strip("'\"")[0m
+2026-09-13T11:49:01.5710341Z [36;1m        )[0m
+2026-09-13T11:49:01.5710592Z [36;1m[0m
+2026-09-13T11:49:01.5710906Z [36;1mdef first_match(pattern: str, text: str, flags=0):[0m
+2026-09-13T11:49:01.5711292Z [36;1m    match = re.search(pattern, text, flags)[0m
+2026-09-13T11:49:01.5711659Z [36;1m    return match.group(1).strip() if match else None[0m
+2026-09-13T11:49:01.5712002Z [36;1m[0m
+2026-09-13T11:49:01.5712264Z [36;1mif not source_database:[0m
+2026-09-13T11:49:01.5712572Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:01.5712947Z [36;1m        "database was not found under the dev target in profiles.yml"[0m
+2026-09-13T11:49:01.5713313Z [36;1m    )[0m
+2026-09-13T11:49:01.5713571Z [36;1m[0m
+2026-09-13T11:49:01.5713830Z [36;1mif not source_schema:[0m
+2026-09-13T11:49:01.5714142Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:01.5714511Z [36;1m        "schema was not found under the dev target in profiles.yml"[0m
+2026-09-13T11:49:01.5714867Z [36;1m    )[0m
+2026-09-13T11:49:01.5715122Z [36;1m[0m
+2026-09-13T11:49:01.5715364Z [36;1m[0m
+2026-09-13T11:49:01.5715595Z [36;1m[0m
+2026-09-13T11:49:01.5716150Z [36;1m# CI database comes from the ci target in profiles.yml[0m
+2026-09-13T11:49:01.5716558Z [36;1mci_database = None[0m
+2026-09-13T11:49:01.5716857Z [36;1minside_ci = False[0m
+2026-09-13T11:49:01.5717148Z [36;1mci_indent = None[0m
+2026-09-13T11:49:01.5717423Z [36;1m[0m
+2026-09-13T11:49:01.5717735Z [36;1mfor line in profiles_text.splitlines():[0m
+2026-09-13T11:49:01.5718082Z [36;1m    stripped = line.strip()[0m
+2026-09-13T11:49:01.5718420Z [36;1m    indent = len(line) - len(line.lstrip())[0m
+2026-09-13T11:49:01.5718874Z [36;1m[0m
+2026-09-13T11:49:01.5719137Z [36;1m    if stripped == "ci:":[0m
+2026-09-13T11:49:01.5719455Z [36;1m        inside_ci = True[0m
+2026-09-13T11:49:01.5719775Z [36;1m        ci_indent = indent[0m
+2026-09-13T11:49:01.5720085Z [36;1m        continue[0m
+2026-09-13T11:49:01.5720351Z [36;1m[0m
+2026-09-13T11:49:01.5720605Z [36;1m    if ([0m
+2026-09-13T11:49:01.5720894Z [36;1m        inside_ci[0m
+2026-09-13T11:49:01.5721178Z [36;1m        and stripped[0m
+2026-09-13T11:49:01.5721499Z [36;1m        and not stripped.startswith("#")[0m
+2026-09-13T11:49:01.5721841Z [36;1m        and ":" in stripped[0m
+2026-09-13T11:49:01.5722160Z [36;1m        and indent <= ci_indent[0m
+2026-09-13T11:49:01.5722462Z [36;1m    ):[0m
+2026-09-13T11:49:01.5722732Z [36;1m        inside_ci = False[0m
+2026-09-13T11:49:01.5723030Z [36;1m[0m
+2026-09-13T11:49:01.5723328Z [36;1m    if inside_ci and stripped.startswith("database:"):[0m
+2026-09-13T11:49:01.5723757Z [36;1m        ci_database = stripped.split(":", 1)[1].strip().strip("'\"")[0m
+2026-09-13T11:49:01.5724126Z [36;1m        break[0m
+2026-09-13T11:49:01.5724513Z [36;1m[0m
+2026-09-13T11:49:01.5724781Z [36;1mif not ci_database:[0m
+2026-09-13T11:49:01.5725081Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:01.5725469Z [36;1m        "database was not found under the ci target in profiles.yml"[0m
+2026-09-13T11:49:01.5725831Z [36;1m    )[0m
+2026-09-13T11:49:01.5726085Z [36;1m[0m
+2026-09-13T11:49:01.5726350Z [36;1mapp_name = source_schema[0m
+2026-09-13T11:49:01.5726643Z [36;1m[0m
+2026-09-13T11:49:01.5726904Z [36;1mmapping_match = re.search([0m
+2026-09-13T11:49:01.5727310Z [36;1mr"app_name_by_schema:\s*\n((?:\s+[A-Za-z0-9_]+\s*:\s*[A-Za-z0-9_]+\s*\n?)*)",[0m
+2026-09-13T11:49:01.5727698Z [36;1mproject_text,[0m
+2026-09-13T11:49:01.5727981Z [36;1mre.MULTILINE,[0m
+2026-09-13T11:49:01.5728249Z [36;1m)[0m
+2026-09-13T11:49:01.5728488Z [36;1m[0m
+2026-09-13T11:49:01.5728858Z [36;1mif mapping_match:[0m
+2026-09-13T11:49:01.5729185Z [36;1m    mapping_block = mapping_match.group(1)[0m
+2026-09-13T11:49:01.5729518Z [36;1m[0m
+2026-09-13T11:49:01.5729788Z [36;1m    schema_match = re.search([0m
+2026-09-13T11:49:01.5730168Z [36;1m    rf"^\s*{re.escape(source_schema)}\s*:\s*([A-Za-z0-9_]+)\s*$",[0m
+2026-09-13T11:49:01.5730540Z [36;1m    mapping_block,[0m
+2026-09-13T11:49:01.5730828Z [36;1m    re.MULTILINE,[0m
+2026-09-13T11:49:01.5731107Z [36;1m    )[0m
+2026-09-13T11:49:01.5731354Z [36;1m[0m
+2026-09-13T11:49:01.5731610Z [36;1m    if schema_match:[0m
+2026-09-13T11:49:01.5731924Z [36;1m        app_name = schema_match.group(1)[0m
+2026-09-13T11:49:01.5732242Z [36;1m[0m
+2026-09-13T11:49:01.5732501Z [36;1mci_schema = f"{source_schema}"[0m
+2026-09-13T11:49:01.5732842Z [36;1mci_project = f"DBT_CI_{app_name}"[0m
+2026-09-13T11:49:01.5733151Z [36;1m[0m
+2026-09-13T11:49:01.5733491Z [36;1mwith open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env_file:[0m
+2026-09-13T11:49:01.5733940Z [36;1m    env_file.write(f"SOURCE_DATABASE={source_database}\n")[0m
+2026-09-13T11:49:01.5734353Z [36;1m    env_file.write(f"SOURCE_SCHEMA={source_schema}\n")[0m
+2026-09-13T11:49:01.5734740Z [36;1m    env_file.write(f"APP_NAME={app_name}\n")[0m
+2026-09-13T11:49:01.5735127Z [36;1m    env_file.write(f"CI_DATABASE={ci_database}\n")[0m
+2026-09-13T11:49:01.5735508Z [36;1m    env_file.write(f"CI_SCHEMA={ci_schema}\n")[0m
+2026-09-13T11:49:01.5735882Z [36;1m    env_file.write(f"CI_PROJECT={ci_project}\n")[0m
+2026-09-13T11:49:01.5736345Z [36;1m[0m
+2026-09-13T11:49:01.5736644Z [36;1mprint(f"SOURCE_DATABASE={source_database}")[0m
+2026-09-13T11:49:01.5737013Z [36;1mprint(f"SOURCE_SCHEMA={source_schema}")[0m
+2026-09-13T11:49:01.5737364Z [36;1mprint(f"APP_NAME={app_name}")[0m
+2026-09-13T11:49:01.5737697Z [36;1mprint(f"CI_DATABASE={ci_database}")[0m
+2026-09-13T11:49:01.5738037Z [36;1mprint(f"CI_SCHEMA={ci_schema}")[0m
+2026-09-13T11:49:01.5738366Z [36;1mprint(f"CI_PROJECT={ci_project}")[0m
+2026-09-13T11:49:01.5738737Z [36;1mPY[0m
+2026-09-13T11:49:01.5750039Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:01.5750413Z env:
+2026-09-13T11:49:01.5750673Z   DBT_TARGET: ci
+2026-09-13T11:49:01.5752147Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:01.5753646Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.5754117Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.5754484Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.5754838Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.5755192Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:01.5755606Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:01.5756157Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:01.5756629Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:01.5757072Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:01.5757461Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:01.5757818Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:01.5758145Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:01.5758436Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:01.5758851Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:01.5759199Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.5759514Z ##[endgroup]
+2026-09-13T11:49:01.6857126Z SOURCE_DATABASE=CRPDB01
+2026-09-13T11:49:01.6857735Z SOURCE_SCHEMA=EPMADM
+2026-09-13T11:49:01.6858281Z APP_NAME=CIMART
+2026-09-13T11:49:01.6858873Z CI_DATABASE=CRPDB01_CI
+2026-09-13T11:49:01.6859399Z CI_SCHEMA=EPMADM
+2026-09-13T11:49:01.6872008Z CI_PROJECT=DBT_CI_CIMART
+2026-09-13T11:49:01.7084032Z ##[group]Run snowflakedb/snowflake-cli-action@v2.0
+2026-09-13T11:49:01.7084417Z with:
+2026-09-13T11:49:01.7084688Z   cli-version: 3.18.0
+2026-09-13T11:49:01.7084992Z   default-config-file-path: ./config.toml
+2026-09-13T11:49:01.7085312Z   use-oidc: false
+2026-09-13T11:49:01.7085595Z   oidc-token-name: SNOWFLAKE_TOKEN
+2026-09-13T11:49:01.7085897Z env:
+2026-09-13T11:49:01.7086141Z   DBT_TARGET: ci
+2026-09-13T11:49:01.7087558Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:01.7089151Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7089584Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7089945Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7090302Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7090654Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:01.7091013Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:01.7091414Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:01.7091870Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:01.7092312Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:01.7092690Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:01.7093043Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:01.7093368Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:01.7093659Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:01.7093951Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:01.7094287Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7094616Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:01.7094900Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:01.7095179Z   APP_NAME: CIMART
+2026-09-13T11:49:01.7095451Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:01.7095727Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:01.7095992Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:01.7096284Z   UV_PYTHON_PREFERENCE: managed
+2026-09-13T11:49:01.7096691Z   UV_PYTHON: 3.11
+2026-09-13T11:49:01.7097353Z ##[endgroup]
+2026-09-13T11:49:01.7318997Z ##[group]Run echo "SF_GITHUB_ACTION=true" >> "$GITHUB_ENV"
+2026-09-13T11:49:01.7319673Z [36;1mecho "SF_GITHUB_ACTION=true" >> "$GITHUB_ENV"[0m
+2026-09-13T11:49:01.7331248Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:01.7331847Z env:
+2026-09-13T11:49:01.7332368Z   DBT_TARGET: ci
+2026-09-13T11:49:01.7334101Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:01.7336021Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7336653Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7337225Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7337862Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7338456Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:01.7339140Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:01.7339754Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:01.7340406Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:01.7341285Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:01.7341886Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:01.7342480Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:01.7343043Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:01.7343582Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:01.7344131Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:01.7344668Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7345265Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:01.7345761Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:01.7346285Z   APP_NAME: CIMART
+2026-09-13T11:49:01.7346801Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:01.7347105Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:01.7347382Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:01.7347668Z   UV_PYTHON_PREFERENCE: managed
+2026-09-13T11:49:01.7347958Z   UV_PYTHON: 3.11
+2026-09-13T11:49:01.7348224Z ##[endgroup]
+2026-09-13T11:49:01.7608303Z ##[group]Run astral-sh/setup-uv@v6
+2026-09-13T11:49:01.7608712Z with:
+2026-09-13T11:49:01.7609022Z   python-version: 3.11
+2026-09-13T11:49:01.7609336Z   activate-environment: false
+2026-09-13T11:49:01.7609763Z   working-directory: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:49:01.7610208Z   server-url: https://github.com
+2026-09-13T11:49:01.7610652Z   github-token: ***
+2026-09-13T11:49:01.7610929Z   enable-cache: auto
+2026-09-13T11:49:01.7611453Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-09-13T11:49:01.7611995Z   restore-cache: true
+2026-09-13T11:49:01.7612272Z   save-cache: true
+2026-09-13T11:49:01.7612547Z   prune-cache: true
+2026-09-13T11:49:01.7612829Z   ignore-nothing-to-cache: false
+2026-09-13T11:49:01.7613155Z   ignore-empty-workdir: false
+2026-09-13T11:49:01.7613464Z   add-problem-matchers: true
+2026-09-13T11:49:01.7613743Z env:
+2026-09-13T11:49:01.7629442Z   DBT_TARGET: ci
+2026-09-13T11:49:01.7631019Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:01.7632529Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7632901Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7633265Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7633625Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7633970Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:01.7634328Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:01.7634725Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:01.7635199Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:01.7635856Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:01.7636248Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:01.7636607Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:01.7636927Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:01.7637218Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:01.7637506Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:01.7637837Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:01.7638151Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:01.7638437Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:01.7638794Z   APP_NAME: CIMART
+2026-09-13T11:49:01.7639074Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:01.7639357Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:01.7639631Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:01.7639911Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:01.7640203Z   UV_PYTHON_PREFERENCE: managed
+2026-09-13T11:49:01.7640490Z   UV_PYTHON: 3.11
+2026-09-13T11:49:01.7640879Z ##[endgroup]
+2026-09-13T11:49:03.5459206Z Trying to find version for uv in: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart/uv.toml
+2026-09-13T11:49:03.5460351Z Could not find file: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart/uv.toml
+2026-09-13T11:49:03.5460960Z Trying to find version for uv in: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart/pyproject.toml
+2026-09-13T11:49:03.5461570Z Could not find file: /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart/pyproject.toml
+2026-09-13T11:49:03.5462119Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-09-13T11:49:03.5494020Z Getting latest version from GitHub API...
+2026-09-13T11:49:03.6536335Z No (valid) GitHub token provided. Falling back to anonymous. Requests might be rate limited.
+2026-09-13T11:49:03.8505693Z Found uv in tool-cache for 0.12.13
+2026-09-13T11:49:03.8506152Z Added /appl/ghrunner/.local/bin to the path
+2026-09-13T11:49:03.8584625Z Added /appl/actions-runner/_work/_tool/uv/0.12.13/x86_64 to the path
+2026-09-13T11:49:03.8593214Z Set UV_PYTHON to 3.11
+2026-09-13T11:49:03.8675691Z Set UV_CACHE_DIR to /appl/ghrunner/.cache/uv
+2026-09-13T11:49:03.8678918Z Successfully installed uv version 0.12.13
+2026-09-13T11:49:04.7071438Z ##[group]Run uv tool install snowflake-cli==3.18.0
+2026-09-13T11:49:04.7071859Z [36;1muv tool install snowflake-cli==3.18.0[0m
+2026-09-13T11:49:04.7085886Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:04.7086251Z env:
+2026-09-13T11:49:04.7086516Z   DBT_TARGET: ci
+2026-09-13T11:49:04.7088015Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:04.7089586Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7089955Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7090315Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7090674Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7091014Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:04.7091372Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:04.7091777Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:04.7092235Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:04.7092669Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:04.7093053Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:04.7093411Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:04.7093731Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:04.7094291Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:04.7094605Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:04.7094945Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7095289Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:04.7095590Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:04.7095882Z   APP_NAME: CIMART
+2026-09-13T11:49:04.7096155Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:04.7096443Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:04.7096729Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:04.7097023Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:04.7097314Z   UV_PYTHON: 3.11
+2026-09-13T11:49:04.7097607Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:04.7097938Z   UV_PYTHON_PREFERENCE: managed
+2026-09-13T11:49:04.7098241Z ##[endgroup]
+2026-09-13T11:49:04.7428943Z `snowflake-cli==3.18.0` is already installed
+2026-09-13T11:49:04.7522293Z ##[group]Run bash $GITHUB_ACTION_PATH/scripts/setup-config-file.sh
+2026-09-13T11:49:04.7522954Z [36;1mbash $GITHUB_ACTION_PATH/scripts/setup-config-file.sh[0m
+2026-09-13T11:49:04.7534415Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:04.7534763Z env:
+2026-09-13T11:49:04.7535032Z   DBT_TARGET: ci
+2026-09-13T11:49:04.7536481Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:04.7537982Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7538354Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7538785Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7539143Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7539508Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:04.7539864Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:04.7540262Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:04.7540711Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:04.7541153Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:04.7541535Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:04.7541887Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:04.7542213Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:04.7542500Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:04.7542795Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:04.7543128Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7543445Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:04.7543734Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:04.7544012Z   APP_NAME: CIMART
+2026-09-13T11:49:04.7544284Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:04.7544565Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:04.7544839Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:04.7545128Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:04.7545402Z   UV_PYTHON: 3.11
+2026-09-13T11:49:04.7545682Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:04.7546077Z   UV_PYTHON_PREFERENCE: managed
+2026-09-13T11:49:04.7546386Z   CONFIG_FILE_PATH: ./config.toml
+2026-09-13T11:49:04.7546688Z ##[endgroup]
+2026-09-13T11:49:04.7723137Z Provided file ./config.toml not found, using default config file.
+2026-09-13T11:49:04.7797899Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:04.7798283Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:04.7798657Z [36;1m[0m
+2026-09-13T11:49:04.7798931Z [36;1mcase "dev" in[0m
+2026-09-13T11:49:04.7799216Z [36;1m  dev)[0m
+2026-09-13T11:49:04.7799508Z [36;1m    echo "SNOW_CONN=dev" >> "$GITHUB_ENV"[0m
+2026-09-13T11:49:04.7799845Z [36;1m    ;;[0m
+2026-09-13T11:49:04.7800102Z [36;1m  qa)[0m
+2026-09-13T11:49:04.7800385Z [36;1m    echo "SNOW_CONN=qa" >> "$GITHUB_ENV"[0m
+2026-09-13T11:49:04.7800854Z [36;1m    ;;[0m
+2026-09-13T11:49:04.7801111Z [36;1m  uat)[0m
+2026-09-13T11:49:04.7801398Z [36;1m    echo "SNOW_CONN=uat" >> "$GITHUB_ENV"[0m
+2026-09-13T11:49:04.7801708Z [36;1m    ;;[0m
+2026-09-13T11:49:04.7801963Z [36;1m  main)[0m
+2026-09-13T11:49:04.7802248Z [36;1m    echo "SNOW_CONN=prod" >> "$GITHUB_ENV"[0m
+2026-09-13T11:49:04.7802561Z [36;1m    ;;[0m
+2026-09-13T11:49:04.7802813Z [36;1m  *)[0m
+2026-09-13T11:49:04.7803136Z [36;1m    echo "Unsupported base branch: dev"[0m
+2026-09-13T11:49:04.7803535Z [36;1m    exit 1[0m
+2026-09-13T11:49:04.7803804Z [36;1m    ;;[0m
+2026-09-13T11:49:04.7804061Z [36;1mesac[0m
+2026-09-13T11:49:04.7815111Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:04.7815471Z env:
+2026-09-13T11:49:04.7815737Z   DBT_TARGET: ci
+2026-09-13T11:49:04.7817174Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:04.7818778Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7819161Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7819545Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7819905Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7820248Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:04.7820613Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:04.7821012Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:04.7821455Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:04.7821899Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:04.7822285Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:04.7822641Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:04.7822958Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:04.7823249Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:04.7823546Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:04.7823876Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.7824202Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:04.7824495Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:04.7824767Z   APP_NAME: CIMART
+2026-09-13T11:49:04.7825042Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:04.7825318Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:04.7825583Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:04.7825946Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:04.7826243Z   UV_PYTHON: 3.11
+2026-09-13T11:49:04.7826532Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:04.7826847Z ##[endgroup]
+2026-09-13T11:49:04.8035161Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:04.8035621Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:04.8035913Z [36;1m[0m
+2026-09-13T11:49:04.8036197Z [36;1mmkdir -p "$HOME/.snowflake"[0m
+2026-09-13T11:49:04.8036505Z [36;1m[0m
+2026-09-13T11:49:04.8036778Z [36;1mcase "$SNOW_CONN" in[0m
+2026-09-13T11:49:04.8037066Z [36;1m  dev)[0m
+2026-09-13T11:49:04.8037718Z [36;1m    ACCOUNT="***"[0m
+2026-09-13T11:49:04.8038025Z [36;1m    USER="***"[0m
+2026-09-13T11:49:04.8038312Z [36;1m    ;;[0m
+2026-09-13T11:49:04.8038738Z [36;1m  qa)[0m
+2026-09-13T11:49:04.8039089Z [36;1m    ACCOUNT="***"[0m
+2026-09-13T11:49:04.8039412Z [36;1m    USER="***"[0m
+2026-09-13T11:49:04.8039681Z [36;1m    ;;[0m
+2026-09-13T11:49:04.8039934Z [36;1m  uat)[0m
+2026-09-13T11:49:04.8040231Z [36;1m    ACCOUNT="***"[0m
+2026-09-13T11:49:04.8040543Z [36;1m    USER="***"[0m
+2026-09-13T11:49:04.8040809Z [36;1m    ;;[0m
+2026-09-13T11:49:04.8041065Z [36;1m  prod)[0m
+2026-09-13T11:49:04.8041411Z [36;1m    ACCOUNT="***"[0m
+2026-09-13T11:49:04.8041907Z [36;1m    USER="***"[0m
+2026-09-13T11:49:04.8042171Z [36;1m    ;;[0m
+2026-09-13T11:49:04.8042432Z [36;1m  *)[0m
+2026-09-13T11:49:04.8042747Z [36;1m    echo "Unknown Snowflake connection: $SNOW_CONN"[0m
+2026-09-13T11:49:04.8043092Z [36;1m    exit 1[0m
+2026-09-13T11:49:04.8043352Z [36;1m    ;;[0m
+2026-09-13T11:49:04.8043607Z [36;1mesac[0m
+2026-09-13T11:49:04.8043852Z [36;1m[0m
+2026-09-13T11:49:04.8044152Z [36;1mprintf '%s\n' "***[0m
+2026-09-13T11:49:04.8044586Z [36;1m***[0m
+2026-09-13T11:49:04.8044983Z [36;1m***[0m
+2026-09-13T11:49:04.8045344Z [36;1m***[0m
+2026-09-13T11:49:04.8045698Z [36;1m***[0m
+2026-09-13T11:49:04.8046052Z [36;1m***[0m
+2026-09-13T11:49:04.8046443Z [36;1m***[0m
+2026-09-13T11:49:04.8046801Z [36;1m***[0m
+2026-09-13T11:49:04.8047152Z [36;1m***[0m
+2026-09-13T11:49:04.8047516Z [36;1m***[0m
+2026-09-13T11:49:04.8047889Z [36;1m***[0m
+2026-09-13T11:49:04.8048262Z [36;1m***[0m
+2026-09-13T11:49:04.8048728Z [36;1m***[0m
+2026-09-13T11:49:04.8049170Z [36;1m***[0m
+2026-09-13T11:49:04.8049576Z [36;1m***[0m
+2026-09-13T11:49:04.8049983Z [36;1m***[0m
+2026-09-13T11:49:04.8050346Z [36;1m***[0m
+2026-09-13T11:49:04.8050722Z [36;1m***[0m
+2026-09-13T11:49:04.8051096Z [36;1m***[0m
+2026-09-13T11:49:04.8051447Z [36;1m***[0m
+2026-09-13T11:49:04.8051804Z [36;1m***[0m
+2026-09-13T11:49:04.8052163Z [36;1m***[0m
+2026-09-13T11:49:04.8052535Z [36;1m***[0m
+2026-09-13T11:49:04.8052905Z [36;1m***[0m
+2026-09-13T11:49:04.8053264Z [36;1m***[0m
+2026-09-13T11:49:04.8053624Z [36;1m***[0m
+2026-09-13T11:49:04.8053896Z [36;1m***[0m
+2026-09-13T11:49:04.8054177Z [36;1m***" > key.p8[0m
+2026-09-13T11:49:04.8054465Z [36;1mchmod 600 key.p8[0m
+2026-09-13T11:49:04.8054747Z [36;1m[0m
+2026-09-13T11:49:04.8055035Z [36;1mcat > "$HOME/.snowflake/config.toml" <<EOF[0m
+2026-09-13T11:49:04.8055380Z [36;1m[connections.$SNOW_CONN][0m
+2026-09-13T11:49:04.8055699Z [36;1maccount = "$ACCOUNT"[0m
+2026-09-13T11:49:04.8056136Z [36;1mhost = "$ACCOUNT.privatelink.snowflakecomputing.com"[0m
+2026-09-13T11:49:04.8070073Z [36;1muser = "$USER"[0m
+2026-09-13T11:49:04.8070515Z [36;1mrole = "***"[0m
+2026-09-13T11:49:04.8070828Z [36;1mwarehouse = "***"[0m
+2026-09-13T11:49:04.8071171Z [36;1mprivate_key_path = "$GITHUB_WORKSPACE/key.p8"[0m
+2026-09-13T11:49:04.8071564Z [36;1mauthenticator = "SNOWFLAKE_JWT"[0m
+2026-09-13T11:49:04.8071877Z [36;1mEOF[0m
+2026-09-13T11:49:04.8072137Z [36;1m[0m
+2026-09-13T11:49:04.8072433Z [36;1mchmod 600 "$HOME/.snowflake/config.toml"[0m
+2026-09-13T11:49:04.8083735Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:04.8084096Z env:
+2026-09-13T11:49:04.8084362Z   DBT_TARGET: ci
+2026-09-13T11:49:04.8085942Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:04.8087413Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8087780Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8088145Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8088495Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8088902Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:04.8089264Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:04.8089662Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:04.8090123Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:04.8090566Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:04.8090955Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:04.8091320Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:04.8091775Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:04.8092069Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:04.8092364Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:04.8092688Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8093014Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:04.8093297Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:04.8093571Z   APP_NAME: CIMART
+2026-09-13T11:49:04.8093840Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:04.8094117Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:04.8094387Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:04.8094671Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:04.8094940Z   UV_PYTHON: 3.11
+2026-09-13T11:49:04.8095217Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:04.8095521Z   SNOW_CONN: dev
+2026-09-13T11:49:04.8095841Z ##[endgroup]
+2026-09-13T11:49:04.8501293Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:04.8501749Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:04.8502047Z [36;1m[0m
+2026-09-13T11:49:04.8502314Z [36;1msnow --version[0m
+2026-09-13T11:49:04.8502607Z [36;1m[0m
+2026-09-13T11:49:04.8502865Z [36;1msnow sql \[0m
+2026-09-13T11:49:04.8503149Z [36;1m  --connection "$SNOW_CONN" \[0m
+2026-09-13T11:49:04.8503472Z [36;1m  --query "[0m
+2026-09-13T11:49:04.8503741Z [36;1m    SELECT[0m
+2026-09-13T11:49:04.8504026Z [36;1m      CURRENT_ACCOUNT() AS ACCOUNT_NAME,[0m
+2026-09-13T11:49:04.8504377Z [36;1m      CURRENT_USER() AS USER_NAME,[0m
+2026-09-13T11:49:04.8504717Z [36;1m      CURRENT_ROLE() AS ROLE_NAME,[0m
+2026-09-13T11:49:04.8505057Z [36;1m      CURRENT_WAREHOUSE() AS WAREHOUSE_NAME;[0m
+2026-09-13T11:49:04.8505378Z [36;1m  "[0m
+2026-09-13T11:49:04.8516298Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:04.8516652Z env:
+2026-09-13T11:49:04.8516909Z   DBT_TARGET: ci
+2026-09-13T11:49:04.8518464Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:04.8520012Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8520380Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8520743Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8521092Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8521439Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:04.8521798Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:04.8522200Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:04.8522658Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:04.8523095Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:04.8523480Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:04.8523835Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:04.8524150Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:04.8524436Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:04.8524729Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:04.8525052Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:04.8525367Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:04.8525648Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:04.8525995Z   APP_NAME: CIMART
+2026-09-13T11:49:04.8526273Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:04.8526554Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:04.8526831Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:04.8527112Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:04.8527389Z   UV_PYTHON: 3.11
+2026-09-13T11:49:04.8527681Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:04.8527992Z   SNOW_CONN: dev
+2026-09-13T11:49:04.8528253Z ##[endgroup]
+2026-09-13T11:49:05.8569847Z Snowflake CLI version: 3.18.0
+2026-09-13T11:49:08.3709877Z SELECT
+2026-09-13T11:49:08.3710445Z       CURRENT_ACCOUNT() AS ACCOUNT_NAME,
+2026-09-13T11:49:08.3710980Z       CURRENT_USER() AS USER_NAME,
+2026-09-13T11:49:08.3711724Z       CURRENT_ROLE() AS ROLE_NAME,
+2026-09-13T11:49:08.3712120Z       CURRENT_WAREHOUSE() AS WAREHOUSE_NAME;
+2026-09-13T11:49:08.4939120Z +-------------------------------------------------------------------+
+2026-09-13T11:49:08.4939571Z | ACCOUNT_NAME | USER_NAME  | ROLE_NAME            | WAREHOUSE_NAME |
+2026-09-13T11:49:08.4940004Z |--------------+------------+----------------------+----------------|
+2026-09-13T11:49:08.4940636Z | VXC00498     | GITHUB_SVC | *** | ***      |
+2026-09-13T11:49:08.4941008Z +-------------------------------------------------------------------+
+2026-09-13T11:49:08.8281903Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:08.8282303Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:08.8282587Z [36;1m[0m
+2026-09-13T11:49:08.8282847Z [36;1msnow sql \[0m
+2026-09-13T11:49:08.8283161Z [36;1m  --connection "$SNOW_CONN" \[0m
+2026-09-13T11:49:08.8283481Z [36;1m  --query "[0m
+2026-09-13T11:49:08.8283761Z [36;1m    USE DATABASE ${CI_DATABASE};[0m
+2026-09-13T11:49:08.8284103Z [36;1m    CREATE SCHEMA IF NOT EXISTS METADATA;[0m
+2026-09-13T11:49:08.8284427Z [36;1m[0m
+2026-09-13T11:49:08.8284757Z [36;1m    CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_CONTROL ([0m
+2026-09-13T11:49:08.8285152Z [36;1m      JOB_ID NUMBER(30,0) NOT NULL,[0m
+2026-09-13T11:49:08.8285476Z [36;1m      JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8285797Z [36;1m      AUTOSYS_JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8286121Z [36;1m      START_DATE TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8286437Z [36;1m      END_DATE TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8286810Z [36;1m      PREV_START_DATE TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8287146Z [36;1m      PREV_END_DATE TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8287473Z [36;1m      RUN_WINDOW NUMBER,[0m
+2026-09-13T11:49:08.8287859Z [36;1m      ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),[0m
+2026-09-13T11:49:08.8288336Z [36;1m      ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),[0m
+2026-09-13T11:49:08.8288851Z [36;1m      CONSTRAINT PK_${APP_NAME}_JOB_CONTROL PRIMARY KEY (JOB_ID)[0m
+2026-09-13T11:49:08.8289221Z [36;1m    );[0m
+2026-09-13T11:49:08.8289486Z [36;1m[0m
+2026-09-13T11:49:08.8289816Z [36;1m    CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_EXECUTION ([0m
+2026-09-13T11:49:08.8290205Z [36;1m      JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8290529Z [36;1m      AUTOSYS_JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8290857Z [36;1m      JOB_STATUS VARCHAR,[0m
+2026-09-13T11:49:08.8291189Z [36;1m      START_TIMESTAMP TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8291529Z [36;1m      END_TIMESTAMP TIMESTAMP_NTZ,[0m
+2026-09-13T11:49:08.8291873Z [36;1m      SOURCE_OBJECT VARCHAR,[0m
+2026-09-13T11:49:08.8292192Z [36;1m      TARGET_OBJECT VARCHAR,[0m
+2026-09-13T11:49:08.8292513Z [36;1m      RECORDS_PROCESSED NUMBER,[0m
+2026-09-13T11:49:08.8292844Z [36;1m      ERROR_MESSAGE VARCHAR,[0m
+2026-09-13T11:49:08.8293229Z [36;1m      ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),[0m
+2026-09-13T11:49:08.8293697Z [36;1m      ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()[0m
+2026-09-13T11:49:08.8294555Z [36;1m    );[0m
+2026-09-13T11:49:08.8294840Z [36;1m[0m
+2026-09-13T11:49:08.8295167Z [36;1m    CREATE TABLE IF NOT EXISTS METADATA.${APP_NAME}_JOB_PARAMETERS ([0m
+2026-09-13T11:49:08.8295610Z [36;1m      PARAM_ID NUMBER AUTOINCREMENT START 1001 INCREMENT 1,[0m
+2026-09-13T11:49:08.8295985Z [36;1m      JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8296294Z [36;1m      AUTOSYS_JOB_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8296626Z [36;1m      PARAM_NAME VARCHAR,[0m
+2026-09-13T11:49:08.8296946Z [36;1m      PARAM_VALUE VARCHAR,[0m
+2026-09-13T11:49:08.8297274Z [36;1m      ACTIVE_IND VARCHAR DEFAULT 'Y',[0m
+2026-09-13T11:49:08.8297671Z [36;1m      ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),[0m
+2026-09-13T11:49:08.8298381Z [36;1m      ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()[0m
+2026-09-13T11:49:08.8298827Z [36;1m    );[0m
+2026-09-13T11:49:08.8299087Z [36;1m  "[0m
+2026-09-13T11:49:08.8325268Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:08.8325635Z env:
+2026-09-13T11:49:08.8325909Z   DBT_TARGET: ci
+2026-09-13T11:49:08.8327539Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:08.8329129Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:08.8329506Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:08.8329888Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:08.8330250Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:08.8330600Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:08.8330963Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:08.8331372Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:08.8331839Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:08.8332290Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:08.8332679Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:08.8333034Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:08.8333363Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:08.8333642Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:08.8333942Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:08.8334276Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:08.8334594Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:08.8334884Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:08.8335165Z   APP_NAME: CIMART
+2026-09-13T11:49:08.8335432Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:08.8336028Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:08.8336318Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:08.8336613Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:08.8336895Z   UV_PYTHON: 3.11
+2026-09-13T11:49:08.8337175Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:08.8337493Z   SNOW_CONN: dev
+2026-09-13T11:49:08.8337750Z ##[endgroup]
+2026-09-13T11:49:10.8120413Z USE DATABASE CRPDB01_CI;
+2026-09-13T11:49:10.9295713Z +----------------------------------+
+2026-09-13T11:49:10.9309110Z | status                           |
+2026-09-13T11:49:10.9309657Z |----------------------------------|
+2026-09-13T11:49:10.9310435Z | Statement executed successfully. |
+2026-09-13T11:49:10.9310832Z +----------------------------------+
+2026-09-13T11:49:10.9311172Z CREATE SCHEMA IF NOT EXISTS METADATA;
+2026-09-13T11:49:11.0622732Z +-----------------------------------------------+
+2026-09-13T11:49:11.0623228Z | status                                        |
+2026-09-13T11:49:11.0623581Z |-----------------------------------------------|
+2026-09-13T11:49:11.0623936Z | METADATA already exists, statement succeeded. |
+2026-09-13T11:49:11.0624289Z +-----------------------------------------------+
+2026-09-13T11:49:11.0631356Z CREATE TABLE IF NOT EXISTS METADATA.CIMART_JOB_CONTROL (
+2026-09-13T11:49:11.0631741Z       JOB_ID NUMBER(30,0) NOT NULL,
+2026-09-13T11:49:11.0632068Z       JOB_NAME VARCHAR,
+2026-09-13T11:49:11.0632358Z       AUTOSYS_JOB_NAME VARCHAR,
+2026-09-13T11:49:11.0632661Z       START_DATE TIMESTAMP_NTZ,
+2026-09-13T11:49:11.0632979Z       END_DATE TIMESTAMP_NTZ,
+2026-09-13T11:49:11.0633352Z       PREV_START_DATE TIMESTAMP_NTZ,
+2026-09-13T11:49:11.0633677Z       PREV_END_DATE TIMESTAMP_NTZ,
+2026-09-13T11:49:11.0633990Z       RUN_WINDOW NUMBER,
+2026-09-13T11:49:11.0634395Z       ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+2026-09-13T11:49:11.0635211Z       ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+2026-09-13T11:49:11.0635638Z       CONSTRAINT PK_CIMART_JOB_CONTROL PRIMARY KEY (JOB_ID)
+2026-09-13T11:49:11.0636101Z     );
+2026-09-13T11:49:11.7124997Z +------------------------------------------------+
+2026-09-13T11:49:11.7125417Z | status                                         |
+2026-09-13T11:49:11.7125749Z |------------------------------------------------|
+2026-09-13T11:49:11.7126101Z | Table CIMART_JOB_CONTROL successfully created. |
+2026-09-13T11:49:11.7126451Z +------------------------------------------------+
+2026-09-13T11:49:11.7132316Z CREATE TABLE IF NOT EXISTS METADATA.CIMART_JOB_EXECUTION (
+2026-09-13T11:49:11.7133005Z       JOB_NAME VARCHAR,
+2026-09-13T11:49:11.7133318Z       AUTOSYS_JOB_NAME VARCHAR,
+2026-09-13T11:49:11.7133626Z       JOB_STATUS VARCHAR,
+2026-09-13T11:49:11.7134000Z       START_TIMESTAMP TIMESTAMP_NTZ,
+2026-09-13T11:49:11.7134336Z       END_TIMESTAMP TIMESTAMP_NTZ,
+2026-09-13T11:49:11.7134669Z       SOURCE_OBJECT VARCHAR,
+2026-09-13T11:49:11.7134960Z       TARGET_OBJECT VARCHAR,
+2026-09-13T11:49:11.7135250Z       RECORDS_PROCESSED NUMBER,
+2026-09-13T11:49:11.7135542Z       ERROR_MESSAGE VARCHAR,
+2026-09-13T11:49:11.7135971Z       ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+2026-09-13T11:49:11.7136428Z       ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+2026-09-13T11:49:11.7136793Z     );
+2026-09-13T11:49:12.3814357Z +--------------------------------------------------+
+2026-09-13T11:49:12.3815217Z | status                                           |
+2026-09-13T11:49:12.3815691Z |--------------------------------------------------|
+2026-09-13T11:49:12.3816095Z | Table CIMART_JOB_EXECUTION successfully created. |
+2026-09-13T11:49:12.3816454Z +--------------------------------------------------+
+2026-09-13T11:49:12.3821316Z CREATE TABLE IF NOT EXISTS METADATA.CIMART_JOB_PARAMETERS (
+2026-09-13T11:49:12.3821754Z       PARAM_ID NUMBER AUTOINCREMENT START 1001 INCREMENT 1,
+2026-09-13T11:49:12.3822159Z       JOB_NAME VARCHAR,
+2026-09-13T11:49:12.3822491Z       AUTOSYS_JOB_NAME VARCHAR,
+2026-09-13T11:49:12.3822786Z       PARAM_NAME VARCHAR,
+2026-09-13T11:49:12.3823082Z       PARAM_VALUE VARCHAR,
+2026-09-13T11:49:12.3823398Z       ACTIVE_IND VARCHAR DEFAULT 'Y',
+2026-09-13T11:49:12.3823781Z       ROW_CREATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+2026-09-13T11:49:12.3824236Z       ROW_UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+2026-09-13T11:49:12.3824633Z     );
+2026-09-13T11:49:12.7785116Z +---------------------------------------------------+
+2026-09-13T11:49:12.7785875Z | status                                            |
+2026-09-13T11:49:12.7786290Z |---------------------------------------------------|
+2026-09-13T11:49:12.7786665Z | Table CIMART_JOB_PARAMETERS successfully created. |
+2026-09-13T11:49:12.7787025Z +---------------------------------------------------+
+2026-09-13T11:49:13.1265969Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:13.1266348Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:13.1266635Z [36;1m[0m
+2026-09-13T11:49:13.1266906Z [36;1msnow sql \[0m
+2026-09-13T11:49:13.1267203Z [36;1m  --connection "$SNOW_CONN" \[0m
+2026-09-13T11:49:13.1267575Z [36;1m  --query "[0m
+2026-09-13T11:49:13.1267851Z [36;1m    SELECT TABLE_NAME[0m
+2026-09-13T11:49:13.1268243Z [36;1m    FROM ${CI_DATABASE}.INFORMATION_SCHEMA.TABLES[0m
+2026-09-13T11:49:13.1268716Z [36;1m    WHERE TABLE_SCHEMA = 'METADATA'[0m
+2026-09-13T11:49:13.1269066Z [36;1m    ORDER BY TABLE_NAME;[0m
+2026-09-13T11:49:13.1269365Z [36;1m  "[0m
+2026-09-13T11:49:13.1281045Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:13.1281398Z env:
+2026-09-13T11:49:13.1281660Z   DBT_TARGET: ci
+2026-09-13T11:49:13.1283181Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:13.1284894Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:13.1285269Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:13.1285637Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:13.1286061Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:13.1286459Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:13.1286829Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:13.1287239Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:13.1287746Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:13.1288197Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:13.1288694Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:13.1289095Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:13.1289423Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:13.1289752Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:13.1290058Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:13.1290392Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:13.1290709Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:13.1290995Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:13.1291275Z   APP_NAME: CIMART
+2026-09-13T11:49:13.1291552Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:13.1291829Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:13.1292101Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:13.1292377Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:13.1292700Z   UV_PYTHON: 3.11
+2026-09-13T11:49:13.1293000Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:13.1293307Z   SNOW_CONN: dev
+2026-09-13T11:49:13.1293576Z ##[endgroup]
+2026-09-13T11:49:15.0753748Z SELECT TABLE_NAME
+2026-09-13T11:49:15.0754358Z     FROM CRPDB01_CI.INFORMATION_SCHEMA.TABLES
+2026-09-13T11:49:15.0755060Z     WHERE TABLE_SCHEMA = 'METADATA'
+2026-09-13T11:49:15.0755688Z     ORDER BY TABLE_NAME;
+2026-09-13T11:49:16.7630781Z +------------------------------+
+2026-09-13T11:49:16.7631471Z | TABLE_NAME                   |
+2026-09-13T11:49:16.7632204Z |------------------------------|
+2026-09-13T11:49:16.7632568Z | BI80_JOB_CONTROL             |
+2026-09-13T11:49:16.7632876Z | BI80_JOB_EXECUTION           |
+2026-09-13T11:49:16.7633176Z | BI80_JOB_PARAMETERS          |
+2026-09-13T11:49:16.7633477Z | CBPADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7633777Z | CBPADM_JOB_EXECUTION         |
+2026-09-13T11:49:16.7634078Z | CBPADM_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7634369Z | CIMART_JOB_CONTROL           |
+2026-09-13T11:49:16.7634670Z | CIMART_JOB_EXECUTION         |
+2026-09-13T11:49:16.7634971Z | CIMART_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7635637Z | DSADM_JOB_CONTROL            |
+2026-09-13T11:49:16.7635971Z | DSADM_JOB_EXECUTION          |
+2026-09-13T11:49:16.7636291Z | DSADM_JOB_PARAMETERS         |
+2026-09-13T11:49:16.7636592Z | EPMADM_CI_JOB_CONTROL        |
+2026-09-13T11:49:16.7636893Z | EPMADM_CI_JOB_EXECUTION      |
+2026-09-13T11:49:16.7637193Z | EPMADM_CI_JOB_PARAMETERS     |
+2026-09-13T11:49:16.7637482Z | EPMADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7637779Z | EPMADM_JOB_EXECUTION         |
+2026-09-13T11:49:16.7638163Z | EPMADM_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7638480Z | HCMADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7638897Z | HCMADM_JOB_EXECUTION         |
+2026-09-13T11:49:16.7639242Z | HCMADM_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7639542Z | LSTADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7639914Z | LSTADM_JOB_EXECUTION         |
+2026-09-13T11:49:16.7640208Z | LSTADM_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7640502Z | MTCADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7640814Z | PSECOGADM_JOB_CONTROL        |
+2026-09-13T11:49:16.7641154Z | PSECOGADM_JOB_EXECUTION      |
+2026-09-13T11:49:16.7641611Z | PSECOGADM_JOB_PARAMETERS     |
+2026-09-13T11:49:16.7641917Z | PSHADM_JOB_CONTROL           |
+2026-09-13T11:49:16.7642215Z | PSHADM_JOB_EXECUTION         |
+2026-09-13T11:49:16.7642548Z | PSHADM_JOB_PARAMETERS        |
+2026-09-13T11:49:16.7642860Z | SHMSADM_JOB_CONTROL          |
+2026-09-13T11:49:16.7643159Z | SHMSADM_JOB_CONTROL_SEEDS    |
+2026-09-13T11:49:16.7643498Z | SHMSADM_JOB_EXECUTION        |
+2026-09-13T11:49:16.7643804Z | SHMSADM_JOB_PARAMETERS       |
+2026-09-13T11:49:16.7644102Z | SHMSADM_JOB_PARAMETERS_SEEDS |
+2026-09-13T11:49:16.7657658Z | TRIRADM_JOB_CONTROL          |
+2026-09-13T11:49:16.7657998Z | TRIRADM_JOB_EXECUTION        |
+2026-09-13T11:49:16.7658326Z | TRIRADM_JOB_PARAMETERS       |
+2026-09-13T11:49:16.7658721Z | UIBUDGETS_MODEL_AUDIT        |
+2026-09-13T11:49:16.7659040Z +------------------------------+
+2026-09-13T11:49:17.0866115Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:17.0866515Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:17.0866825Z [36;1m[0m
+2026-09-13T11:49:17.0867105Z [36;1mrm -rf clean_dbt[0m
+2026-09-13T11:49:17.0867418Z [36;1mmkdir -p clean_dbt[0m
+2026-09-13T11:49:17.0867710Z [36;1m[0m
+2026-09-13T11:49:17.0867967Z [36;1mrsync -av \[0m
+2026-09-13T11:49:17.0868258Z [36;1m  --exclude '.git' \[0m
+2026-09-13T11:49:17.0868655Z [36;1m  --exclude '.github' \[0m
+2026-09-13T11:49:17.0869001Z [36;1m  --exclude '.venv' \[0m
+2026-09-13T11:49:17.0869306Z [36;1m  --exclude 'venv' \[0m
+2026-09-13T11:49:17.0869615Z [36;1m  --exclude 'snowcli_pkg' \[0m
+2026-09-13T11:49:17.0869942Z [36;1m  --exclude 'target' \[0m
+2026-09-13T11:49:17.0870235Z [36;1m  --exclude 'logs' \[0m
+2026-09-13T11:49:17.0870538Z [36;1m  --exclude 'dbt_packages' \[0m
+2026-09-13T11:49:17.0870862Z [36;1m  --exclude '__pycache__' \[0m
+2026-09-13T11:49:17.0871170Z [36;1m  --exclude '*.pyc' \[0m
+2026-09-13T11:49:17.0871510Z [36;1m  ./ clean_dbt/[0m
+2026-09-13T11:49:17.0871888Z [36;1m[0m
+2026-09-13T11:49:17.0872180Z [36;1mtest -f clean_dbt/dbt_project.yml[0m
+2026-09-13T11:49:17.0872539Z [36;1mtest -f clean_dbt/profiles.yml[0m
+2026-09-13T11:49:17.0884314Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:17.0884671Z env:
+2026-09-13T11:49:17.0884937Z   DBT_TARGET: ci
+2026-09-13T11:49:17.0886399Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:17.0887886Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.0888252Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.0888667Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.0889029Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.0889385Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:17.0889741Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:17.0890218Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:17.0890682Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:17.0891126Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:17.0891511Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:17.0891862Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:17.0892186Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:17.0892469Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:17.0892761Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:17.0893097Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.0893421Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:17.0893714Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:17.0894040Z   APP_NAME: CIMART
+2026-09-13T11:49:17.0894650Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:17.0894977Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:17.0895257Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:17.0895534Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:17.0895807Z   UV_PYTHON: 3.11
+2026-09-13T11:49:17.0896082Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:17.0896388Z   SNOW_CONN: dev
+2026-09-13T11:49:17.0896698Z ##[endgroup]
+2026-09-13T11:49:17.1083649Z sending incremental file list
+2026-09-13T11:49:17.1094628Z README.md
+2026-09-13T11:49:17.1095325Z dbt_project.yml
+2026-09-13T11:49:17.1096048Z key.p8
+2026-09-13T11:49:17.1096825Z profiles.yml
+2026-09-13T11:49:17.1097639Z clean_dbt/
+2026-09-13T11:49:17.1098080Z macros/
+2026-09-13T11:49:17.1101976Z macros/generate_schema_name.sql
+2026-09-13T11:49:17.1103176Z macros/log_model_end.sql
+2026-09-13T11:49:17.1104063Z macros/log_model_start.sql
+2026-09-13T11:49:17.1104746Z macros/mark_failed_jobs.sql
+2026-09-13T11:49:17.1105389Z models/
+2026-09-13T11:49:17.1105996Z models/CI_MART_SCHEMA.yml
+2026-09-13T11:49:17.1106753Z models/EPMADM/
+2026-09-13T11:49:17.1107400Z models/EPMADM/DIM/
+2026-09-13T11:49:17.1108165Z models/EPMADM/DIM/PS_Z_CI_BALANCES.sql
+2026-09-13T11:49:17.1109282Z models/EPMADM/DIM/PS_Z_CI_BAL_BUD_DELTA.sql
+2026-09-13T11:49:17.1109657Z models/EPMADM/DIM/PS_Z_CI_BAL_DELTA.sql
+2026-09-13T11:49:17.1109996Z models/EPMADM/DIM/PS_Z_CI_COST_CATG_DIM.sql
+2026-09-13T11:49:17.1110342Z models/EPMADM/DIM/PS_Z_CI_COST_TYPE_DIM.sql
+2026-09-13T11:49:17.1110685Z models/EPMADM/DIM/PS_Z_CI_DIM.sql
+2026-09-13T11:49:17.1111025Z models/EPMADM/DIM/PS_Z_CI_HIST_PROJ_ACT_DIM.sql
+2026-09-13T11:49:17.1111387Z models/EPMADM/DIM/PS_Z_CI_SUM_DTL_PRJ.sql
+2026-09-13T11:49:17.1111722Z models/EPMADM/DIM/PS_Z_CPP_DIM.sql
+2026-09-13T11:49:17.1112046Z models/EPMADM/DIM/PS_Z_SEC_CI_PROJ.sql
+2026-09-13T11:49:17.1112771Z models/EPMADM/DIM/PS_Z_TD_ASSET_DIM.sql
+2026-09-13T11:49:17.1113490Z models/EPMADM/DIM/PS_Z_TD_MTRG_DIM.sql
+2026-09-13T11:49:17.1114117Z models/EPMADM/DIM/PS_Z_TD_OEC_PRJ_DIM.sql
+2026-09-13T11:49:17.1114925Z models/EPMADM/DIM/PS_Z_TD_PROJ_DRVR_DIM.sql
+2026-09-13T11:49:17.1115710Z models/EPMADM/DIM/PS_Z_TD_TLCMN_DIM.sql
+2026-09-13T11:49:17.1116541Z models/EPMADM/DIM/XLATTABLE.sql
+2026-09-13T11:49:17.1117327Z models/EPMADM/FACT/
+2026-09-13T11:49:17.1118053Z models/EPMADM/FACT/PS_Z_CI_EST_FACT.sql
+2026-09-13T11:49:17.1139670Z models/EPMADM/FACT/PS_Z_EPM_AUDIT.sql
+2026-09-13T11:49:17.1792572Z 
+2026-09-13T11:49:17.1793009Z sent 104,246 bytes  received 565 bytes  209,622.00 bytes/sec
+2026-09-13T11:49:17.1793792Z total size is 102,065  speedup is 0.97
+2026-09-13T11:49:17.1847826Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:17.1848250Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:17.1848636Z [36;1m[0m
+2026-09-13T11:49:17.1848907Z [36;1mpython3 <<'PY'[0m
+2026-09-13T11:49:17.1849222Z [36;1mimport os[0m
+2026-09-13T11:49:17.1849494Z [36;1mimport re[0m
+2026-09-13T11:49:17.1849776Z [36;1mfrom pathlib import Path[0m
+2026-09-13T11:49:17.1850085Z [36;1m[0m
+2026-09-13T11:49:17.1850375Z [36;1mdatabase = os.environ["CI_DATABASE"][0m
+2026-09-13T11:49:17.1850739Z [36;1mschema = os.environ["CI_SCHEMA"][0m
+2026-09-13T11:49:17.1851087Z [36;1msource_schema = os.environ["SOURCE_SCHEMA"][0m
+2026-09-13T11:49:17.1851450Z [36;1mapp_name = os.environ["APP_NAME"][0m
+2026-09-13T11:49:17.1851767Z [36;1m[0m
+2026-09-13T11:49:17.1852075Z [36;1m# --- profiles.yml: point ci target at PR schema ---[0m
+2026-09-13T11:49:17.1852473Z [36;1mpath = Path("clean_dbt/profiles.yml")[0m
+2026-09-13T11:49:17.1852975Z [36;1mlines = path.read_text(encoding="utf-8").splitlines()[0m
+2026-09-13T11:49:17.1853334Z [36;1m[0m
+2026-09-13T11:49:17.1853597Z [36;1minside_ci = False[0m
+2026-09-13T11:49:17.1853888Z [36;1mci_indent = None[0m
+2026-09-13T11:49:17.1854201Z [36;1mfound_ci = False[0m
+2026-09-13T11:49:17.1854502Z [36;1mfound_database = False[0m
+2026-09-13T11:49:17.1854810Z [36;1mfound_schema = False[0m
+2026-09-13T11:49:17.1855083Z [36;1m[0m
+2026-09-13T11:49:17.1855336Z [36;1moutput = [][0m
+2026-09-13T11:49:17.1855768Z [36;1m[0m
+2026-09-13T11:49:17.1856062Z [36;1mfor line in lines:[0m
+2026-09-13T11:49:17.1856409Z [36;1m    stripped = line.strip()[0m
+2026-09-13T11:49:17.1856769Z [36;1m    indent = len(line) - len(line.lstrip())[0m
+2026-09-13T11:49:17.1857085Z [36;1m[0m
+2026-09-13T11:49:17.1857347Z [36;1m    if stripped == "ci:":[0m
+2026-09-13T11:49:17.1857665Z [36;1m        inside_ci = True[0m
+2026-09-13T11:49:17.1857978Z [36;1m        ci_indent = indent[0m
+2026-09-13T11:49:17.1858286Z [36;1m        found_ci = True[0m
+2026-09-13T11:49:17.1858944Z [36;1m        output.append(line)[0m
+2026-09-13T11:49:17.1859273Z [36;1m        continue[0m
+2026-09-13T11:49:17.1859545Z [36;1m[0m
+2026-09-13T11:49:17.1859803Z [36;1m    if ([0m
+2026-09-13T11:49:17.1860117Z [36;1m        inside_ci[0m
+2026-09-13T11:49:17.1860405Z [36;1m        and stripped[0m
+2026-09-13T11:49:17.1860723Z [36;1m        and not stripped.startswith("#")[0m
+2026-09-13T11:49:17.1861060Z [36;1m        and ":" in stripped[0m
+2026-09-13T11:49:17.1861382Z [36;1m        and indent <= ci_indent[0m
+2026-09-13T11:49:17.1861688Z [36;1m    ):[0m
+2026-09-13T11:49:17.1861955Z [36;1m        inside_ci = False[0m
+2026-09-13T11:49:17.1862251Z [36;1m[0m
+2026-09-13T11:49:17.1862558Z [36;1m    if inside_ci and stripped.startswith("database:"):[0m
+2026-09-13T11:49:17.1862925Z [36;1m        output.append([0m
+2026-09-13T11:49:17.1863254Z [36;1m            f"{' ' * indent}database: {database}"[0m
+2026-09-13T11:49:17.1863620Z [36;1m        )[0m
+2026-09-13T11:49:17.1863909Z [36;1m        found_database = True[0m
+2026-09-13T11:49:17.1864225Z [36;1m        continue[0m
+2026-09-13T11:49:17.1864487Z [36;1m[0m
+2026-09-13T11:49:17.1864789Z [36;1m    if inside_ci and stripped.startswith("schema:"):[0m
+2026-09-13T11:49:17.1865183Z [36;1m        output.append([0m
+2026-09-13T11:49:17.1865515Z [36;1m            f"{' ' * indent}schema: {schema}"[0m
+2026-09-13T11:49:17.1865832Z [36;1m        )[0m
+2026-09-13T11:49:17.1866108Z [36;1m        found_schema = True[0m
+2026-09-13T11:49:17.1866417Z [36;1m        continue[0m
+2026-09-13T11:49:17.1866680Z [36;1m[0m
+2026-09-13T11:49:17.1866941Z [36;1m    output.append(line)[0m
+2026-09-13T11:49:17.1867235Z [36;1m[0m
+2026-09-13T11:49:17.1867479Z [36;1mif not found_ci:[0m
+2026-09-13T11:49:17.1867767Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:17.1868109Z [36;1m        "The ci target was not found in profiles.yml"[0m
+2026-09-13T11:49:17.1868436Z [36;1m    )[0m
+2026-09-13T11:49:17.1868789Z [36;1m[0m
+2026-09-13T11:49:17.1869218Z [36;1mif not found_database:[0m
+2026-09-13T11:49:17.1869536Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:17.1869881Z [36;1m        "database was not found under the ci target"[0m
+2026-09-13T11:49:17.1870252Z [36;1m    )[0m
+2026-09-13T11:49:17.1870520Z [36;1m[0m
+2026-09-13T11:49:17.1870821Z [36;1mif not found_schema:[0m
+2026-09-13T11:49:17.1871162Z [36;1m    raise RuntimeError([0m
+2026-09-13T11:49:17.1871538Z [36;1m        "schema was not found under the ci target"[0m
+2026-09-13T11:49:17.1871873Z [36;1m    )[0m
+2026-09-13T11:49:17.1872124Z [36;1m[0m
+2026-09-13T11:49:17.1872395Z [36;1mpath.write_text([0m
+2026-09-13T11:49:17.1872687Z [36;1m    "\n".join(output) + "\n",[0m
+2026-09-13T11:49:17.1873004Z [36;1m    encoding="utf-8"[0m
+2026-09-13T11:49:17.1873288Z [36;1m)[0m
+2026-09-13T11:49:17.1873530Z [36;1m[0m
+2026-09-13T11:49:17.1873873Z [36;1m# --- dbt_project.yml: app_name_by_schema[CI_SCHEMA]=SOURCE_SCHEMA ---[0m
+2026-09-13T11:49:17.1874307Z [36;1mproject_path = Path("clean_dbt/dbt_project.yml")[0m
+2026-09-13T11:49:17.1874725Z [36;1mproject_text = project_path.read_text(encoding="utf-8")[0m
+2026-09-13T11:49:17.1875075Z [36;1m[0m
+2026-09-13T11:49:17.1875373Z [36;1m# Already present (e.g. re-run) — nothing to do[0m
+2026-09-13T11:49:17.1875749Z [36;1mmapping_line = f"    {schema}: {app_name}"[0m
+2026-09-13T11:49:17.1876080Z [36;1mif re.search([0m
+2026-09-13T11:49:17.1876380Z [36;1m    r"^\s*" + re.escape(schema) + r"\s*:",[0m
+2026-09-13T11:49:17.1876852Z [36;1m    project_text,[0m
+2026-09-13T11:49:17.1877132Z [36;1m    re.M,[0m
+2026-09-13T11:49:17.1877401Z [36;1m):[0m
+2026-09-13T11:49:17.1877663Z [36;1m    print([0m
+2026-09-13T11:49:17.1877976Z [36;1m        f"app_name_by_schema already has {schema}"[0m
+2026-09-13T11:49:17.1878310Z [36;1m    )[0m
+2026-09-13T11:49:17.1878640Z [36;1melse:[0m
+2026-09-13T11:49:17.1893640Z [36;1m    match = re.search([0m
+2026-09-13T11:49:17.1893981Z [36;1m        r"^vars:\s*\n"[0m
+2026-09-13T11:49:17.1894297Z [36;1m        r"(?:[ \t]+.*\n)*?"[0m
+2026-09-13T11:49:17.1894654Z [36;1m        r"([ \t]+)app_name_by_schema:\s*\n"[0m
+2026-09-13T11:49:17.1895025Z [36;1m        r"((?:[ \t]+[A-Za-z0-9_]+\s*:[ \t]*.*\n)*)",[0m
+2026-09-13T11:49:17.1895371Z [36;1m        project_text,[0m
+2026-09-13T11:49:17.1895664Z [36;1m        re.M,[0m
+2026-09-13T11:49:17.1895936Z [36;1m    )[0m
+2026-09-13T11:49:17.1896204Z [36;1m    if not match:[0m
+2026-09-13T11:49:17.1896492Z [36;1m        raise RuntimeError([0m
+2026-09-13T11:49:17.1896870Z [36;1m            "app_name_by_schema not found in dbt_project.yml"[0m
+2026-09-13T11:49:17.1897221Z [36;1m        )[0m
+2026-09-13T11:49:17.1897477Z [36;1m[0m
+2026-09-13T11:49:17.1897759Z [36;1m    entry_indent = match.group(1) + "  "[0m
+2026-09-13T11:49:17.1898101Z [36;1m    insert_at = match.end()[0m
+2026-09-13T11:49:17.1898417Z [36;1m    project_text = ([0m
+2026-09-13T11:49:17.1898801Z [36;1m        project_text[:insert_at][0m
+2026-09-13T11:49:17.1899178Z [36;1m        + f"{entry_indent}{schema}: {app_name}\n"[0m
+2026-09-13T11:49:17.1899556Z [36;1m        + project_text[insert_at:][0m
+2026-09-13T11:49:17.1899875Z [36;1m    )[0m
+2026-09-13T11:49:17.1900229Z [36;1m    project_path.write_text(project_text, encoding="utf-8")[0m
+2026-09-13T11:49:17.1900609Z [36;1m    print([0m
+2026-09-13T11:49:17.1900940Z [36;1m        f"Mapped app_name_by_schema[{schema}] = {app_name}"[0m
+2026-09-13T11:49:17.1901291Z [36;1m    )[0m
+2026-09-13T11:49:17.1901566Z [36;1mPY[0m
+2026-09-13T11:49:17.1913135Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:17.1913519Z env:
+2026-09-13T11:49:17.1913784Z   DBT_TARGET: ci
+2026-09-13T11:49:17.1915402Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:17.1916911Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.1917281Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.1917645Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.1918004Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.1918367Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:17.1918818Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:17.1919228Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:17.1919691Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:17.1920136Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:17.1920520Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:17.1920874Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:17.1921207Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:17.1921490Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:17.1921820Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:17.1922151Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.1922465Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:17.1922757Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:17.1923033Z   APP_NAME: CIMART
+2026-09-13T11:49:17.1923303Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:17.1923711Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:17.1923995Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:17.1924280Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:17.1924560Z   UV_PYTHON: 3.11
+2026-09-13T11:49:17.1924840Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:17.1925139Z   SNOW_CONN: dev
+2026-09-13T11:49:17.1925396Z ##[endgroup]
+2026-09-13T11:49:17.3039488Z app_name_by_schema already has EPMADM
+2026-09-13T11:49:17.3120966Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:17.3121403Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:17.3121692Z [36;1m[0m
+2026-09-13T11:49:17.3121986Z [36;1mecho "Expected database: ${CI_DATABASE}"[0m
+2026-09-13T11:49:17.3122358Z [36;1mecho "Expected schema:   ${CI_SCHEMA}"[0m
+2026-09-13T11:49:17.3122712Z [36;1mecho "Source schema:     ${SOURCE_SCHEMA}"[0m
+2026-09-13T11:49:17.3123070Z [36;1mecho "APP_NAME:          ${APP_NAME}"[0m
+2026-09-13T11:49:17.3123381Z [36;1m[0m
+2026-09-13T11:49:17.3123636Z [36;1mecho ""[0m
+2026-09-13T11:49:17.3123945Z [36;1mecho "Deployed profiles.yml:"[0m
+2026-09-13T11:49:17.3124279Z [36;1mcat clean_dbt/profiles.yml[0m
+2026-09-13T11:49:17.3124587Z [36;1m[0m
+2026-09-13T11:49:17.3124836Z [36;1mecho ""[0m
+2026-09-13T11:49:17.3125117Z [36;1mecho "Deployed app_name_by_schema:"[0m
+2026-09-13T11:49:17.3125522Z [36;1mgrep -A20 "app_name_by_schema:" clean_dbt/dbt_project.yml || true[0m
+2026-09-13T11:49:17.3125898Z [36;1m[0m
+2026-09-13T11:49:17.3126187Z [36;1mecho ""[0m
+2026-09-13T11:49:17.3126476Z [36;1mecho "Deployed generate-name macros:"[0m
+2026-09-13T11:49:17.3126794Z [36;1mgrep -Rni \[0m
+2026-09-13T11:49:17.3127146Z [36;1m  -E "generate_database_name|generate_schema_name|ci_schema" \[0m
+2026-09-13T11:49:17.3127540Z [36;1m  clean_dbt/macros || true[0m
+2026-09-13T11:49:17.3127834Z [36;1m[0m
+2026-09-13T11:49:17.3128114Z [36;1mgrep -q "database: ${CI_DATABASE}" \[0m
+2026-09-13T11:49:17.3128454Z [36;1m  clean_dbt/profiles.yml[0m
+2026-09-13T11:49:17.3128828Z [36;1m[0m
+2026-09-13T11:49:17.3129107Z [36;1mgrep -q "schema: ${CI_SCHEMA}" \[0m
+2026-09-13T11:49:17.3129432Z [36;1m  clean_dbt/profiles.yml[0m
+2026-09-13T11:49:17.3129728Z [36;1m[0m
+2026-09-13T11:49:17.3129993Z [36;1mgrep -q "${CI_SCHEMA}: ${APP_NAME}" \[0m
+2026-09-13T11:49:17.3130327Z [36;1mclean_dbt/dbt_project.yml[0m
+2026-09-13T11:49:17.3130630Z [36;1m[0m
+2026-09-13T11:49:17.3130886Z [36;1mgrep -Rqs "var('ci_schema'" \[0m
+2026-09-13T11:49:17.3131207Z [36;1m  clean_dbt/macros[0m
+2026-09-13T11:49:17.3142632Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:17.3142987Z env:
+2026-09-13T11:49:17.3143258Z   DBT_TARGET: ci
+2026-09-13T11:49:17.3144722Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:17.3146166Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3146532Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3146971Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3147344Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3147711Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:17.3148075Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:17.3148490Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:17.3149167Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:17.3149621Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:17.3150001Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:17.3150361Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:17.3150847Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:17.3151135Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:17.3151438Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:17.3151772Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3152084Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:17.3152372Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:17.3152661Z   APP_NAME: CIMART
+2026-09-13T11:49:17.3153048Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:17.3153347Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:17.3153630Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:17.3153915Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:17.3154190Z   UV_PYTHON: 3.11
+2026-09-13T11:49:17.3154476Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:17.3154779Z   SNOW_CONN: dev
+2026-09-13T11:49:17.3155042Z ##[endgroup]
+2026-09-13T11:49:17.3301554Z Expected database: CRPDB01_CI
+2026-09-13T11:49:17.3301911Z Expected schema:   EPMADM
+2026-09-13T11:49:17.3302210Z Source schema:     EPMADM
+2026-09-13T11:49:17.3302494Z APP_NAME:          CIMART
+2026-09-13T11:49:17.3302672Z 
+2026-09-13T11:49:17.3302804Z Deployed profiles.yml:
+2026-09-13T11:49:17.3319956Z DBT_CORP_CI_MART:
+2026-09-13T11:49:17.3320244Z   target: dev
+2026-09-13T11:49:17.3320509Z   outputs:
+2026-09-13T11:49:17.3320757Z     dev:
+2026-09-13T11:49:17.3321022Z       type: snowflake
+2026-09-13T11:49:17.3321387Z       role: ***
+2026-09-13T11:49:17.3321665Z       warehouse: TRANSFORMER_WH
+2026-09-13T11:49:17.3321988Z       database: CRPDB01
+2026-09-13T11:49:17.3322271Z       schema: EPMADM
+2026-09-13T11:49:17.3322536Z       threads: 16
+2026-09-13T11:49:17.3322694Z 
+2026-09-13T11:49:17.3322811Z     qa:
+2026-09-13T11:49:17.3323069Z       type: snowflake
+2026-09-13T11:49:17.3323362Z       role: ***
+2026-09-13T11:49:17.3323623Z       user: DBT_SVC_QA
+2026-09-13T11:49:17.3323904Z       warehouse: TRANSFORMER_WH
+2026-09-13T11:49:17.3324201Z       database: CRPDB01
+2026-09-13T11:49:17.3324468Z       schema: EPMADM
+2026-09-13T11:49:17.3324740Z       threads: 8  
+2026-09-13T11:49:17.3324892Z 
+2026-09-13T11:49:17.3325012Z     uat:
+2026-09-13T11:49:17.3325262Z       type: snowflake
+2026-09-13T11:49:17.3325549Z       role: ***
+2026-09-13T11:49:17.3325811Z       user: DBT_SVC_UAT
+2026-09-13T11:49:17.3326091Z       warehouse: TRANSFORMER_WH
+2026-09-13T11:49:17.3326377Z       database: CRPDB01
+2026-09-13T11:49:17.3326646Z       schema: EPMADM
+2026-09-13T11:49:17.3326910Z       threads: 8  
+2026-09-13T11:49:17.3327051Z 
+2026-09-13T11:49:17.3327172Z     prod:
+2026-09-13T11:49:17.3327426Z       type: snowflake
+2026-09-13T11:49:17.3327707Z       role: ***
+2026-09-13T11:49:17.3327968Z       user: DBT_SVC_PROD
+2026-09-13T11:49:17.3328258Z       warehouse: TRANSFORMER_WH
+2026-09-13T11:49:17.3328547Z       database: CRPDB01
+2026-09-13T11:49:17.3328897Z       schema: EPMADM
+2026-09-13T11:49:17.3329167Z       threads: 8    
+2026-09-13T11:49:17.3329319Z 
+2026-09-13T11:49:17.3329436Z     ci:
+2026-09-13T11:49:17.3329701Z       type: snowflake
+2026-09-13T11:49:17.3329974Z       role: ***
+2026-09-13T11:49:17.3330230Z       user: DBT_SVC
+2026-09-13T11:49:17.3330509Z       warehouse: TRANSFORMER_WH
+2026-09-13T11:49:17.3330796Z       database: CRPDB01_CI
+2026-09-13T11:49:17.3331079Z       schema: EPMADM
+2026-09-13T11:49:17.3331343Z       threads: 8
+2026-09-13T11:49:17.3331491Z 
+2026-09-13T11:49:17.3331621Z Deployed app_name_by_schema:
+2026-09-13T11:49:17.3355886Z   app_name_by_schema:
+2026-09-13T11:49:17.3357325Z     EPMADM: CIMART
+2026-09-13T11:49:17.3357627Z     METADATA: CIMART
+2026-09-13T11:49:17.3357905Z     CRPDB01_CI: CIMART
+2026-09-13T11:49:17.3358172Z seeds:
+2026-09-13T11:49:17.3358426Z   DBT_CORP_CRMCDM:
+2026-09-13T11:49:17.3358827Z     +database: "{{ target.database }}"
+2026-09-13T11:49:17.3359168Z     +schema: METADATA
+2026-09-13T11:49:17.3359440Z     
+2026-09-13T11:49:17.3359692Z on-run-end:
+2026-09-13T11:49:17.3359974Z   - "{{ mark_failed_jobs(results) }}"
+2026-09-13T11:49:17.3360591Z 
+2026-09-13T11:49:17.3363815Z Deployed generate-name macros:
+2026-09-13T11:49:17.3588519Z clean_dbt/macros/generate_schema_name.sql:1:{% macro generate_database_name(custom_database_name, node) %}
+2026-09-13T11:49:17.3589772Z clean_dbt/macros/generate_schema_name.sql:9:{% macro generate_schema_name(custom_schema_name, node) %}
+2026-09-13T11:49:17.3590652Z clean_dbt/macros/generate_schema_name.sql:11:        {{ var('ci_schema') }}
+2026-09-13T11:49:17.3755841Z ##[group]Run set -euo pipefail
+2026-09-13T11:49:17.3756225Z [36;1mset -euo pipefail[0m
+2026-09-13T11:49:17.3756514Z [36;1m[0m
+2026-09-13T11:49:17.3756772Z [36;1msnow dbt deploy \[0m
+2026-09-13T11:49:17.3757092Z [36;1m  "${CI_DATABASE}.${CI_SCHEMA}.${CI_PROJECT}" \[0m
+2026-09-13T11:49:17.3757457Z [36;1m  --source ./clean_dbt \[0m
+2026-09-13T11:49:17.3757779Z [36;1m  --dbt-version 1.10.15 \[0m
+2026-09-13T11:49:17.3758098Z [36;1m  --connection "$SNOW_CONN" \[0m
+2026-09-13T11:49:17.3758409Z [36;1m  --force[0m
+2026-09-13T11:49:17.3769190Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:17.3769540Z env:
+2026-09-13T11:49:17.3769803Z   DBT_TARGET: ci
+2026-09-13T11:49:17.3771342Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:17.3772826Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3773183Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3773551Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3773907Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3774249Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:17.3774612Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:17.3775010Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:17.3775458Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:17.3775901Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:17.3776282Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:17.3776640Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:17.3777021Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:17.3777312Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:17.3777606Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:17.3777937Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:17.3778267Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:17.3778553Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:17.3778943Z   APP_NAME: CIMART
+2026-09-13T11:49:17.3779224Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:17.3779539Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:17.3779818Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:17.3780108Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:17.3780384Z   UV_PYTHON: 3.11
+2026-09-13T11:49:17.3780673Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:17.3780986Z   SNOW_CONN: dev
+2026-09-13T11:49:17.3781248Z ##[endgroup]
+2026-09-13T11:49:19.4839866Z Creating temporary stage
+2026-09-13T11:49:19.6282058Z Copying project files to stage
+2026-09-13T11:49:21.7805275Z   Copied 27 files
+2026-09-13T11:49:21.7830127Z Creating DBT project
+2026-09-13T11:49:32.1911870Z [31m╭─[0m[31m Error [0m[31m─────────────────────────────────────────────────────────────────────[0m[31m─╮[0m
+2026-09-13T11:49:32.1912584Z [31m│[0m 001003 (42000): 01c70ae5-0103-1a6a-0017-f06308d7d3ba: SQL compilation error: [31m│[0m
+2026-09-13T11:49:32.1913215Z [31m│[0m DBT job failed with exception: the JSON object must be str, bytes or         [31m│[0m
+2026-09-13T11:49:32.1913793Z [31m│[0m bytearray, not Undefined                                                     [31m│[0m
+2026-09-13T11:49:32.1914368Z [31m│[0m  See the query's error message for details.                                  [31m│[0m
+2026-09-13T11:49:32.1915262Z [31m╰──────────────────────────────────────────────────────────────────────────────╯[0m
+2026-09-13T11:49:32.4864209Z ##[error]Process completed with exit code 1.
+2026-09-13T11:49:32.4913656Z ##[group]Run snow sql \
+2026-09-13T11:49:32.4914001Z [36;1msnow sql \[0m
+2026-09-13T11:49:32.4914303Z [36;1m  --connection "$SNOW_CONN" \[0m
+2026-09-13T11:49:32.4914615Z [36;1m  --query "[0m
+2026-09-13T11:49:32.4914883Z [36;1m    SELECT[0m
+2026-09-13T11:49:32.4915155Z [36;1m      TABLE_TYPE,[0m
+2026-09-13T11:49:32.4915448Z [36;1m      COUNT(*) AS OBJECT_COUNT[0m
+2026-09-13T11:49:32.4915804Z [36;1m    FROM ${CI_DATABASE}.INFORMATION_SCHEMA.TABLES[0m
+2026-09-13T11:49:32.4916171Z [36;1m    WHERE TABLE_SCHEMA = '${CI_SCHEMA}'[0m
+2026-09-13T11:49:32.4916505Z [36;1m    GROUP BY TABLE_TYPE[0m
+2026-09-13T11:49:32.4916819Z [36;1m    ORDER BY TABLE_TYPE;[0m
+2026-09-13T11:49:32.4917122Z [36;1m  " || true[0m
+2026-09-13T11:49:32.4928710Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:32.4929089Z env:
+2026-09-13T11:49:32.4929356Z   DBT_TARGET: ci
+2026-09-13T11:49:32.4930881Z   PATH: /appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/python/Python-3.11.1:/appl/ghrunner/Coverity/bin:/appl/ghrunner/java11/openlogic-openjdk-11.0.19+7-linux-x64/bin:/appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64/bin:/appl/ghrunner/oracle/instantclient_21_4:/appl/ghrunner/git/bin:/appl/ghrunner/bin:/appl/ghrunner/.local/bin:/appl/ghrunner/bin:/sbin:/bin:/usr/sbin:/usr/bin:/appl/actions-runner/externals/node20/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+2026-09-13T11:49:32.4932331Z   CURL_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:32.4932693Z   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:32.4933059Z   SSL_CERT_FILE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:32.4933418Z   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:32.4933768Z   DOTNET_INSTALL_DIR: /appl/ghrunner
+2026-09-13T11:49:32.4934125Z   DOCKER_HOST: unix:///appl/ghrunner/xdgdir/docker.sock
+2026-09-13T11:49:32.4934533Z   LD_LIBRARY_PATH: /appl/ghrunner/oracle/instantclient_21_4
+2026-09-13T11:49:32.4934990Z   JAVA_HOME: /appl/ghrunner/java/openlogic-openjdk-8u282-b08-linux-x64
+2026-09-13T11:49:32.4935436Z   ARTIFACTORY_URL: https://rtfx.aepsc.com/artifactory
+2026-09-13T11:49:32.4935823Z   DOCKER_ARTIFACTORY_LOC: docker.rtfx.aepsc.com
+2026-09-13T11:49:32.4936176Z   ARTIFACTORY_DOCKER_REPO: docker-local
+2026-09-13T11:49:32.4936500Z   CURRENT_DATE: 2026-09-13
+2026-09-13T11:49:32.4936785Z   CURRENT_TIME: 07:48:58
+2026-09-13T11:49:32.4937076Z   CURRENT_DATE_TIME: 2026-09-13T07:48:58
+2026-09-13T11:49:32.4937402Z   AEP_CERT: /etc/ssl/certs/ca-bundle.crt
+2026-09-13T11:49:32.4937742Z   SOURCE_DATABASE: CRPDB01
+2026-09-13T11:49:32.4938031Z   SOURCE_SCHEMA: EPMADM
+2026-09-13T11:49:32.4938311Z   APP_NAME: CIMART
+2026-09-13T11:49:32.4938679Z   CI_DATABASE: CRPDB01_CI
+2026-09-13T11:49:32.4938972Z   CI_SCHEMA: EPMADM
+2026-09-13T11:49:32.4939252Z   CI_PROJECT: DBT_CI_CIMART
+2026-09-13T11:49:32.4939549Z   SF_GITHUB_ACTION: true
+2026-09-13T11:49:32.4939834Z   UV_PYTHON: 3.11
+2026-09-13T11:49:32.4940126Z   UV_CACHE_DIR: /appl/ghrunner/.cache/uv
+2026-09-13T11:49:32.4940437Z   SNOW_CONN: dev
+2026-09-13T11:49:32.4940701Z ##[endgroup]
+2026-09-13T11:49:34.5258236Z SELECT
+2026-09-13T11:49:34.5259164Z       TABLE_TYPE,
+2026-09-13T11:49:34.5259514Z       COUNT(*) AS OBJECT_COUNT
+2026-09-13T11:49:34.5259854Z     FROM CRPDB01_CI.INFORMATION_SCHEMA.TABLES
+2026-09-13T11:49:34.5260214Z     WHERE TABLE_SCHEMA = 'EPMADM'
+2026-09-13T11:49:34.5260526Z     GROUP BY TABLE_TYPE
+2026-09-13T11:49:34.5260817Z     ORDER BY TABLE_TYPE;
+2026-09-13T11:49:35.8852249Z +---------------------------+
+2026-09-13T11:49:35.8852912Z | TABLE_TYPE | OBJECT_COUNT |
+2026-09-13T11:49:35.8853616Z |------------+--------------|
+2026-09-13T11:49:35.8853967Z | BASE TABLE | 628          |
+2026-09-13T11:49:35.8854316Z | VIEW       | 486          |
+2026-09-13T11:49:35.8854608Z +---------------------------+
+2026-09-13T11:49:36.2207484Z Post job cleanup.
+2026-09-13T11:49:36.2409875Z Post job cleanup.
+2026-09-13T11:49:37.6905180Z [command]/appl/ghrunner/git/bin/git version
+2026-09-13T11:49:37.6961350Z git version 2.42.1
+2026-09-13T11:49:37.6987005Z Copying '/appl/ghrunner/.gitconfig' to '/appl/actions-runner/_work/_temp/54afc9d4-0f60-4423-a7f8-ee77487284f8/.gitconfig'
+2026-09-13T11:49:37.7004476Z Temporarily overriding HOME='/appl/actions-runner/_work/_temp/54afc9d4-0f60-4423-a7f8-ee77487284f8' before making global git config changes
+2026-09-13T11:49:37.7005501Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-13T11:49:37.7008244Z [command]/appl/ghrunner/git/bin/git config --global --add safe.directory /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:49:37.7162325Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-13T11:49:37.7296594Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-13T11:49:37.7788782Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.aepsc\.com\/\.extraheader
+2026-09-13T11:49:37.7833757Z http.https://github.aepsc.com/.extraheader
+2026-09-13T11:49:37.7849203Z [command]/appl/ghrunner/git/bin/git config --local --unset-all http.https://github.aepsc.com/.extraheader
+2026-09-13T11:49:37.7898222Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.aepsc\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.aepsc.com/.extraheader' || :"
+2026-09-13T11:49:37.8482385Z [command]/appl/ghrunner/git/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-13T11:49:37.8531851Z [command]/appl/ghrunner/git/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-13T11:49:38.7942746Z A job completed hook has been configured by the self-hosted runner administrator
+2026-09-13T11:49:38.7980508Z ##[group]Run '/appl/ghrunner/actions-runner-scripts/ghe-runner-post-workflow-script.sh'
+2026-09-13T11:49:38.7990842Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-13T11:49:38.7991208Z ##[endgroup]
+2026-09-13T11:49:38.8125876Z repo=AEP/dp-corp-ci-mart
+2026-09-13T11:49:38.8126493Z rm -rf /appl/actions-runner/_work/dp-corp-ci-mart/dp-corp-ci-mart
+2026-09-13T11:49:38.8170514Z Cleaning up orphan processes
